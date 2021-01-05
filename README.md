@@ -9,7 +9,7 @@
 | rust-std | CVE-2019-12083 | issues/60784 | API:TRAIT | OOR | soundness hole when impl Error::type_id() | seanmonstar-deps | No | 
 | rust-std | Advisory-DB | issues/79808 | IMP:LOE | UAF | logical error (VecDeque) | ayourtch | No | 
 | rust-std | GitHub | issues/17207 | IMP:FFI | UB | jemalloc: unchecked argument | gmorenz | No | 
-| rust-std | GitHub | issues/25841 | IMP:ARO | UB![\to]DP | arithmatic overflow$\to$shared mut aliases (RefCell) | Veedrac | No | 
+| rust-std | GitHub | issues/25841 | IMP:ARO | UB \to DP | arithmatic overflow$\to$shared mut aliases (RefCell) | Veedrac | No | 
 | rust-std | GitHub | issues/27970 | IMP:FFI+CC+SYS | CC$\to$UAF | setenv is unsafe | bluss-Rust | No | 
 | rust-std | GitHub | issues/33770 | IMP:FFI+CC | UB | glibc recursive lock$\to$shared mut aliases | Amanieu | No | 
 | rust-std | GitHub | issues/35836 | IMP:FFI+CC | UB | recursive RWlock on Windows is UB | retep998-Rust | No | 
