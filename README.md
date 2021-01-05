@@ -46,17 +46,17 @@
 | ozone | Advisory-DB | RUSTSEC-2020-0022:2 | IMP:RAII | DP:DUN | implement drop with uninit mem | No (n.a.)| No | 
 | prost | Advisory/Trophy | issues/267 | IMP:LOE | OOR:BO | logical error in recursion + unsafe write | No (dbrgn-sec) | No | 
 | safe-transmute | CVE-2018-21000 | pull/36 | IMP:LOE | OOR:BO | logical error + unsafe write | No (Enet4-deps)| No | 
-| slice-deque | CVE-2018-20995 | pull/58 | IMP:LOE | OOR:BO | error in boundary check + unsafe write | No (aldanor-deps) | No | 
-| slice-deque | CVE-2019-15543 | pull/66 | IMP:LOE | OOR:BO | logical error$\to$memory misalignment | No (zimond) | No | 
-| rust-smallvec | CVE-2019-15554 | issues/149 | IMP:LOE | OOR:BO | logical error + unsafe write | No (ehuss) | No | 
-| rust-smallvec | Advisory-DB | issues/126 | IMP:RAII+UNWIND | DP:DUN | init vector with mem:uninitialized() | No (mbrubeck) | No | 
+| slice-deque | CVE-2018-20995 | pull/58 | IMP:LOE | OOR | error in boundary check + unsafe write | No (aldanor-deps) | No | 
+| slice-deque | CVE-2019-15543 | pull/66 | IMP:LOE | OOR | logical error->memory misalignment | No (zimond) | No | 
+| rust-smallvec | CVE-2019-15554 | issues/149 | IMP:LOE | OOR | logical error + unsafe write | No (ehuss) | No | 
+| rust-smallvec | Advisory-DB | issues/126 | IMP:RAII+UNWIND | UNINIT | init vector with mem:uninitialized() | No (mbrubeck) | No | 
 | rust-smallvec | CVE-2019-15551 | issues/148 | IMP:LOE | DP:UAF | logical error + unsafe deallocation | No (ehuss) | No | 
 | rust-smallvec | CVE-2018-20991 | issues/96 | IMP:RAII+UNWIND | DF | buffer shrinking too late | No (Vurich) | No | 
-| simd-json | CVE-2019-15550 | pull/27 | IMP:LOE | OOR | logical error$\to$mem misalign/get_unchecked() | No (Licenser-deps) | No | 
-| v_espace | Trophy Case | issues/47 | IMP:GEN (Imp) | OOR:BO | logical error$\to$mem misalign | \_mm_load_si128() | No (tmiasko) | No | 
-| sized-chunks | CVE-2020-25791 | issues/11:unit | API:LOE | OOR:BO | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | CVE-2020-25792 | issues/11:pair | API:LOE | OOR:BO | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | CVE-2020-25793 | issues/11:From | API:LOE | OOR:BO | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
+| simd-json | CVE-2019-15550 | pull/27 | IMP:LOE | OOR | logical error->mem misalign/get_unchecked() | No (Licenser-deps) | No | 
+| v_espace | Trophy Case | issues/47 | IMP:GEN (Imp) | OOR | logical error->mem misalign | \_mm_load_si128() | No (tmiasko) | No | 
+| sized-chunks | CVE-2020-25791 | issues/11:unit | API:LOE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
+| sized-chunks | CVE-2020-25792 | issues/11:pair | API:LOE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
+| sized-chunks | CVE-2020-25793 | issues/11:From | API:LOE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
 | sized-chunks | CVE-2020-25796 | issues/11:InlineArray | API:LOE | OOR:BO | no input check->memory misalignment | No (Qwaz-sec) | No | 
 | sized-chunks | CVE-2020-25794 | issues/11:clone | IMP:RAII+UNWIND | UNINIT | panic->drop uninitialized memory | No (Qwaz-sec)  | No | 
 | sized-chunks | CVE-2020-25795 | issues/11:insert_from | IMP:RAII+UNWIND | UNINIT | panic $\to$ rop uninitialized memory | No (Qwaz-sec)  | No | 
