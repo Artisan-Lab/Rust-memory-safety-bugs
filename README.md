@@ -5,37 +5,37 @@
 | Project | CVE-ID (or Src) | Link | Culprit | Consequense | Details | Finder-Role | Propagated |
 |---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | 2018-1000810 | pull/54399 | IMP:ARO | OOR:BO | arithmatic overflow + unsafe write | scottmcm-Rust | No | 
-| 2018-1000657 | issues/44800 | IMP:LOE | BO | logical error + unsafe write (VecDeque) | jesse99-deps | 
-| 2019-12083 | issues/60784 | API:TRAIT | BO | soundness hole when impl Error::type_id() | seanmonstar-deps | No | 
-  | Advisory-DB | issues/79808 | IMP:LOE | DP | logical error (VecDeque) | ayourtch | No | 
-  | GitHub | issues/17207 | FFI (Imp) | UB | jemalloc: unchecked argument | gmorenz | No | 
-  | GitHub | issues/25841 | IMP:ARO | UB$\to$DP | arithmatic overflow$\to$shared mut aliases (RefCell) | Veedrac | No | 
-  | GitHub | issues/27970 | IMP:FFI+CC+SYS | CC$\to$UAF | setenv is unsafe | bluss-Rust | No | 
-  | GitHub | issues/33770 | IMP:FFI+CC | UB | glibc recursive lock$\to$shared mut aliases | Amanieu | No | 
-  | GitHub | issues/35836 | IMP:FFI+CC | UB | recursive RWlock on Windows is UB | retep998-Rust | No | 
-  | GitHub | issues/39465 | API:MUT | UB$\to$DP | $\to$shared mut aliases | christophebiocca | No | 
-  | GitHub | issues/39575 | API:SAFE+FFI | CC$\to$UB | UB according to POSIX | fweimer | No | 
-  | GitHub | issues/42135 | IMP:LOE | UB | error related to unsafe trait | scottmcm-Rust | No | 
-  | GitHub | issues/42789 | IMP:LOE+ZST | UB | inconsistant addresses for interators over ZST | RalfJung-Rust | No | 
-  | GitHub | issues/43733 | IMP:SAFE+CC | UB | possible to bypass unsafe marker | eddyb-Rust | No | 
-  | GitHub | issues/44637 | API:TRAIT | BO | soundness hole in when impl Placer | andy-hanson | No | 
-  | GitHub | issues/45197 | IMP:LOE+CC | DR$\to$DP | allow concurrent acc. without sync/send | cuviper-Rust | No | 
-  | GitHub | issues/46775 | IMP:FFI+CC | UAF | | Diggsey | No | 
-  | GitHub | issues/48006 | IMP:SYS | BO | arithmatic overflow on 16-bit platforms | oberien | No | 
-  | GitHub | issues/48493 | IMP:LOE | UNINIT | free uninitialized mem | jleedev | No | 
-  | GitHub | issues/51780 | IMP:LOE+CC | DR$\to$DP | insufficient synchronization  | jhjourdan | No | 
-  | GitHub | issues/54857 | IMP:LOE+ZST | UB | inconsistant addresses for ZST of Vec | jturner314 | No | 
-  | GitHub | issues/54908 | IMP:LOE | OOR | misaligned reference | RalfJung | No | 
-  | GitHub | issues/54957 | IMP:LOE | OOR | unsafe type conversion | RalfJung | No | 
-  | GitHub | issues/57534 | IMP:SYS+CC+FFI | UAF | thread local variables | YES:mtak- | No | 
-  | GitHub | issues/60977 | IMP:RAII:LOE | DF | inconsistency while exception handling | ExpHP | No | 
-  | GitHub | issues/66544 | API:GENERIC+TRAIT | UB | soundness holes of Pin when impl DerefMut | comex |
-  | GitHub | issues/67194 | API:GENERIC+TRAIT | | soundness holes when impl PartialEq | comex | No | 
-  | GitHub | issues/76367 | IMP:RAII+CC | UB | logical error (SyncOnceCell/dropck+PhantomData) | m-ou-se-Rust |
-  | GitHub | issues/78498 | IMP:LOE | UB | logical error for catch_unwind (String) | SkiFire13 | No | 
-rustc (compiler) | Advisory-DB | issues/25860 | RU:LIFE (API) | Unsound | type system issue$\to$lifetime inconsistency | No (aturon-Rust)| No | 
-arrayfire-rust  | 2018-20998  | issues/176 | GEN:FFI (Imp) | OOR:BO | FFI-compatability/repr() | No (Aidan24) | No | 
-ncurses | 2019-15547 | issues/172 | RU:SAFE:FFI (API) | OOR:BO | FFI-unchecked argument/printw() | thomcc | No | 
+| rust-std | 2018-1000657 | issues/44800 | IMP:LOE | BO | logical error + unsafe write (VecDeque) | jesse99-deps | 
+| rust-std | 2019-12083 | issues/60784 | API:TRAIT | BO | soundness hole when impl Error::type_id() | seanmonstar-deps | No | 
+| rust-std | Advisory-DB | issues/79808 | IMP:LOE | DP | logical error (VecDeque) | ayourtch | No | 
+| rust-std | GitHub | issues/17207 | FFI (Imp) | UB | jemalloc: unchecked argument | gmorenz | No | 
+| rust-std | GitHub | issues/25841 | IMP:ARO | UB$\to$DP | arithmatic overflow$\to$shared mut aliases (RefCell) | Veedrac | No | 
+| rust-std | GitHub | issues/27970 | IMP:FFI+CC+SYS | CC$\to$UAF | setenv is unsafe | bluss-Rust | No | 
+| rust-std | GitHub | issues/33770 | IMP:FFI+CC | UB | glibc recursive lock$\to$shared mut aliases | Amanieu | No | 
+| rust-std | GitHub | issues/35836 | IMP:FFI+CC | UB | recursive RWlock on Windows is UB | retep998-Rust | No | 
+| rust-std | GitHub | issues/39465 | API:MUT | UB$\to$DP | $\to$shared mut aliases | christophebiocca | No | 
+| rust-std | GitHub | issues/39575 | API:SAFE+FFI | CC$\to$UB | UB according to POSIX | fweimer | No | 
+| rust-std | GitHub | issues/42135 | IMP:LOE | UB | error related to unsafe trait | scottmcm-Rust | No | 
+| rust-std | GitHub | issues/42789 | IMP:LOE+ZST | UB | inconsistant addresses for interators over ZST | RalfJung-Rust | No | 
+| rust-std | GitHub | issues/43733 | IMP:SAFE+CC | UB | possible to bypass unsafe marker | eddyb-Rust | No | 
+| rust-std | GitHub | issues/44637 | API:TRAIT | BO | soundness hole in when impl Placer | andy-hanson | No | 
+| rust-std | GitHub | issues/45197 | IMP:LOE+CC | DR$\to$DP | allow concurrent acc. without sync/send | cuviper-Rust | No | 
+| rust-std | GitHub | issues/46775 | IMP:FFI+CC | UAF | | Diggsey | No | 
+| rust-std | GitHub | issues/48006 | IMP:SYS | BO | arithmatic overflow on 16-bit platforms | oberien | No | 
+| rust-std | GitHub | issues/48493 | IMP:LOE | UNINIT | free uninitialized mem | jleedev | No | 
+| rust-std | GitHub | issues/51780 | IMP:LOE+CC | DR$\to$DP | insufficient synchronization  | jhjourdan | No | 
+| rust-std | GitHub | issues/54857 | IMP:LOE+ZST | UB | inconsistant addresses for ZST of Vec | jturner314 | No | 
+| rust-std | GitHub | issues/54908 | IMP:LOE | OOR | misaligned reference | RalfJung | No | 
+| rust-std | GitHub | issues/54957 | IMP:LOE | OOR | unsafe type conversion | RalfJung | No | 
+| rust-std | GitHub | issues/57534 | IMP:SYS+CC+FFI | UAF | thread local variables | YES:mtak- | No | 
+| rust-std | GitHub | issues/60977 | IMP:RAII:LOE | DF | inconsistency while exception handling | ExpHP | No | 
+| rust-std | GitHub | issues/66544 | API:GENERIC+TRAIT | UB | soundness holes of Pin when impl DerefMut | comex |
+| rust-std | GitHub | issues/67194 | API:GENERIC+TRAIT | | soundness holes when impl PartialEq | comex | No | 
+| rust-std | GitHub | issues/76367 | IMP:RAII+CC | UB | logical error (SyncOnceCell/dropck+PhantomData) | m-ou-se-Rust |
+| rust-std | GitHub | issues/78498 | IMP:LOE | UB | logical error for catch_unwind (String) | SkiFire13 | No | 
+| rustc (compiler) | Advisory-DB | issues/25860 | RU:LIFE (API) | Unsound | type system issue$\to$lifetime inconsistency | No (aturon-Rust)| No | 
+| arrayfire-rust  | 2018-20998  | issues/176 | GEN:FFI (Imp) | OOR:BO | FFI-compatability/repr() | No (Aidan24) | No | 
+| ncurses | 2019-15547 | issues/172 | RU:SAFE:FFI (API) | OOR:BO | FFI-unchecked argument/printw() | thomcc | No | 
   | 2019-15548 | issues/186 | RU:SAFE:FFI (API) | OOR:BO | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
 rusqlite | Advisory-DB | pull/708 | RU:SAFE:FFI (API) | OOR:BO | FFI-unchecked argument/sqlite3_log() | thomcc-deps| No | 
   | Advisory-DB | issues/703 | RU:LIFE (API) | DP | func. sign.: lifetime declaration | No (gwenn-deps) | No | 
