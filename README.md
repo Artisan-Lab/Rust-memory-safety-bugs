@@ -1,5 +1,4 @@
 # rustbugs
-* { font-size: 9pt; }
 
 | Project | CVE-ID (or Src) | Link | Culprit | Consequense | Details | Finder-Role | Propagated |
 |---------|---------|---------|---------|---------|---------|---------|---------|
