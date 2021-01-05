@@ -32,7 +32,7 @@
 | rust-std | GitHub | issues/76367 | IMP:RAII+CC | UB | logical error (SyncOnceCell/dropck+PhantomData) | m-ou-se-Rust |
 | rust-std | GitHub | issues/78498 | IMP:LOE | UB | logical error for catch_unwind (String) | SkiFire13 | No | 
 | rustc (compiler) | Advisory-DB | issues/25860 | API:LIFE | UB->UAF | type system issue->lifetime inconsistency | No (aturon-Rust)| No | 
-| arrayfire-rust  | 2018-20998  | issues/176 | IMP:FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
+| arrayfire-rust  | CVE-2018-20998  | issues/176 | IMP:FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
 | ncurses | CVE-2019-15547 | issues/172 | API:SAFE+FFI | OOR | FFI-unchecked argument/printw() | thomcc | No | 
 | ncurses | CVE-2019-15548 | issues/186 | API:SAFE+FFI | OOR | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
 | rusqlite | Advisory-DB | pull/708 | API:SAFE+FFI | OOR | FFI-unchecked argument/sqlite3_log() | thomcc-deps| No | 
@@ -40,7 +40,7 @@
 | rust-base64 | CVE-2017-1000430 | issues/28 | IMP:ARO | OOR | arithmatic overflow + unsafe write | No (alicemaz) | No | 
 | failure | CVE-2020-25575 | issues/336 | API:RU:SAFE | OOR | downcast$\to$mem misalign/private_get_type_id() | No (Qwaz-sec) | No | 
 | bumpalo | Advisory-DB | issues/69 | IMP:LOE | OOR(Read) | wrong buffer size + unsafe write | No (Riey-deps)| No | 
-| compact_arena  | 2019-16139 | issues/22 | IMP:DROP+LIFE | OOR(Read) | NLL issue->Index trait/get_unchecked() | No (CAD97) | No | 
+| compact_arena  | CVE-2019-16139 | issues/22 | IMP:DROP+LIFE | OOR(Read) | NLL issue->Index trait/get_unchecked() | No (CAD97) | No | 
 | lz4_flex | Trophy | - | IMP:LOE | OOR | logical error in space allocation | Pascal Seitz-sec | No | 
 | ozone | Advisory-DB | RUSTSEC-2020-0022:1 | API:SAFE | OOR:BOR | context issue->Index trait | No (n.a.) | No | 
 | ozone | Advisory-DB | RUSTSEC-2020-0022:2 | IMP:RAII | DP:DUN | implement drop with uninit mem | No (n.a.)| No | 
@@ -118,14 +118,14 @@
 | generator-rs | Advisory-DB | issues/9 | API:SAFE | UB | func. sign.$\to$deref invalid/null pointer | No (jonas-schievink)| No | 
 | generator-rs | Advisory-DB | issues/13 | GEN (API) | UB | bad func. exposure  | No (jonas-schievink) | No | 
 | generator-rs | Advisory-DB  | issues/14 | GEN (API) | UB | bad func. exposure | No (jonas-schievink)  | No | 
-| linea | 2019-16880 | issues/1 | RAII:UNWIND (Imp) | DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15)| No | 
+| linea | CVE-2019-16880 | issues/1 | RAII:UNWIND (Imp) | DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15)| No | 
 | portaudio-rs | CVE-2019-16881 | issues/20 | IMP:RAII | DP:DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15) | No | 
 | http | CVE-2020-25574 | issues/354 | IMP:RAII | DF | buf. shrinking too late (rely on drop) | No (Qwaz-sec) | No | 
 | http | Advisory-DB | issues/355* | API:MUT | UB | func. sign.$\to$multiple mutable refs/Send$\to$Sync  | No (Qwaz-sec)  | No | 
 | internment  | Advisory-DB | issues/11 | IMP:CC+GEN | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
 | spin-rs  | CVE-2019-16137 | issues/65 | IMP:CC+GEN | UB | impl error: Ordering::Relaxed$\to$Release | No (64) | No | 
 | vm-memory | CVE-2020-13759 | issues/93 | IMP:CC+GEN | UB | volatile mem acc/ptr::write()$\to$write_volatile() | No (andreeaflorescu-deps)| No | 
-| teaclave-sgx-sdk  | 2020-5499 | www.mitre.org | API:CC+LOE | UB | may init twice by another thread/+Once::new() | No (Chen-sec) | No | 
+| teaclave-sgx-sdk  | CVE-2020-5499 | www.mitre.org | API:CC+LOE | UB | may init twice by another thread/+Once::new() | No (Chen-sec) | No | 
 | claxon  | CVE-2018-20992/Trophy | issues/10 | IMP:GEN | DL | unsafe buf alloc$\to$read unit mem/Vec::set_len() | No (Shnatsel-sec)| No | 
 | rust-rgb | CVE-2020-25016 | issues/35 | RU:Safe (API) | UB | declare unsafe API as safe | No (HeroicKatora) | No | 
 | renderdoc-rs | CVE-2019-16142 | issues/27 | RU:MUT (API) | UB | func. sign.$\to$unsync. internal mutation | No (ebkalderon-owner) | No | 
