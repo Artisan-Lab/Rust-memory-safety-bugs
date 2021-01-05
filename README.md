@@ -53,7 +53,7 @@
 | rust-smallvec | CVE-2019-15551 | issues/148 | IMP:LOE | DP:UAF | logical error + unsafe deallocation | No (ehuss) | No | 
 | rust-smallvec | CVE-2018-20991 | issues/96 | IMP:RAII+UNWIND | DF | buffer shrinking too late | No (Vurich) | No | 
 | simd-json | CVE-2019-15550 | pull/27 | IMP:LOE | OOR | logical error->mem misalign/get_unchecked() | No (Licenser-deps) | No | 
-| v_espace | Trophy Case | issues/47 | IMP:GEN (Imp) | OOR | logical error->mem misalign | \_mm_load_si128() | No (tmiasko) | No | 
+| v_espace | Trophy Case | issues/47 | IMP:LOE | OOR | logical error->mem misalign | \_mm_load_si128() | No (tmiasko) | No | 
 | sized-chunks | CVE-2020-25791 | issues/11:unit | API:LOE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
 | sized-chunks | CVE-2020-25792 | issues/11:pair | API:LOE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
 | sized-chunks | CVE-2020-25793 | issues/11:From | API:LOE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
@@ -101,14 +101,14 @@
 | time | CVE-2020-26235 | issues/293 | CC+SYS | CC->UAF | call non-atomic system functions | quininer | No |  
 | try-mutex | CVE-2020-35924 | issues/2 | API:TRAIT+GENERICS+CC | RC$\to$UAF | lack send/sync bound | ammaraskar-Sec | No |  
 | isahc | CVE-2019-16140 | issues/2 | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (nox) | No | 
-| sxd-document  | Trophy Case | issues/47 | RAII (Imp) | UAF | unsafe constructor+no ManuallyDrop | No (CryZe-sec) | No | 
-| image | CVE-2019-16138 | issues/980 | RAII:UNWIND* (Imp) | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | 
+| sxd-document  | Trophy Case | issues/47 | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (CryZe-sec) | No | 
+| image | CVE-2019-16138 | issues/980 | IMP:RAII+UNWIND | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | 
 | image | CVE-2020-35916 | issues/1357 | IMP:MUT | UB | convert mutable ptr from const ptr | dodomorandi | No | 
-| libflate | CVE-2019-15552 | issues/35 | RAII:UNWIND (Imp) | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | 
-| memoffset | CVE-2019-15553 | issues/9 | RAII:UNWIND (Imp) | UNINIT | enf. ManuallyDrop late->drop uninit mem  | No (Centril) | No | 
-| linked-hash-map | CVE-2020-25573 | pull/100 | RAII (Imp) | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | 
+| libflate | CVE-2019-15552 | issues/35 | IMP:RAII+UNWIND  | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | 
+| memoffset | CVE-2019-15553 | issues/9 | IMP:RAII+UNWIND | UNINIT | enf. ManuallyDrop late->drop uninit mem  | No (Centril) | No | 
+| linked-hash-map | CVE-2020-25573 | pull/100 | IMP:RAII | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | 
 | rio | Advisory-DB |  issues/30 | RU:SAFE (API) | UAF | logical error: soundness hole | No (dtolnay-Rust) | No | 
-| bitvec | Advisory-DB | issues/55 | GEN* (Imp) | UAF | logical error: false assumption | No (kulp-sec) | No | 
+| bitvec | Advisory-DB | issues/55 | IMP:LOE | UAF | logical error: false assumption | No (kulp-sec) | No | 
 | cbox-rs | Advisory-DB | issues/2 | RU:SAFE (API) | UAF | declare unsafe API as safe | No (eduardosm) | No | 
 | rust-openssl | CVE-2018-20997 | issues/941 | IMP:RAII | UAF | pointer obj lifetime inconsistency/as_ptr() | No (fred-gremlin)| No | 
 | string-interner | CVE-2019-16882 | issues/9 | IMP:TRAIT | UAF | bad derived clone | No (lo48576-deps) | No |  
@@ -118,7 +118,7 @@
 | generator-rs | Advisory-DB | issues/9 | API:SAFE | UB | func. sign.$\to$deref invalid/null pointer | No (jonas-schievink)| No | 
 | generator-rs | Advisory-DB | issues/13 | GEN (API) | UB | bad func. exposure  | No (jonas-schievink) | No | 
 | generator-rs | Advisory-DB  | issues/14 | GEN (API) | UB | bad func. exposure | No (jonas-schievink)  | No | 
-| linea | CVE-2019-16880 | issues/1 | RAII:UNWIND (Imp) | DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15)| No | 
+| linea | CVE-2019-16880 | issues/1 | IMP:RAII+UNWIND | DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15)| No | 
 | portaudio-rs | CVE-2019-16881 | issues/20 | IMP:RAII | DP:DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15) | No | 
 | http | CVE-2020-25574 | issues/354 | IMP:RAII | DF | buf. shrinking too late (rely on drop) | No (Qwaz-sec) | No | 
 | http | Advisory-DB | issues/355* | API:MUT | UB | func. sign.$\to$multiple mutable refs/Send$\to$Sync  | No (Qwaz-sec)  | No | 
@@ -134,7 +134,7 @@
 | flatbuffers | Advisory-DB | issues/5530 | IMP:LOE | UB | logical error->invalid bit pattern for bool | No (nagisa)| No | 
 | once_cell | CVE-2019-16141 | issues/46 | IMP:LOE | UB | unreachable_unchecked()->panic!() | No (xfix-deps) | No | 
 | capnproto-rust | Trophy Case | cargo-fuzz/issues/40 | IMP:LOE | Unsound | logical error | No (dwrensha-sec)| No | 
-| lucet | Advisory-DB | pull/401 | GEN (Imp)  | UB | logical error$\to$memory man. issue | No (acfoltzer-deps) | No | 
+| lucet | Advisory-DB | pull/401 | IMP:LOE  | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
 | rand | CVE-2020-25576 | issues/779 | IMP:LOE | UB | reading unaligned mem/ptr::read_unaligned() | No (RalfJung-sec)| No | 
 | servo (exe) | GitHub | issues/1186 | IMP:RAII | DF | impl Drop with unsafe | kmcallister | No | 
 | servo (exe) | GitHub | issues/2412 | IMP:RAII | DF  | *unsafe cast?  |  | No | 
@@ -161,7 +161,7 @@
 | Tokio | GitHub | pull/2030/ | API: | OOR | trait safety | Marwes | 
 | Tokio | GitHub | pull/2612/ | API:TRAIT | OOR | error in specify Trait impl Type  | taiki-e-dev | 
 | Tokio | GitHub | issues/3014 | IMP:LOE | UAF | off-by-one logical error | NikosEfthias |
-| curl-rust | GitHub | pull/2 | RU:SAFE (Imp) | UAF | **using mem::transmute() | No(alexcrichton-rust) | No | 
+| curl-rust | GitHub | pull/2 | IMP:SAFE | UAF | **using mem::transmute() | No(alexcrichton-rust) | No | 
 | curl-rust | GitHub | issues/333 | API:CC | UB | does not enforce FFI restrictions | DemiMarie/sagebind-deps | Yes | 
 | curl-rust | GitHub | issues/340 | API:SAFE | UAF | exposing unsafe cleanup APIs as safe | sagebind-deps | No | 
 
