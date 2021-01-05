@@ -1,5 +1,7 @@
 # rustbugs
 
+<span style="font-family:Papyrus; font-size:4em;">
+  
 | Project | CVE-ID (or Src) | Link | Culprit | Consequense | Details | Finder-Role | Propagated |
 |---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | CVE-2018-1000810 | pull/54399 | IMP:ARO | OOR | arithmatic overflow + unsafe write | scottmcm-Rust | No | 
@@ -164,7 +166,9 @@
 | curl-rust | GitHub | pull/2 | RU:SAFE (Imp) | UAF | **using mem::transmute() | No(alexcrichton-rust) | No | 
 | curl-rust | GitHub | issues/333 | API:CC | UB | does not enforce FFI restrictions | DemiMarie/sagebind-deps | Yes | 
 | curl-rust | GitHub | issues/340 | API:SAFE | UAF | exposing unsafe cleanup APIs as safe | sagebind-deps | No | 
-  
+
+</span>
+
 ## Notes: OOR:out-of-range access; BO: buffer overflow; BOR: buffer over-read; CC: concurrency issue; DF: double free; DL: data leakage; DP: dangling pointer; DR: data race; 
 RC: race condition; UAF: use-after-free.
 
