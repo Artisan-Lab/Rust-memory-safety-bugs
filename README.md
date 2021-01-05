@@ -102,10 +102,10 @@
 | try-mutex | CVE-2020-35924 | issues/2 | API:TRAIT+GENERICS+CC | RC$\to$UAF | lack send/sync bound | ammaraskar-Sec | No |  
 | isahc | CVE-2019-16140 | issues/2 | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (nox) | No | 
 | sxd-document  | Trophy Case | issues/47 | RAII (Imp) | UAF | unsafe constructor+no ManuallyDrop | No (CryZe-sec) | No | 
-| image | CVE-2019-16138 | issues/980 | RAII:UNWIND* (Imp) | UNINIT | unsafe allocation$\to$drop uninit mem/set_len() | No (64) | No | 
+| image | CVE-2019-16138 | issues/980 | RAII:UNWIND* (Imp) | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | 
 | image | CVE-2020-35916 | issues/1357 | IMP:MUT | UB | convert mutable ptr from const ptr | dodomorandi | No | 
-| libflate | CVE-2019-15552 | issues/35 | RAII:UNWIND (Imp) | UNINIT | enf. ManuallyDrop late$\to$drop uninit | No (Shnatsel-sec) | No | 
-| memoffset | CVE-2019-15553 | issues/9 | RAII:UNWIND (Imp) | UNINIT | enf. ManuallyDrop late$\to$drop uninit mem  | No (Centril) | No | 
+| libflate | CVE-2019-15552 | issues/35 | RAII:UNWIND (Imp) | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | 
+| memoffset | CVE-2019-15553 | issues/9 | RAII:UNWIND (Imp) | UNINIT | enf. ManuallyDrop late->drop uninit mem  | No (Centril) | No | 
 | linked-hash-map | CVE-2020-25573 | pull/100 | RAII (Imp) | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | 
 | rio | Advisory-DB |  issues/30 | RU:SAFE (API) | UAF | logical error: soundness hole | No (dtolnay-Rust) | No | 
 | bitvec | Advisory-DB | issues/55 | GEN* (Imp) | UAF | logical error: false assumption | No (kulp-sec) | No | 
@@ -126,7 +126,7 @@
 | spin-rs  | CVE-2019-16137 | issues/65 | IMP:CC+GEN | UB | impl error: Ordering::Relaxed$\to$Release | No (64) | No | 
 | vm-memory | CVE-2020-13759 | issues/93 | IMP:CC+GEN | UB | volatile mem acc/ptr::write()$\to$write_volatile() | No (andreeaflorescu-deps)| No | 
 | teaclave-sgx-sdk  | CVE-2020-5499 | www.mitre.org | API:CC+LOE | UB | may init twice by another thread/+Once::new() | No (Chen-sec) | No | 
-| claxon  | CVE-2018-20992/Trophy | issues/10 | IMP:GEN | DL | unsafe buf alloc$\to$read unit mem/Vec::set_len() | No (Shnatsel-sec)| No | 
+| claxon  | CVE-2018-20992/Trophy | issues/10 | IMP:LOE | UNINIT->DL | unsafe buf alloc$\to$read unit mem/Vec::set_len() | No (Shnatsel-sec)| No | 
 | rust-rgb | CVE-2020-25016 | issues/35 | RU:Safe (API) | UB | declare unsafe API as safe | No (HeroicKatora) | No | 
 | renderdoc-rs | CVE-2019-16142 | issues/27 | RU:MUT (API) | UB | func. sign.$\to$unsync. internal mutation | No (ebkalderon-owner) | No | 
 | rulinalg | Advisory-DB | issues/201 | API:LIFE | UB->UAF | func. sign.:lifetime | No (Qwaz-sec)  | No | 
