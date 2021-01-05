@@ -1,10 +1,5 @@
 # rustbugs
-
-<style>
-td {
-  font-size: 12px
-}
-</style>
+* { font-size: 9pt; }
 
 | Project | CVE-ID (or Src) | Link | Culprit | Consequense | Details | Finder-Role | Propagated |
 |---------|---------|---------|---------|---------|---------|---------|---------|
