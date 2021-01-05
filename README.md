@@ -1,6 +1,6 @@
 # rustbugs
 
-<span style="font-family:Papyrus; font-size:4em;">
+<span style="font-size:10px;">
   
 | Project | CVE-ID (or Src) | Link | Culprit | Consequense | Details | Finder-Role | Propagated |
 |---------|---------|---------|---------|---------|---------|---------|---------|
