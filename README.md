@@ -31,21 +31,21 @@
 | rust-std | GitHub | issues/67194 | API:GENERIC+TRAIT | UB | soundness holes when impl PartialEq | comex | No | 
 | rust-std | GitHub | issues/76367 | IMP:RAII+CC | UB | logical error (SyncOnceCell/dropck+PhantomData) | m-ou-se-Rust |
 | rust-std | GitHub | issues/78498 | IMP:LOE | UB | logical error for catch_unwind (String) | SkiFire13 | No | 
-| rustc (compiler) | Advisory-DB | issues/25860 | RU:LIFE (API) | Unsound | type system issue$\to$lifetime inconsistency | No (aturon-Rust)| No | 
+| rustc (compiler) | Advisory-DB | issues/25860 | API:LIFE | UB->UAF | type system issue->lifetime inconsistency | No (aturon-Rust)| No | 
 | arrayfire-rust  | 2018-20998  | issues/176 | IMP:FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
 | ncurses | CVE-2019-15547 | issues/172 | API:SAFE+FFI | OOR | FFI-unchecked argument/printw() | thomcc | No | 
 | ncurses | CVE-2019-15548 | issues/186 | API:SAFE+FFI | OOR | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
 | rusqlite | Advisory-DB | pull/708 | API:SAFE+FFI | OOR | FFI-unchecked argument/sqlite3_log() | thomcc-deps| No | 
-| rusqlite | Advisory-DB | issues/703 | API:LIFE | DP | func. sign.: lifetime declaration | No (gwenn-deps) | No | 
+| rusqlite | Advisory-DB | issues/703 | API:LIFE | UB->UAF | func. sign.: lifetime declaration | No (gwenn-deps) | No | 
 | rust-base64 | CVE-2017-1000430 | issues/28 | IMP:ARO | OOR | arithmatic overflow + unsafe write | No (alicemaz) | No | 
 | failure | CVE-2020-25575 | issues/336 | API:RU:SAFE | OOR | downcast$\to$mem misalign/private_get_type_id() | No (Qwaz-sec) | No | 
 | bumpalo | Advisory-DB | issues/69 | IMP:LOE | OOR(Read) | wrong buffer size + unsafe write | No (Riey-deps)| No | 
-| compact_arena  | 2019-16139 | issues/22 | IMP:DROP+LIFETIME | OOR(Read) | NLL issue$\to$Index trait/get_unchecked() | No (CAD97) | No | 
+| compact_arena  | 2019-16139 | issues/22 | IMP:DROP+LIFE | OOR(Read) | NLL issue->Index trait/get_unchecked() | No (CAD97) | No | 
 | lz4_flex | Trophy | - | IMP:LOE | OOR | logical error in space allocation | Pascal Seitz-sec | No | 
-| ozone | Advisory-DB | RUSTSEC-2020-0022:1 | API:SAFE | OOR:BOR | context issue$\to$Index trait | No (n.a.) | No | 
+| ozone | Advisory-DB | RUSTSEC-2020-0022:1 | API:SAFE | OOR:BOR | context issue->Index trait | No (n.a.) | No | 
 | ozone | Advisory-DB | RUSTSEC-2020-0022:2 | IMP:RAII | DP:DUN | implement drop with uninit mem | No (n.a.)| No | 
-| prost | Advisory/Trophy | issues/267 | IMP:LOE | OOR:BO | logical error in recursion + unsafe write | No (dbrgn-sec) | No | 
-| safe-transmute | CVE-2018-21000 | pull/36 | IMP:LOE | OOR:BO | logical error + unsafe write | No (Enet4-deps)| No | 
+| prost | Advisory/Trophy | issues/267 | IMP:LOE | OOR | logical error in recursion + unsafe write | No (dbrgn-sec) | No | 
+| safe-transmute | CVE-2018-21000 | pull/36 | IMP:LOE | OOR | logical error + unsafe write | No (Enet4-deps)| No | 
 | slice-deque | CVE-2018-20995 | pull/58 | IMP:LOE | OOR | error in boundary check + unsafe write | No (aldanor-deps) | No | 
 | slice-deque | CVE-2019-15543 | pull/66 | IMP:LOE | OOR | logical error->memory misalignment | No (zimond) | No | 
 | rust-smallvec | CVE-2019-15554 | issues/149 | IMP:LOE | OOR | logical error + unsafe write | No (ehuss) | No | 
@@ -82,10 +82,10 @@
 | concread | Advisory-DB | issues/48 | API:CC+TRAIT | CC->UAF | lack send/sync bound | JOE1994-Sec | No | 
 | futures-intrusive | Advisory-DB | issues/53 | API:TRAIT+CC | CC->UAF | lack send/sync bound | ammaraskar-Sec| No | 
 | futures-rs | Advisory-DB | pull/2206 | API:GENERICS+LIFE | UAF | lack lifetime bound | Darksonn | No | 
-| futures-rs| Advisory-DB | issues/2091 | IMP:LIFETIME+CC | UAF | return static ref to Send | goffrie | No | 
+| futures-rs| Advisory-DB | issues/2091 | IMP:LIFE+CC | UAF | return static ref to Send | goffrie | No | 
 | futures-rs| Advisory-DB | issues/2239 | API:TRAIT+GENERICS+CC | CC->UAF | lack send/sync bound | Qwaz-Sec | No | 
 | futures-rs| Advisory-DB | issues/2050 | API:TRAIT+CC | UAF | impl sync for a structure with Cell<T> | okready | No | 
-| pulse-binding-rust | Advisory-DB | API:LIFETIME+RAII | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | 
+| pulse-binding-rust | Advisory-DB | API:LIFE+GENERICS+RAII | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | 
 | pulse-binding-rust | Advisory-DB | issues/2050 | API:TRAIT+CC | UAF | impl sync for a structure with Cell<T> | okready | No | 
 | parking_lot | CVE-2020-35910 | issues/258:MappedMutexGuard | API:TRAIT+CC+GENERICS | CC->UAF |  lack send bound | ammaraskar-Sec | No |  
 | parking_lot | CVE-2020-35911 | issues/258:MappedRwLockReadGuard | API:TRAIT+CC+GENERICS | CC->UAF |  lack sync bound | ammaraskar-Sec | No | 
@@ -129,10 +129,10 @@
 | claxon  | CVE-2018-20992/Trophy | issues/10 | IMP:GEN | DL | unsafe buf alloc$\to$read unit mem/Vec::set_len() | No (Shnatsel-sec)| No | 
 | rust-rgb | CVE-2020-25016 | issues/35 | RU:Safe (API) | UB | declare unsafe API as safe | No (HeroicKatora) | No | 
 | renderdoc-rs | CVE-2019-16142 | issues/27 | RU:MUT (API) | UB | func. sign.$\to$unsync. internal mutation | No (ebkalderon-owner) | No | 
-| rulinalg | Advisory-DB | issues/201 | RU:LIFE (API)| UB | func. sign.:lifetime | No (Qwaz-sec)  | No | 
-| flatbuffers | Advisory-DB | issues/5825 | RU:SAFE (API) | UB | func. sign.: safety declaration | No (eduardosm)| No | 
-| flatbuffers | Advisory-DB | issues/5530 | IMP* (Imp) | UB | logical error$\to$invalid bit pattern for bool | No (nagisa)| No | 
-| once_cell | CVE-2019-16141 | issues/46 | GEN* (Imp) | UB | unreachable_unchecked()$\to$panic!() | No (xfix-deps) | No | 
+| rulinalg | Advisory-DB | issues/201 | API:LIFE | UB->UAF | func. sign.:lifetime | No (Qwaz-sec)  | No | 
+| flatbuffers | Advisory-DB | issues/5825 | API:SAFE | UB | func. sign.: safety declaration | No (eduardosm)| No | 
+| flatbuffers | Advisory-DB | issues/5530 | IMP:LOE | UB | logical error->invalid bit pattern for bool | No (nagisa)| No | 
+| once_cell | CVE-2019-16141 | issues/46 | IMP:LOE | UB | unreachable_unchecked()->panic!() | No (xfix-deps) | No | 
 | capnproto-rust | Trophy Case | cargo-fuzz/issues/40 | IMP:LOE | Unsound | logical error | No (dwrensha-sec)| No | 
 | lucet | Advisory-DB | pull/401 | GEN (Imp)  | UB | logical error$\to$memory man. issue | No (acfoltzer-deps) | No | 
 | rand | CVE-2020-25576 | issues/779 | IMP:LOE | UB | reading unaligned mem/ptr::read_unaligned() | No (RalfJung-sec)| No | 
@@ -150,7 +150,7 @@
 | wasmer (exe) | GitHub | issues/1568 | RAII: | DP:UAF | shared mutable alises (slice+to_vec()) | Hywan-dev | No | 
 | alacritty (exe) | GitHub | pull/4397 | IMP:MODEL | UAF | shared mut aliases (ptr::copy->clone) | kchibisov-dev | No | 
 | alacritty (exe) | GitHub | pull/2176  | IMP:LOE | UAF | logical error (+as_ref()) | aspurdy | No | 
-| diem-libra (exe) | GitHub | pull/1949 | API:LIFE | DP:UAF | ineffective lifetime restriction | dtolnay-Rust  |
+| diem-libra (exe) | GitHub | pull/1949 | API:LIFE | UAF | ineffective lifetime restriction | dtolnay-Rust  |
 | wint | GitHub | issues/599 | IMP:CC | UB | non-atomic cell for multi-thread apps | andrewhickman | No | 
 | wint | GitHub | pull/611 | IMP:CC | UB | non-atomic cell for multi-thread apps | francesca64-dev | No | 
 | wint | GitHub | issues/1745 | IMP:LOE | UAF | logical error | qthree | No | 
