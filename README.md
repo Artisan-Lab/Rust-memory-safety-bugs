@@ -3,12 +3,12 @@
 | Project | CVE-ID (or Src) | Link | Culprit | Consequense | Details | Finder-Role | Propagated |
 |---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | CVE-2018-1000810 | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | IMP:ARO | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | 
-| rust-std | CVE-2018-1000657 | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | IMP:BOUND | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No |
+| rust-std | CVE-2018-1000657 | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | IMP:BCHK | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No |
 | rust-std | CVE-2019-12083 | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | API:TRAIT | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No |
-| rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:LOE | UAF | logical error (VecDeque) | ayourtch | No | 
-| rust-std | GitHub | issues/17207 | IMP:FFI | UB | jemalloc: unchecked argument | gmorenz | No | 
-| rust-std | GitHub | issues/25841 | IMP:ARO | UB->DP | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
-| rust-std | GitHub | issues/27970 | IMP:FFI+CC+SYS | CC->UAF | setenv is unsafe | bluss-Rust | No | 
+| rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:BCHK | \*UAF | incorrect boundary check (VecDeque) | ayourtch | No | 
+| rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | IMP:FFI | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
+| rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | IMP:ARO+MODEL | UB->UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
+| rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | IMP:FFI+CC+SYS | CC->UAF | setenv is unsafe | bluss-Rust | No | 
 | rust-std | GitHub | issues/33770 | IMP:FFI+CC | UB | glibc recursive lock$\to$shared mut aliases | Amanieu | No | 
 | rust-std | GitHub | issues/35836 | IMP:FFI+CC | UB | recursive RWlock on Windows is UB | retep998-Rust | No | 
 | rust-std | GitHub | issues/39465 | API:MUT | UB->DP | $\to$shared mut aliases | christophebiocca | No | 
