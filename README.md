@@ -25,7 +25,7 @@
 | rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | IMP:LLVM+ZST | UB | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | IMP:ALIGN | OOR | misaligned reference （RC，ARC） | RalfJung | No | 
 | rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | IMP:LOE | UB->OOR | inconsistent type of Root node (BTreeSet) | RalfJung | No | 
-| rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | IMP:SYS+CC+FFI | UAF | thread local variables | YES:mtak- | No | 
+| rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | IMP:CC+SYS+FFI | UAF | thread local variables is freed before \_tlv_atexit (thread_local) | YES:mtak- | No | 
 | rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | IMP:RAII:LOE | DF | inconsistency while exception handling | ExpHP | No | 
 | rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | API:GENERIC+TRAIT | UB | soundness holes of Pin when impl DerefMut | comex |
 | rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | API:GENERIC+TRAIT | UB | soundness holes when impl PartialEq | comex | No | 
