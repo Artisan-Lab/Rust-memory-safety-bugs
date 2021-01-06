@@ -8,11 +8,11 @@
 | rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:BCHK | \*UAF | incorrect boundary check (VecDeque) | ayourtch | No | 
 | rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | IMP:FFI | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
 | rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | IMP:ARO+MODEL | UB->UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
-| rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | IMP:FFI+CC+SYS | CC->UAF | setenv is unsafe | bluss-Rust | No | 
-| rust-std | GitHub | issues/33770 | IMP:FFI+CC | UB | glibc recursive lock$\to$shared mut aliases | Amanieu | No | 
-| rust-std | GitHub | issues/35836 | IMP:FFI+CC | UB | recursive RWlock on Windows is UB | retep998-Rust | No | 
-| rust-std | GitHub | issues/39465 | API:MUT | UB->DP | $\to$shared mut aliases | christophebiocca | No | 
-| rust-std | GitHub | issues/39575 | API:SAFE+FFI | CC->UB | UB according to POSIX | fweimer | No | 
+| rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | IMP:FFI+CC+SYS+MODEL | CC->UAF | setenv is unsafe | bluss-Rust | No | 
+| rust-std | GitHub | [issues/33770](https://github.com/rust-lang/rust/issues/33770) | IMP:FFI+CC+MODEL | UB->UAF | glibc recursive lock is UB->shared mut aliases | Amanieu | No | 
+| rust-std | GitHub | [issues/35836](https://github.com/rust-lang/rust/issues/35836) | IMP:FFI+CC+MODEL | UB->UAF | recursive RWlock on Windows is UB | retep998-Rust | No | 
+| rust-std | GitHub | [issues/39465](https://github.com/rust-lang/rust/issues/39465) | API:MUT | UB->DP | Fn signature issue->shared mut aliases | christophebiocca | No | 
+| rust-std | GitHub | [issues/39575](https://github.com/rust-lang/rust/issues/39575) | API:SAFE+FFI+CC | UB | UB according to POSIX | fweimer | No | 
 | rust-std | GitHub | issues/42135 | IMP:LOE | UB | error related to unsafe trait | scottmcm-Rust | No | 
 | rust-std | GitHub | issues/42789 | IMP:LOE+ZST | UB | inconsistant addresses for interators over ZST | RalfJung-Rust | No | 
 | rust-std | GitHub | issues/43733 | IMP:SAFE+CC | UB | possible to bypass unsafe marker | eddyb-Rust | No | 
