@@ -4,8 +4,8 @@
 |---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | CVE-2018-1000810 | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | IMP:ARO | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | 
 | rust-std | CVE-2018-1000657 | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | IMP:COND | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No |
-| rust-std | CVE-2019-12083 | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | API:COND | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No |
-| rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:BCHK | \*UAF | incorrect boundary check (VecDeque) | ayourtch | No | 
+| rust-std | CVE-2019-12083 | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | API:TRAIT+DESIGN | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No |
+| rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:COND | \*UAF | incorrect boundary check (VecDeque) | ayourtch | No | 
 | rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | IMP:FFI | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
 | rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | IMP:ARO+MODEL | UB->UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
 | rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | IMP:FFI+CC+SYS+MODEL | CC->UAF | setenv is unsafe | bluss-Rust | No | 
@@ -14,14 +14,14 @@
 | rust-std | GitHub | [issues/39465](https://github.com/rust-lang/rust/issues/39465) | API:MUT | UB->DP | Fn signature issue->shared mut aliases | christophebiocca | No | 
 | rust-std | GitHub | [issues/39575](https://github.com/rust-lang/rust/issues/39575) | API:SAFE+FFI+CC | UB | UB according to POSIX (CommandExt::before_exec) | fweimer | No | 
 | rust-std | GitHub | [issues/42135](https://github.com/rust-lang/rust/issues/42135) | IMP:COND | UB | error related to unsafe trait (TrustedLen) | scottmcm-Rust | No | 
-| rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | IMP:TRAIT+ZST | UB | interators over ZST slices are undefined->random addr （Iter+ZST） | RalfJung-Rust | No | 
-| rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | IMP:SAFE+CC | UB | possible to bypass unsafe marker | eddyb-Rust | No | 
-| rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | API:TRAIT | BO | soundness hole in when impl Placer | andy-hanson | No | 
-| rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | IMP:LOE+CC | CC->DP | allow concurrent acc. without sync/send | cuviper-Rust | No | 
-| rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | IMP:FFI+CC | UAF | | Diggsey | No | 
-| rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | IMP:SYS | BO | arithmatic overflow on 16-bit platforms | oberien | No | 
-| rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | IMP:LOE | UNINIT | free uninitialized mem | jleedev | No | 
-| rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | IMP:LOE+CC | DR->DP | insufficient synchronization  | jhjourdan | No | 
+| rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | IMP:TRAIT+ZST | UB->OOR | interators over ZST slices are undefined->random addr （Iter+ZST） | RalfJung-Rust | No | 
+| rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | IMP:CC+DESIGN | UB->UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
+| rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | API:TRAIT+DESIGN | BO->OOR | soundness hole (Placer) | andy-hanson | No | 
+| rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | API:CC | CC->UAF | bypassing sync/send check（Cell as fmt::Arguments） | cuviper-Rust | No | 
+| rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | IMP:FFI+CC+SYS | UAF | Fn should be unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
+| rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | IMP:ARO+SYS | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
+| rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | IMP:RAII | UNINIT | free uninitialized mem (Weak) | jleedev | No | 
+| rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | IMP:LOE+CC | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
 | rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | IMP:LOE+ZST | UB | inconsistant addresses for ZST of Vec | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | IMP:LOE | OOR | misaligned reference | RalfJung | No | 
 | rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | IMP:LOE | OOR | unsafe type conversion | RalfJung | No | 
