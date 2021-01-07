@@ -25,12 +25,12 @@
 | rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | IMP:LLVM+ZST | UB | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | IMP:ALIGN | OOR | misaligned reference （RC，ARC） | RalfJung | No | 
 | rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | IMP:LOE | UB->OOR | inconsistent type of Root node (BTreeSet) | RalfJung | No | 
-| rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | IMP:CC+SYS+FFI | UAF | thread local variables is freed before \_tlv_atexit (thread_local) | YES:mtak- | No | 
-| rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | IMP:RAII:LOE | DF | inconsistency while exception handling | ExpHP | No | 
-| rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | API:GENERIC+TRAIT | UB | soundness holes of Pin when impl DerefMut | comex |
-| rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | API:GENERIC+TRAIT | UB | soundness holes when impl PartialEq | comex | No | 
-| rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | IMP:RAII+CC | UB | logical error (SyncOnceCell/dropck+PhantomData) | m-ou-se-Rust |
-| rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | IMP:LOE | UB | logical error for catch_unwind (String) | SkiFire13 | No | 
+| rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | IMP:CC+SYS+FFI | UAF | thread local variables is freed before \_tlv_atexit (thread_local) | mtak- | May | 
+| rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | IMP:RAII+UNWIND | DF | double free while panic (Vec::drain_filter) | rustonaut | No | 
+| rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | API:GENERIC+TRAIT | UB | soundness holes of when impl DerefMut/Clone (Pin) | comex |
+| rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | API:TRAIT | UB | soundness holes when impl PartialEq (RangeInclusive) | comex | No | 
+| rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | IMP:RAII+CC | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
+| rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | IMP:UNWIND | UB | invalid UTF-8 while catch_unwind (String) | SkiFire13 | No | 
 | rustc (compiler) | Advisory-DB | issues/25860 | API:LIFE | UB->UAF | type system issue->lifetime inconsistency | No (aturon-Rust)| No | 
 | arrayfire-rust  | CVE-2018-20998  | issues/176 | IMP:FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
 | ncurses | CVE-2019-15547 | issues/172 | API:SAFE+FFI | OOR | FFI-unchecked argument/printw() | thomcc | No | 
