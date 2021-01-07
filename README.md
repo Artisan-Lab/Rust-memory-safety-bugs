@@ -4,8 +4,7 @@
 |---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | CVE-2018-1000810 | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | IMP:ARO | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | 
 | rust-std | CVE-2018-1000657 | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | IMP:COND | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No |
-| rust-std | CVE-2019-12083 | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | API:TRAIT+DESIGN | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No |
-| rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:COND | \*UAF | incorrect boundary check (VecDeque) | ayourtch | No | 
+| rust-std | CVE-2019-12083 | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | API:TRAIT+DESIGN | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | 
 | rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | IMP:FFI | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
 | rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | IMP:ARO+MODEL | UB->UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
 | rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | IMP:FFI+CC+SYS+MODEL | CC->UAF | setenv is unsafe | bluss-Rust | No | 
@@ -34,7 +33,8 @@
 | rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | IMP:RAII+CC | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
 | rust-std | GitHub | [issues/78477](https://github.com/rust-lang/rust/issues/78477) | IMP:| UNKNOWN | violate pointer provenance rules | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | IMP:UNWIND | UB | invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
-| rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | IMP:COND | UB | incorrect boundary check (VecDeque) | Aratz | No |
+| rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:COND | UB->\*UAF | incorrect boundary check (VecDeque) | ayourtch | No |
+| rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | IMP:COND | UB->\*UAF | incorrect boundary check (VecDeque)-79808 | Aratz | No |
 | rustc (fake-static) | Advisory-DB | issues/25860 | API:LIFE | UB->UAF | type system issue->lifetime inconsistency | No (aturon-Rust)| No | 
 | arrayfire-rust  | CVE-2018-20998  | issues/176 | IMP:FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
 | ncurses | CVE-2019-15547 | issues/172 | API:SAFE+FFI | OOR | FFI-unchecked argument/printw() | thomcc | No | 
