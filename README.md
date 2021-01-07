@@ -24,11 +24,13 @@
 | rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | IMP:LOE+CC | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
 | rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | IMP:LLVM+ZST | UB | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | IMP:ALIGN | OOR | misaligned reference （RC，ARC） | RalfJung | No | 
-| rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | IMP:LOE | UB->OOR | inconsistent type of Root node (BTreeSet) | RalfJung | No | 
+| rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | IMP:LOE | UB->OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | IMP:CC+SYS+FFI | UAF | thread local variables is freed before \_tlv_atexit (thread_local) | mtak- | May | 
 | rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | IMP:RAII+UNWIND | DF | double free while panic (Vec::drain_filter) | rustonaut | No | 
 | rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | API:GENERIC+TRAIT | UB->UAF | soundness holes of when impl DerefMut/Clone (Pin) | comex |
 | rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | API:TRAIT | UB->OOR | soundness holes when impl PartialEq (RangeInclusive) | comex | No | 
+| rust-std | GitHub | [issues/72624](https://github.com/rust-lang/rust/issues/72624) | IMP:ARO | OOR | possible arithmatic overflow (DroplessArena::alloc_raw) | bluss-Rust | No |
+| rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | IMP: | UB | invalid UTF-8 | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | IMP:RAII+CC | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
 | rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | IMP:UNWIND | UB | invalid UTF-8 while catch_unwind (String) | SkiFire13 | No | 
 | rustc (compiler) | Advisory-DB | issues/25860 | API:LIFE | UB->UAF | type system issue->lifetime inconsistency | No (aturon-Rust)| No | 
