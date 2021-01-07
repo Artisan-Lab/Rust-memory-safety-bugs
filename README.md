@@ -13,7 +13,7 @@
 | rust-std | GitHub | [issues/35836](https://github.com/rust-lang/rust/issues/35836) | IMP:FFI+CC+MODEL | UB->UAF | recursive RWlock on Windows is UB | retep998-Rust | No | 
 | rust-std | GitHub | [issues/39465](https://github.com/rust-lang/rust/issues/39465) | API:MUT | UB->DP | Fn signature issue->shared mut aliases | christophebiocca | No | 
 | rust-std | GitHub | [issues/39575](https://github.com/rust-lang/rust/issues/39575) | API:SAFE+FFI+CC | UB | UB according to POSIX (CommandExt::before_exec) | fweimer | No | 
-| rust-std | GitHub | [issues/42135](https://github.com/rust-lang/rust/issues/42135) | IMP:COND | UB | error related to unsafe trait (TrustedLen) | scottmcm-Rust | No | 
+| rust-std | GitHub | [issues/42135](https://github.com/rust-lang/rust/issues/42135) | IMP:COND | UB->OOR | error related to unsafe trait (TrustedLen) | scottmcm-Rust | No | 
 | rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | IMP:TRAIT+ZST | UB->OOR | interators over ZST slices are undefined->random addr （Iter+ZST） | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | IMP:CC+DESIGN | UB->UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
 | rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | API:TRAIT+DESIGN | BO->OOR | soundness hole (Placer) | andy-hanson | No | 
