@@ -74,7 +74,7 @@
 | actix-web | Advisory-DB | issues/1321 | API:PAR | UAF |  | sebzim4500 | No | 
 | alg_ds | Advisory-DB | issues/1 | IMP:RAII | UNINIT | init with alloc::alloc | Qwaz-Sec | No | 
 | rust-arch | Advisory-DB | issues/2 | IMP:RAII | UAF | drop a memory not owned | Qwaz-Sec | No | 
-| arc-swap | CVE-2020-35711 | issues/45 | API:TRAIT | UAF | +PhantomData | Qwaz-Sec | No | 
+| arc-swap | CVE-2020-35711 | [issues/45](https://github.com/vorner/arc-swap/issues/45) | API:TRAIT | UAF | +PhantomData | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:Array | API:TRAIT+CC | CC->UAF | lack send/sync bound  | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:Index | IMP:TRAIT | OOR | lack boundary check | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:from... | IMP: | UNINIT | drop uninitialized mem | Qwaz-Sec | No | 
@@ -104,24 +104,24 @@
 | thex | CVE-2020-35927 | - | API:TRAIT+GENERICS+CC | CC->UAF | lack send/sync bound | Qwaz-Sec | No |  
 | time | CVE-2020-26235 | [issues/293](https://github.com/time-rs/time/issues/293) | CC+SYS | CC->UAF | call non-atomic system functions | quininer | No |  
 | try-mutex | CVE-2020-35924 | [issues/2](https://github.com/mpdn/try-mutex/issues/2) | API:TRAIT+GENERICS+CC | RC$\to$UAF | lack send/sync bound | ammaraskar-Sec | No |  
-| isahc | CVE-2019-16140 | issues/2 | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (nox) | No | 
+| isahc | CVE-2019-16140 | [issues/2](https://github.com/sagebind/isahc/issues/2) | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (nox) | No | 
 | sxd-document  | Trophy Case | issues/47 | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (CryZe-sec) | No | 
-| image | CVE-2019-16138 | issues/980 | IMP:RAII+UNWIND | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | 
-| image | CVE-2020-35916 | issues/1357 | IMP:MUT | UB | convert mutable ptr from const ptr | dodomorandi | No | 
-| libflate | CVE-2019-15552 | issues/35 | IMP:RAII+UNWIND  | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | 
-| memoffset | CVE-2019-15553 | issues/9 | IMP:RAII+UNWIND | UNINIT | enf. ManuallyDrop late->drop uninit mem  | No (Centril) | No | 
-| linked-hash-map | CVE-2020-25573 | pull/100 | IMP:RAII | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | 
+| image | CVE-2019-16138 | [issues/980](https://github.com/image-rs/image/issues/980) | IMP:RAII+UNWIND | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | 
+| image | CVE-2020-35916 | [issues/1357](https://github.com/image-rs/image/issues/1357) | IMP:MUT | UB | convert mutable ptr from const ptr | dodomorandi | No | 
+| libflate | CVE-2019-15552 | [issues/35](https://github.com/sile/libflate/issues/35) | IMP:RAII+UNWIND  | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | 
+| memoffset | CVE-2019-15553 | [issues/9](https://github.com/Gilnaa/memoffset/issues/9) | IMP:RAII+UNWIND | UNINIT | enf. ManuallyDrop late->drop uninit mem  | No (Centril) | No | 
+| linked-hash-map | CVE-2020-25573 | [pull/100](https://github.com/contain-rs/linked-hash-map/pull/100/) | IMP:RAII | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | 
 | rio | Advisory-DB |  issues/30 | RU:SAFE (API) | UAF | logical error: soundness hole | No (dtolnay-Rust) | No | 
 | bitvec | Advisory-DB | issues/55 | IMP:LOE | UAF | logical error: false assumption | No (kulp-sec) | No | 
 | cbox-rs | Advisory-DB | issues/2 | RU:SAFE (API) | UAF | declare unsafe API as safe | No (eduardosm) | No | 
-| rust-openssl | CVE-2018-20997 | issues/941 | IMP:RAII | UAF | pointer obj lifetime inconsistency/as_ptr() | No (fred-gremlin)| No | 
-| string-interner | CVE-2019-16882 | issues/9 | IMP:TRAIT | UAF | bad derived clone | No (lo48576-deps) | No |  
-| crossbeam | CVE-2018-20996 | issues/82 | IMP:RAII | DF | shared mut aliases+auto drop/+ManuallyDrop | No (c0gent-deps) | No | 
-| crossbeam | Advisory-DB | pull/533 | IMP:LOE | UB->UAF | drop memory not owned | caelunshun | No | 
-| generator-rs | CVE-2019-16144 | issues/11 | IMP:RAII | DF | shared mut aliases+auto drop | No (vOROn200) | No | 
-| generator-rs | Advisory-DB | issues/9 | API:SAFE | UB | func. sign.$\to$deref invalid/null pointer | No (jonas-schievink)| No | 
-| generator-rs | Advisory-DB | issues/13 | GEN (API) | UB | bad func. exposure  | No (jonas-schievink) | No | 
-| generator-rs | Advisory-DB  | issues/14 | GEN (API) | UB | bad func. exposure | No (jonas-schievink)  | No | 
+| rust-openssl | CVE-2018-20997 | [issues/941](https://github.com/sfackler/rust-openssl/issues/941) | IMP:RAII | UAF | pointer obj lifetime inconsistency/as_ptr() | No (fred-gremlin)| No | 
+| string-interner | CVE-2019-16882 | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | IMP:TRAIT | UAF | bad derived clone | No (lo48576-deps) | No |  
+| crossbeam | CVE-2018-20996 | [issues/82](https://github.com/crossbeam-rs/crossbeam/issues/82) | IMP:RAII | DF | shared mut aliases+auto drop/+ManuallyDrop | No (c0gent-deps) | No | 
+| crossbeam | Advisory-DB | [pull/533](https://github.com/crossbeam-rs/crossbeam/pull/533) | IMP:LOE | UB->UAF | drop memory not owned | caelunshun | No | 
+| generator-rs | CVE-2019-16144 | [issues/11](https://github.com/Xudong-Huang/generator-rs/issues/11) | IMP:RAII | DF | shared mut aliases+auto drop | No (vOROn200) | No | 
+| generator-rs | Advisory-DB | [issues/9](https://github.com/Xudong-Huang/generator-rs/issues/9) | API:SAFE | UB | func. sign.$\to$deref invalid/null pointer | No (jonas-schievink)| No | 
+| generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | GEN (API) | UB | bad func. exposure  | No (jonas-schievink) | No | 
+| generator-rs | Advisory-DB  | [issues/14](https://github.com/Xudong-Huang/generator-rs/issues/14) | GEN (API) | UB | bad func. exposure | No (jonas-schievink)  | No | 
 | linea | CVE-2019-16880 | issues/1 | IMP:RAII+UNWIND | DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15)| No | 
 | portaudio-rs | CVE-2019-16881 | issues/20 | IMP:RAII | DP:DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15) | No | 
 | http | CVE-2020-25574 | issues/354 | IMP:RAII | DF | buf. shrinking too late (rely on drop) | No (Qwaz-sec) | No | 
