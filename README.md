@@ -122,10 +122,10 @@
 | generator-rs | Advisory-DB | [issues/9](https://github.com/Xudong-Huang/generator-rs/issues/9) | API:SAFE | UB | func. sign.$\to$deref invalid/null pointer | No (jonas-schievink)| No | 
 | generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | GEN (API) | UB | bad func. exposure  | No (jonas-schievink) | No | 
 | generator-rs | Advisory-DB  | [issues/14](https://github.com/Xudong-Huang/generator-rs/issues/14) | GEN (API) | UB | bad func. exposure | No (jonas-schievink)  | No | 
-| linea | CVE-2019-16880 | issues/1 | IMP:RAII+UNWIND | DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15)| No | 
-| portaudio-rs | CVE-2019-16881 | issues/20 | IMP:RAII | DP:DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15) | No | 
-| http | CVE-2020-25574 | issues/354 | IMP:RAII | DF | buf. shrinking too late (rely on drop) | No (Qwaz-sec) | No | 
-| http | Advisory-DB | issues/355* | API:MUT | UB | func. sign.$\to$multiple mutable refs/Send$\to$Sync  | No (Qwaz-sec)  | No | 
+| linea.rs | CVE-2019-16880 | [issues/1](https://github.com/strake/linea.rs/pull/2) | IMP:RAII+UNWIND | DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15)| No | 
+| portaudio-rs | CVE-2019-16881 | [issues/20](https://github.com/mvdnes/portaudio-rs/issues/20) | IMP:RAII | DP:DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15) | No | 
+| http | CVE-2020-25574 | [issues/354](https://github.com/hyperium/http/issues/354) | IMP:RAII | DF | buf. shrinking too late (rely on drop) | No (Qwaz-sec) | No | 
+| http | Advisory-DB | [issues/355*](https://github.com/hyperium/http/issues/355) | API:MUT | UB | func. sign.$\to$multiple mutable refs/Send$\to$Sync  | No (Qwaz-sec)  | No | 
 | internment  | Advisory-DB | issues/11 | IMP:CC+GEN | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
 | spin-rs  | CVE-2019-16137 | issues/65 | IMP:CC+GEN | UB | impl error: Ordering::Relaxed$\to$Release | No (64) | No | 
 | vm-memory | CVE-2020-13759 | issues/93 | IMP:CC+GEN | UB | volatile mem acc/ptr::write()$\to$write_volatile() | No (andreeaflorescu-deps)| No | 
