@@ -17,7 +17,7 @@
 | rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | IMP:CC+DESIGN | UB->UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
 | rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | API:TRAIT+DESIGN | BO->OOR | soundness hole (Placer) | andy-hanson | No | 
 | rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | API:CC | CC->UAF | bypassing sync/send check（Cell as fmt::Arguments） | cuviper-Rust | No | 
-| rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | IMP:SIGN+FFI+CC+SYS | UAF | Fn should be unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
+| rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | IMP:FFI+EH+CC+SYS | UAF | multi-thread unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
 | rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | IMP:ARO+SYS | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
 | rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | IMP:RAII | UNINIT | free uninitialized mem (Weak) | jleedev | No | 
 | rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | IMP:LOE+CC | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
