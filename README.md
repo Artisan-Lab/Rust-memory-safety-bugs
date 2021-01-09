@@ -10,8 +10,8 @@
 | rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | IMP:FFI+CC+SYS+MODEL | UB->UAF | setenv is unsafe | bluss-Rust | No | 
 | rust-std | GitHub | [issues/33770](https://github.com/rust-lang/rust/issues/33770) | IMP:FFI+CC+MODEL | UB->UAF | glibc recursive lock is UB->shared mut aliases | Amanieu | No | 
 | rust-std | GitHub | [issues/35836](https://github.com/rust-lang/rust/issues/35836) | IMP:FFI+CC+MODEL | UB->UAF | recursive RWlock on Windows is UB | retep998-Rust | No | 
-| rust-std | GitHub | [issues/39465](https://github.com/rust-lang/rust/issues/39465) | API:SIGN | UB->DP | Fn signature issue->shared mut aliases | christophebiocca | No | 
-| rust-std | GitHub | [issues/39575](https://github.com/rust-lang/rust/issues/39575) | API:SIGN+FFI+CC | UB | should be unsafe, UB according to POSIX (CommandExt::before_exec) | fweimer | No | 
+| rust-std | GitHub | [issues/39465](https://github.com/rust-lang/rust/issues/39465) | API:SIG | UB->DP | Fn signature issue->shared mut aliases | christophebiocca | No | 
+| rust-std | GitHub | [issues/39575](https://github.com/rust-lang/rust/issues/39575) | API:SIG+FFI+CC | UB | should be unsafe, UB according to POSIX (CommandExt::before_exec) | fweimer | No | 
 | rust-std | GitHub | [issues/42135](https://github.com/rust-lang/rust/issues/42135) | IMP:COND | UB->OOR | error related to unsafe trait (TrustedLen) | scottmcm-Rust | No | 
 | rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | IMP:TRAIT+ZST | UB->OOR | interators over ZST slices are undefined->random addr （Iter+ZST） | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | IMP:CC+DESIGN | UB->UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
@@ -36,15 +36,15 @@
 | rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:COND | UB->\*UAF | incorrect boundary check (VecDeque) | ayourtch | No |
 | rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | IMP:COND | UB->\*UAF | incorrect boundary check (VecDeque)-79808 | Aratz | No |
 | rustc (fake-static) | Advisory-DB | [issues/25860](https://github.com/rust-lang/rust/issues/25860) | API:LIFE | UB->UAF | type system issue->lifetime inconsistency | No (aturon-Rust)| No | 
-| arrayfire-rust  | CVE-2018-20998  | issues/176 | IMP:FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
-| ncurses | CVE-2019-15547 | issues/172 | API:SAFE+FFI | OOR | FFI-unchecked argument/printw() | thomcc | No | 
-| ncurses | CVE-2019-15548 | issues/186 | API:SAFE+FFI | OOR | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
-| rusqlite | Advisory-DB | pull/708 | API:SAFE+FFI | OOR | FFI-unchecked argument/sqlite3_log() | thomcc-deps| No | 
-| rusqlite | Advisory-DB | issues/703 | API:LIFE | UB->UAF | func. sign.: lifetime declaration | No (gwenn-deps) | No | 
-| rust-base64 | CVE-2017-1000430 | issues/28 | IMP:ARO | OOR | arithmatic overflow + unsafe write | No (alicemaz) | No | 
-| failure | CVE-2020-25575 | issues/336 | API:RU:SAFE | OOR | downcast$\to$mem misalign/private_get_type_id() | No (Qwaz-sec) | No | 
+| arrayfire-rust  | CVE-2018-20998 | [issues/176](https://github.com/arrayfire/arrayfire-rust/issues/176) | IMP:FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
+| ncurses | CVE-2019-15547 | [issues/172](https://github.com/jeaye/ncurses-rs/issues/172) | API:SIG+FFI | OOR | FFI-unchecked argument/printw() | thomcc | No | 
+| ncurses | CVE-2019-15548 | [issues/186](https://github.com/jeaye/ncurses-rs/issues/186) | API:SIG+FFI | OOR | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
+| rusqlite | Advisory-DB | pull/708 | API:SIG+FFI | OOR | FFI-unchecked argument/sqlite3_log() | thomcc-deps| No | 
+| rusqlite | Advisory-DB | issues/703 | API:SIG | UB->UAF | func. sign.: lifetime declaration | No (gwenn-deps) | No | 
+| rust-base64 | CVE-2017-1000430 | [issues/28](https://github.com/marshallpierce/rust-base64/issues/28) | IMP:ARO | OOR | arithmatic overflow + unsafe write | No (alicemaz) | No | 
+| failure | CVE-2020-25575 | [issues/336](https://github.com/rust-lang-nursery/failure/issues/336) | API:SIG | OOR | SAFE downcast$\to$mem misalign/private_get_type_id() | No (Qwaz-sec) | No | 
 | bumpalo | Advisory-DB | issues/69 | IMP:LOE | OOR(Read) | wrong buffer size + unsafe write | No (Riey-deps)| No | 
-| compact_arena  | CVE-2019-16139 | issues/22 | IMP:DROP+LIFE | OOR(Read) | NLL issue->Index trait/get_unchecked() | No (CAD97) | No | 
+| compact_arena  | CVE-2019-16139 | issues/22 | \*IMP:DROP+LIFE | OOR(Read) | NLL issue->Index trait/get_unchecked() | No (CAD97) | No | 
 | lz4_flex | Trophy | - | IMP:LOE | OOR | logical error in space allocation | Pascal Seitz-sec | No | 
 | ozone | Advisory-DB | RUSTSEC-2020-0022:1 | API:SAFE | OOR:BOR | context issue->Index trait | No (n.a.) | No | 
 | ozone | Advisory-DB | RUSTSEC-2020-0022:2 | IMP:RAII | DP:DUN | implement drop with uninit mem | No (n.a.)| No | 
