@@ -158,7 +158,7 @@
 | wint | GitHub | issues/599 | IMP:CC | UB | non-atomic cell for multi-thread apps | andrewhickman | No | 
 | wint | GitHub | pull/611 | IMP:CC | UB | non-atomic cell for multi-thread apps | francesca64-dev | No | 
 | wint | GitHub | issues/1745 | IMP:LOE | UAF | logical error | qthree | No | 
-| Tokio | CVE-2020-35922 | issues/1386 | FFI | UB | assumes the same layout of FFI | Nemo157-Rust | No | 
+| Tokio | CVE-2020-35922 | [issues/1386](https://github.com/tokio-rs/tokio/issues/1386) | FFI | UB | assumes the same layout of FFI | Nemo157-Rust | No | 
 | Tokio | GitHub | *pull/254 |  | DP:UAF | | seanmonstar-dev | No | 
 | Tokio | GitHub | issues/354 | IMP: | UNINIT | uninit memory for Vec<u8> with set_len() | udoprog | No | 
 | Tokio | GitHub | issues/593 | :CC |  | | NPN |
