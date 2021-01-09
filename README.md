@@ -52,18 +52,18 @@
 | safe-transmute | CVE-2018-21000 | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | IMP:LOE | OOR | logical error + unsafe write | No (Enet4-deps)| No | 
 | slice-deque | CVE-2018-20995 | [issues/57](https://github.com/gnzlbg/slice_deque/issues/57) | IMP:LOE | OOR | error in boundary check + unsafe write | No (aldanor-deps) | No | 
 | slice-deque | CVE-2019-15543 | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | IMP:LOE | OOR | logical error->memory misalignment | No (zimond) | No | 
-| rust-smallvec | CVE-2019-15554 | [issues/149]((https://github.com/servo/rust-smallvec/issues/149) | IMP:LOE | OOR | logical error + unsafe write | No (ehuss) | No | 
+| rust-smallvec | CVE-2019-15554 | [issues/149](https://github.com/servo/rust-smallvec/issues/149) | IMP:LOE | OOR | logical error + unsafe write | No (ehuss) | No | 
 | rust-smallvec | Advisory-DB | [issues/126](https://github.com/servo/rust-smallvec/issues/126) | IMP:RAII+UNWIND | UNINIT | init vector with mem:uninitialized() | No (mbrubeck) | No | 
 | rust-smallvec | CVE-2019-15551 | [issues/148](https://github.com/servo/rust-smallvec/issues/148) | IMP:LOE | DP:UAF | logical error + unsafe deallocation | No (ehuss) | No | 
 | rust-smallvec | CVE-2018-20991 | [issues/96](https://github.com/servo/rust-smallvec/issues/96) | IMP:RAII+UNWIND | DF | buffer shrinking too late | No (Vurich) | No | 
 | simd-json | CVE-2019-15550 | [pull/27](https://github.com/simd-lite/simd-json/pull/27) | IMP:LOE | OOR | logical error->mem misalign/get_unchecked() | No (Licenser-deps) | No | 
 | v_espace | Trophy Case | issues/47 | IMP:LOE | OOR | logical error->mem misalign | \_mm_load_si128() | No (tmiasko) | No | 
-| sized-chunks | CVE-2020-25791 | issues/11:unit | API:LOE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | CVE-2020-25792 | issues/11:pair | API:LOE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | CVE-2020-25793 | issues/11:From | API:LOE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | CVE-2020-25796 | issues/11:InlineArray | API:LOE | OOR:BO | no input check->memory misalignment | No (Qwaz-sec) | No | 
-| sized-chunks | CVE-2020-25794 | issues/11:clone | IMP:RAII+UNWIND | UNINIT | panic->drop uninitialized memory | No (Qwaz-sec)  | No | 
-| sized-chunks | CVE-2020-25795 | issues/11:insert_from | IMP:RAII+UNWIND | UNINIT | panic $\to$ rop uninitialized memory | No (Qwaz-sec)  | No | 
+| sized-chunks | CVE-2020-25791 | [issues/11:unit](https://github.com/bodil/sized-chunks/issues/11) | API:LOE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
+| sized-chunks | CVE-2020-25792 | [issues/11:pair](https://github.com/bodil/sized-chunks/issues/11) | API:LOE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
+| sized-chunks | CVE-2020-25793 | [issues/11:From](https://github.com/bodil/sized-chunks/issues/11) | API:LOE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
+| sized-chunks | CVE-2020-25796 | [issues/11:InlineArray](https://github.com/bodil/sized-chunks/issues/11) | API:LOE | OOR:BO | no input check->memory misalignment | No (Qwaz-sec) | No | 
+| sized-chunks | CVE-2020-25794 | [issues/11:clone](https://github.com/bodil/sized-chunks/issues/11) | IMP:RAII+UNWIND | UNINIT | panic->drop uninitialized memory | No (Qwaz-sec)  | No | 
+| sized-chunks | CVE-2020-25795 | [issues/11:insert_from](https://github.com/bodil/sized-chunks/issues/11) | IMP:RAII+UNWIND | UNINIT | panic $\to$ rop uninitialized memory | No (Qwaz-sec)  | No | 
 | actix-net | Advisory-DB | issues/91 |  | UAF | | sebzim4500 | No | 
 | actix-net | Advisory-DB | pull/158 | API:RC | UB->UAF | replace Cell with RefCell | Shnatsel  | No | 
 | actix-net | Advisory-DB | issues/160 | API:RC | UB->UAF | replace Cell with RefCell | Shnatsel | No | 
@@ -96,14 +96,14 @@
 | parking_lot | CVE-2020-35912 | [MappedRwLockWriteGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TRAIT+CC+GENERICS | CC->UAF |  lack send bound | ammaraskar-Sec | No |  
 | parking_lot | CVE-2020-35913 | [RwLockReadGuard](https://github.com/Amanieu/parking_lot/issues/259) | API:TRAIT+CC+GENERICS | CC->UAF |  lack sync bound | ammaraskar-Sec | No | 
 | parking_lot | CVE-2020-35914 | [RwLockWriteGuard](https://github.com/Amanieu/parking_lot/issues/259) | API:TRAIT+CC+GENERICS | CC->UAF |  lack sync bound | ammaraskar-Sec | No | 
-| magnetic | CVE-2020-35925 | issues/9 | API:TRAIT+CC+GENERICS | CC->UAF | lack send/sync bound | JOE1994-Sec | No | 
-| miow | CVE-2020-35921 | issues/38 | FFI | UB | assumes the same layout of FFI | faern | No | 
-| net2-rs | CVE-2020-35920 | issues/105 | FFI | UB | assumes the same layout of FFI | Thomasdezeeuw | No |  
-| rust-ordered-float | CVE-2020-35923 | pull/71 | IMP:LOE | UB | panic may cause UB | branpk | No |  
-| pyo3 | CVE-2020-35917 | pull/1297 | IMP:LOE+RAII | IMP：UAF | unthought of dropping | davidhewitt | No |  
+| magnetic | CVE-2020-35925 | [issues/9](https://github.com/johnshaw/magnetic/issues/9) | API:TRAIT+CC+GENERICS | CC->UAF | lack send/sync bound | JOE1994-Sec | No | 
+| miow | CVE-2020-35921 | [issues/38](https://github.com/yoshuawuyts/miow/issues/38) | FFI | UB | assumes the same layout of FFI | faern | No | 
+| net2-rs | CVE-2020-35920 | [issues/105](https://github.com/deprecrated/net2-rs/issues/105) | FFI | UB | assumes the same layout of FFI | Thomasdezeeuw | No |  
+| rust-ordered-float | CVE-2020-35923 | [pull/71](https://github.com/reem/rust-ordered-float/pull/71) | IMP:LOE | UB | panic may cause UB | branpk | No |  
+| pyo3 | CVE-2020-35917 | [pull/1297](https://github.com/PyO3/pyo3/pull/1297) | IMP:LOE+RAII | IMP：UAF | unthought of dropping | davidhewitt | No |  
 | thex | CVE-2020-35927 | - | API:TRAIT+GENERICS+CC | CC->UAF | lack send/sync bound | Qwaz-Sec | No |  
-| time | CVE-2020-26235 | issues/293 | CC+SYS | CC->UAF | call non-atomic system functions | quininer | No |  
-| try-mutex | CVE-2020-35924 | issues/2 | API:TRAIT+GENERICS+CC | RC$\to$UAF | lack send/sync bound | ammaraskar-Sec | No |  
+| time | CVE-2020-26235 | [issues/293](https://github.com/time-rs/time/issues/293) | CC+SYS | CC->UAF | call non-atomic system functions | quininer | No |  
+| try-mutex | CVE-2020-35924 | [issues/2](https://github.com/mpdn/try-mutex/issues/2) | API:TRAIT+GENERICS+CC | RC$\to$UAF | lack send/sync bound | ammaraskar-Sec | No |  
 | isahc | CVE-2019-16140 | issues/2 | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (nox) | No | 
 | sxd-document  | Trophy Case | issues/47 | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (CryZe-sec) | No | 
 | image | CVE-2019-16138 | issues/980 | IMP:RAII+UNWIND | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | 
