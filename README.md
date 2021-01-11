@@ -107,7 +107,7 @@
 | isahc | **CVE-2019-16140** | [issues/2](https://github.com/sagebind/isahc/issues/2) | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (nox) | No | 
 | sxd-document  | Trophy Case | issues/47 | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (CryZe-sec) | No | 
 | image | **CVE-2019-16138** | [issues/980](https://github.com/image-rs/image/issues/980) | IMP:UNWIND+RAII | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | 
-| image | **CVE-2020-35916** | [issues/1357](https://github.com/image-rs/image/issues/1357) | IMP:SIGMUT | UB | convert mutable ptr from const ptr | dodomorandi | No | 
+| image | **CVE-2020-35916** | [issues/1357](https://github.com/image-rs/image/issues/1357) | IMP:LOE+MUT | UB | convert mutable ptr from const ptr | dodomorandi | No | 
 | libflate | **CVE-2019-15552** | [issues/35](https://github.com/sile/libflate/issues/35) | IMP:RAII+UNWIND  | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | 
 | memoffset | **CVE-2019-15553** | [issues/9](https://github.com/Gilnaa/memoffset/issues/9) | IMP:RAII+UNWIND | UNINIT | enf. ManuallyDrop late->drop uninit mem  | No (Centril) | No | 
 | linked-hash-map | **CVE-2020-25573** | [pull/100](https://github.com/contain-rs/linked-hash-map/pull/100/) | IMP:RAII | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | 
