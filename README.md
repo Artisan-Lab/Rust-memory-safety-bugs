@@ -17,28 +17,28 @@
 | rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | IMP:CC+DESIGN | UB->UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
 | rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | API:TRAIT+DESIGN | BO->OOR | soundness hole (Placer) | andy-hanson | No | 
 | rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | API:TRAIT+CC | CC->UAF | bypassing sync/send check（Cell as fmt::Arguments） | cuviper-Rust | No | 
-| rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | IMP:FFI+EH+CC+SYS | UAF | multi-thread unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
+| rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | IMP:FFI+CC+SYS | UAF | multi-thread unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
 | rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | IMP:ARO+SYS | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
 | rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | IMP:RAII | UNINIT | free uninitialized mem (Weak) | jleedev | No | 
-| rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | IMP:CC | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
-| rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | IMP:LOE+LLVM+ZST | UB | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
+| rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | IMP:EAPI(MEM)+CC | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
+| rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | IMP:LOE+TYPE(ZST)+LLVM | UB | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | IMP:LOE | OOR | misaligned reference （RC，ARC） | RalfJung | No | 
 | rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | IMP:LOE | UB->OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
-| rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | IMP:CC+SYS+FFI | UAF | thread local variables is freed before \_tlv_atexit (thread_local) | mtak- | May | 
+| rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | IMP:FFI+CC+SYS | UAF | thread local variables is freed before \_tlv_atexit (thread_local) | mtak- | May | 
 | rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | IMP:UNWIND+RAII | DF | double free while panic (Vec::drain_filter) | rustonaut | No | 
 | rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | API:TRAIT+GENERIC | UB->UAF | soundness holes of when impl DerefMut/Clone (Pin) | comex |
-| rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | API:TRAIT | UB->OOR | soundness holes when impl PartialEq (RangeInclusive) | comex | No | 
+| rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | API:TRAIT+SPEC | UB->OOR | violate the always applicable test (PartialEq for RangeInclusive) | comex | No | 
 | rust-std | GitHub | [issues/72624](https://github.com/rust-lang/rust/issues/72624) | IMP:ARO | OOR | possible arithmatic overflow (DroplessArena::alloc_raw) | bluss-Rust | No |
-| rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | IMP:LOE | UB | invalid UTF-8 | RalfJung-Rust | No |
+| rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | IMP:LOE+TYPE | UB | invalid UTF-8 | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | IMP:RAII+CC | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
 | rust-std | GitHub | [issues/78477](https://github.com/rust-lang/rust/issues/78477) | IMP:LOE | UNKNOWN | violate pointer provenance rules | RalfJung-Rust | No |
-| rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | IMP:UNWIND | UB | invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
+| rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | IMP:UNWIND+TYPE | UB | invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
 | rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:COND | UB->\*UAF | incorrect boundary check (VecDeque) | ayourtch | No |
 | rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | IMP:COND | UB->\*UAF | incorrect boundary check (VecDeque)-79808 | Aratz | No |
 | rustc (fake-static) | Advisory-DB | [issues/25860](https://github.com/rust-lang/rust/issues/25860) | API:LIFE | UB->UAF | type system issue->lifetime inconsistency | No (aturon-Rust)| No | 
 | arrayfire-rust  | **CVE-2018-20998** | [issues/176](https://github.com/arrayfire/arrayfire-rust/issues/176) | IMP:FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
-| ncurses | **CVE-2019-15547** | [issues/172](https://github.com/jeaye/ncurses-rs/issues/172) | API:SIG+FFI | OOR | FFI-unchecked argument/printw() | thomcc | No | 
-| ncurses | **CVE-2019-15548** | [issues/186](https://github.com/jeaye/ncurses-rs/issues/186) | API:SIG+FFI | OOR | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
+| ncurses | **CVE-2019-15547** | [issues/172](https://github.com/jeaye/ncurses-rs/issues/172) | API:SIG+FFI+INPUT | OOR | FFI-unchecked argument/printw() | thomcc | No | 
+| ncurses | **CVE-2019-15548** | [issues/186](https://github.com/jeaye/ncurses-rs/issues/186) | API:SIG+FFI+INPUT | OOR | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
 | rusqlite | Advisory-DB | pull/708 | API:SIG+FFI | OOR | FFI-unchecked argument/sqlite3_log() | thomcc-deps| No | 
 | rusqlite | Advisory-DB | issues/703 | API:SIG | UB->UAF | func. sign.: lifetime declaration | No (gwenn-deps) | No | 
 | rust-base64 | **CVE-2017-1000430** | [issues/28](https://github.com/marshallpierce/rust-base64/issues/28) | IMP:ARO | OOR | arithmatic overflow + unsafe write | No (alicemaz) | No | 
@@ -49,9 +49,9 @@
 | ozone | Advisory-DB | RUSTSEC-2020-0022:1 | API:SAFE | OOR:BOR | context issue->Index trait | No (n.a.) | No | 
 | ozone | Advisory-DB | RUSTSEC-2020-0022:2 | IMP:RAII | DP:DUN | implement drop with uninit mem | No (n.a.)| No | 
 | prost | Advisory/Trophy | issues/267 | IMP:LOE | OOR | logical error in recursion + unsafe write | No (dbrgn-sec) | No | 
-| safe-transmute | **CVE-2018-21000** | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | IMP:LOE | OOR | wrong param order of from_raw_parts() | No (Enet4-deps)| No | 
+| safe-transmute | **CVE-2018-21000** | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | IMP:EAPI | OOR | wrong param order of from_raw_parts() | No (Enet4-deps)| No | 
 | slice-deque | **CVE-2018-20995** | [issues/57](https://github.com/gnzlbg/slice_deque/issues/57) | IMP:COND | OOR | error in boundary check + unsafe write | No (aldanor-deps) | No | 
-| slice-deque | **CVE-2019-15543** | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | IMP:LOE | OOR | logical error->memory misalignment | No (zimond) | No | 
+| slice-deque | **CVE-2019-15543** | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | IMP:COND+LOE | OOR | logical error->memory misalignment | No (zimond) | No | 
 | rust-smallvec | **CVE-2019-15554** | [issues/149](https://github.com/servo/rust-smallvec/issues/149) | IMP:LOE | OOR | logical error + unsafe write | No (ehuss) | No | 
 | rust-smallvec | Advisory-DB | [issues/126](https://github.com/servo/rust-smallvec/issues/126) | IMP:RAII+UNWIND | UNINIT | init vector with mem:uninitialized() | No (mbrubeck) | No | 
 | rust-smallvec | **CVE-2019-15551** | [issues/148](https://github.com/servo/rust-smallvec/issues/148) | IMP:LOE | UAF | logical error in manuall deallocation | No (ehuss) | No | 
@@ -103,7 +103,7 @@
 | pyo3 | **CVE-2020-35917** | [pull/1297](https://github.com/PyO3/pyo3/pull/1297) | IMP:LOE+RAII | IMP：UAF | unthought of dropping | davidhewitt | No |  
 | thex | **CVE-2020-35927** | - | API:TRAIT+GENERICS+CC | UB->UAF | lack send/sync bound | Qwaz-Sec | No |  
 | time | **CVE-2020-26235** | [issues/293](https://github.com/time-rs/time/issues/293) | FFI+CC+SYS | UB->UAF | call non-atomic libc functions (setenv) | quininer | <-> |  
-| try-mutex | **CVE-2020-35924** | [issues/2](https://github.com/mpdn/try-mutex/issues/2) | API:TRAIT+GENERICS+CC | UB$\to$UAF | lack send/sync bound | ammaraskar-Sec | No |  
+| try-mutex | **CVE-2020-35924** | [issues/2](https://github.com/mpdn/try-mutex/issues/2) | API:TRAIT+CC | UB->UAF | lack send/sync bound | ammaraskar-Sec | No |  
 | isahc | **CVE-2019-16140** | [issues/2](https://github.com/sagebind/isahc/issues/2) | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (nox) | No | 
 | sxd-document  | Trophy Case | issues/47 | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (CryZe-sec) | No | 
 | image | **CVE-2019-16138** | [issues/980](https://github.com/image-rs/image/issues/980) | IMP:UNWIND+RAII | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | 
