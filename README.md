@@ -127,7 +127,7 @@
 | http | CVE-2020-25574 | [issues/354](https://github.com/hyperium/http/issues/354) | IMP:RAII | DF | buf. shrinking too late (rely on drop) | No (Qwaz-sec) | No | 
 | http | Advisory-DB | [issues/355*](https://github.com/hyperium/http/issues/355) | API:TRAIT+LIFETIME | UB->UAF | lack lifetime bound->multile mut refs  | No (Qwaz-sec)  | No | 
 | internment | Advisory-DB | issues/11 | IMP:CC+GEN | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
-| spin-rs  | CVE-2019-16137 | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | IMP:EAPI+CC | UB | impl error: Ordering::Relaxed$\to$Release | No (64) | No | 
+| spin-rs  | CVE-2019-16137 | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | IMP:EAPI+CC | UB->UAF | impl error: Ordering::Relaxed$\to$Release | No (64) | No | 
 | vm-memory | CVE-2020-13759 | [issues/93](https://github.com/rust-vmm/vm-memory/issues/93) | IMP:EAPI+RW+CC | UB | volatile mem acc/ptr::write()$\to$write_volatile() | No (andreeaflorescu-deps)| No | 
 | teaclave-sgx-sdk  | CVE-2020-5499 | www.mitre.org | API:CC+LOE | UB | may init twice by another thread/+Once::new() | No (Chen-sec) | No | 
 | claxon  | CVE-2018-20992/Trophy | [issues/10](https://github.com/ruuda/claxon/issues/10) | IMP:LOE | UNINIT->DL | unsafe buf alloc$\to$read unit mem/Vec::set_len() | No (Shnatsel-sec)| No | 
