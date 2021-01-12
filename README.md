@@ -107,7 +107,7 @@
 | isahc | **CVE-2019-16140** | [issues/2](https://github.com/sagebind/isahc/issues/2) | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (nox) | No | 
 | sxd-document  | Trophy Case | issues/47 | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (CryZe-sec) | No | 
 | image | **CVE-2019-16138** | [issues/980](https://github.com/image-rs/image/issues/980) | IMP:UNWIND+RAII | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | 
-| image | **CVE-2020-35916** | [issues/1357](https://github.com/image-rs/image/issues/1357) | IMP:LOE+MUT | UB | convert mutable ptr from const ptr | dodomorandi | No | 
+| image | **CVE-2020-35916** | [issues/1357](https://github.com/image-rs/image/issues/1357) | IMP:EAPI+MUT | UB | convert mutable ptr from const ptr | dodomorandi | No | 
 | libflate | **CVE-2019-15552** | [issues/35](https://github.com/sile/libflate/issues/35) | IMP:RAII+UNWIND  | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | 
 | memoffset | **CVE-2019-15553** | [issues/9](https://github.com/Gilnaa/memoffset/issues/9) | IMP:RAII+UNWIND | UNINIT | enf. ManuallyDrop late->drop uninit mem  | No (Centril) | No | 
 | linked-hash-map | **CVE-2020-25573** | [pull/100](https://github.com/contain-rs/linked-hash-map/pull/100/) | IMP:RAII | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | 
@@ -120,26 +120,26 @@
 | crossbeam | Advisory-DB | [pull/533](https://github.com/crossbeam-rs/crossbeam/pull/533) | IMP:LOE | UB->UAF | drop memory not owned | caelunshun | No | 
 | generator-rs | CVE-2019-16144 | [issues/11](https://github.com/Xudong-Huang/generator-rs/issues/11) | IMP:RAII | DF | shared mut aliases+auto drop | No (vOROn200) | No | 
 | generator-rs | Advisory-DB | [issues/9](https://github.com/Xudong-Huang/generator-rs/issues/9) | API:SAFE | UB | func. sign.$\to$deref invalid/null pointer | No (jonas-schievink)| No | 
-| generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | GEN (API) | UB | bad func. exposure  | No (jonas-schievink) | No | 
-| generator-rs | Advisory-DB  | [issues/14](https://github.com/Xudong-Huang/generator-rs/issues/14) | GEN (API) | UB | bad func. exposure | No (jonas-schievink)  | No | 
-| linea.rs | CVE-2019-16880 | [issues/1](https://github.com/strake/linea.rs/pull/2) | IMP:RAII+UNWIND | DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15)| No | 
+| generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | API | UB | bad func. exposure  | No (jonas-schievink) | No | 
+| generator-rs | Advisory-DB  | [issues/14](https://github.com/Xudong-Huang/generator-rs/issues/14) | API | UB | bad func. exposure | No (jonas-schievink)  | No | 
+| linea.rs | CVE-2019-16880 | [issues/1](https://github.com/strake/linea.rs/pull/2) | IMP:UNWIND+RAII | DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15)| No | 
 | portaudio-rs | CVE-2019-16881 | [issues/20](https://github.com/mvdnes/portaudio-rs/issues/20) | IMP:RAII | DP:DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15) | No | 
 | http | CVE-2020-25574 | [issues/354](https://github.com/hyperium/http/issues/354) | IMP:RAII | DF | buf. shrinking too late (rely on drop) | No (Qwaz-sec) | No | 
-| http | Advisory-DB | [issues/355*](https://github.com/hyperium/http/issues/355) | API:MUT | UB | func. sign.$\to$multiple mutable refs/Send$\to$Sync  | No (Qwaz-sec)  | No | 
-| internment  | Advisory-DB | issues/11 | IMP:CC+GEN | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
-| spin-rs  | CVE-2019-16137 | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | IMP:CC+GEN | UB | impl error: Ordering::Relaxed$\to$Release | No (64) | No | 
-| vm-memory | CVE-2020-13759 | [issues/93](https://github.com/rust-vmm/vm-memory/issues/93) | IMP:CC+GEN | UB | volatile mem acc/ptr::write()$\to$write_volatile() | No (andreeaflorescu-deps)| No | 
+| http | Advisory-DB | [issues/355*](https://github.com/hyperium/http/issues/355) | API:TRAIT+LIFETIME | UB->UAF | lack lifetime bound->multile mut refs  | No (Qwaz-sec)  | No | 
+| internment | Advisory-DB | issues/11 | IMP:CC+GEN | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
+| spin-rs  | CVE-2019-16137 | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | IMP:EAPI+CC | UB | impl error: Ordering::Relaxed$\to$Release | No (64) | No | 
+| vm-memory | CVE-2020-13759 | [issues/93](https://github.com/rust-vmm/vm-memory/issues/93) | IMP:EAPI+RW+CC | UB | volatile mem acc/ptr::write()$\to$write_volatile() | No (andreeaflorescu-deps)| No | 
 | teaclave-sgx-sdk  | CVE-2020-5499 | www.mitre.org | API:CC+LOE | UB | may init twice by another thread/+Once::new() | No (Chen-sec) | No | 
 | claxon  | CVE-2018-20992/Trophy | [issues/10](https://github.com/ruuda/claxon/issues/10) | IMP:LOE | UNINIT->DL | unsafe buf alloc$\to$read unit mem/Vec::set_len() | No (Shnatsel-sec)| No | 
-| rust-rgb | CVE-2020-25016 | [issues/35](https://github.com/kornelski/rust-rgb/issues/35) | RU:Safe (API) | UB | declare unsafe API as safe | No (HeroicKatora) | No | 
-| renderdoc-rs | CVE-2019-16142 | [issues/27](https://github.com/ebkalderon/renderdoc-rs/issues/27) | RU:MUT (API) | UB | func. sign.$\to$unsync. internal mutation | No (ebkalderon-owner) | No | 
+| rust-rgb | CVE-2020-25016 | [issues/35](https://github.com/kornelski/rust-rgb/issues/35) | API:SIG | UB | declare unsafe API as safe | No (HeroicKatora) | No | 
+| renderdoc-rs | CVE-2019-16142 | [issues/27](https://github.com/ebkalderon/renderdoc-rs/issues/27) | API:SIG | UB | mutable (internal mutation) | No (ebkalderon-owner) | No | 
 | rulinalg | Advisory-DB | issues/201 | API:LIFE | UB->UAF | func. sign.:lifetime | No (Qwaz-sec)  | No | 
 | flatbuffers | Advisory-DB | issues/5825 | API:SAFE | UB | func. sign.: safety declaration | No (eduardosm)| No | 
 | flatbuffers | Advisory-DB | issues/5530 | IMP:LOE | UB | logical error->invalid bit pattern for bool | No (nagisa)| No | 
-| once_cell | CVE-2019-16141 | [issues/46](https://github.com/matklad/once_cell/issues/46) | IMP:LOE | UB | unreachable_unchecked()->panic!() | No (xfix-deps) | No | 
+| once_cell | CVE-2019-16141 | [issues/46](https://github.com/matklad/once_cell/issues/46) | IMP::EAPI | UB | unreachable_unchecked()->panic!() | No (xfix-deps) | No | 
 | capnproto-rust | Trophy Case | cargo-fuzz/issues/40 | IMP:LOE | Unsound | logical error | No (dwrensha-sec)| No | 
 | lucet | Advisory-DB | pull/401 | IMP:LOE  | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
-| rand | CVE-2020-25576 | [issues/779](https://github.com/rust-random/rand/issues/779) | IMP:LOE | UB | reading unaligned mem/ptr::read_unaligned() | No (RalfJung-sec)| No | 
+| rand | CVE-2020-25576 | [issues/779](https://github.com/rust-random/rand/issues/779) | IMP:EAPI+R/W+LLVM | UB | reading unaligned mem/ptr::read_unaligned() | No (RalfJung-sec)| No | 
 | servo (exe) | GitHub | issues/1186 | IMP:RAII | DF | impl Drop with unsafe | kmcallister | No | 
 | servo (exe) | GitHub | issues/2412 | IMP:RAII | DF  | *unsafe cast?  |  | No | 
 | servo (exe) | GitHub | issues/14014 | IMP:CC+RAII | UAF |   | pcwalton-deps | No | 
