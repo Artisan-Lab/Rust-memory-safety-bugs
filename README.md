@@ -21,7 +21,7 @@
 | rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | IMP:ARO+SYS | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
 | rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | IMP:RAII | UNINIT | free uninitialized mem (Weak) | jleedev | No | 
 | rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | IMP:EAPI(MEM)+CC | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
-| rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | IMP:TYPE(ZST)+GENERIC+LOE+LLVM | UB | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
+| rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | IMP:TYPE(ZST)+GENERIC+LOE+LLVM | UB->OOR | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | IMP:LOE | OOR | misaligned reference （RC，ARC） | RalfJung | No | 
 | rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | IMP:LOE | UB->OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | IMP:FFI+CC+SYS | UAF | thread local variables is freed before \_tlv_atexit (thread_local) | mtak- | May | 
