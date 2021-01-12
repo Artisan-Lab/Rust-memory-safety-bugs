@@ -46,8 +46,8 @@
 | bumpalo | Advisory-DB | [issues/69](https://github.com/fitzgen/bumpalo/issues/69) | IMP:LOE | OOR(Read) | wrong buffer size + unsafe write | No (Riey-deps)| No | 
 | compact_arena | **CVE-2019-16139** | [issues/22](https://github.com/llogiq/compact_arena/issues/22) | IMP:LOE | UB->OOR | NLL issue->Index trait/get_unchecked() | No (CAD97) | No | 
 | lz4_flex | Trophy | - | IMP:LOE | OOR | logical error in space allocation | Pascal Seitz-sec | No | 
-| ozone | Advisory-DB | RUSTSEC-2020-0022:1 | API:SAFE | OOR:BOR | context issue->Index trait | No (n.a.) | No | 
-| ozone | Advisory-DB | RUSTSEC-2020-0022:2 | IMP:RAII | DP:DUN | implement drop with uninit mem | No (n.a.)| No | 
+| ozone | Advisory-DB | RUSTSEC-2020-0022:1 | API:SAFE | OOR(Read) | context issue->Index trait | No (n.a.) | No | 
+| ozone | Advisory-DB | RUSTSEC-2020-0022:2 | IMP:RAII | UNINIT | implement drop with uninit mem | No (n.a.)| No | 
 | prost | Advisory/Trophy | issues/267 | IMP:LOE | OOR | logical error in recursion + unsafe write | No (dbrgn-sec) | No | 
 | safe-transmute | **CVE-2018-21000** | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | IMP:EAPI | OOR | wrong param order of from_raw_parts() | No (Enet4-deps)| No | 
 | slice-deque | **CVE-2018-20995** | [issues/57](https://github.com/gnzlbg/slice_deque/issues/57) | IMP:COND | OOR | error in boundary check + unsafe write | No (aldanor-deps) | No | 
@@ -122,8 +122,8 @@
 | generator-rs | Advisory-DB | [issues/9](https://github.com/Xudong-Huang/generator-rs/issues/9) | API:SAFE | UB | func. sign.$\to$deref invalid/null pointer | No (jonas-schievink)| No | 
 | generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | API | UB | bad func. exposure  | No (jonas-schievink) | No | 
 | generator-rs | Advisory-DB  | [issues/14](https://github.com/Xudong-Huang/generator-rs/issues/14) | API | UB | bad func. exposure | No (jonas-schievink)  | No | 
-| linea.rs | CVE-2019-16880 | [issues/1](https://github.com/strake/linea.rs/pull/2) | IMP:UNWIND+RAII | DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15)| No | 
-| portaudio-rs | CVE-2019-16881 | [issues/20](https://github.com/mvdnes/portaudio-rs/issues/20) | IMP:RAII | DP:DF | enf. ManuallyDrop late$\to$drop twice | No (Phosphorus15) | No | 
+| linea.rs | CVE-2019-16880 | [issues/1](https://github.com/strake/linea.rs/pull/2) | IMP:UNWIND+RAII | DF | enf. ManuallyDrop late | No (Phosphorus15)| No | 
+| portaudio-rs | CVE-2019-16881 | [issues/20](https://github.com/mvdnes/portaudio-rs/issues/20) | IMP:UNWIND+RAII | DF | enf. ManuallyDrop late | No (Phosphorus15) | No | 
 | http | CVE-2020-25574 | [issues/354](https://github.com/hyperium/http/issues/354) | IMP:RAII | DF | buf. shrinking too late (rely on drop) | No (Qwaz-sec) | No | 
 | http | Advisory-DB | [issues/355*](https://github.com/hyperium/http/issues/355) | API:TRAIT+LIFETIME | UB->UAF | lack lifetime bound->multile mut refs  | No (Qwaz-sec)  | No | 
 | internment | Advisory-DB | issues/11 | IMP:CC+GEN | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
@@ -151,7 +151,7 @@
 | wasmer (exe) | GitHub | pull/1206 | IMP:SAFE | Unsound | possible to create shared mutable aliases | MarkMcCaskey-dev | No | 
 | wasmer (exe) | GitHub | pull/1209 | IMP:SAFE | CC:DR | multiple Cells for the same memory | MarkMcCaskey-dev | No | 
 | wasmer (exe) | GitHub | pull/1837 | IMP:SAFE | Unsound | declare unsafe API as safe | MarkMcCaskey-dev | No | 
-| wasmer (exe) | GitHub | issues/1568 | RAII: | DP:UAF | shared mutable alises (slice+to_vec()) | Hywan-dev | No | 
+| wasmer (exe) | GitHub | issues/1568 | RAII: | UAF | shared mutable alises (slice+to_vec()) | Hywan-dev | No | 
 | alacritty (exe) | GitHub | pull/4397 | IMP:MODEL | UAF | shared mut aliases (ptr::copy->clone) | kchibisov-dev | No | 
 | alacritty (exe) | GitHub | pull/2176  | IMP:LOE | UAF | logical error (+as_ref()) | aspurdy | No | 
 | diem-libra (exe) | GitHub | pull/1949 | API:LIFE | UAF | ineffective lifetime restriction | dtolnay-Rust  |
@@ -159,7 +159,7 @@
 | wint | GitHub | pull/611 | IMP:CC | UB | non-atomic cell for multi-thread apps | francesca64-dev | No | 
 | wint | GitHub | issues/1745 | IMP:LOE | UAF | logical error | qthree | No | 
 | Tokio | CVE-2020-35922 | [issues/1386](https://github.com/tokio-rs/tokio/issues/1386) | FFI | UB | assumes the same layout of FFI | Nemo157-Rust | No | 
-| Tokio | GitHub | *pull/254 |  | DP:UAF | | seanmonstar-dev | No | 
+| Tokio | GitHub | *pull/254 |  | UAF | | seanmonstar-dev | No | 
 | Tokio | GitHub | issues/354 | IMP: | UNINIT | uninit memory for Vec<u8> with set_len() | udoprog | No | 
 | Tokio | GitHub | issues/593 | :CC |  | | NPN |
 | Tokio | GitHub | pull/2030/ | API: | OOR | trait safety | Marwes | 
