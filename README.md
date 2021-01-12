@@ -100,7 +100,7 @@
 | miow | **CVE-2020-35921** | [issues/38](https://github.com/yoshuawuyts/miow/issues/38) | FFI | UB | assumes the same layout of FFI | faern | No | 
 | net2-rs | **CVE-2020-35920** | [issues/105](https://github.com/deprecrated/net2-rs/issues/105) | FFI | UB | assumes the same layout of FFI | Thomasdezeeuw | No |  
 | rust-ordered-float | **CVE-2020-35923** | [pull/71](https://github.com/reem/rust-ordered-float/pull/71) | IMP:LOE | UB | panic may cause UB | branpk | No |  
-| pyo3 | **CVE-2020-35917** | [pull/1297](https://github.com/PyO3/pyo3/pull/1297) | IMP:LOE+RAII | IMP：UAF | unthought of dropping | davidhewitt | No |  
+| pyo3 | **CVE-2020-35917** | [pull/1297](https://github.com/PyO3/pyo3/pull/1297) | IMP:RAII+LOE | IMP：UAF | unthought of dropping | davidhewitt | No |  
 | thex | **CVE-2020-35927** | - | API:TRAIT+GENERICS+CC | UB->UAF | lack send/sync bound | Qwaz-Sec | No |  
 | time | **CVE-2020-26235** | [issues/293](https://github.com/time-rs/time/issues/293) | FFI+CC+SYS | UB->UAF | call non-atomic libc functions (setenv) | quininer | <-> |  
 | try-mutex | **CVE-2020-35924** | [issues/2](https://github.com/mpdn/try-mutex/issues/2) | API:TRAIT+CC | UB->UAF | lack send/sync bound | ammaraskar-Sec | No |  
