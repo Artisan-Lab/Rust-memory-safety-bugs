@@ -83,7 +83,7 @@
 | atom | Advisory-DB | issues/13 | API:TRAIT | UB->UAF | lack send/sync bound | ammaraskar-Sec | No | 
 | chunky | Advisory-DB |issues/2 | IMP:LOE | OOR | API ignores memory alignment requirement | Qwaz-Sec  | No | 
 | dync | Advisory-DB | issues/4 | IMP:LOE | OOR | memory misalignment | ammaraskar-Sec | No | 
-| concread | Advisory-DB | issues/48 | API:CC+TRAIT | CC->UAF | lack send/sync bound | JOE1994-Sec | No | 
+| concread | CVE-2020-35928 | issues/48 | API:CC+TRAIT | CC->UAF | lack send/sync bound | JOE1994-Sec | No | 
 | futures-intrusive | Advisory-DB | issues/53 | API:TRAIT+CC | CC->UAF | lack send/sync bound | ammaraskar-Sec| No | 
 | futures-rs | Advisory-DB | pull/2206 | API:GENERICS+LIFE | UAF | lack lifetime bound | Darksonn | No | 
 | futures-rs| Advisory-DB | issues/2091 | IMP:LIFE+CC | UAF | return static ref to Send | goffrie | No | 
