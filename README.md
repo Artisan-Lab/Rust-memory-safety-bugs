@@ -1,6 +1,6 @@
 # rustbugs
   
-| Project | CVE-ID (or Src) | Link | Culprit | Consequense | Details | Finder-Role | Propagated |
+| Project | CVE-ID (or Src) | Link | Culprit | Consequense | Details | Finder-Role | Propagated | Revise (Unsafe->Safe) |
 |---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | **CVE-2018-1000810** | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | IMP:ARO | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | 
 | rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | IMP:BOUNDARY | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No |
@@ -135,19 +135,16 @@
 | internment | CVE-2020-35874 | issues/11 | IMP:CC+GEN | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
 | spin-rs  | CVE-2019-16137 | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | IMP:EAPI+CC | UB->UAF | impl error: Ordering::Relaxed$\to$Release | 64 | No | 
 | bigint | CVE-2020-35880 | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | IMP:DEP | UB | use uint instead | | No | 
-| mozwire | CVE-2020-35883 |
-| tiny-http | CVE-2020-35884 | 
-| array | CVE-2020-35886 |
-| array | CVE-2020-35887 |
-| array | CVE-2020-35888 |
-| crayon | CVE-2020-35889 |
-| ordnung | CVE-2020-35890 |
-| ordnung | CVE-2020-35891 |
-| simple-slab | CVE-2020-35892 | 
-| simple-slab | CVE-2020-35893 |
-| obstack | CVE-2020-35894 | 
-| stack-rs | CVE-2020-35895 | [issues/4](https://github.com/arcnmx/stack-rs/issues/4) |
-| ws-rs | CVE-2020-35896 | [issues/291](https://github.com/housleyjk/ws-rs/issues/291) |
+| array | CVE-2020-35886 | [issues/1](https://github.com/sjep/array/issues/1) | API:TRAIT+CC | UAF | lack Sync/Send bound | Qwaz-Sec | No |
+| array | CVE-2020-35887 | [issues/1](https://github.com/sjep/array/issues/1) | IMP:LOE | OOR | Index and IndexMut impl does not check the array bound | Qwaz-Sec | No | Yes |
+| array | CVE-2020-35888 | [issues/1](https://github.com/sjep/array/issues/1) | IMP:RAII | UNINIT | drop uninit mem | Qwaz-Sec | No |
+| crayon | CVE-2020-35889 | [issues/87](https://github.com/shawnscode/crayon/issues/87) | IMP:CUST+CC+TRAIT | UAF | time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | 
+| ordnung | CVE-2020-35890 | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | IMP:LOE | OOR | | Qwaz | No |
+| ordnung | CVE-2020-35891 | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | IMP:UNWIND+RAII | DF | | Qwaz | No |
+| simple-slab | CVE-2020-35892 | [issues/2](https://github.com/nathansizemore/simple-slab/issues/2) | IMP:BOUNDARY | OOR | Slab::index() does not perform the boundary checking | Qwaz | No |
+| simple-slab | CVE-2020-35893 | [issues/2](https://github.com/nathansizemore/simple-slab/issues/2) | IMP:BOUNDARY | OOR | copies an element from an invalid address due to off-by-one error | Qwaz | No | 
+| obstack | CVE-2020-35894 | [issues/4] (https://github.com/petertodd/rust-obstack/issues/4) | IMP:CASE+CUST+LOE | UB | generates unaligned references for types with a large alignment | Qwaz | No | 
+| stack-rs | CVE-2020-35895 | [issues/4](https://github.com/arcnmx/stack-rs/issues/4) | IMP:BOUNDARY | OOR | lack boundary check | ammaraskar | No | No |
 | vm-memory | CVE-2020-13759 | [issues/93](https://github.com/rust-vmm/vm-memory/issues/93) | IMP:EAPI+RW+CC | UB | volatile mem acc/ptr::write()$\to$write_volatile() | No (andreeaflorescu-deps)| No | 
 | Rocket | CVE-2020-35882 | [issues/1312](https://github.com/SergioBenitez/Rocket/issues/1312) | IMP:LOE+TRAIT+CC | UB->UAF| Clone may incur mutable aliases | Qwaz | No |
 | teaclave-sgx-sdk  | CVE-2020-5499 | www.mitre.org | API:CC+LOE | UB | may init twice by another thread/+Once::new() | No (Chen-sec) | No | 
@@ -196,7 +193,7 @@
 RC: race condition; UAF: use-after-free.
 
 ## Other CVEs of Non-Memory-Safety Bugs
-Crypto/Functionality Issue: CVE-2016-10932, CVE-2017-18587, CVE-2018-20999, CVE-2019-15545, CVE-2019-16760, CVE-2017-1000168, CVE-2020-15093, CVE-2020-35926, CVE-2020-35883; 
-MITM/Code Injection: CVE-2016-10931, CVE-2016-10933, CVE-2020-26222, CVE-2020-28247, CVE-2020-35863; 
-StackOverflow/Crash: CVE-2017-18589, CVE-2018-20989, CVE-2018-20993, CVE-2018-20994, CVE-2019-15542, CVE-2019-15544, CVE-2019-15549, CVE-2020-35857, CVE-2020-35875, CVE-2020-35909.
+Crypto/Functionality Issue: CVE-2016-10932, CVE-2017-18587, CVE-2018-20999, CVE-2019-15545, CVE-2019-16760, CVE-2017-1000168, CVE-2020-15093, CVE-2020-26281, CVE-2020-35926, CVE-2020-35883; 
+MITM/Code Injection: CVE-2016-10931, CVE-2016-10933, CVE-2020-26222, CVE-2020-26297, CVE-2020-28247, CVE-2020-35863, CVE-2020-35884; 
+StackOverflow/Crash: CVE-2017-18589, CVE-2018-20989, CVE-2018-20993, CVE-2018-20994, CVE-2019-15542, CVE-2019-15544, CVE-2019-15549, CVE-2020-35857, CVE-2020-35875, CVE-2020-35896, CVE-2020-35909.
 Cargo/Rustdoc: CVE-2018-1000622, CVE-2019-16760 
