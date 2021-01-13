@@ -43,7 +43,7 @@
 | rusqlite | Advisory-DB | issues/703 | API:SIG | UB->UAF | func. sign.: lifetime declaration | No (gwenn-deps) | No | 
 | rust-base64 | **CVE-2017-1000430** | [issues/28](https://github.com/marshallpierce/rust-base64/issues/28) | IMP:ARO | OOR | arithmatic overflow + unsafe write | No (alicemaz) | No | 
 | failure | **CVE-2020-25575** | [issues/336](https://github.com/rust-lang-nursery/failure/issues/336) | API:SIG | OOR | SAFE downcast$\to$mem misalign/private_get_type_id() | No (Qwaz-sec) | No | 
-| bumpalo | Advisory-DB | [issues/69](https://github.com/fitzgen/bumpalo/issues/69) | IMP:LOE | OOR(Read) | wrong buffer size + unsafe write | No (Riey-deps)| No | 
+| bumpalo | CVE-2020-35861 | [issues/69](https://github.com/fitzgen/bumpalo/issues/69) | IMP:LOE | OOR(Read) | wrong buffer size + unsafe write | No (Riey-deps)| No | 
 | compact_arena | **CVE-2019-16139** | [issues/22](https://github.com/llogiq/compact_arena/issues/22) | IMP:LOE | UB->OOR | NLL issue->Index trait/get_unchecked() | No (CAD97) | No | 
 | lz4_flex | Trophy | - | IMP:LOE | OOR | logical error in space allocation | Pascal Seitz-sec | No | 
 | ozone | Advisory-DB | RUSTSEC-2020-0022:1 | API:SAFE | OOR(Read) | context issue->Index trait | No (n.a.) | No | 
@@ -112,8 +112,8 @@
 | memoffset | **CVE-2019-15553** | [issues/9](https://github.com/Gilnaa/memoffset/issues/9) | IMP:RAII+UNWIND | UNINIT | enf. ManuallyDrop late->drop uninit mem  | No (Centril) | No | 
 | linked-hash-map | **CVE-2020-25573** | [pull/100](https://github.com/contain-rs/linked-hash-map/pull/100/) | IMP:RAII | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | 
 | rio | Advisory-DB |  issues/30 | RU:SAFE (API) | UAF | logical error: soundness hole | No (dtolnay-Rust) | No | 
-| bitvec | Advisory-DB | issues/55 | IMP:LOE | UAF | logical error: false assumption | No (kulp-sec) | No | 
-| cbox-rs | Advisory-DB | issues/2 | RU:SAFE (API) | UAF | declare unsafe API as safe | No (eduardosm) | No | 
+| bitvec | CVE-2020-35862 | issues/55 | IMP:LOE | UAF | logical error: false assumption | No (kulp-sec) | No | 
+| cbox-rs | CVE-2020-35860 | issues/2 | RU:SAFE (API) | UAF | declare unsafe API as safe | No (eduardosm) | No | 
 | rust-openssl | CVE-2018-20997 | [issues/941](https://github.com/sfackler/rust-openssl/issues/941) | IMP:RAII | UAF | pointer obj lifetime inconsistency/as_ptr() | No (fred-gremlin)| No | 
 | string-interner | CVE-2019-16882 | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | IMP:TRAIT | UAF | bad derived clone | No (lo48576-deps) | No |  
 | crossbeam | CVE-2018-20996 | [issues/82](https://github.com/crossbeam-rs/crossbeam/issues/82) | IMP:RAII | DF | shared mut aliases+auto drop/+ManuallyDrop | No (c0gent-deps) | No | 
@@ -134,11 +134,11 @@
 | rust-rgb | CVE-2020-25016 | [issues/35](https://github.com/kornelski/rust-rgb/issues/35) | API:SIG | UB | declare unsafe API as safe | No (HeroicKatora) | No | 
 | renderdoc-rs | CVE-2019-16142 | [issues/27](https://github.com/ebkalderon/renderdoc-rs/issues/27) | API:SIG | UB | mutable (internal mutation) | No (ebkalderon-owner) | No | 
 | rulinalg | Advisory-DB | issues/201 | API:LIFE | UB->UAF | func. sign.:lifetime | No (Qwaz-sec)  | No | 
-| flatbuffers | Advisory-DB | issues/5825 | API:SAFE | UB | func. sign.: safety declaration | No (eduardosm)| No | 
+| flatbuffers | CVE-2020-35864 | issues/5825 | API:SAFE | UB | func. sign.: safety declaration | No (eduardosm)| No | 
 | flatbuffers | Advisory-DB | issues/5530 | IMP:LOE | UB | logical error->invalid bit pattern for bool | No (nagisa)| No | 
 | once_cell | CVE-2019-16141 | [issues/46](https://github.com/matklad/once_cell/issues/46) | IMP::EAPI | UB | unreachable_unchecked()->panic!() | No (xfix-deps) | No | 
 | capnproto-rust | Trophy Case | cargo-fuzz/issues/40 | IMP:LOE | Unsound | logical error | No (dwrensha-sec)| No | 
-| lucet | Advisory-DB | pull/401 | IMP:LOE  | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
+| lucet | CVE-2020-35859 | pull/401 | IMP:LOE  | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
 | rand | CVE-2020-25576 | [issues/779](https://github.com/rust-random/rand/issues/779) | IMP:EAPI+R/W+LLVM | UB | reading unaligned mem/ptr::read_unaligned() | No (RalfJung-sec)| No | 
 | servo (exe) | GitHub | issues/1186 | IMP:RAII | DF | impl Drop with unsafe | kmcallister | No | 
 | servo (exe) | GitHub | issues/2412 | IMP:RAII | DF  | *unsafe cast?  |  | No | 
@@ -174,6 +174,6 @@ RC: race condition; UAF: use-after-free.
 
 ## Other CVEs of Non-Memory-Safety Bugs
 Crypto/Functionality Issue: CVE-2016-10932, CVE-2017-18587, CVE-2018-20999, CVE-2019-15545, CVE-2019-16760, CVE-2017-1000168, CVE-2020-15093, CVE-2020-35926, CVE-2020-35883; 
-MITM/Code Injection: CVE-2016-10931, CVE-2016-10933, CVE-2020-28247, CVE-2020-26222, CVE-2020-28247; 
+MITM/Code Injection: CVE-2016-10931, CVE-2016-10933, CVE-2020-28247, CVE-2020-26222, CVE-2020-28247, CVE-2020-35863; 
 StackOverflow/Crash: CVE-2017-18589, CVE-2018-20989, CVE-2018-20993, CVE-2018-20994, CVE-2019-15542, CVE-2019-15544, CVE-2019-15549, CVE-2020-35857, CVE-2020-35909.
 Cargo/Rustdoc: CVE-2018-1000622, CVE-2019-16760 
