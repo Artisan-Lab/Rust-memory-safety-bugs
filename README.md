@@ -3,7 +3,7 @@
 | Project | CVE-ID (or Src) | Link | Culprit | Consequense | Details | Finder-Role | Propagated |
 |---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | **CVE-2018-1000810** | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | IMP:ARO | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | 
-| rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | IMP:COND | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No |
+| rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | IMP:BOUNDARY | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No |
 | rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | API:TRAIT+TYPECONV | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | 
 | rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | IMP:FFI | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
 | rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | IMP:ARO+MODEL | UB->UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
@@ -12,7 +12,7 @@
 | rust-std | GitHub | [issues/35836](https://github.com/rust-lang/rust/issues/35836) | IMP:FFI+CC+MODEL | UB->UAF | recursive RWlock on Windows is UB | retep998-Rust | No | 
 | rust-std | GitHub | [issues/39465](https://github.com/rust-lang/rust/issues/39465) | API:SIG+MUT | UB->DP | Fn signature issue->shared mut aliases | christophebiocca | No | 
 | rust-std | GitHub | [issues/39575](https://github.com/rust-lang/rust/issues/39575) | API:SIG+FFI+CC | UB | should be unsafe, UB according to POSIX (CommandExt::before_exec) | fweimer | No | 
-| rust-std | GitHub | [issues/42135](https://github.com/rust-lang/rust/issues/42135) | IMP:COND+TRAIT | UB->OOR | error related to unsafe trait (TrustedLen) | scottmcm-Rust | No | 
+| rust-std | GitHub | [issues/42135](https://github.com/rust-lang/rust/issues/42135) | IMP:CASE+TRAIT | UB | incorrect size_hint for degenerate inclusive ranges  (TrustedLen) | scottmcm-Rust | No | 
 | rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | IMP:TYPE(ZST)+GENERIC+TRAIT | UB->OOR | interators over ZST slices are undefined->random addr （Iter+ZST） | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | IMP:CC+DESIGN | UB->UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
 | rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | API:TRAIT+DESIGN | BO->OOR | soundness hole (Placer) | andy-hanson | No | 
@@ -33,8 +33,8 @@
 | rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | IMP:RAII+CC | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
 | rust-std | GitHub | [issues/78477](https://github.com/rust-lang/rust/issues/78477) | IMP:LOE | UNKNOWN | violate pointer provenance rules | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | IMP:UNWIND+TYPE | UB | invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
-| rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:COND | UB->\*UAF | incorrect boundary check (VecDeque) | ayourtch | No |
-| rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | IMP:COND | UB->\*UAF | incorrect boundary check (VecDeque)-79808 | Aratz | No |
+| rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:BOUNDARY | UB->\*UAF | incorrect boundary check (VecDeque) | ayourtch | No |
+| rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | IMP:BOUNDARY | UB->\*UAF | incorrect boundary check (VecDeque)-79808 | Aratz | No |
 | rustc (fake-static) | Advisory-DB | [issues/25860](https://github.com/rust-lang/rust/issues/25860) | API:LIFE | UB->UAF | type system issue->lifetime inconsistency | No (aturon-Rust)| No | 
 | arrayfire-rust  | **CVE-2018-20998** | [issues/176](https://github.com/arrayfire/arrayfire-rust/issues/176) | IMP:FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
 | ncurses | **CVE-2019-15547** | [issues/172](https://github.com/jeaye/ncurses-rs/issues/172) | API:SIG+FFI+INPUT | OOR | FFI-unchecked argument/printw() | thomcc | No | 
@@ -50,18 +50,18 @@
 | ozone | Advisory-DB | RUSTSEC-2020-0022:2 | IMP:RAII | UNINIT | implement drop with uninit mem | No (n.a.)| No | 
 | prost | Advisory/Trophy | issues/267 | IMP:LOE | OOR | logical error in recursion + unsafe write | No (dbrgn-sec) | No | 
 | safe-transmute | **CVE-2018-21000** | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | IMP:EAPI | OOR | wrong param order of from_raw_parts() | No (Enet4-deps)| No | 
-| slice-deque | **CVE-2018-20995** | [issues/57](https://github.com/gnzlbg/slice_deque/issues/57) | IMP:COND | OOR | error in boundary check + unsafe write | No (aldanor-deps) | No | 
-| slice-deque | **CVE-2019-15543** | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | IMP:COND+LOE | OOR | logical error->memory misalignment | No (zimond) | No | 
+| slice-deque | **CVE-2018-20995** | [issues/57](https://github.com/gnzlbg/slice_deque/issues/57) | IMP:BOUNDARY | OOR | error in boundary check + unsafe write | No (aldanor-deps) | No | 
+| slice-deque | **CVE-2019-15543** | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | IMP:CASE+LOE | OOR | lack special case handling ->memory misalignment | No (zimond) | No | 
 | rust-smallvec | **CVE-2019-15554** | [issues/149](https://github.com/servo/rust-smallvec/issues/149) | IMP:LOE | OOR | logical error + unsafe write | No (ehuss) | No | 
 | rust-smallvec | Advisory-DB | [issues/126](https://github.com/servo/rust-smallvec/issues/126) | IMP:RAII+UNWIND | UNINIT | init vector with mem:uninitialized() | No (mbrubeck) | No | 
 | rust-smallvec | **CVE-2019-15551** | [issues/148](https://github.com/servo/rust-smallvec/issues/148) | IMP:LOE | UAF | logical error in manuall deallocation | No (ehuss) | No | 
 | rust-smallvec | **CVE-2018-20991** | [issues/96](https://github.com/servo/rust-smallvec/issues/96) | IMP:UNWIND+RAII | DF | buffer shrinking too late | No (Vurich) | No | 
-| simd-json | **CVE-2019-15550** | [pull/27](https://github.com/simd-lite/simd-json/pull/27) | IMP:COND | OOR | logical error->mem misalign/get_unchecked() | No (Licenser-deps) | No | 
+| simd-json | **CVE-2019-15550** | [pull/27](https://github.com/simd-lite/simd-json/pull/27) | IMP:CASE | OOR | lack special case handling->mem misalign/get_unchecked() | No (Licenser-deps) | No | 
 | v_espace | Trophy Case | issues/47 | IMP:LOE | OOR | logical error->mem misalign | \_mm_load_si128() | No (tmiasko) | No | 
-| sized-chunks | **CVE-2020-25791** | [issues/11:unit](https://github.com/bodil/sized-chunks/issues/11) | API:INPUT+GENERIC | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | **CVE-2020-25792** | [issues/11:pair](https://github.com/bodil/sized-chunks/issues/11) | API:INPUT+GENERIC | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | **CVE-2020-25793** | [issues/11:From](https://github.com/bodil/sized-chunks/issues/11) | API:INPUT+GENERIC | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | **CVE-2020-25796** | [issues/11:InlineArray](https://github.com/bodil/sized-chunks/issues/11) | API:INPUT+GENERIC | OOR:BO | no input check->memory misalignment | No (Qwaz-sec) | No | 
+| sized-chunks | **CVE-2020-25791** | [issues/11:unit](https://github.com/bodil/sized-chunks/issues/11) | API:CASE+GENERIC | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
+| sized-chunks | **CVE-2020-25792** | [issues/11:pair](https://github.com/bodil/sized-chunks/issues/11) | API:CASE+GENERIC | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
+| sized-chunks | **CVE-2020-25793** | [issues/11:From](https://github.com/bodil/sized-chunks/issues/11) | API:CASE+GENERIC | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
+| sized-chunks | **CVE-2020-25796** | [issues/11:InlineArray](https://github.com/bodil/sized-chunks/issues/11) | API:CASE+GENERIC | OOR:BO | no input check->memory misalignment | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25794** | [issues/11:clone](https://github.com/bodil/sized-chunks/issues/11) | IMP:UNWIND+RAII | UNINIT | panic->drop uninitialized memory | No (Qwaz-sec)  | No | 
 | sized-chunks | **CVE-2020-25795** | [issues/11:insert_from](https://github.com/bodil/sized-chunks/issues/11) | IMP:UNWIND+RAII | UNINIT | panic $\to$ rop uninitialized memory | No (Qwaz-sec)  | No | 
 | actix-net | Advisory-DB | issues/91 |  | UAF | | sebzim4500 | No | 
