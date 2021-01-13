@@ -48,7 +48,7 @@
 | lz4_flex | Trophy | - | IMP:LOE | OOR | logical error in space allocation | Pascal Seitz-sec | No | 
 | ozone | Advisory-DB | RUSTSEC-2020-0022:1 | API:SAFE | OOR(Read) | context issue->Index trait | No (n.a.) | No | 
 | ozone | Advisory-DB | RUSTSEC-2020-0022:2 | IMP:RAII | UNINIT | implement drop with uninit mem | No (n.a.)| No | 
-| prost | Advisory/Trophy | issues/267 | IMP:LOE | OOR | logical error in recursion + unsafe write | No (dbrgn-sec) | No | 
+| prost | CVE-2020-35858/T | issues/267 | IMP:LOE | OOR | logical error in recursion + unsafe write | No (dbrgn-sec) | No | 
 | safe-transmute | **CVE-2018-21000** | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | IMP:EAPI | OOR | wrong param order of from_raw_parts() | No (Enet4-deps)| No | 
 | slice-deque | **CVE-2018-20995** | [issues/57](https://github.com/gnzlbg/slice_deque/issues/57) | IMP:BOUNDARY | OOR | error in boundary check + unsafe write | No (aldanor-deps) | No | 
 | slice-deque | **CVE-2019-15543** | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | IMP:CASE+LOE | OOR | lack special case handling ->memory misalignment | No (zimond) | No | 
