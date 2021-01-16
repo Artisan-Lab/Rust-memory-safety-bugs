@@ -39,14 +39,14 @@
 | arrayfire-rust  | **CVE-2018-20998** | [issues/176](https://github.com/arrayfire/arrayfire-rust/issues/176) | IMP:FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
 | ncurses | **CVE-2019-15547** | [issues/172](https://github.com/jeaye/ncurses-rs/issues/172) | API:SIG+FFI+INPUT | OOR | FFI-unchecked argument/printw() | thomcc | No | 
 | ncurses | **CVE-2019-15548** | [issues/186](https://github.com/jeaye/ncurses-rs/issues/186) | API:SIG+FFI+INPUT | OOR | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
-| rusqlite | CVE-2020-35873 | pull/708 | API:SIG+FFI | UAF | sessions.rs | thomcc-deps| No | 
-| rusqlite | CVE-2020-35872 | issues/703 | API:SIG | UB->OOR | repr(Rust) type | No (gwenn-deps) | No | 
-| rusqlite | CVE-2020-35871 | pull/708 | API:SIG+FFI |  | Auxdata API data race | thomcc-deps| No | 
-| rusqlite | CVE-2020-35870 | issues/703 | API:SIG | UAF | Auxdata API use-after-free | No (gwenn-deps) | No | 
-| rusqlite | CVE-2020-35869 | pull/708 | API:SIG+FFI | OOR | trace::log: FFI-unchecked argument/sqlite3_log() | thomcc-deps| No | 
-| rusqlite | CVE-2020-35868 | issues/703 | API:SIG | UB->UAF | UnlockNotification | No (gwenn-deps) | No | 
-| rusqlite | CVE-2020-35867 | pull/708 | API:SIG+FFI | UB | create_module: | thomcc-deps| No | 
-| rusqlite | CVE-2020-35866 | issues/703 | API:SIG | UB->UAF | VTab/VTabCursor: func. sign.: lifetime declaration | No (gwenn-deps) | No | 
+| rusqlite | **CVE-2020-35873** | [sessions.rs](https://github.com/rusqlite/rusqlite/commit/ac30e169ae51b262bc8cf7026469851ce39b23c6) | API:LIFETIME+FFI | UAF | similar to CVE-2018-20997 as_ptr() | thomcc-deps| No | 
+| rusqlite | **CVE-2020-35872** | [Auxdata API](https://github.com/rusqlite/rusqlite/commit/71b2f5187b0cbace3f8b6ff53432ff2ca0defcf0) | API:FFI+ALIGN | UB->OOR | + repr(C) | No (gwenn-deps) | No | 
+| rusqlite | **CVE-2020-35871** | [Auxdata API](https://github.com/rusqlite/rusqlite/commit/2ef3628dac35aeba0a97d5fb3a57746b4e1d62b3) | API:TRAIT+BOUND+CC | DR->UAF | lack sync/send bound | thomcc-deps| No | 
+| rusqlite | **CVE-2020-35870** | [Auxdata API](https://github.com/rusqlite/rusqlite/commit/2ef3628dac35aeba0a97d5fb3a57746b4e1d62b3) | API:TRAIT+BOUND+CC | DR->UAF | lack sync/send bound | thomcc-deps | No | 
+| rusqlite | **CVE-2020-35869** | [log](https://github.com/rusqlite/rusqlite/commit/2327d3b774927fdf48903c0bdc1ca7ec93c7c8d0) | API:FFI+EAPI | OOR | wrong parameters in api call | thomcc-deps| No | 
+| rusqlite | **CVE-2020-35868** | [UnlockNotification](https://github.com/rusqlite/rusqlite/commit/45fd77ee43c38eea4d6f4e2e56c1667a55ec654f) | API:LOE+CC | UB->UAF | UnlockNotification  | No (gwenn-deps) | No | 
+| rusqlite | **CVE-2020-35867** | [create_module](https://github.com/rusqlite/rusqlite/commit/3c6b57fe1b2cc87e7ebecde43dd836ffb1c4ea5c) | API:SIG+LIFETIME | UB->UAF | static ref should point to static ret value | thomcc-deps| No | 
+| rusqlite | **CVE-2020-35866** | [VTab](https://github.com/rusqlite/rusqlite/commit/c9ef5bd63cad5c0c123344c072b490a1a9bcbe1f) | API:SIG | UB | should declare trait as unsafe | No (gwenn-deps) | No | 
 | rust-base64 | **CVE-2017-1000430** | [issues/28](https://github.com/marshallpierce/rust-base64/issues/28) | IMP:ARO | OOR | arithmatic overflow + unsafe write | No (alicemaz) | No | 
 | failure | **CVE-2020-25575** | [issues/336](https://github.com/rust-lang-nursery/failure/issues/336) | API:SIG | OOR | SAFE downcast$\to$mem misalign/private_get_type_id() | No (Qwaz-sec) | No | 
 | bumpalo | CVE-2020-35861 | [issues/69](https://github.com/fitzgen/bumpalo/issues/69) | IMP:LOE | OOR(Read) | wrong buffer size + unsafe write | No (Riey-deps)| No | 
