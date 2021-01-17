@@ -188,11 +188,11 @@
 | curl-rust | GitHub | issues/333 | API:CC | UB | does not enforce FFI restrictions | DemiMarie/sagebind-deps | Yes | 
 | curl-rust | GitHub | issues/340 | API:SAFE | UAF | exposing unsafe cleanup APIs as safe | sagebind-deps | No | 
 
-## Notes: 
+### Notes: 
 OOR:out-of-range access; BO: buffer overflow; BOR: buffer over-read; CC: concurrency issue; DF: double free; DL: data leakage; DP: dangling pointer; DR: data race; 
 RC: race condition; UAF: use-after-free.
 
-## Other CVEs of Non-Memory-Safety Bugs
+### Other CVEs of Non-Memory-Safety Bugs
 Crypto/Functionality Issue: CVE-2016-10932, CVE-2017-18587, CVE-2018-20999, CVE-2019-15545, CVE-2019-16760, CVE-2017-1000168, CVE-2020-15093, CVE-2020-26281, CVE-2020-35926, CVE-2020-35883;
 
 MITM/Code Injection: CVE-2016-10931, CVE-2016-10933, CVE-2020-26222, CVE-2020-26297, CVE-2020-28247, CVE-2020-35863, CVE-2020-35884; 
