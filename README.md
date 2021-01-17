@@ -49,13 +49,12 @@
 | rusqlite | **CVE-2020-35866** | [VTab](https://github.com/rusqlite/rusqlite/commit/c9ef5bd63cad5c0c123344c072b490a1a9bcbe1f) | API:SIG | UB | should declare trait as unsafe | No (gwenn-deps) | No | 
 | rust-base64 | **CVE-2017-1000430** | [issues/28](https://github.com/marshallpierce/rust-base64/issues/28) | IMP:ARO | OOR | arithmatic overflow + unsafe write | No (alicemaz) | No | 
 | failure | **CVE-2020-25575** | [issues/336](https://github.com/rust-lang-nursery/failure/issues/336) | API:SIG | OOR | downcast->misalign: same as CVE-2019-12083 | No (Qwaz-sec) | No | 
-| bumpalo | CVE-2020-35861 | [issues/69](https://github.com/fitzgen/bumpalo/issues/69) | IMP:LOE | OOR(Read) | wrong buffer size + unsafe write | No (Riey-deps)| No | 
+| bumpalo | **CVE-2020-35861** | [issues/69](https://github.com/fitzgen/bumpalo/issues/69) | IMP:LOE(Simple) | OOR(Read) | copy wrong size | No (Riey-deps)| No | 
 | compact_arena | **CVE-2019-16139** | [issues/22](https://github.com/llogiq/compact_arena/issues/22) | IMP:LOE | UB->OOR | NLL issue->Index trait/get_unchecked() | No (CAD97) | No | 
 | lz4_flex | Trophy | - | IMP:LOE | OOR | logical error in space allocation | Pascal Seitz-sec | No | 
-| ozone | CVE-2020-35877 | RUSTSEC-2020-0022:1 | API:SAFE | OOR(Read) | context issue->Index trait | No (n.a.) | No | 
-| ozone | CVE-2020-35878 | RUSTSEC-2020-0022:2 | IMP:RAII | UNINIT | implement drop with uninit mem | No (n.a.)| No | 
-| prost | CVE-2020-35858/T | issues/267 | IMP:LOE | OOR | logical error in recursion + unsafe write | No (dbrgn-sec) | No | 
-| safe-transmute | **CVE-2018-21000** | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | IMP:EAPI | OOR | wrong param order of from_raw_parts() | No (Enet4-deps)| No | 
+| ozone | **CVE-2020-35877** | [index](https://github.com/bqv/ozone/blob/e21f948b0178ab305f644118f18d87a838c618e0/src/buffer.rs#L38-L48) | API:SAFE | OOR(Read) | context issue->Index trait | No (n.a.) | No | 
+| ozone | **CVE-2020-35878** | [remove_entry](https://github.com/bqv/ozone/blob/e21f948b0178ab305f644118f18d87a838c618e0/src/map.rs#L94-L101) | IMP:RAII | UNINIT | implement drop with uninit mem | No (n.a.)| No | 
+ safe-transmute | **CVE-2018-21000** | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | IMP:EAPI | OOR | wrong param order of from_raw_parts() | No (Enet4-deps)| No | 
 | slice-deque | **CVE-2018-20995** | [issues/57](https://github.com/gnzlbg/slice_deque/issues/57) | IMP:BOUNDARY | OOR | error in boundary check + unsafe write | No (aldanor-deps) | No | 
 | slice-deque | **CVE-2019-15543** | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | IMP:CASE+LOE | OOR | lack special case handling ->memory misalignment | No (zimond) | No | 
 | rust-smallvec | **CVE-2019-15554** | [issues/149](https://github.com/servo/rust-smallvec/issues/149) | IMP:LOE | OOR | logical error + unsafe write | No (ehuss) | No | 
@@ -195,5 +194,5 @@ RC: race condition; UAF: use-after-free.
 ## Other CVEs of Non-Memory-Safety Bugs
 Crypto/Functionality Issue: CVE-2016-10932, CVE-2017-18587, CVE-2018-20999, CVE-2019-15545, CVE-2019-16760, CVE-2017-1000168, CVE-2020-15093, CVE-2020-26281, CVE-2020-35926, CVE-2020-35883; 
 MITM/Code Injection: CVE-2016-10931, CVE-2016-10933, CVE-2020-26222, CVE-2020-26297, CVE-2020-28247, CVE-2020-35863, CVE-2020-35884; 
-StackOverflow/Crash: CVE-2017-18589, CVE-2018-20989, CVE-2018-20993, CVE-2018-20994, CVE-2019-15542, CVE-2019-15544, CVE-2019-15549, CVE-2020-35857, CVE-2020-35875, CVE-2020-35896, CVE-2020-35909.
+StackOverflow/Crash: CVE-2017-18589, CVE-2018-20989, CVE-2018-20993, CVE-2018-20994, CVE-2019-15542, CVE-2019-15544, CVE-2019-15549, CVE-2020-35857, CVE-2020-35858, CVE-2020-35875, CVE-2020-35896, CVE-2020-35909.
 Cargo/Rustdoc: CVE-2018-1000622, CVE-2019-16760 
