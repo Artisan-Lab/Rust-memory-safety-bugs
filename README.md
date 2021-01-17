@@ -96,9 +96,7 @@
 | futures-rs| **CVE-2020-35908** | issues/2050 | API:TRAIT+CC | UAF | impl sync for a structure with Cell<T> | okready | No | 
 | pulse-binding-rust | Advisory-DB | | API:LIFE+GENERICS+RAII | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | 
 | pulse-binding-rust | Advisory-DB | issues/2050 | API:TRAIT+CC | UAF | impl sync for a structure with Cell<T> | okready | No |
-  
-|---------|---------|---------|---------|---------|---------|---------|---------|---------|
-| parking_lot | **CVE-2020-35910** | [MappedMutexGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TRAIT+CC+GENERICS | UB->UAF |  lack send bound | ammaraskar-Sec | No |  
+| parking_lot | **CVE-2020-35910** | [MappedMutexGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TRAIT+CC+GENERICS | UB->UAF | lack send bound | ammaraskar-Sec | No |  
 | parking_lot | **CVE-2020-35911** | [MappedRwLockReadGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TRAIT+CC+GENERICS | UB->UAF |  lack sync bound | ammaraskar-Sec | No | 
 | parking_lot | **CVE-2020-35912** | [MappedRwLockWriteGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TRAIT+CC+GENERICS | UB->UAF |  lack send bound | ammaraskar-Sec | No |  
 | parking_lot | **CVE-2020-35913** | [RwLockReadGuard](https://github.com/Amanieu/parking_lot/issues/259) | API:TRAIT+CC+GENERICS | UB->UAF |  lack sync bound | ammaraskar-Sec | No | 
