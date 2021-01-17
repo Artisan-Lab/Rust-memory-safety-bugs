@@ -69,9 +69,9 @@
 | sized-chunks | **CVE-2020-25796** | [issues/11:InlineArray](https://github.com/bodil/sized-chunks/issues/11) | API:CASE+GENERIC | OOR:BO | no input check->memory misalignment | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25794** | [issues/11:clone](https://github.com/bodil/sized-chunks/issues/11) | IMP:UNWIND+RAII | UNINIT | panic->drop uninitialized memory | No (Qwaz-sec)  | No | 
 | sized-chunks | **CVE-2020-25795** | [issues/11:insert_from](https://github.com/bodil/sized-chunks/issues/11) | IMP:UNWIND+RAII | UNINIT | panic $\to$ rop uninitialized memory | No (Qwaz-sec)  | No | 
-| actix-net | **CVE-2020-35902** | issues/91 |  | UAF | | sebzim4500 | No | 
-| actix-net | **CVE-2020-35899** | pull/158 | API:RC | UB->UAF | replace Cell with RefCell | Shnatsel  | No | 
-| actix-net | **CVE-2020-35898** | issues/160 | API:RC | UB->UAF | replace Cell with RefCell | Shnatsel | No | 
+| actix-net | **CVE-2020-35902** | [issues/91](https://github.com/actix/actix-net/issues/91) |  | UAF | frame should be pined | sebzim4500 | No | 
+| actix-net | **CVE-2020-35899** | [pull/158](https://github.com/actix/actix-net/pull/158) | API:RC | UB->UAF | replace Cell with RefCell | Shnatsel  | No | 
+| actix-net | **CVE-2020-35898** | [issues/160]((https://github.com/actix/actix-net/issues/160) | API:RC | UB->UAF | replace Cell with RefCell | Shnatsel | No | 
 | actix-web | Advisory-DB | issues/289 | API:MUTE | UB->UAF | transmute immutable ref to mutable | seanmonstar | No | 
 | actix-web | Advisory-DB | issues/289 | API:LIFE | UAF | transmutate lifetime to static | seanmonstar | No | 
 | actix-web | Advisory-DB | issues/289 | IMP:TRAIT+GENERIC | UAF | Clone+Rc | seanmonstar | No | 
