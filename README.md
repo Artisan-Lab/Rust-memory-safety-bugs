@@ -69,33 +69,34 @@
 | sized-chunks | **CVE-2020-25796** | [issues/11:InlineArray](https://github.com/bodil/sized-chunks/issues/11) | API:CASE+GENERIC | OOR:BO | no input check->memory misalignment | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25794** | [issues/11:clone](https://github.com/bodil/sized-chunks/issues/11) | IMP:UNWIND+RAII | UNINIT | panic->drop uninitialized memory | No (Qwaz-sec)  | No | 
 | sized-chunks | **CVE-2020-25795** | [issues/11:insert_from](https://github.com/bodil/sized-chunks/issues/11) | IMP:UNWIND+RAII | UNINIT | panic $\to$ rop uninitialized memory | No (Qwaz-sec)  | No | 
-| actix-net | CVE-2020-35902 | issues/91 |  | UAF | | sebzim4500 | No | 
-| actix-net | CVE-2020-35899 | pull/158 | API:RC | UB->UAF | replace Cell with RefCell | Shnatsel  | No | 
-| actix-net | CVE-2020-35898 | issues/160 | API:RC | UB->UAF | replace Cell with RefCell | Shnatsel | No | 
+| actix-net | **CVE-2020-35902** | issues/91 |  | UAF | | sebzim4500 | No | 
+| actix-net | **CVE-2020-35899** | pull/158 | API:RC | UB->UAF | replace Cell with RefCell | Shnatsel  | No | 
+| actix-net | **CVE-2020-35898** | issues/160 | API:RC | UB->UAF | replace Cell with RefCell | Shnatsel | No | 
 | actix-web | Advisory-DB | issues/289 | API:MUTE | UB->UAF | transmute immutable ref to mutable | seanmonstar | No | 
 | actix-web | Advisory-DB | issues/289 | API:LIFE | UAF | transmutate lifetime to static | seanmonstar | No | 
 | actix-web | Advisory-DB | issues/289 | IMP:TRAIT+GENERIC | UAF | Clone+Rc | seanmonstar | No | 
 | actix-web | Advisory-DB | issues/301 | API:CC+TRAIT+GENERIC | UAF | unsafe impl of Send for generics races Rc | seanmonstar-Mozilla | No | 
 | actix-web | CVE-2020-35901 | issues/1321 | API:PAR | UAF |  | sebzim4500 | No | 
 | alg_ds | Advisory-DB | issues/1 | IMP:RAII | UNINIT | init with alloc::alloc | Qwaz-Sec | No | 
-| rust-arch | CVE-2020-35885 | issues/2 | IMP:RAII | UAF | drop a memory not owned | Qwaz-Sec | No | 
+| rust-arch | **CVE-2020-35885** | issues/2 | IMP:RAII | UAF | drop a memory not owned | Qwaz-Sec | No | 
 | arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | API:TRAIT+LOE | UAF | logical errors +PhantomData | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:Array | API:TRAIT+CC | CC->UAF | lack send/sync bound  | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:Index | IMP:TRAIT | OOR | lack boundary check | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:from... | IMP: | UNINIT | drop uninitialized mem | Qwaz-Sec | No | 
-| array-queue | CVE-2020-35900 | issues/2 | IMP:LOE | UAF | index may point to freed mem | ammaraskar-Sec | No | 
+| array-queue | **CVE-2020-35900** | issues/2 | IMP:LOE | UAF | index may point to freed mem | ammaraskar-Sec | No | 
 | array-queue | Advisory-DB | issues/2 | IMP:RAII | UNINIT | use mem::uninitialized() | ammaraskar-Sec | No | 
-| atom | CVE-2020-35897 | issues/13 | API:TRAIT | UB->UAF | lack send/sync bound | ammaraskar-Sec | No | 
+| atom | **CVE-2020-35897** | issues/13 | API:TRAIT | UB->UAF | lack send/sync bound | ammaraskar-Sec | No | 
 | chunky | Advisory-DB |issues/2 | IMP:LOE | OOR | API ignores memory alignment requirement | Qwaz-Sec  | No | 
-| dync | CVE-2020-35903 | issues/4 | IMP:LOE | OOR | memory misalignment | ammaraskar-Sec | No | 
-| concread | CVE-2020-35928 | issues/48 | API:CC+TRAIT | CC->UAF | lack send/sync bound | JOE1994-Sec | No | 
+| dync | **CVE-2020-35903** | issues/4 | IMP:LOE | OOR | memory misalignment | ammaraskar-Sec | No | 
+| concread | **CVE-2020-35928** | issues/48 | API:CC+TRAIT | CC->UAF | lack send/sync bound | JOE1994-Sec | No | 
 | futures-intrusive | Advisory-DB | issues/53 | API:TRAIT+CC | CC->UAF | lack send/sync bound | ammaraskar-Sec| No | 
-| futures-rs | CVE-2020-35906 | pull/2206 | API:GENERICS+LIFE | UAF | lack lifetime bound | Darksonn | No | 
-| futures-rs| CVE-2020-35907 | issues/2091 | IMP:LIFE+CC | UAF | return static ref to Send | goffrie | No | 
-| futures-rs| CVE-2020-35905 | issues/2239 | API:TRAIT+GENERICS+CC | CC->UAF | lack send/sync bound | Qwaz-Sec | No | 
-| futures-rs| CVE-2020-35908 | issues/2050 | API:TRAIT+CC | UAF | impl sync for a structure with Cell<T> | okready | No | 
+| futures-rs | **CVE-2020-35906** | pull/2206 | API:GENERICS+LIFE | UAF | lack lifetime bound | Darksonn | No | 
+| futures-rs| **CVE-2020-35907** | issues/2091 | IMP:LIFE+CC | UAF | return static ref to Send | goffrie | No | 
+| futures-rs| **CVE-2020-35905** | issues/2239 | API:TRAIT+GENERICS+CC | CC->UAF | lack send/sync bound | Qwaz-Sec | No | 
+| futures-rs| **CVE-2020-35908** | issues/2050 | API:TRAIT+CC | UAF | impl sync for a structure with Cell<T> | okready | No | 
 | pulse-binding-rust | Advisory-DB | | API:LIFE+GENERICS+RAII | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | 
-| pulse-binding-rust | Advisory-DB | issues/2050 | API:TRAIT+CC | UAF | impl sync for a structure with Cell<T> | okready | No | 
+| pulse-binding-rust | Advisory-DB | issues/2050 | API:TRAIT+CC | UAF | impl sync for a structure with Cell<T> | okready | No |
+  
 | parking_lot | **CVE-2020-35910** | [MappedMutexGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TRAIT+CC+GENERICS | UB->UAF |  lack send bound | ammaraskar-Sec | No |  
 | parking_lot | **CVE-2020-35911** | [MappedRwLockReadGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TRAIT+CC+GENERICS | UB->UAF |  lack sync bound | ammaraskar-Sec | No | 
 | parking_lot | **CVE-2020-35912** | [MappedRwLockWriteGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TRAIT+CC+GENERICS | UB->UAF |  lack send bound | ammaraskar-Sec | No |  
@@ -116,51 +117,51 @@
 | libflate | **CVE-2019-15552** | [issues/35](https://github.com/sile/libflate/issues/35) | IMP:RAII+UNWIND  | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | 
 | memoffset | **CVE-2019-15553** | [issues/9](https://github.com/Gilnaa/memoffset/issues/9) | IMP:RAII+UNWIND | UNINIT | enf. ManuallyDrop late->drop uninit mem  | No (Centril) | No | 
 | linked-hash-map | **CVE-2020-25573** | [pull/100](https://github.com/contain-rs/linked-hash-map/pull/100/) | IMP:RAII | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | 
-| rio | CVE-2020-35876 | [issues/11](https://github.com/spacejam/rio/issues/30) | RU:SAFE (API) | UAF | logical error: soundness hole | No (dtolnay-Rust) | No | 
-| bitvec | CVE-2020-35862 | issues/55 | IMP:LOE | UAF | logical error: false assumption | No (kulp-sec) | No | 
-| cbox-rs | CVE-2020-35860 | issues/2 | RU:SAFE (API) | UAF | declare unsafe API as safe | No (eduardosm) | No | 
-| rust-openssl | CVE-2018-20997 | [issues/941](https://github.com/sfackler/rust-openssl/issues/941) | IMP:RAII | UAF | pointer obj lifetime inconsistency/as_ptr() | No (fred-gremlin)| No | 
-| string-interner | CVE-2019-16882 | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | IMP:TRAIT | UAF | bad derived clone | No (lo48576-deps) | No |  
-| crossbeam | CVE-2018-20996 | [issues/82](https://github.com/crossbeam-rs/crossbeam/issues/82) | IMP:RAII | DF | shared mut aliases+auto drop/+ManuallyDrop | No (c0gent-deps) | No | 
-| CVE-2020-35904 | Advisory-DB | [pull/533](https://github.com/crossbeam-rs/crossbeam/pull/533) | IMP:LOE | UB->UAF | drop memory not owned | caelunshun | No | 
-| generator-rs | CVE-2019-16144 | [issues/11](https://github.com/Xudong-Huang/generator-rs/issues/11) | IMP:RAII | DF | shared mut aliases+auto drop | No (vOROn200) | No | 
+| rio | **CVE-2020-35876** | [issues/11](https://github.com/spacejam/rio/issues/30) | RU:SAFE (API) | UAF | logical error: soundness hole | No (dtolnay-Rust) | No | 
+| bitvec | **CVE-2020-35862** | issues/55 | IMP:LOE | UAF | logical error: false assumption | No (kulp-sec) | No | 
+| cbox-rs | **CVE-2020-35860** | issues/2 | RU:SAFE (API) | UAF | declare unsafe API as safe | No (eduardosm) | No | 
+| rust-openssl | **CVE-2018-20997** | [issues/941](https://github.com/sfackler/rust-openssl/issues/941) | IMP:RAII | UAF | pointer obj lifetime inconsistency/as_ptr() | No (fred-gremlin)| No | 
+| string-interner | **CVE-2019-16882** | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | IMP:TRAIT | UAF | bad derived clone | No (lo48576-deps) | No |  
+| crossbeam | **CVE-2018-20996** | [issues/82](https://github.com/crossbeam-rs/crossbeam/issues/82) | IMP:RAII | DF | shared mut aliases+auto drop/+ManuallyDrop | No (c0gent-deps) | No | 
+| | **CVE-2020-35904** | Advisory-DB | [pull/533](https://github.com/crossbeam-rs/crossbeam/pull/533) | IMP:LOE | UB->UAF | drop memory not owned | caelunshun | No | 
+| generator-rs | **CVE-2019-16144** | [issues/11](https://github.com/Xudong-Huang/generator-rs/issues/11) | IMP:RAII | DF | shared mut aliases+auto drop | No (vOROn200) | No | 
 | generator-rs | Advisory-DB | [issues/9](https://github.com/Xudong-Huang/generator-rs/issues/9) | API:SAFE | UB | func. sign.$\to$deref invalid/null pointer | No (jonas-schievink)| No | 
 | generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | API | UB | bad func. exposure  | No (jonas-schievink) | No | 
 | generator-rs | Advisory-DB  | [issues/14](https://github.com/Xudong-Huang/generator-rs/issues/14) | API | UB | bad func. exposure | No (jonas-schievink)  | No | 
-| linea.rs | CVE-2019-16880 | [issues/1](https://github.com/strake/linea.rs/pull/2) | IMP:UNWIND+RAII | DF | enf. ManuallyDrop late | No (Phosphorus15)| No | 
-| portaudio-rs | CVE-2019-16881 | [issues/20](https://github.com/mvdnes/portaudio-rs/issues/20) | IMP:UNWIND+RAII | DF | enf. ManuallyDrop late | No (Phosphorus15) | No | 
-| http | CVE-2020-25574 | [issues/354](https://github.com/hyperium/http/issues/354) | IMP:UNWIND+RAII | DF | buf. shrinking too late (rely on drop) | No (Qwaz-sec) | No | 
-| http | Advisory-DB | [issues/355*](https://github.com/hyperium/http/issues/355) | API:TRAIT+LIFETIME | UB->UAF | lack lifetime bound->multile mut refs  | No (Qwaz-sec)  | No | 
-| internment | CVE-2020-35874 | issues/11 | IMP:CC+GEN | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
-| spin-rs  | CVE-2019-16137 | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | IMP:EAPI+CC | UB->UAF | impl error: Ordering::Relaxed$\to$Release | 64 | No | 
-| bigint | CVE-2020-35880 | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | IMP:DEP | UB | use uint instead | | No | 
-| array | CVE-2020-35886 | [issues/1](https://github.com/sjep/array/issues/1) | API:TRAIT+CC | UAF | lack Sync/Send bound | Qwaz-Sec | No |
-| array | CVE-2020-35887 | [issues/1](https://github.com/sjep/array/issues/1) | IMP:LOE | OOR | Index and IndexMut impl does not check the array bound | Qwaz-Sec | No | Yes |
-| array | CVE-2020-35888 | [issues/1](https://github.com/sjep/array/issues/1) | IMP:RAII | UNINIT | drop uninit mem | Qwaz-Sec | No |
-| crayon | CVE-2020-35889 | [issues/87](https://github.com/shawnscode/crayon/issues/87) | IMP:CUST+CC+TRAIT | UAF | time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | 
-| ordnung | CVE-2020-35890 | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | IMP:LOE | OOR | | Qwaz | No |
-| ordnung | CVE-2020-35891 | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | IMP:UNWIND+RAII | DF | | Qwaz | No |
-| simple-slab | CVE-2020-35892 | [issues/2](https://github.com/nathansizemore/simple-slab/issues/2) | IMP:BOUNDARY | OOR | Slab::index() does not perform the boundary checking | Qwaz | No |
-| simple-slab | CVE-2020-35893 | [issues/2](https://github.com/nathansizemore/simple-slab/issues/2) | IMP:BOUNDARY | OOR | copies an element from an invalid address due to off-by-one error | Qwaz | No | 
-| obstack | CVE-2020-35894 | [issues/4] (https://github.com/petertodd/rust-obstack/issues/4) | IMP:CASE+CUST+LOE | UB | generates unaligned references for types with a large alignment | Qwaz | No | 
-| stack-rs | CVE-2020-35895 | [issues/4](https://github.com/arcnmx/stack-rs/issues/4) | IMP:BOUNDARY | OOR | lack boundary check | ammaraskar | No | No |
-| vm-memory | CVE-2020-13759 | [issues/93](https://github.com/rust-vmm/vm-memory/issues/93) | IMP:EAPI+RW+CC | UB | volatile mem acc/ptr::write()$\to$write_volatile() | No (andreeaflorescu-deps)| No | 
-| Rocket | CVE-2020-35882 | [issues/1312](https://github.com/SergioBenitez/Rocket/issues/1312) | IMP:LOE+TRAIT+CC | UB->UAF| Clone may incur mutable aliases | Qwaz | No |
-| teaclave-sgx-sdk  | CVE-2020-5499 | www.mitre.org | API:CC+LOE | UB | may init twice by another thread/+Once::new() | No (Chen-sec) | No | 
-| claxon  | CVE-2018-20992/Trophy | [issues/10](https://github.com/ruuda/claxon/issues/10) | IMP:LOE | UNINIT->DL | Vec::set_len()->read unit mem | No (Shnatsel-sec)| No | 
-| traitobject | CVE-2020-35881 | [issues/7](https://github.com/reem/rust-traitobject/issues/7) | IMP:LOE+TYPECONV | UB->OOR | assumes that the first element is a fat pointer is the data pointer | eduardosm | No |
-| rust-rgb | CVE-2020-25016 | [issues/35](https://github.com/kornelski/rust-rgb/issues/35) | API:SIG | UB | declare unsafe API as safe | No (HeroicKatora) | No | 
-| renderdoc-rs | CVE-2019-16142 | [issues/27](https://github.com/ebkalderon/renderdoc-rs/issues/27) | API:SIG | UB | mutable (internal mutation) | No (ebkalderon-owner) | No | 
-| rulinalg | CVE-2020-35879 | issues/201 | API:LIFE | UB->UAF | func. sign.:lifetime | No (Qwaz-sec)  | No | 
-| flatbuffers | CVE-2020-35864 | issues/5825 | API:SAFE | UB | func. sign.: safety declaration | No (eduardosm)| No | 
+| linea.rs | **CVE-2019-16880** | [issues/1](https://github.com/strake/linea.rs/pull/2) | IMP:UNWIND+RAII | DF | enf. ManuallyDrop late | No (Phosphorus15)| No | 
+| portaudio-rs | **CVE-2019-16881** | [issues/20](https://github.com/mvdnes/portaudio-rs/issues/20) | IMP:UNWIND+RAII | DF | enf. ManuallyDrop late | No (Phosphorus15) | No | 
+| http | **CVE-2020-25574** | [issues/354](https://github.com/hyperium/http/issues/354) | IMP:UNWIND+RAII | DF | buf. shrinking too late (rely on drop) | No (Qwaz-sec) | No | 
+| http | Advisory-DB | [issues/355](https://github.com/hyperium/http/issues/355) | API:TRAIT+LIFETIME | UB->UAF | lack lifetime bound->multile mut refs  | No (Qwaz-sec)  | No | 
+| internment | **CVE-2020-35874** | issues/11 | IMP:CC+GEN | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
+| spin-rs  | **CVE-2019-16137** | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | IMP:EAPI+CC | UB->UAF | impl error: Ordering::Relaxed$\to$Release | 64 | No | 
+| bigint | **CVE-2020-35880** | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | IMP:DEP | UB | use uint instead | | No | 
+| array | **CVE-2020-35886** | [issues/1](https://github.com/sjep/array/issues/1) | API:TRAIT+CC | UAF | lack Sync/Send bound | Qwaz-Sec | No |
+| array | **CVE-2020-35887** | [issues/1](https://github.com/sjep/array/issues/1) | IMP:LOE | OOR | Index and IndexMut impl does not check the array bound | Qwaz-Sec | No | Yes |
+| array | **CVE-2020-35888** | [issues/1](https://github.com/sjep/array/issues/1) | IMP:RAII | UNINIT | drop uninit mem | Qwaz-Sec | No |
+| crayon | **CVE-2020-35889** | [issues/87](https://github.com/shawnscode/crayon/issues/87) | IMP:CUST+CC+TRAIT | UAF | time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | 
+| ordnung | **CVE-2020-35890** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | IMP:LOE | OOR | | Qwaz | No |
+| ordnung | **CVE-2020-35891** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | IMP:UNWIND+RAII | DF | | Qwaz | No |
+| simple-slab | **CVE-2020-35892** | [issues/2](https://github.com/nathansizemore/simple-slab/issues/2) | IMP:BOUNDARY | OOR | Slab::index() does not perform the boundary checking | Qwaz | No |
+| simple-slab | **CVE-2020-35893** | [issues/2](https://github.com/nathansizemore/simple-slab/issues/2) | IMP:BOUNDARY | OOR | copies an element from an invalid address due to off-by-one error | Qwaz | No | 
+| obstack | **CVE-2020-35894** | [issues/4] (https://github.com/petertodd/rust-obstack/issues/4) | IMP:CASE+CUST+LOE | UB | generates unaligned references for types with a large alignment | Qwaz | No | 
+| stack-rs | **CVE-2020-35895** | [issues/4](https://github.com/arcnmx/stack-rs/issues/4) | IMP:BOUNDARY | OOR | lack boundary check | ammaraskar | No | No |
+| vm-memory | **CVE-2020-13759** | [issues/93](https://github.com/rust-vmm/vm-memory/issues/93) | IMP:EAPI+RW+CC | UB | volatile mem acc/ptr::write()$\to$write_volatile() | No (andreeaflorescu-deps)| No | 
+| Rocket | **CVE-2020-35882** | [issues/1312](https://github.com/SergioBenitez/Rocket/issues/1312) | IMP:LOE+TRAIT+CC | UB->UAF| Clone may incur mutable aliases | Qwaz | No |
+| teaclave-sgx-sdk  | **CVE-2020-5499** | www.mitre.org | API:CC+LOE | UB | may init twice by another thread/+Once::new() | No (Chen-sec) | No | 
+| claxon  | **CVE-2018-20992**/Trophy | [issues/10](https://github.com/ruuda/claxon/issues/10) | IMP:LOE | UNINIT->DL | Vec::set_len()->read unit mem | No (Shnatsel-sec)| No | 
+| traitobject | **CVE-2020-35881** | [issues/7](https://github.com/reem/rust-traitobject/issues/7) | IMP:LOE+TYPECONV | UB->OOR | assumes that the first element is a fat pointer is the data pointer | eduardosm | No |
+| rust-rgb | **CVE-2020-25016** | [issues/35](https://github.com/kornelski/rust-rgb/issues/35) | API:SIG | UB | declare unsafe API as safe | No (HeroicKatora) | No | 
+| renderdoc-rs | **CVE-2019-16142** | [issues/27](https://github.com/ebkalderon/renderdoc-rs/issues/27) | API:SIG | UB | mutable (internal mutation) | No (ebkalderon-owner) | No | 
+| rulinalg | **CVE-2020-35879** | issues/201 | API:LIFE | UB->UAF | func. sign.:lifetime | No (Qwaz-sec)  | No | 
+| flatbuffers | **CVE-2020-35864** | issues/5825 | API:SAFE | UB | func. sign.: safety declaration | No (eduardosm)| No | 
 | flatbuffers | Advisory-DB | issues/5530 | IMP:LOE | UB | logical error->invalid bit pattern for bool | No (nagisa)| No | 
-| once_cell | CVE-2019-16141 | [issues/46](https://github.com/matklad/once_cell/issues/46) | IMP::EAPI | UB | unreachable_unchecked()->panic!() | No (xfix-deps) | No | 
+| once_cell | **CVE-2019-16141** | [issues/46](https://github.com/matklad/once_cell/issues/46) | IMP::EAPI | UB | unreachable_unchecked()->panic!() | No (xfix-deps) | No | 
 | capnproto-rust | Trophy Case | cargo-fuzz/issues/40 | IMP:LOE | Unsound | logical error | No (dwrensha-sec)| No | 
-| lucet | CVE-2020-35859 | pull/401 | IMP:LOE  | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
-| rand | CVE-2020-25576 | [issues/779](https://github.com/rust-random/rand/issues/779) | IMP:EAPI+R/W+LLVM | UB | reading unaligned mem/ptr::read_unaligned() | (RalfJung-sec)| No | 
-| os_str_bytes | CVE-2020-35865 | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | IMP:LOE+TYPE | UB |  eduardosm  | No | 
+| lucet | **CVE-2020-35859** | pull/401 | IMP:LOE  | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
+| rand | **CVE-2020-25576** | [issues/779](https://github.com/rust-random/rand/issues/779) | IMP:EAPI+R/W+LLVM | UB | reading unaligned mem/ptr::read_unaligned() | (RalfJung-sec)| No | 
+| os_str_bytes | **CVE-2020-35865** | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | IMP:LOE+TYPE | UB |  eduardosm  | No | 
 | servo (exe) | GitHub | issues/1186 | IMP:RAII | DF | impl Drop with unsafe | kmcallister | No | 
-| servo (exe) | GitHub | issues/2412 | IMP:RAII | DF  | *unsafe cast?  |  | No | 
+| servo (exe) | GitHub | issues/2412 | IMP:RAII | DF  | unsafe cast?  |  | No | 
 | servo (exe) | GitHub | issues/14014 | IMP:CC+RAII | UAF |   | pcwalton-deps | No | 
 | servo (exe) | GitHub | issues/14416 | IMP:RAII | UAF  | FnBox  | pcwalton-deps | No | 
 | servo (exe) | GitHub | issues/20158 | APU:SAFE | UB | declare unsafe constructor as safe  | nox-org | No | 
@@ -177,7 +178,7 @@
 | wint | GitHub | issues/599 | IMP:CC | UB | non-atomic cell for multi-thread apps | andrewhickman | No | 
 | wint | GitHub | pull/611 | IMP:CC | UB | non-atomic cell for multi-thread apps | francesca64-dev | No | 
 | wint | GitHub | issues/1745 | IMP:LOE | UAF | logical error | qthree | No | 
-| Tokio | CVE-2020-35922 | [issues/1386](https://github.com/tokio-rs/tokio/issues/1386) | FFI | UB | assumes the same layout of FFI | Nemo157-Rust | No | 
+| Tokio | **CVE-2020-35922** | [issues/1386](https://github.com/tokio-rs/tokio/issues/1386) | FFI | UB | assumes the same layout of FFI | Nemo157-Rust | No | 
 | Tokio | GitHub | *pull/254 |  | UAF | | seanmonstar-dev | No | 
 | Tokio | GitHub | issues/354 | IMP: | UNINIT | uninit memory for Vec<u8> with set_len() | udoprog | No | 
 | Tokio | GitHub | issues/593 | :CC |  | | NPN |
