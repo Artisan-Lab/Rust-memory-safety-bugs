@@ -122,7 +122,7 @@
 | rust-openssl | **CVE-2018-20997** | [issues/941](https://github.com/sfackler/rust-openssl/issues/941) | RAII | UAF | pointer obj lifetime inconsistency/as_ptr() | No (fred-gremlin)| No | 
 | string-interner | **CVE-2019-16882** | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | TRAIT | UAF | bad derived clone | No (lo48576-deps) | No |  
 | crossbeam | **CVE-2018-20996** | [issues/82](https://github.com/crossbeam-rs/crossbeam/issues/82) | RAII | DF | shared mut aliases+auto drop/+ManuallyDrop | No (c0gent-deps) | No | 
-| | **CVE-2020-35904** | Advisory-DB | [pull/533](https://github.com/crossbeam-rs/crossbeam/pull/533) | IMP:LOE | UB->UAF | drop memory not owned | caelunshun | No | 
+| crossbeam | **CVE-2020-35904** | [pull/533](https://github.com/crossbeam-rs/crossbeam/pull/533) | IMP:LOE | UB->UAF | drop memory not owned | caelunshun | No | 
 | generator-rs | **CVE-2019-16144** | [issues/11](https://github.com/Xudong-Huang/generator-rs/issues/11) | RAII | DF | shared mut aliases+auto drop | No (vOROn200) | No | 
 | generator-rs | Advisory-DB | [issues/9](https://github.com/Xudong-Huang/generator-rs/issues/9) | FNSIG(SAFE) | UB | func. sign.->deref invalid/null pointer | No (jonas-schievink)| No | 
 | generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | API | UB | bad func. exposure  | No (jonas-schievink) | No | 
