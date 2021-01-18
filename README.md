@@ -116,15 +116,15 @@
 | libflate | **CVE-2019-15552** | [issues/35](https://github.com/sile/libflate/issues/35) | IMP:RAII+UNWIND  | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | 
 | memoffset | **CVE-2019-15553** | [issues/9](https://github.com/Gilnaa/memoffset/issues/9) | IMP:RAII+UNWIND | UNINIT | enf. ManuallyDrop late->drop uninit mem  | No (Centril) | No | 
 | linked-hash-map | **CVE-2020-25573** | [pull/100](https://github.com/contain-rs/linked-hash-map/pull/100/) | IMP:RAII | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | 
-| rio | **CVE-2020-35876** | [issues/11](https://github.com/spacejam/rio/issues/30) | RU:SAFE (API) | UAF | logical error: soundness hole | No (dtolnay-Rust) | No | 
+| rio | **CVE-2020-35876** | [issues/11](https://github.com/spacejam/rio/issues/30) | FNSIG(SAFE) | UAF | logical error: soundness hole | No (dtolnay-Rust) | No | 
 | bitvec | **CVE-2020-35862** | [issues/55](https://github.com/myrrlyn/bitvec/issues/55) | IMP:LOE | UAF | logical error: false assumption | No (kulp-sec) | No | 
-| cbox-rs | **CVE-2020-35860** | [issues/2](https://github.com/TomBebbington/cbox-rs/issues/2) | RU:SAFE (API) | UAF | declare unsafe API as safe | No (eduardosm) | No | 
+| cbox-rs | **CVE-2020-35860** | [issues/2](https://github.com/TomBebbington/cbox-rs/issues/2) | FNSIG(SAFE) | UAF | declare unsafe API as safe | No (eduardosm) | No | 
 | rust-openssl | **CVE-2018-20997** | [issues/941](https://github.com/sfackler/rust-openssl/issues/941) | IMP:RAII | UAF | pointer obj lifetime inconsistency/as_ptr() | No (fred-gremlin)| No | 
 | string-interner | **CVE-2019-16882** | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | IMP:TRAIT | UAF | bad derived clone | No (lo48576-deps) | No |  
 | crossbeam | **CVE-2018-20996** | [issues/82](https://github.com/crossbeam-rs/crossbeam/issues/82) | IMP:RAII | DF | shared mut aliases+auto drop/+ManuallyDrop | No (c0gent-deps) | No | 
 | | **CVE-2020-35904** | Advisory-DB | [pull/533](https://github.com/crossbeam-rs/crossbeam/pull/533) | IMP:LOE | UB->UAF | drop memory not owned | caelunshun | No | 
 | generator-rs | **CVE-2019-16144** | [issues/11](https://github.com/Xudong-Huang/generator-rs/issues/11) | IMP:RAII | DF | shared mut aliases+auto drop | No (vOROn200) | No | 
-| generator-rs | Advisory-DB | [issues/9](https://github.com/Xudong-Huang/generator-rs/issues/9) | API:SAFE | UB | func. sign.$\to$deref invalid/null pointer | No (jonas-schievink)| No | 
+| generator-rs | Advisory-DB | [issues/9](https://github.com/Xudong-Huang/generator-rs/issues/9) | FNSIG(SAFE) | UB | func. sign.->deref invalid/null pointer | No (jonas-schievink)| No | 
 | generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | API | UB | bad func. exposure  | No (jonas-schievink) | No | 
 | generator-rs | Advisory-DB  | [issues/14](https://github.com/Xudong-Huang/generator-rs/issues/14) | API | UB | bad func. exposure | No (jonas-schievink)  | No | 
 | linea.rs | **CVE-2019-16880** | [issues/1](https://github.com/strake/linea.rs/pull/2) | IMP:UNWIND+RAII | DF | enf. ManuallyDrop late | No (Phosphorus15)| No | 
@@ -134,7 +134,7 @@
 | internment | **CVE-2020-35874** | issues/11 | IMP:CC+GEN | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
 | spin-rs  | **CVE-2019-16137** | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | IMP:EAPI+CC | UB->UAF | impl error: Ordering::Relaxed->Release | 64 | No | 
 | bigint | **CVE-2020-35880** | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | IMP:DEP | UB | use uint instead | | No | 
-| array | **CVE-2020-35886** | [issues/1](https://github.com/sjep/array/issues/1) | API:TBOUND+CC | DR->UAF | lack Sync/Send bound | Qwaz-Sec | No |
+| array | **CVE-2020-35886** | [issues/1](https://github.com/sjep/array/issues/1) | TBOUND+CC | DR->UAF | lack Sync/Send bound | Qwaz-Sec | No |
 | array | **CVE-2020-35887** | [issues/1](https://github.com/sjep/array/issues/1) | IMP:LOE | OOR | Index and IndexMut impl does not check the array bound | Qwaz-Sec | No | Yes |
 | array | **CVE-2020-35888** | [issues/1](https://github.com/sjep/array/issues/1) | IMP:RAII | UNINIT | drop uninit mem | Qwaz-Sec | No |
 | crayon | **CVE-2020-35889** | [issues/87](https://github.com/shawnscode/crayon/issues/87) | IMP:CUST+CC+TRAIT | UAF | time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | 
@@ -149,12 +149,12 @@
 | teaclave-sgx-sdk  | **CVE-2020-5499** | www.mitre.org | API:CC+LOE | UB | may init twice by another thread/+Once::new() | No (Chen-sec) | No | 
 | claxon  | **CVE-2018-20992**/Trophy | [issues/10](https://github.com/ruuda/claxon/issues/10) | IMP:LOE | UNINIT->DL | Vec::set_len()->read unit mem | No (Shnatsel-sec)| No | 
 | traitobject | **CVE-2020-35881** | [issues/7](https://github.com/reem/rust-traitobject/issues/7) | IMP:LOE+TYPECONV | UB->OOR | assumes that the first element is a fat pointer is the data pointer | eduardosm | No |
-| rust-rgb | **CVE-2020-25016** | [issues/35](https://github.com/kornelski/rust-rgb/issues/35) | API:SIG | UB | declare unsafe API as safe | No (HeroicKatora) | No | 
-| renderdoc-rs | **CVE-2019-16142** | [issues/27](https://github.com/ebkalderon/renderdoc-rs/issues/27) | API:SIG | UB | mutable (internal mutation) | No (ebkalderon-owner) | No | 
-| rulinalg | **CVE-2020-35879** | [issues/201](https://github.com/AtheMathmo/rulinalg/issues/201) | API:LIFE | UB->UAF | func. sign.:lifetime | No (Qwaz-sec)  | No | 
-| flatbuffers | **CVE-2020-35864** | [issues/5825](https://github.com/google/flatbuffers/issues/5825) | API:SAFE | UB | func. sign.: safety declaration | No (eduardosm)| No | 
+| rust-rgb | **CVE-2020-25016** | [issues/35](https://github.com/kornelski/rust-rgb/issues/35) | FNSIG(SAFE) | UB | declare unsafe API as safe | No (HeroicKatora) | No | 
+| renderdoc-rs | **CVE-2019-16142** | [issues/27](https://github.com/ebkalderon/renderdoc-rs/issues/27) | FNSIG(MUT) | UB | mutable (internal mutation) | No (ebkalderon-owner) | No | 
+| rulinalg | **CVE-2020-35879** | [issues/201](https://github.com/AtheMathmo/rulinalg/issues/201) | FNSIG(LIFE) | UB->UAF | func. sign.:lifetime | No (Qwaz-sec)  | No | 
+| flatbuffers | **CVE-2020-35864** | [issues/5825](https://github.com/google/flatbuffers/issues/5825) | FNSIG(SAFE) | UB | func. sign.: safety declaration | No (eduardosm)| No | 
 | flatbuffers | Advisory-DB | issues/5530 | IMP:LOE | UB | logical error->invalid bit pattern for bool | No (nagisa)| No | 
-| once_cell | **CVE-2019-16141** | [issues/46](https://github.com/matklad/once_cell/issues/46) | IMP::EAPI | UB | unreachable_unchecked()->panic!() | No (xfix-deps) | No | 
+| once_cell | **CVE-2019-16141** | [issues/46](https://github.com/matklad/once_cell/issues/46) | IMP:EAPI | UB | unreachable_unchecked()->panic!() | No (xfix-deps) | No | 
 | capnproto-rust | Trophy Case | cargo-fuzz/issues/40 | IMP:LOE | Unsound | logical error | No (dwrensha-sec)| No | 
 | lucet | **CVE-2020-35859** | pull/401 | IMP:LOE  | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
 | rand | **CVE-2020-25576** | [issues/779](https://github.com/rust-random/rand/issues/779) | IMP:EAPI+R/W+LLVM | UB | reading unaligned mem/ptr::read_unaligned() | (RalfJung-sec)| No | 
