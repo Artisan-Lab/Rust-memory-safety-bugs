@@ -80,12 +80,12 @@
 | alg_ds | Advisory-DB | issues/1 | IMP:RAII | UNINIT | init with alloc::alloc | Qwaz-Sec | No | 
 | rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | IMP:RAII | UAF | drop a memory not owned | Qwaz-Sec | No | 
 | arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | API:PHANTOM+TRAIT | UAF | logical errors +PhantomData | Qwaz-Sec | No | 
-| arr | Advisory-DB | issues/1:Array | API:TRAIT+CC | CC->UAF | lack send/sync bound  | Qwaz-Sec | No | 
+| arr | Advisory-DB | issues/1:Array | API:TBOUND+CC | DR->UAF | lack send/sync bound  | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:Index | IMP:TRAIT | OOR | lack boundary check | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:from... | IMP: | UNINIT | drop uninitialized mem | Qwaz-Sec | No | 
 | array-queue | **CVE-2020-35900** | [issues/2](https://github.com/raviqqe/array-queue/issues/2) | IMP:NO | UAF | FALSE CVEs? | ammaraskar-Sec | No | 
 | array-queue | Advisory-DB | issues/2 | IMP:RAII | UNINIT | use mem::uninitialized() | ammaraskar-Sec | No | 
-| atom | **CVE-2020-35897** | [issues/13](https://github.com/slide-rs/atom/issues/13) | API:TRAIT | UB->UAF | lack send/sync bound | ammaraskar-Sec | No | 
+| atom | **CVE-2020-35897** | [issues/13](https://github.com/slide-rs/atom/issues/13) | API:TBOUND+CC | DR->UAF | lack send/sync bound | ammaraskar-Sec | No | 
 | chunky | Advisory-DB | issues/2 | IMP:LOE | OOR | API ignores memory alignment requirement | Qwaz-Sec  | No | 
 | dync | **CVE-2020-35903** | [issues/4](https://github.com/elrnv/dync/issues/4) | IMP:ALIGN | OOR | memory misalignment | ammaraskar-Sec | No | 
 | concread | **CVE-2020-35928** | [issues/48](https://github.com/kanidm/concread/issues/48) | API:TBOUND+CC | DR->UAF | lack send/sync bound | JOE1994-Sec | No | 
@@ -106,9 +106,9 @@
 | net2-rs | **CVE-2020-35920** | [issues/105](https://github.com/deprecrated/net2-rs/issues/105) | IMP:FFI | UB | assumes the same layout of FFI | Thomasdezeeuw | No |  
 | rust-ordered-float | **CVE-2020-35923** | [pull/71](https://github.com/reem/rust-ordered-float/pull/71) | IMP:LOE | UB | panic may cause UB | branpk | No |  
 | pyo3 | **CVE-2020-35917** | [pull/1297](https://github.com/PyO3/pyo3/pull/1297) | IMP:RAII+LOE | IMP：UAF | unthought of dropping | davidhewitt | No |  
-| thex | **CVE-2020-35927** | - | API:TRAIT+GENERICS+CC | UB->UAF | lack send/sync bound | Qwaz-Sec | No |  
+| thex | **CVE-2020-35927** | - | API:TBOUND+CC | DR->UAF | lack send/sync bound | Qwaz-Sec | No |  
 | time | **CVE-2020-26235** | [issues/293](https://github.com/time-rs/time/issues/293) | FFI+CC+SYS | UB->UAF | call non-atomic libc functions (setenv) | quininer | <-> |  
-| try-mutex | **CVE-2020-35924** | [issues/2](https://github.com/mpdn/try-mutex/issues/2) | API:TRAIT+CC | UB->UAF | lack send/sync bound | ammaraskar-Sec | No |  
+| try-mutex | **CVE-2020-35924** | [issues/2](https://github.com/mpdn/try-mutex/issues/2) | API:TBOUND+CC | DR->UAF | lack send/sync bound | ammaraskar-Sec | No |  
 | isahc | **CVE-2019-16140** | [issues/2](https://github.com/sagebind/isahc/issues/2) | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (nox) | No | 
 | sxd-document  | Trophy Case | issues/47 | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (CryZe-sec) | No | 
 | image | **CVE-2019-16138** | [issues/980](https://github.com/image-rs/image/issues/980) | IMP:UNWIND+RAII | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | 
@@ -130,11 +130,11 @@
 | linea.rs | **CVE-2019-16880** | [issues/1](https://github.com/strake/linea.rs/pull/2) | IMP:UNWIND+RAII | DF | enf. ManuallyDrop late | No (Phosphorus15)| No | 
 | portaudio-rs | **CVE-2019-16881** | [issues/20](https://github.com/mvdnes/portaudio-rs/issues/20) | IMP:UNWIND+RAII | DF | enf. ManuallyDrop late | No (Phosphorus15) | No | 
 | http | **CVE-2020-25574** | [issues/354](https://github.com/hyperium/http/issues/354) | IMP:UNWIND+RAII | DF | buf. shrinking too late (rely on drop) | No (Qwaz-sec) | No | 
-| http | Advisory-DB | [issues/355](https://github.com/hyperium/http/issues/355) | API:TRAIT+LIFETIME | UB->UAF | lack lifetime bound->multile mut refs  | No (Qwaz-sec)  | No | 
+| http | Advisory-DB | [issues/355](https://github.com/hyperium/http/issues/355) | API:TBOUND+LIFETIME | UB->UAF | lack lifetime bound->multile mut refs  | No (Qwaz-sec)  | No | 
 | internment | **CVE-2020-35874** | issues/11 | IMP:CC+GEN | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
-| spin-rs  | **CVE-2019-16137** | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | IMP:EAPI+CC | UB->UAF | impl error: Ordering::Relaxed$\to$Release | 64 | No | 
+| spin-rs  | **CVE-2019-16137** | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | IMP:EAPI+CC | UB->UAF | impl error: Ordering::Relaxed->Release | 64 | No | 
 | bigint | **CVE-2020-35880** | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | IMP:DEP | UB | use uint instead | | No | 
-| array | **CVE-2020-35886** | [issues/1](https://github.com/sjep/array/issues/1) | API:TRAIT+CC | UAF | lack Sync/Send bound | Qwaz-Sec | No |
+| array | **CVE-2020-35886** | [issues/1](https://github.com/sjep/array/issues/1) | API:TBOUND+CC | DR->UAF | lack Sync/Send bound | Qwaz-Sec | No |
 | array | **CVE-2020-35887** | [issues/1](https://github.com/sjep/array/issues/1) | IMP:LOE | OOR | Index and IndexMut impl does not check the array bound | Qwaz-Sec | No | Yes |
 | array | **CVE-2020-35888** | [issues/1](https://github.com/sjep/array/issues/1) | IMP:RAII | UNINIT | drop uninit mem | Qwaz-Sec | No |
 | crayon | **CVE-2020-35889** | [issues/87](https://github.com/shawnscode/crayon/issues/87) | IMP:CUST+CC+TRAIT | UAF | time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | 
