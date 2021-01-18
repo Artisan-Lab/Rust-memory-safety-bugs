@@ -79,31 +79,31 @@
 | actix-web | **CVE-2020-35901** | [issues/1321](https://github.com/actix/actix-web/issues/1321) | API:LOE(SYS:MMAP) | UAF | BodyStream should be pined | sebzim4500 | No | 
 | alg_ds | Advisory-DB | issues/1 | IMP:RAII | UNINIT | init with alloc::alloc | Qwaz-Sec | No | 
 | rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | IMP:RAII | UAF | drop a memory not owned | Qwaz-Sec | No | 
-| arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | API:TRAIT+LOE | UAF | logical errors +PhantomData | Qwaz-Sec | No | 
+| arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | API:PHANTOM+TRAIT | UAF | logical errors +PhantomData | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:Array | API:TRAIT+CC | CC->UAF | lack send/sync bound  | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:Index | IMP:TRAIT | OOR | lack boundary check | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:from... | IMP: | UNINIT | drop uninitialized mem | Qwaz-Sec | No | 
-| array-queue | **CVE-2020-35900** | [issues/2](https://github.com/raviqqe/array-queue/issues/2) | IMP:LOE | UAF | index may point to freed mem | ammaraskar-Sec | No | 
+| array-queue | **CVE-2020-35900** | [issues/2](https://github.com/raviqqe/array-queue/issues/2) | IMP:NO | UAF | FALSE CVEs? | ammaraskar-Sec | No | 
 | array-queue | Advisory-DB | issues/2 | IMP:RAII | UNINIT | use mem::uninitialized() | ammaraskar-Sec | No | 
 | atom | **CVE-2020-35897** | [issues/13](https://github.com/slide-rs/atom/issues/13) | API:TRAIT | UB->UAF | lack send/sync bound | ammaraskar-Sec | No | 
 | chunky | Advisory-DB | issues/2 | IMP:LOE | OOR | API ignores memory alignment requirement | Qwaz-Sec  | No | 
-| dync | **CVE-2020-35903** | [issues/4](https://github.com/elrnv/dync/issues/4) | IMP:LOE | OOR | memory misalignment | ammaraskar-Sec | No | 
-| concread | **CVE-2020-35928** | [issues/48](https://github.com/kanidm/concread/issues/48) | API:CC+TRAIT | CC->UAF | lack send/sync bound | JOE1994-Sec | No | 
+| dync | **CVE-2020-35903** | [issues/4](https://github.com/elrnv/dync/issues/4) | IMP:ALIGN | OOR | memory misalignment | ammaraskar-Sec | No | 
+| concread | **CVE-2020-35928** | [issues/48](https://github.com/kanidm/concread/issues/48) | API:TBOUND+CC | DR->UAF | lack send/sync bound | JOE1994-Sec | No | 
 | futures-intrusive | Advisory-DB | issues/53 | API:TRAIT+CC | CC->UAF | lack send/sync bound | ammaraskar-Sec| No | 
-| futures-rs | **CVE-2020-35906** | [pull/2206](https://github.com/rust-lang/futures-rs/pull/2206) | API:GENERICS+LIFE | UAF | lack lifetime bound | Darksonn | No | 
-| futures-rs| **CVE-2020-35907** | [issues/2091](https://github.com/rust-lang/futures-rs/issues/2091) | IMP:LIFE+CC | UAF | return static ref to Send | goffrie | No | 
-| futures-rs| **CVE-2020-35905** | [issues/2239](https://github.com/rust-lang/futures-rs/issues/2239) | API:TRAIT+GENERICS+CC | CC->UAF | lack send/sync bound | Qwaz-Sec | No | 
-| futures-rs| **CVE-2020-35908** | [issues/2050](https://github.com/rust-lang/futures-rs/issues/2050) | API:TRAIT+CC | UAF | impl sync for a structure with Cell<T> | okready | No | 
+| futures-rs | **CVE-2020-35906** | [pull/2206](https://github.com/rust-lang/futures-rs/pull/2206) | API:TBOUND+LIFE | UAF | lack lifetime bound | Darksonn | No | 
+| futures-rs| **CVE-2020-35907** | [issues/2091](https://github.com/rust-lang/futures-rs/issues/2091) | IMP:LOE+LIFE | UAF | ref lives longer than thread (UnsafeCell->Lazy) | goffrie | No | 
+| futures-rs| **CVE-2020-35905** | [issues/2239](https://github.com/rust-lang/futures-rs/issues/2239) | API:TBOUND+CC | CC->UAF | lack send/sync bound | Qwaz-Sec | No | 
+| futures-rs| **CVE-2020-35908** | [issues/2050](https://github.com/rust-lang/futures-rs/issues/2050) | API:LOE+CC | UAF | lack enough sync: impl sync for a structure with Cell<T> | okready | No | 
 | pulse-binding-rust | Advisory-DB | | API:LIFE+GENERICS+RAII | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | 
 | pulse-binding-rust | Advisory-DB | issues/2050 | API:TRAIT+CC | UAF | impl sync for a structure with Cell<T> | okready | No |
-| parking_lot | **CVE-2020-35910** | [MappedMutexGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TRAIT+CC+GENERICS | UB->UAF | lack send bound | ammaraskar-Sec | No |  
-| parking_lot | **CVE-2020-35911** | [MappedRwLockReadGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TRAIT+CC+GENERICS | UB->UAF |  lack sync bound | ammaraskar-Sec | No | 
-| parking_lot | **CVE-2020-35912** | [MappedRwLockWriteGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TRAIT+CC+GENERICS | UB->UAF |  lack send bound | ammaraskar-Sec | No |  
-| parking_lot | **CVE-2020-35913** | [RwLockReadGuard](https://github.com/Amanieu/parking_lot/issues/259) | API:TRAIT+CC+GENERICS | UB->UAF |  lack sync bound | ammaraskar-Sec | No | 
-| parking_lot | **CVE-2020-35914** | [RwLockWriteGuard](https://github.com/Amanieu/parking_lot/issues/259) | API:TRAIT+CC+GENERICS | UB->UAF |  lack sync bound | ammaraskar-Sec | No | 
-| magnetic | **CVE-2020-35925** | [issues/9](https://github.com/johnshaw/magnetic/issues/9) | API:TRAIT+CC+GENERICS | UB->UAF | lack send/sync bound | JOE1994-Sec | No | 
-| miow | **CVE-2020-35921** | [issues/38](https://github.com/yoshuawuyts/miow/issues/38) | FFI | UB | assumes the same layout of FFI | faern | No | 
-| net2-rs | **CVE-2020-35920** | [issues/105](https://github.com/deprecrated/net2-rs/issues/105) | FFI | UB | assumes the same layout of FFI | Thomasdezeeuw | No |  
+| parking_lot | **CVE-2020-35910** | [MappedMutexGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TBOUND+CC | DR->UAF | lack send bound | ammaraskar-Sec | No |  
+| parking_lot | **CVE-2020-35911** | [MappedRwLockReadGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TBOUND+CC | DR->UAF |  lack sync bound | ammaraskar-Sec | No | 
+| parking_lot | **CVE-2020-35912** | [MappedRwLockWriteGuard](https://github.com/Amanieu/parking_lot/issues/258) | API:TBOUND+CC | DR->UAF |  lack send bound | ammaraskar-Sec | No |  
+| parking_lot | **CVE-2020-35913** | [RwLockReadGuard](https://github.com/Amanieu/parking_lot/issues/259) | API:TBOUND+CC | DR->UAF |  lack sync bound | ammaraskar-Sec | No | 
+| parking_lot | **CVE-2020-35914** | [RwLockWriteGuard](https://github.com/Amanieu/parking_lot/issues/259) | API:TBOUND+CC | DR->UAF |  lack sync bound | ammaraskar-Sec | No | 
+| magnetic | **CVE-2020-35925** | [issues/9](https://github.com/johnshaw/magnetic/issues/9) | API:TBOUND+CC | DR->UAF | lack send/sync bound | JOE1994-Sec | No | 
+| miow | **CVE-2020-35921** | [issues/38](https://github.com/yoshuawuyts/miow/issues/38) | IMP:FFI | UB | assumes the same layout of FFI | faern | No | 
+| net2-rs | **CVE-2020-35920** | [issues/105](https://github.com/deprecrated/net2-rs/issues/105) | IMP:FFI | UB | assumes the same layout of FFI | Thomasdezeeuw | No |  
 | rust-ordered-float | **CVE-2020-35923** | [pull/71](https://github.com/reem/rust-ordered-float/pull/71) | IMP:LOE | UB | panic may cause UB | branpk | No |  
 | pyo3 | **CVE-2020-35917** | [pull/1297](https://github.com/PyO3/pyo3/pull/1297) | IMP:RAII+LOE | IMP：UAF | unthought of dropping | davidhewitt | No |  
 | thex | **CVE-2020-35927** | - | API:TRAIT+GENERICS+CC | UB->UAF | lack send/sync bound | Qwaz-Sec | No |  
