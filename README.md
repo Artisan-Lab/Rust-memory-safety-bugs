@@ -13,7 +13,7 @@
 | rust-std | GitHub | [issues/39465](https://github.com/rust-lang/rust/issues/39465) | FNSIG(MUT) | UNSOUND | DP | Fn signature issue->shared mut aliases | christophebiocca | No | 
 | rust-std | GitHub | [issues/39575](https://github.com/rust-lang/rust/issues/39575) | FNSIG(UNSAFE)+FFI+CC | UNSOUND | UB | should be unsafe, UB according to POSIX (CommandExt::before_exec) | fweimer | No | 
 | rust-std | GitHub | [issues/42135](https://github.com/rust-lang/rust/issues/42135) | CASE+TRAIT | ERR | UB | incorrect size_hint for degenerate inclusive ranges  (TrustedLen) | scottmcm-Rust | No | 
-| rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | TYPE(ZST)+GENERIC+TRAIT | ERR | OOR | interators over ZST slices are undefined->random addr （Iter+ZST） | RalfJung-Rust | No | 
+| rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | GENERIC+TRAIT | ERR | OOR | interators over ZST slices are undefined->random addr （Iter+ZST） | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | LOE+CC+DESIGN | UNSOUND | UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
 | rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | TRAIT+DESIGN | UNSOUND | OOR | soundness hole (Placer) | andy-hanson | No | 
 | rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | TRAIT+CC | UNSOUND | UAF | bypassing sync/send check（Cell as fmt::Arguments） | cuviper-Rust | No | 
@@ -21,12 +21,12 @@
 | rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | ARO+SYS | ERR | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
 | rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | GENERIC+RAII | ERR | UNINIT | Weak<T> frees uninitialized mem with <Void> | jleedev | No | 
 | rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | EAPI(MEM)+CC | ERR | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
-| rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | TYPE(ZST)+GENERIC+LOE+LLVM | ERR | OOR | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
+| rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | GENERIC+LLVM | ERR | OOR | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | GENERICS+ALIGN | ERR | OOR | misaligned reference （RC，ARC） | RalfJung | No | 
 | rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | LOE | ERR | OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
-| rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | IMP:FFI+CC+SYS | UAF | thread local variables is freed before \_tlv_atexit (thread_local) | mtak- | May | 
-| rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | UNWIND+RAII | DF | double free while panic (Vec::drain_filter) | rustonaut | No | 
-| rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | API:TRAIT+GENERIC | UB->UAF | soundness holes of when impl DerefMut/Clone (Pin) | comex |
+| rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | FFI+CC+SYS | ERR | UAF | _tlv_atexit during tlv_finalize is UB (thread_local) | mtak- | May | 
+| rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | UNWIND+RAII | ERR | DF | double free while panic (Vec::drain_filter) | rustonaut | No | 
+| rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | GENERIC+TRAIT | UB->UAF | soundness holes of when impl DerefMut/Clone (Pin) | comex |
 | rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | API:TRAIT+SPEC | UB->OOR | violate the always applicable test (PartialEq for RangeInclusive) | comex | No | 
 | rust-std | GitHub | [issues/72624](https://github.com/rust-lang/rust/issues/72624) | ARO | OOR | possible arithmatic overflow (DroplessArena::alloc_raw) | bluss-Rust | No |
 | rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | IMP:LOE+TYPE | UB | invalid UTF-8 | RalfJung-Rust | No |
