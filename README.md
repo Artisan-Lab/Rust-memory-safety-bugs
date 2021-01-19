@@ -1,29 +1,29 @@
 # rustbugs
   
-| Project | CVE-ID (or Src) | Link | Culprit | Consequense | Details | Finder-Role | Propagated | Revise (Unsafe->Safe) |
+| Project | CVE-ID (or Src) | Link | Culprit | Difficulty to Triger  | Consequense | Details | Finder-Role | Propagated | Revise (Unsafe->Safe) |
 |---------|---------|---------|---------|---------|---------|---------|---------|---------|
-| rust-std | **CVE-2018-1000810** | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | ARO | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | 
-| rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | IMP:BOUNDARY | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No |
-| rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TTYPECONV+ALIGN | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | 
-| rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | IMP:FFI | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
-| rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | ARO+MODEL | UB->UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
-| rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | IMP:FFI+CC+SYS+MODEL | UB->UAF | setenv is unsafe | bluss-Rust | No | 
-| rust-std | GitHub | [issues/33770](https://github.com/rust-lang/rust/issues/33770) | IMP:FFI+CC+MODEL | UB->UAF | glibc recursive lock is UB->shared mut aliases | Amanieu | No | 
-| rust-std | GitHub | [issues/35836](https://github.com/rust-lang/rust/issues/35836) | IMP:FFI+CC+MODEL | UB->UAF | recursive RWlock on Windows is UB | retep998-Rust | No | 
-| rust-std | GitHub | [issues/39465](https://github.com/rust-lang/rust/issues/39465) | FNSIG(MUT) | UB->DP | Fn signature issue->shared mut aliases | christophebiocca | No | 
-| rust-std | GitHub | [issues/39575](https://github.com/rust-lang/rust/issues/39575) | FNSIG(UNSAFE)+FFI+CC | UB | should be unsafe, UB according to POSIX (CommandExt::before_exec) | fweimer | No | 
-| rust-std | GitHub | [issues/42135](https://github.com/rust-lang/rust/issues/42135) | IMP:CASE+TRAIT | UB | incorrect size_hint for degenerate inclusive ranges  (TrustedLen) | scottmcm-Rust | No | 
-| rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | IMP:TYPE(ZST)+GENERIC+TRAIT | UB->OOR | interators over ZST slices are undefined->random addr （Iter+ZST） | RalfJung-Rust | No | 
-| rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | IMP:CC+DESIGN | UB->UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
-| rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | API:TRAIT+DESIGN | BO->OOR | soundness hole (Placer) | andy-hanson | No | 
-| rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | API:TRAIT+CC | CC->UAF | bypassing sync/send check（Cell as fmt::Arguments） | cuviper-Rust | No | 
-| rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | IMP:FFI+CC+SYS | UAF | multi-thread unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
-| rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | ARO+SYS | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
-| rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | RAII | UNINIT | free uninitialized mem (Weak) | jleedev | No | 
-| rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | EAPI(MEM)+CC | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
-| rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | IMP:TYPE(ZST)+GENERIC+LOE+LLVM | UB->OOR | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
-| rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | IMP:LOE | OOR | misaligned reference （RC，ARC） | RalfJung | No | 
-| rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | IMP:LOE | UB->OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
+| rust-std | **CVE-2018-1000810** | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | ARO | ERR | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | 
+| rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | BOUNDARY | ERR | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No |
+| rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TTYPECONV+ALIGN | UNSOUND | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | 
+| rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | FFI | UNSOUND | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
+| rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | ARO+MODEL | ERR | UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
+| rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | FFI+CC+SYS+MODEL | MID | UAF | setenv is unsafe | bluss-Rust | No | 
+| rust-std | GitHub | [issues/33770](https://github.com/rust-lang/rust/issues/33770) | FFI+CC+MODEL | UNSOUND | UAF | glibc recursive lock is UB->shared mut aliases | Amanieu | No | 
+| rust-std | GitHub | [issues/35836](https://github.com/rust-lang/rust/issues/35836) | FFI+CC+MODEL | UNSOUND | UAF | recursive RWlock on Windows is UB | retep998-Rust | No | 
+| rust-std | GitHub | [issues/39465](https://github.com/rust-lang/rust/issues/39465) | FNSIG(MUT) | UNSOUND | DP | Fn signature issue->shared mut aliases | christophebiocca | No | 
+| rust-std | GitHub | [issues/39575](https://github.com/rust-lang/rust/issues/39575) | FNSIG(UNSAFE)+FFI+CC | UNSOUND | UB | should be unsafe, UB according to POSIX (CommandExt::before_exec) | fweimer | No | 
+| rust-std | GitHub | [issues/42135](https://github.com/rust-lang/rust/issues/42135) | CASE+TRAIT | ERR | UB | incorrect size_hint for degenerate inclusive ranges  (TrustedLen) | scottmcm-Rust | No | 
+| rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | TYPE(ZST)+GENERIC+TRAIT | ERR | OOR | interators over ZST slices are undefined->random addr （Iter+ZST） | RalfJung-Rust | No | 
+| rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | LOE+CC+DESIGN | UNSOUND | UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
+| rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | TRAIT+DESIGN | UNSOUND | OOR | soundness hole (Placer) | andy-hanson | No | 
+| rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | TRAIT+CC | UNSOUND | UAF | bypassing sync/send check（Cell as fmt::Arguments） | cuviper-Rust | No | 
+| rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | FFI+CC+SYS | MID | UAF | multi-thread unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
+| rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | ARO+SYS | ERR | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
+| rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | GENERIC+RAII | ERR | UNINIT | Weak<T> frees uninitialized mem with <Void> | jleedev | No | 
+| rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | EAPI(MEM)+CC | ERR | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
+| rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | TYPE(ZST)+GENERIC+LOE+LLVM | ERR | OOR | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
+| rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | GENERICS+ALIGN | ERR | OOR | misaligned reference （RC，ARC） | RalfJung | No | 
+| rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | LOE | ERR | OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | IMP:FFI+CC+SYS | UAF | thread local variables is freed before \_tlv_atexit (thread_local) | mtak- | May | 
 | rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | UNWIND+RAII | DF | double free while panic (Vec::drain_filter) | rustonaut | No | 
 | rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | API:TRAIT+GENERIC | UB->UAF | soundness holes of when impl DerefMut/Clone (Pin) | comex |
@@ -78,7 +78,7 @@
 | actix-web | Advisory-DB | issues/301 | API:CC+TRAIT+GENERIC | UAF | unsafe impl of Send for generics races Rc | seanmonstar-Mozilla | No | 
 | actix-web | **CVE-2020-35901** | [issues/1321](https://github.com/actix/actix-web/issues/1321) | API:LOE(SYS:MMAP) | UAF | BodyStream should be pined | sebzim4500 | No | 
 | alg_ds | Advisory-DB | issues/1 | IMP:RAII | UNINIT | init with alloc::alloc | Qwaz-Sec | No | 
-| rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | IMP:RAII+STRUCT | UB->UAF | self defined struct: direct construction->drop memory not owned | Qwaz-Sec | No | 
+| rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | IMP:RAII+STRUCT | UB:UAF | self defined struct: direct construction->drop memory not owned | Qwaz-Sec | No | 
 | arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | API:PHANTOM+TRAIT | UAF | logical errors +PhantomData | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:Array | TBOUND+CC | DR->UAF | lack send/sync bound  | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:Index | IMP:TRAIT | OOR | lack boundary check | Qwaz-Sec | No | 
