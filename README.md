@@ -26,9 +26,9 @@
 | rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | LOE | ERR | OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | FFI+CC+SYS | ERR | UAF | _tlv_atexit during tlv_finalize is UB (thread_local) | mtak- | May | 
 | rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | UNWIND+RAII | ERR | DF | double free while panic (Vec::drain_filter) | rustonaut | No | 
-| rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | GENERIC+TRAIT | UB->UAF | soundness holes of when impl DerefMut/Clone (Pin) | comex |
-| rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | API:TRAIT+SPEC | UB->OOR | violate the always applicable test (PartialEq for RangeInclusive) | comex | No | 
-| rust-std | GitHub | [issues/72624](https://github.com/rust-lang/rust/issues/72624) | ARO | OOR | possible arithmatic overflow (DroplessArena::alloc_raw) | bluss-Rust | No |
+| rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | DYNTRAIT+TRAIT | ERR | UB->UAF | soundness holes of when impl DerefMut/Clone (Pin) | comex |
+| rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | DYNTRAIT | UNSOUND | UB->OOR | violate the always applicable test (PartialEq for RangeInclusive) | comex | No | 
+| rust-std | GitHub | [issues/72624](https://github.com/rust-lang/rust/issues/72624) | ARO | EER | OOR | possible arithmatic overflow (DroplessArena::alloc_raw) | bluss-Rust | No |
 | rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | IMP:LOE+TYPE | UB | invalid UTF-8 | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | RAII+CC | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
 | rust-std | GitHub | [issues/78477](https://github.com/rust-lang/rust/issues/78477) | IMP:LOE | UNKNOWN | violate pointer provenance rules | RalfJung-Rust | No |
