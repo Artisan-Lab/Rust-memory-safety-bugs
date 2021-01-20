@@ -192,9 +192,19 @@
 OOR:out-of-range access; BO: buffer overflow; BOR: buffer over-read; CC: concurrency issue; DF: double free; DL: data leakage; DP: dangling pointer; DR: data race; 
 RC: race condition; UAF: use-after-free.
 
-ERR：Developers should be resposible for the bug, and users cannot aware the bug unless they read the implementation details.
-MID: The program should be able to detect the errors at runtime and users may be resposible for using the functions in an incorrect way.
-UNSOUND: The program should not compile, and users should be resposible for using the functions in an incorrect way: .
+* ERR：
+- Developers should be resposible for the bug
+- users cannot aware the bug unless they read the implementation details.
+- Some bugs can be detected by analyzing the program without PoC. 
+
+* MID: 
+- users may be resposible for using the functions in an incorrect way.
+- After fix: The program should be able to detect the errors at runtime
+
+* UNSOUND: 
+- Users should be resposible for using the functions in an incorrect way.
+- After fix, the program should not compile.
+- The bug cannot be detected by analyzing the program without PoC. 
 
 ### Other CVEs (Non-Memory-Safety Issue): 
 * Crypto/Functionality Issue: CVE-2016-10932, CVE-2017-18587, CVE-2018-20999, CVE-2019-15545, CVE-2019-16760, CVE-2017-1000168, CVE-2020-15093, CVE-2020-26281, CVE-2020-35926, CVE-2020-35883;
