@@ -24,7 +24,7 @@
 | rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | GENERIC+LLVM | ERR | OOR | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | GENERICS+ALIGN | ERR | OOR | misaligned reference （RC，ARC） | RalfJung | No | 
 | rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | LOE | ERR | OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
-| rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | FFI+CC+SYS | ERR | UAF | _tlv_atexit during tlv_finalize is UB (thread_local) | mtak- | May | 
+| rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | FFI+TLS+CC | ERR | UAF | _tlv_atexit during tlv_finalize is UB (thread_local) | mtak- | May | 
 | rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | UNWIND+RAII | ERR | DF | double free while panic (Vec::drain_filter) | rustonaut | No | 
 | rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | DYNTRAIT+TRAIT | ERR | UB->UAF | soundness holes of when impl DerefMut/Clone (Pin) | comex |
 | rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | DYNTRAIT | UNSOUND | UB->OOR | violate the always applicable test (PartialEq for RangeInclusive) | comex | No | 
