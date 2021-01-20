@@ -1,10 +1,10 @@
 # rustbugs
   
-| Project | CVE-ID (or Src) | Link | Culprit | Difficulty to Triger  | Consequense | Details | Finder-Role | Propagated | Revise (Unsafe->Safe) |
-|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
-| rust-std | **CVE-2018-1000810** | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | ARO | ERR | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | 
-| rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | BOUNDARY | ERR | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No |
-| rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TTYPECONV+ALIGN | UNSOUND | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | 
+| Project | CVE-ID (or Src) | Link | Culprit | Difficulty to Triger  | Consequense | Details | Finder-Role | Propagated | Revise (Unsafe->Safe) | BadDrop? |
+|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+| rust-std | **CVE-2018-1000810** | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | ARO | ERR | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | | - |
+| rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | BOUNDARY | ERR | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No | | - |
+| rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TTYPECONV+ALIGN | UNSOUND | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | - |
 | rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | FFI | UNSOUND | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
 | rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | ARO+MODEL | ERR | UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
 | rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | FFI+CC+SYS+MODEL | MID | UAF | setenv is unsafe | bluss-Rust | No | 
@@ -34,7 +34,7 @@
 | rust-std | GitHub | [issues/78477](https://github.com/rust-lang/rust/issues/78477) | IMP:LOE | UNKNOWN | violate pointer provenance rules | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | UNWIND+TYPE | UB | invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
 | rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:BOUNDARY | UB->\*UAF | incorrect boundary check (VecDeque) | ayourtch | No |
-| rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | IMP:BOUNDARY | UB->\*UAF | incorrect boundary check (VecDeque)-79808 | Aratz | No |
+| rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | BOUNDARY | UB->\*UAF | incorrect boundary check (VecDeque)-79808 | Aratz | No | | - |
 | rustc (fake-static) | Advisory-DB | [issues/25860](https://github.com/rust-lang/rust/issues/25860) | LIFE | UB->UAF | type system issue->lifetime inconsistency | No (aturon-Rust)| No | 
 | arrayfire-rust  | **CVE-2018-20998** | [issues/176](https://github.com/arrayfire/arrayfire-rust/issues/176) | ALIGN+FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
 | ncurses | **CVE-2019-15547** | [issues/172](https://github.com/jeaye/ncurses-rs/issues/172) | FNSIG(SAFE)+FFI | OOR | FFI-unchecked argument/printw() | thomcc | No | 
@@ -59,27 +59,27 @@
 | slice-deque | **CVE-2019-15543** | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | ALIGN+CASE | ERR | OOR | lack special case handling ->memory misalignment | No (zimond) | No |
 | rust-smallvec | **CVE-2019-15554** | [issues/149](https://github.com/servo/rust-smallvec/issues/149) | LOE | ERR | OOR | logical error + unsafe write | No (ehuss) | No | 
 | rust-smallvec | Advisory-DB | [issues/126](https://github.com/servo/rust-smallvec/issues/126) | RAII+UNWIND | ERR | UNINIT | init vector with mem:uninitialized() | No (mbrubeck) | No | 
-| rust-smallvec | **CVE-2019-15551** | [issues/148](https://github.com/servo/rust-smallvec/issues/148) | LOE | ERR |UAF | logical error in manuall deallocation | No (ehuss) | No | 
+| rust-smallvec | **CVE-2019-15551** | [issues/148](https://github.com/servo/rust-smallvec/issues/148) | LOE | ERR |UAF | miss an else branch->manuall deallocation | No (ehuss) | No | 
 | rust-smallvec | **CVE-2018-20991** | [issues/96](https://github.com/servo/rust-smallvec/issues/96) | UNWIND+RAII | ERR | DF | buffer shrinking too late | No (Vurich) | No | 
 | simd-json | **CVE-2019-15550** | [pull/27](https://github.com/simd-lite/simd-json/pull/27) | ALIGN+CASE | ERR | OOR | lack special case handling->mem misalign/get_unchecked() | No (Licenser-deps) | No | 
-| v_espace | Trophy Case | issues/47 | IMP:LOE | | OOR | logical error->mem misalign | \_mm_load_si128() | No (tmiasko) | No | 
+| v_espace | Trophy Case | issues/47 | ALIGN | | OOR | logical error->mem misalign | \_mm_load_si128() | No (tmiasko) | No | 
 | sized-chunks | **CVE-2020-25791** | [issues/11:unit](https://github.com/bodil/sized-chunks/issues/11) | CASE+GENERIC | UNSOUND | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25792** | [issues/11:pair](https://github.com/bodil/sized-chunks/issues/11) | CASE+GENERIC | UNSOUND | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25793** | [issues/11:From](https://github.com/bodil/sized-chunks/issues/11) | CASE+GENERIC | UNSOUND | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25796** | [issues/11:InlineArray](https://github.com/bodil/sized-chunks/issues/11) | CASE+GENERIC | UNSOUND | OOR:BO | no input check->memory misalignment | No (Qwaz-sec) | No | 
-| sized-chunks | **CVE-2020-25794** | [issues/11:clone](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | ERR | UNINIT | panic->drop uninitialized memory | No (Qwaz-sec)  | No | 
-| sized-chunks | **CVE-2020-25795** | [issues/11:insert_from](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | ERR | UNINIT | panic->drop uninitialized memory | No (Qwaz-sec)  | No | 
-| actix-net | **CVE-2020-35902** | [issues/91](https://github.com/actix/actix-net/issues/91) | API:LOE(SYS:MMAP) | | UAF | frame should be pined | sebzim4500 | No | 
-| actix-net | **CVE-2020-35899** | [pull/158](https://github.com/actix/actix-net/pull/158) | EAPI+DR | ERR | UB->UAF | replace Cell<T> with Rc<RefCell<T>> | Shnatsel | No | 
+| sized-chunks | **CVE-2020-25794** | [issues/11:clone](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | ERR | UNINIT | panic->drop uninitialized memory | No (Qwaz-sec)  | No | MAY |
+| sized-chunks | **CVE-2020-25795** | [issues/11:insert_from](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | ERR | DF | panic->double drop | No (Qwaz-sec)  | No | | Hard |
+| actix-net | **CVE-2020-35902** | [issues/91](https://github.com/actix/actix-net/issues/91) | TBOUND+PIN | UNSOUND | UAF | frame should be pined | sebzim4500 | No | | No |
+| actix-net | **CVE-2020-35899** | [pull/158](https://github.com/actix/actix-net/pull/158) | EAPI+DR | ERR | UAF | replace Cell<T> with Rc<RefCell<T>> | Shnatsel | No | 
 | actix-net | **CVE-2020-35898** | [issues/160](https://github.com/actix/actix-net/issues/160) | EAPI+RC | ERR | UB->UAF | replace Cell<T> with Rc<RefCell<T>>  | Shnatsel | No | 
 | actix-web | Advisory-DB | issues/289 | API:MUTE | | UB->UAF | transmute immutable ref to mutable | seanmonstar | No | 
 | actix-web | Advisory-DB | issues/289 | API:LIFE | | UAF | transmutate lifetime to static | seanmonstar | No | 
 | actix-web | Advisory-DB | issues/289 | IMP:TRAIT+GENERIC | | UAF | Clone+Rc | seanmonstar | No | 
 | actix-web | Advisory-DB | issues/301 | CC+TRAIT+GENERIC | | UAF | unsafe impl of Send for generics races Rc | seanmonstar-Mozilla | No | 
-| actix-web | **CVE-2020-35901** | [issues/1321](https://github.com/actix/actix-web/issues/1321) | API:LOE(SYS:MMAP) | | UAF | BodyStream should be pined | sebzim4500 | No | 
+| actix-web | **CVE-2020-35901** | [issues/1321](https://github.com/actix/actix-web/issues/1321) | API:LOE(SYS:MMAP) | TBOUND+PIN | UAF | BodyStream should be pined | sebzim4500 | No | 
 | alg_ds | Advisory-DB | issues/1 | IMP:RAII | UNINIT | init with alloc::alloc | Qwaz-Sec | No | 
 | rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | RAII+STRUCT | MID | UAF | self defined struct: direct construction->drop memory not owned | Qwaz-Sec | No | 
-| arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | PHANTOM+TRAIT | ERR | UAF | logical errors +PhantomData | Qwaz-Sec | No | 
+| arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | PHANTOM+STRUCT | ERR | UAF | logical errors +PhantomData | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:Array | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound  | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:Index | IMP:TRAIT | MID | OOR | lack boundary check | Qwaz-Sec | No | 
 | arr | Advisory-DB | issues/1:from... | IMP: | ERR | UNINIT | drop uninitialized mem | Qwaz-Sec | No | 
