@@ -29,9 +29,9 @@
 | rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | DYNTRAIT+TRAIT | ERR | UB->UAF | soundness holes of when impl DerefMut/Clone (Pin) | comex |
 | rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | DYNTRAIT | UNSOUND | UB->OOR | violate the always applicable test (PartialEq for RangeInclusive) | comex | No | 
 | rust-std | GitHub | [issues/72624](https://github.com/rust-lang/rust/issues/72624) | ARO | EER | OOR | possible arithmatic overflow (DroplessArena::alloc_raw) | bluss-Rust | No |
-| rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | IMP:LOE+TYPE | UB | invalid UTF-8 | RalfJung-Rust | No |
+| rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | LOE+TYPE | MID | UB | invalid UTF-8 | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | RAII+CC | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
-| rust-std | GitHub | [issues/78477](https://github.com/rust-lang/rust/issues/78477) | IMP:LOE | UNKNOWN | violate pointer provenance rules | RalfJung-Rust | No |
+| rust-std | GitHub | [issues/78477](https://github.com/rust-lang/rust/issues/78477) | LOE | NO | UNKNOWN | violate pointer provenance rules | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | UNWIND+TYPE | UB | invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
 | rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:BOUNDARY | UB->\*UAF | incorrect boundary check (VecDeque) | ayourtch | No |
 | rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | BOUNDARY | UB->\*UAF | incorrect boundary check (VecDeque)-79808 | Aratz | No | | - |
@@ -133,11 +133,11 @@
 | http | Advisory-DB | [issues/355](https://github.com/hyperium/http/issues/355) | TBOUND+LIFE | UNSOUND | DR->UAF | lack lifetime bound->multile mut refs  | No (Qwaz-sec)  | No | 
 | internment | **CVE-2020-35874** | issues/11 | IMP:CC+GEN | ERR | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
 | spin-rs  | **CVE-2019-16137** | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | EAPI+CC | ERR | UB->UAF | impl error: Ordering::Relaxed->Release | 64 | No | 
-| bigint | **CVE-2020-35880** | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | IMP:DEP | UB | use uint instead | | No | 
+| bigint | **CVE-2020-35880** | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | UNMAINTAIN | UNSOUND | UB | library unmaintained/deprecated | | No | 
 | array | **CVE-2020-35886** | [issues/1](https://github.com/sjep/array/issues/1) | TBOUND+CC | UNSOUND | DR->UAF | lack sync/send bound | Qwaz-Sec | No |
 | array | **CVE-2020-35887** | [issues/1](https://github.com/sjep/array/issues/1) | BOUNDRY | MID | OOR | Index and IndexMut lack bound check | Qwaz-Sec | No | Yes | - |
 | array | **CVE-2020-35888** | [issues/1](https://github.com/sjep/array/issues/1) | RAII | ERR | UNINIT | drop uninit mem | Qwaz-Sec | No | | |
-| crayon | **CVE-2020-35889** | [issues/87](https://github.com/shawnscode/crayon/issues/87) | CUST+CC+TRAIT | ERR | UAF | time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | 
+| crayon | **CVE-2020-35889** | [issues/87](https://github.com/shawnscode/crayon/issues/87) | CUST+CC+TRAIT | ERR | UAF | time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | | No |
 | ordnung | **CVE-2020-35890** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | LOE | ERR | OOR | | Qwaz | No |
 | ordnung | **CVE-2020-35891** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | UNWIND+RAII | DF | | Qwaz | No |
 | simple-slab | **CVE-2020-35892** | [issues/2](https://github.com/nathansizemore/simple-slab/issues/2) | BOUNDARY | MID | OOR | Slab::index() does not perform the boundary checking | Qwaz | No |
