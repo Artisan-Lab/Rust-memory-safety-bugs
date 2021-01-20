@@ -35,7 +35,7 @@
 | rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | UNWIND+TYPE | UB | invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
 | rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | IMP:BOUNDARY | UB->\*UAF | incorrect boundary check (VecDeque) | ayourtch | No |
 | rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | IMP:BOUNDARY | UB->\*UAF | incorrect boundary check (VecDeque)-79808 | Aratz | No |
-| rustc (fake-static) | Advisory-DB | [issues/25860](https://github.com/rust-lang/rust/issues/25860) | API:LIFE | UB->UAF | type system issue->lifetime inconsistency | No (aturon-Rust)| No | 
+| rustc (fake-static) | Advisory-DB | [issues/25860](https://github.com/rust-lang/rust/issues/25860) | LIFE | UB->UAF | type system issue->lifetime inconsistency | No (aturon-Rust)| No | 
 | arrayfire-rust  | **CVE-2018-20998** | [issues/176](https://github.com/arrayfire/arrayfire-rust/issues/176) | ALIGN+FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
 | ncurses | **CVE-2019-15547** | [issues/172](https://github.com/jeaye/ncurses-rs/issues/172) | FNSIG(SAFE)+FFI | OOR | FFI-unchecked argument/printw() | thomcc | No | 
 | ncurses | **CVE-2019-15548** | [issues/186](https://github.com/jeaye/ncurses-rs/issues/186) | FNSIG(SAFE)+FFI | OOR | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
