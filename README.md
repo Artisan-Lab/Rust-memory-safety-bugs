@@ -134,11 +134,11 @@
 | internment | **CVE-2020-35874** | issues/11 | IMP:CC+GEN | ERR | UB | impl error: Ordering, atomic::fence() | No (ryzhyk-deps)| No | 
 | spin-rs  | **CVE-2019-16137** | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | EAPI+CC | ERR | UB->UAF | impl error: Ordering::Relaxed->Release | 64 | No | 
 | bigint | **CVE-2020-35880** | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | IMP:DEP | UB | use uint instead | | No | 
-| array | **CVE-2020-35886** | [issues/1](https://github.com/sjep/array/issues/1) | TBOUND+CC | UNSOUND | DR->UAF | lack Sync/Send bound | Qwaz-Sec | No |
-| array | **CVE-2020-35887** | [issues/1](https://github.com/sjep/array/issues/1) | IMP:LOE | OOR | Index and IndexMut impl does not check the array bound | Qwaz-Sec | No | Yes |
-| array | **CVE-2020-35888** | [issues/1](https://github.com/sjep/array/issues/1) | RAII | ERR | UNINIT | drop uninit mem | Qwaz-Sec | No |
+| array | **CVE-2020-35886** | [issues/1](https://github.com/sjep/array/issues/1) | TBOUND+CC | UNSOUND | DR->UAF | lack sync/send bound | Qwaz-Sec | No |
+| array | **CVE-2020-35887** | [issues/1](https://github.com/sjep/array/issues/1) | BOUNDRY | MID | OOR | Index and IndexMut lack bound check | Qwaz-Sec | No | Yes | - |
+| array | **CVE-2020-35888** | [issues/1](https://github.com/sjep/array/issues/1) | RAII | ERR | UNINIT | drop uninit mem | Qwaz-Sec | No | | |
 | crayon | **CVE-2020-35889** | [issues/87](https://github.com/shawnscode/crayon/issues/87) | CUST+CC+TRAIT | ERR | UAF | time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | 
-| ordnung | **CVE-2020-35890** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | IMP:LOE | OOR | | Qwaz | No |
+| ordnung | **CVE-2020-35890** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | LOE | ERR | OOR | | Qwaz | No |
 | ordnung | **CVE-2020-35891** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | UNWIND+RAII | DF | | Qwaz | No |
 | simple-slab | **CVE-2020-35892** | [issues/2](https://github.com/nathansizemore/simple-slab/issues/2) | BOUNDARY | MID | OOR | Slab::index() does not perform the boundary checking | Qwaz | No |
 | simple-slab | **CVE-2020-35893** | [issues/2](https://github.com/nathansizemore/simple-slab/issues/2) | BOUNDARY | ERR | OOR | copies an element from an invalid address due to off-by-one error | Qwaz | No | 
