@@ -42,9 +42,9 @@
 | rusqlite | **CVE-2020-35873** | [sessions.rs](https://github.com/rusqlite/rusqlite/commit/ac30e169ae51b262bc8cf7026469851ce39b23c6) | LIFETIME+FFI | ERR | UAF | similar to CVE-2018-20997 as_ptr() | thomcc-deps| No | 
 | rusqlite | **CVE-2020-35872** | [Auxdata API](https://github.com/rusqlite/rusqlite/commit/71b2f5187b0cbace3f8b6ff53432ff2ca0defcf0) | ALIGN+FFI | ERR | UB->OOR | + repr(C) | No (gwenn-deps) | No | 
 | rusqlite | **CVE-2020-35871** | [Auxdata API](https://github.com/rusqlite/rusqlite/commit/2ef3628dac35aeba0a97d5fb3a57746b4e1d62b3) | TBOUND+CC | UNSOUND | DR->UAF | lack sync/send bound | thomcc-deps| No | 
-| rusqlite | **CVE-2020-35870** | [Auxdata API](https://github.com/rusqlite/rusqlite/commit/2ef3628dac35aeba0a97d5fb3a57746b4e1d62b3) | API:TBOUND+CC | UNSOUND | DR->UAF | lack sync/send bound | thomcc-deps | No | 
+| rusqlite | **CVE-2020-35870** | [Auxdata API](https://github.com/rusqlite/rusqlite/commit/2ef3628dac35aeba0a97d5fb3a57746b4e1d62b3) | TBOUND+CC | UNSOUND | DR->UAF | lack sync/send bound | thomcc-deps | No | 
 | rusqlite | **CVE-2020-35869** | [log](https://github.com/rusqlite/rusqlite/commit/2327d3b774927fdf48903c0bdc1ca7ec93c7c8d0) | EAPI+FFI | ERR| OOR | wrong parameters in api call | thomcc-deps| No | 
-| rusqlite | **CVE-2020-35868** | [UnlockNotification](https://github.com/rusqlite/rusqlite/commit/45fd77ee43c38eea4d6f4e2e56c1667a55ec654f) | LOE+CC | | UB->UAF | UnlockNotification | No (gwenn-deps) | No | 
+| rusqlite | **CVE-2020-35868** | [UnlockNotification](https://github.com/rusqlite/rusqlite/commit/45fd77ee43c38eea4d6f4e2e56c1667a55ec654f) | CC+NLL | ERR | UB | mutex lock is released before send condvar | No (gwenn-deps) | No | 
 | rusqlite | **CVE-2020-35867** | [create_module](https://github.com/rusqlite/rusqlite/commit/3c6b57fe1b2cc87e7ebecde43dd836ffb1c4ea5c) | FNSIG(LIFETIME) | UNSOUND | UB->UAF | static ref should point to static ret value | thomcc-deps| No | 
 | rusqlite | **CVE-2020-35866** | [VTab](https://github.com/rusqlite/rusqlite/commit/c9ef5bd63cad5c0c123344c072b490a1a9bcbe1f) | FNSIG(SAFE) | UNSOUND | UB | should declare trait as unsafe | No (gwenn-deps) | No | 
 | rust-base64 | **CVE-2017-1000430** | [issues/28](https://github.com/marshallpierce/rust-base64/issues/28) | ARO | ERR | OOR | arithmatic overflow + unsafe write | No (alicemaz) | No | 
