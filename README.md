@@ -136,7 +136,7 @@
 | bigint | **CVE-2020-35880** | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | UNMAINTAIN | UNSOUND | UB | library unmaintained/deprecated | | No | 
 | array | **CVE-2020-35886** | [issues/1](https://github.com/sjep/array/issues/1) | TBOUND+CC | UNSOUND | DR->UAF | lack sync/send bound | Qwaz-Sec | No | | No |
 | array | **CVE-2020-35887** | [issues/1](https://github.com/sjep/array/issues/1) | BOUNDRY | MID | OOR | Index and IndexMut lack bound check | Qwaz-Sec | No | Yes | - |
-| array | **CVE-2020-35888** | [issues/1](https://github.com/sjep/array/issues/1) | RAII | ERR | UNINIT | (to check) | Qwaz-Sec | No | | No |
+| array | **CVE-2020-35888** | [issues/1](https://github.com/sjep/array/issues/1) | RAII | ERR | UNINIT | *ptr = value may not fill up the memory | Qwaz-Sec | No | | No |
 | crayon | **CVE-2020-35889** | [issues/87](https://github.com/shawnscode/crayon/issues/87) | CUST+CC+TRAIT | ERR | UAF | time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | | No |
 | ordnung | **CVE-2020-35890** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | LOE | ERR | OOR | | Qwaz | No |
 | ordnung | **CVE-2020-35891** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | UNWIND+RAII | DF | panic->double free | Qwaz | No | | May |
