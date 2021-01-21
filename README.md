@@ -53,7 +53,7 @@
 | compact_arena | **CVE-2019-16139** | [issues/22](https://github.com/llogiq/compact_arena/issues/22) | NLL+LOE | ERR | OOR | NLL issue->Index trait/get_unchecked() | No (CAD97) | No |
 | lz4_flex | Trophy | - | IMP:LOE | OOR | logical error in space allocation | Pascal Seitz-sec | No | 
 | ozone | **CVE-2020-35877** | [index](https://github.com/bqv/ozone/blob/e21f948b0178ab305f644118f18d87a838c618e0/src/buffer.rs#L38-L48) | BOUNDARY | MID | OOR(Read) | lack boundary check | No (n.a.) | No | 
-| ozone | **CVE-2020-35878** | [remove_entry](https://github.com/bqv/ozone/blob/e21f948b0178ab305f644118f18d87a838c618e0/src/map.rs#L94-L101) | RAII | ERR | UNINIT | implement drop with uninit mem | No (n.a.)| No | 
+| ozone | **CVE-2020-35878** | [remove_entry](https://github.com/bqv/ozone/blob/e21f948b0178ab305f644118f18d87a838c618e0/src/map.rs#L94-L101) | RAII | ERR | UNINIT | implement drop with uninit mem | N.A. | No | | Yes | 
  safe-transmute | **CVE-2018-21000** | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | EAPI | ERR | OOR | wrong param order of from_raw_parts() | No (Enet4-deps)| No | 
 | slice-deque | **CVE-2018-20995** | [issues/57](https://github.com/gnzlbg/slice_deque/issues/57) | BOUNDARY | ERR |OOR | error in boundary check + unsafe write | No (aldanor-deps) | No | 
 | slice-deque | **CVE-2019-15543** | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | ALIGN+CASE | ERR | OOR | lack special case handling ->memory misalignment | No (zimond) | No |
@@ -67,7 +67,7 @@
 | sized-chunks | **CVE-2020-25792** | [issues/11:pair](https://github.com/bodil/sized-chunks/issues/11) | CASE+GENERIC | UNSOUND | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25793** | [issues/11:From](https://github.com/bodil/sized-chunks/issues/11) | CASE+GENERIC | UNSOUND | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25796** | [issues/11:InlineArray](https://github.com/bodil/sized-chunks/issues/11) | CASE+GENERIC | UNSOUND | OOR:BO | no input check->memory misalignment | No (Qwaz-sec) | No | 
-| sized-chunks | **CVE-2020-25794** | [issues/11:clone](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | ERR | UNINIT | panic->drop uninitialized memory | No (Qwaz-sec)  | No | MAY |
+| sized-chunks | **CVE-2020-25794** | [issues/11:clone](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | ERR | UNINIT | panic->drop uninitialized memory | Qwaz-sec | No | | Yes |
 | sized-chunks | **CVE-2020-25795** | [issues/11:insert_from](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | ERR | DF | panic->double drop | No (Qwaz-sec)  | No | | Hard |
 | actix-net | **CVE-2020-35902** | [issues/91](https://github.com/actix/actix-net/issues/91) | TBOUND+PIN | UNSOUND | DR->UAF | frame should be pined | sebzim4500 | No | No | No |
 | actix-net | **CVE-2020-35899** | [pull/158](https://github.com/actix/actix-net/pull/158) | EAPI+DR | ERR | DR->UAF | replace Cell<T> with Rc<RefCell<T>> | Shnatsel | No | | No |
@@ -115,7 +115,7 @@
 | image | **CVE-2020-35916** | [issues/1357](https://github.com/image-rs/image/issues/1357) | EAPI+MUT | ERR | UB | convert mutable ptr from const ptr | dodomorandi | No | 
 | libflate | **CVE-2019-15552** | [issues/35](https://github.com/sile/libflate/issues/35) | RAII+UNWIND  | ERR | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | | Yes |
 | memoffset | **CVE-2019-15553** | [issues/9](https://github.com/Gilnaa/memoffset/issues/9) | RAII+UNWIND | ERR | UNINIT | enf. ManuallyDrop late->drop uninit mem  | Centril | No | | Yes |
-| linked-hash-map | **CVE-2020-25573** | [pull/100](https://github.com/contain-rs/linked-hash-map/pull/100/) | RAII | ERR | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | | May |
+| linked-hash-map | **CVE-2020-25573** | [pull/100](https://github.com/contain-rs/linked-hash-map/pull/100/) | EAPI+RAII | ERR | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | | May |
 | rio | **CVE-2020-35876** | [issues/11](https://github.com/spacejam/rio/issues/30) | FNSIG(SAFE) | UNSOUND | UAF | logical error: soundness hole | No (dtolnay-Rust) | No | | No |
 | bitvec | **CVE-2020-35862** | [issues/55](https://github.com/myrrlyn/bitvec/issues/55) | TYPECONV+SYS | ERR | UAF | should use the address after resizing instead of the original one. | No (kulp-sec) | No | | No |
 | cbox-rs | **CVE-2020-35860** | [issues/2](https://github.com/TomBebbington/cbox-rs/issues/2) | FNSIG(SAFE) | UNSOUND | UAF | declare unsafe API as safe | No (eduardosm) | No | | No |
@@ -136,7 +136,7 @@
 | bigint | **CVE-2020-35880** | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | UNMAINTAIN | UNSOUND | UB | library unmaintained/deprecated | | No | 
 | array | **CVE-2020-35886** | [issues/1](https://github.com/sjep/array/issues/1) | TBOUND+CC | UNSOUND | DR->UAF | lack sync/send bound | Qwaz-Sec | No | | No |
 | array | **CVE-2020-35887** | [issues/1](https://github.com/sjep/array/issues/1) | BOUNDRY | MID | OOR | Index and IndexMut lack bound check | Qwaz-Sec | No | Yes | - |
-| array | **CVE-2020-35888** | [issues/1](https://github.com/sjep/array/issues/1) | RAII | ERR | UNINIT | drop uninit mem | Qwaz-Sec | No | | |
+| array | **CVE-2020-35888** | [issues/1](https://github.com/sjep/array/issues/1) | RAII | ERR | UNINIT | (to check) | Qwaz-Sec | No | | No |
 | crayon | **CVE-2020-35889** | [issues/87](https://github.com/shawnscode/crayon/issues/87) | CUST+CC+TRAIT | ERR | UAF | time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | | No |
 | ordnung | **CVE-2020-35890** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | LOE | ERR | OOR | | Qwaz | No |
 | ordnung | **CVE-2020-35891** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | UNWIND+RAII | DF | panic->double free | Qwaz | No | | May |
