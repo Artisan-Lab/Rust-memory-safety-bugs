@@ -4,7 +4,7 @@
 |---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | **CVE-2018-1000810** | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | ARO | ERR | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | | - |
 | rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | BOUNDARY | ERR | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No | | - |
-| rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TTYPECONV+ALIGN | UNSOUND | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | - |
+| rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TRAIT+TTYPECONV | UNSOUND | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | - |
 | rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | FFI | UNSOUND | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
 | rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | ARO+MODEL | ERR | UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
 | rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | FFI+CC+SYS+MODEL | MID | UAF | setenv is unsafe | bluss-Rust | No | 
@@ -56,7 +56,7 @@
 | ozone | **CVE-2020-35878** | [remove_entry](https://github.com/bqv/ozone/blob/e21f948b0178ab305f644118f18d87a838c618e0/src/map.rs#L94-L101) | RAII | ERR | UNINIT | implement drop with uninit mem | N.A. | No | | Yes | 
  safe-transmute | **CVE-2018-21000** | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | EAPI | ERR | OOR | wrong param order of from_raw_parts() | No (Enet4-deps)| No | 
 | slice-deque | **CVE-2018-20995** | [issues/57](https://github.com/gnzlbg/slice_deque/issues/57) | BOUNDARY | ERR |OOR | error in boundary check + unsafe write | No (aldanor-deps) | No | 
-| slice-deque | **CVE-2019-15543** | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | ALIGN+CASE | ERR | OOR | lack special case handling ->memory misalignment | No (zimond) | No |
+| slice-deque | **CVE-2019-15543** | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | CASE | ERR | OOR | lack special case handling ->memory misalignment | No (zimond) | No |
 | rust-smallvec | **CVE-2019-15554** | [issues/149](https://github.com/servo/rust-smallvec/issues/149) | LOE | ERR | OOR | logical error + unsafe write | No (ehuss) | No | 
 | rust-smallvec | Advisory-DB | [issues/126](https://github.com/servo/rust-smallvec/issues/126) | RAII+UNWIND | ERR | UNINIT | init vector with mem:uninitialized() | No (mbrubeck) | No | Yes |
 | rust-smallvec | **CVE-2019-15551** | [issues/148](https://github.com/servo/rust-smallvec/issues/148) | LOE | ERR |UAF | miss an else branch->manuall deallocation | ehuss | No | No | May | 
