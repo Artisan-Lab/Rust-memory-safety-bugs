@@ -39,7 +39,7 @@
 | arrayfire-rust  | **CVE-2018-20998** | [issues/176](https://github.com/arrayfire/arrayfire-rust/issues/176) | ALIGN+FFI | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
 | ncurses | **CVE-2019-15547** | [issues/172](https://github.com/jeaye/ncurses-rs/issues/172) | FNSIG(SAFE)+FFI | OOR | FFI-unchecked argument/printw() | thomcc | No | 
 | ncurses | **CVE-2019-15548** | [issues/186](https://github.com/jeaye/ncurses-rs/issues/186) | FNSIG(SAFE)+FFI | OOR | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
-| rusqlite | **CVE-2020-35873** | [sessions.rs](https://github.com/rusqlite/rusqlite/commit/ac30e169ae51b262bc8cf7026469851ce39b23c6) | LIFETIME+FFI | ERR | UAF | similar to CVE-2018-20997 as_ptr() | thomcc-deps| No | 
+| rusqlite | **CVE-2020-35873** | [sessions.rs](https://github.com/rusqlite/rusqlite/commit/ac30e169ae51b262bc8cf7026469851ce39b23c6) | RAII | ERR | UAF | similar to CVE-2018-20997 as_ptr() | thomcc-deps| No | 
 | rusqlite | **CVE-2020-35872** | [Auxdata API](https://github.com/rusqlite/rusqlite/commit/71b2f5187b0cbace3f8b6ff53432ff2ca0defcf0) | ALIGN+FFI | ERR | UB->OOR | + repr(C) | No (gwenn-deps) | No | 
 | rusqlite | **CVE-2020-35871** | [Auxdata API](https://github.com/rusqlite/rusqlite/commit/2ef3628dac35aeba0a97d5fb3a57746b4e1d62b3) | TBOUND+CC | UNSOUND | DR->UAF | lack sync/send bound | thomcc-deps| No | 
 | rusqlite | **CVE-2020-35870** | [Auxdata API](https://github.com/rusqlite/rusqlite/commit/2ef3628dac35aeba0a97d5fb3a57746b4e1d62b3) | TBOUND+CC | UNSOUND | DR->UAF | lack sync/send bound | thomcc-deps | No | 
