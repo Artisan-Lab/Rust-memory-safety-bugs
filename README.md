@@ -30,7 +30,7 @@
 | rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | TGENERIC | UNSOUND | UB->OOR | violate the always applicable test (PartialEq for RangeInclusive) | comex | No | 
 | rust-std | GitHub | [issues/72624](https://github.com/rust-lang/rust/issues/72624) | ARO | EER | OOR | possible arithmatic overflow (DroplessArena::alloc_raw) | bluss-Rust | No |
 | rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | LOE | MID | UB | TYPE:invalid UTF-8 | RalfJung-Rust | No |
-| rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | RAII+CC | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
+| rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | RAII+CC | ERR | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
 | rust-std | GitHub | [issues/78477](https://github.com/rust-lang/rust/issues/78477) | LOE | NO | UNKNOWN | violate pointer provenance rules | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | UNWIND | ERR | UB | TYPE:invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
 | rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | BOUNDARY | EER | UB->\*UAF | incorrect boundary check (VecDeque) | ayourtch | No |
@@ -48,7 +48,7 @@
 | rusqlite | **CVE-2020-35867** | [create_module](https://github.com/rusqlite/rusqlite/commit/3c6b57fe1b2cc87e7ebecde43dd836ffb1c4ea5c) | FNSIG(LIFETIME) | UNSOUND | UB->UAF | static ref should point to static ret value | thomcc-deps| No | 
 | rusqlite | **CVE-2020-35866** | [VTab](https://github.com/rusqlite/rusqlite/commit/c9ef5bd63cad5c0c123344c072b490a1a9bcbe1f) | FNSIG(SAFE) | UNSOUND | UB | should declare trait as unsafe | No (gwenn-deps) | No | 
 | rust-base64 | **CVE-2017-1000430** | [issues/28](https://github.com/marshallpierce/rust-base64/issues/28) | ARO | ERR | OOR | arithmatic overflow + unsafe write | No (alicemaz) | No | 
-| failure | **CVE-2020-25575** | [issues/336](https://github.com/rust-lang-nursery/failure/issues/336) | TYPE+TYPECONV | OOR | TYPECONV:downcast->misalign: same as CVE-2019-12083 | No (Qwaz-sec) | No | 
+| failure | **CVE-2020-25575** | [issues/336](https://github.com/rust-lang-nursery/failure/issues/336) | TYPE+TYPECONV | UNSOUND | OOR | TYPECONV:downcast->misalign: same as CVE-2019-12083 | No (Qwaz-sec) | No | 
 | bumpalo | **CVE-2020-35861** | [issues/69](https://github.com/fitzgen/bumpalo/issues/69) | LOE(Simple) | ERR | OOR(Read) | copy wrong size | No (Riey-deps)| No | 
 | compact_arena | **CVE-2019-16139** | [issues/22](https://github.com/llogiq/compact_arena/issues/22) | LOE | ERR | OOR | NLL issue->Index trait/get_unchecked() | No (CAD97) | No |
 | lz4_flex | Trophy | [commit](https://github.com/PSeitz/lz4_flex/commit/ce92fbf28c94a0f1f6ebc711c86d854e2c9e5622) | LOE | ERR | OOR | logical error in space allocation | Pascal Seitz-sec | No | 
@@ -62,7 +62,7 @@
 | rust-smallvec | **CVE-2019-15551** | [issues/148](https://github.com/servo/rust-smallvec/issues/148) | LOE | ERR | UAF | miss an else branch->manuall deallocation | ehuss | No | No | May | 
 | rust-smallvec | **CVE-2018-20991** | [issues/96](https://github.com/servo/rust-smallvec/issues/96) | UNWIND+RAII | ERR | DF | buffer shrinking too late | Vurich | No | | Hard |
 | simd-json | **CVE-2019-15550** | [pull/27](https://github.com/simd-lite/simd-json/pull/27) | CASE | ERR | OOR | lack special case handling->mem misalign/get_unchecked() | Licenser-deps | No | No | - |
-| v_espace | Trophy Case | issues/47 | CASE | ERR | OOR | logical error->mem misalign | \_mm_load_si128() | tmiasko | No | No | - |
+| v_espace | Trophy Case | [issues/47](https://github.com/botika/v_escape/issues/47) | CASE+FFIUB | ERR | OOR | logical error->mem misalign | \_mm_load_si128() | tmiasko | No | No | - |
 | sized-chunks | **CVE-2020-25791** | [issues/11:unit](https://github.com/bodil/sized-chunks/issues/11) | TYPE+CASE | UNSOUND | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25792** | [issues/11:pair](https://github.com/bodil/sized-chunks/issues/11) | TYPE+CASE | UNSOUND | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25793** | [issues/11:From](https://github.com/bodil/sized-chunks/issues/11) | TYPE+CASE | UNSOUND | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
@@ -72,10 +72,10 @@
 | actix-net | **CVE-2020-35902** | [issues/91](https://github.com/actix/actix-net/issues/91) | TBOUND+CC | UNSOUND | DR->UAF | frame should be pined | sebzim4500 | No | No | No |
 | actix-net | **CVE-2020-35899** | [pull/158](https://github.com/actix/actix-net/pull/158) | EAPI+CC | ERR | DR->UAF | replace Cell<T> with Rc<RefCell<T>> | Shnatsel | No | | No |
 | actix-net | **CVE-2020-35898** | [issues/160](https://github.com/actix/actix-net/issues/160) | EAPI+CC | ERR | DR->UAF | replace Cell<T> with Rc<RefCell<T>>  | Shnatsel | No | | No |
-| actix-web | Advisory-DB | issues/289 | API:MUTE | | UB->UAF | transmute immutable ref to mutable | seanmonstar | No | 
-| actix-web | Advisory-DB | issues/289 | API:LIFE | | UAF | transmutate lifetime to static | seanmonstar | No | 
-| actix-web | Advisory-DB | issues/289 | IMP:TRAIT+GENERIC | | UAF | Clone+Rc | seanmonstar | No | 
-| actix-web | Advisory-DB | issues/301 | CC+TRAIT+GENERIC | | UAF | unsafe impl of Send for generics races Rc | seanmonstar-Mozilla | No | 
+| actix-web | Advisory-DB | [issues/289](https://github.com/actix/actix-web/issues/289) | FNSIG(MUTE) | UNSOUND | UAF | transmute immutable ref to mutable | seanmonstar | No | 
+| actix-web | Advisory-DB | issues/289 | FNSIG(LIFE) | UNSOUND | UAF | transmutate lifetime to static | seanmonstar | No | | No |
+| actix-web | Advisory-DB | issues/289 | TRAIT+GENERIC | | UAF | Clone+Rc | seanmonstar | No | 
+| actix-web | Advisory-DB | [issues/301](https://github.com/actix/actix-web/issues/301) | CC+TRAIT+GENERIC | | UAF | unsafe impl of Send for generics races Rc | seanmonstar-Mozilla | No | 
 | actix-web | **CVE-2020-35901** | [issues/1321](https://github.com/actix/actix-web/issues/1321) | TBOUND+CC | UNSOUND | DR->UAF | BodyStream should be pined | sebzim4500 | No | | No |
 | alg_ds | Advisory-DB | issues/1 | IMP:RAII | UNINIT | init with alloc::alloc | Qwaz-Sec | No | 
 | rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | TYPE+RAII | UNSOUND | UAF | self defined struct: direct construction->drop memory not owned | Qwaz-Sec | No | No | No |
