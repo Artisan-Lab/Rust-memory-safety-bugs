@@ -94,8 +94,8 @@
 | futures-rs| **CVE-2020-35907** | [issues/2091](https://github.com/rust-lang/futures-rs/issues/2091) | LOE | ERR | UAF | TLS:ref lives longer than thread (UnsafeCell->Lazy) | goffrie | No | | No |
 | futures-rs| **CVE-2020-35905** | [issues/2239](https://github.com/rust-lang/futures-rs/issues/2239) | TBOUND+CC | UNSOUND | CC->UAF | lack send/sync bound | Qwaz-Sec | No | No | No |
 | futures-rs| **CVE-2020-35908** | [issues/2050](https://github.com/rust-lang/futures-rs/issues/2050) | FNSIG(DEP) | MID | UAF | sync for a structure with Cell<T> | okready | No | - | No |
-| pulse-binding-rust | Advisory-DB | | PHANTOM | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | | May |
-| pulse-binding-rust | Advisory-DB | issues/2050 | API:TRAIT+CC | UAF | impl sync for a structure with Cell<T> | okready | No |
+| pulse-binding-rust | Advisory-DB | | PHANTOM | UNSOUND | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | | May |
+| pulse-binding-rust | Advisory-DB | issues/2050 | TRAIT+CC | | UAF | impl sync for a structure with Cell<T> | okready | No |
 | parking_lot | **CVE-2020-35910** | [MappedMutexGuard](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND+CC | UNSOUND | DR->UAF | lack send bound | ammaraskar-Sec | No | No | No |
 | parking_lot | **CVE-2020-35911** | [MappedRwLockReadGuard](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND+CC | UNSOUND | DR->UAF |  lack sync bound | ammaraskar-Sec | No | No | No |
 | parking_lot | **CVE-2020-35912** | [MappedRwLockWriteGuard](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND+CC | UNSOUND | DR->UAF |  lack send bound | ammaraskar-Sec | No | No | No |  
@@ -174,9 +174,9 @@
 | alacritty (exe) | GitHub | pull/4397 | IMP:MODEL | UAF | shared mut aliases (ptr::copy->clone) | kchibisov-dev | No | 
 | alacritty (exe) | GitHub | pull/2176  | IMP:LOE | UAF | logical error (+as_ref()) | aspurdy | No | 
 | diem-libra (exe) | GitHub | pull/1949 | API:LIFE | UAF | ineffective lifetime restriction | dtolnay-Rust  |
-| wint | GitHub | issues/599 | IMP:CC | UB | non-atomic cell for multi-thread apps | andrewhickman | No | 
-| wint | GitHub | pull/611 | IMP:CC | UB | non-atomic cell for multi-thread apps | francesca64-dev | No | 
-| wint | GitHub | issues/1745 | IMP:LOE | UAF | logical error | qthree | No | 
+| wint | GitHub | issues/599 | CC | UB | non-atomic cell for multi-thread apps | andrewhickman | No | 
+| wint | GitHub | pull/611 | CC | UB | non-atomic cell for multi-thread apps | francesca64-dev | No | 
+| wint | GitHub | issues/1745 | LOE | UAF | logical error | qthree | No | 
 | Tokio | **CVE-2020-35922** | [issues/1386](https://github.com/tokio-rs/tokio/issues/1386) | FFIUB | EER | UB | assumes the same layout of FFI | Nemo157-Rust | No | No | No |
 | Tokio | GitHub | *pull/254 |  | UAF | | seanmonstar-dev | No | 
 | Tokio | GitHub | issues/354 | IMP: | UNINIT | uninit memory for Vec<u8> with set_len() | udoprog | No | 
