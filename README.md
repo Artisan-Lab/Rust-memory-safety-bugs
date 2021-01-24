@@ -16,7 +16,7 @@
 | rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | GENERIC+CASE | ERR | OOR | interators over ZST slices are undefined->random addr （Iter+ZST） | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | LOE+CC | UNSOUND | UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
 | rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | CASE | UNSOUND | OOR | does not handle -1 properly (Placer) | andy-hanson | No | 
-| rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | AUTOTRAIT+CC | UNSOUND | UAF | bypassing sync/send check（fmt::Arguments）+PhantomData | cuviper-Rust | No | 
+| rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | TYPE+CC | UNSOUND | UAF | AUTOTRAIT:bypassing sync/send check（fmt::Arguments）+PhantomData | cuviper-Rust | No | 
 | rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | FFIUB+CC | MID | UAF | multi-thread unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
 | rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | ARO | ERR | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
 | rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | GENERIC+RAII | ERR | UNINIT | Weak<T> frees uninitialized mem with <Void> | jleedev | No | 
@@ -78,7 +78,7 @@
 | actix-web | Advisory-DB | issues/301 | CC+TRAIT+GENERIC | | UAF | unsafe impl of Send for generics races Rc | seanmonstar-Mozilla | No | 
 | actix-web | **CVE-2020-35901** | [issues/1321](https://github.com/actix/actix-web/issues/1321) | TBOUND+CC | UNSOUND | DR->UAF | BodyStream should be pined | sebzim4500 | No | | No |
 | alg_ds | Advisory-DB | issues/1 | IMP:RAII | UNINIT | init with alloc::alloc | Qwaz-Sec | No | 
-| rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | RAII+STRUCT | UNSOUND | UAF | self defined struct: direct construction->drop memory not owned | Qwaz-Sec | No | No | No |
+| rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | TYPE+RAII | UNSOUND | UAF | self defined struct: direct construction->drop memory not owned | Qwaz-Sec | No | No | No |
 | arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | RAII+STRUCT | ERR | UAF | logical errors +PhantomData | Qwaz-Sec | No | | MAY |
 | arr | Advisory-DB | issues/1:Array | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound  | Qwaz-Sec | No | | No |
 | arr | Advisory-DB | issues/1:Index | TRAIT | MID | OOR | lack boundary check | Qwaz-Sec | No | 
