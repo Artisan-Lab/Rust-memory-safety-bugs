@@ -77,7 +77,7 @@
 | actix-web | Advisory-DB | issues/289 | TRAIT+GENERIC | | UAF | Clone+Rc | seanmonstar | No | 
 | actix-web | Advisory-DB | [issues/301](https://github.com/actix/actix-web/issues/301) | CC+TRAIT+GENERIC | | UAF | unsafe impl of Send for generics races Rc | seanmonstar-Mozilla | No | 
 | actix-web | **CVE-2020-35901** | [issues/1321](https://github.com/actix/actix-web/issues/1321) | TBOUND+CC | UNSOUND | DR->UAF | BodyStream should be pined | sebzim4500 | No | | No |
-| alg_ds | Advisory-DB | issues/1 | IMP:RAII | UNINIT | init with alloc::alloc | Qwaz-Sec | No | 
+| alg_ds | Advisory-DB | issues/1 | RAII | ERR | UNINIT | init with alloc::alloc | Qwaz-Sec | No | | |
 | rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | TYPE+RAII | UNSOUND | UAF | self defined struct: direct construction->drop memory not owned | Qwaz-Sec | No | No | No |
 | arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | RAII+STRUCT | ERR | UAF | logical errors +PhantomData | Qwaz-Sec | No | | MAY |
 | arr | Advisory-DB | issues/1:Array | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound  | Qwaz-Sec | No | | No |
