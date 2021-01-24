@@ -4,7 +4,7 @@
 |---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | **CVE-2018-1000810** | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | ARO | ERR | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | | - |
 | rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | BOUNDARY | ERR | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No | | - |
-| rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TRAIT | UNSOUND | OOR | TTYPECONV:soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | - |
+| rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TYPE+TYPECONV | UNSOUND | OOR | TRAIT：TYPECONV:soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | - |
 | rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | FFIUB | UNSOUND | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
 | rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | ARO+MODEL | ERR | UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
 | rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | FFIUB+CC | MID | UAF | setenv is unsafe | bluss-Rust | No | 
@@ -23,7 +23,7 @@
 | rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | EAPI(MEM)+CC | ERR | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
 | rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | GENERIC+CASE | ERR | OOR | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | GENERIC+CASE | ERR | OOR | misaligned reference（RC，ARC） | RalfJung | No | 
-| rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | LOE | ERR | OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
+| rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | LOE+TYPE | ERR | OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | UBFFI+CC | ERR | UAF | TLS:_tlv_atexit during tlv_finalize is UB (thread_local) | mtak- | May | 
 | rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | UNWIND+RAII | ERR | DF | double free while panic (Vec::drain_filter) | rustonaut | No | | May |
 | rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | TGENERIC | ERR | UB->UAF | soundness holes of when impl DerefMut/Clone (Pin) | comex |
@@ -35,7 +35,7 @@
 | rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | UNWIND | ERR | UB | TYPE:invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
 | rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | BOUNDARY | EER | UB->\*UAF | incorrect boundary check (VecDeque) | ayourtch | No |
 | rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | BOUNDARY | ERR | UB->\*UAF | incorrect boundary check (VecDeque)-79808 | Aratz | No | | - |
-| rustc (fake-static) | Advisory-DB | [issues/25860](https://github.com/rust-lang/rust/issues/25860) | COMPILER | UB->UAF | type system issue->lifetime inconsistency | No (aturon-Rust)| No | 
+| rustc (fake-static) | Advisory-DB | [issues/25860](https://github.com/rust-lang/rust/issues/25860) | COMPILER | UNSOUND | UB->UAF | type system issue->lifetime inconsistency | aturon-Rust | No | - | - | 
 | arrayfire-rust  | **CVE-2018-20998** | [issues/176](https://github.com/arrayfire/arrayfire-rust/issues/176) | FFIUB | ERR | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
 | ncurses | **CVE-2019-15547** | [issues/172](https://github.com/jeaye/ncurses-rs/issues/172) | FNSIG(SAFE)+FFI | UNSOUND | OOR | FFI-unchecked argument/printw() | thomcc | No | 
 | ncurses | **CVE-2019-15548** | [issues/186](https://github.com/jeaye/ncurses-rs/issues/186) | FNSIG(SAFE)+FFI | UNSOUND | OOR | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
@@ -48,10 +48,10 @@
 | rusqlite | **CVE-2020-35867** | [create_module](https://github.com/rusqlite/rusqlite/commit/3c6b57fe1b2cc87e7ebecde43dd836ffb1c4ea5c) | FNSIG(LIFETIME) | UNSOUND | UB->UAF | static ref should point to static ret value | thomcc-deps| No | 
 | rusqlite | **CVE-2020-35866** | [VTab](https://github.com/rusqlite/rusqlite/commit/c9ef5bd63cad5c0c123344c072b490a1a9bcbe1f) | FNSIG(SAFE) | UNSOUND | UB | should declare trait as unsafe | No (gwenn-deps) | No | 
 | rust-base64 | **CVE-2017-1000430** | [issues/28](https://github.com/marshallpierce/rust-base64/issues/28) | ARO | ERR | OOR | arithmatic overflow + unsafe write | No (alicemaz) | No | 
-| failure | **CVE-2020-25575** | [issues/336](https://github.com/rust-lang-nursery/failure/issues/336) | TRAIT | OOR | TTYPECONV:downcast->misalign: same as CVE-2019-12083 | No (Qwaz-sec) | No | 
+| failure | **CVE-2020-25575** | [issues/336](https://github.com/rust-lang-nursery/failure/issues/336) | TYPE+TYPECONV | OOR | TYPECONV:downcast->misalign: same as CVE-2019-12083 | No (Qwaz-sec) | No | 
 | bumpalo | **CVE-2020-35861** | [issues/69](https://github.com/fitzgen/bumpalo/issues/69) | LOE(Simple) | ERR | OOR(Read) | copy wrong size | No (Riey-deps)| No | 
 | compact_arena | **CVE-2019-16139** | [issues/22](https://github.com/llogiq/compact_arena/issues/22) | LOE | ERR | OOR | NLL issue->Index trait/get_unchecked() | No (CAD97) | No |
-| lz4_flex | Trophy | - | LOE | ERR | OOR | logical error in space allocation | Pascal Seitz-sec | No | 
+| lz4_flex | Trophy | [commit](https://github.com/PSeitz/lz4_flex/commit/ce92fbf28c94a0f1f6ebc711c86d854e2c9e5622) | LOE | ERR | OOR | logical error in space allocation | Pascal Seitz-sec | No | 
 | ozone | **CVE-2020-35877** | [index](https://github.com/bqv/ozone/blob/e21f948b0178ab305f644118f18d87a838c618e0/src/buffer.rs#L38-L48) | BOUNDARY | MID | OOR(Read) | lack boundary check | No (n.a.) | No | 
 | ozone | **CVE-2020-35878** | [remove_entry](https://github.com/bqv/ozone/blob/e21f948b0178ab305f644118f18d87a838c618e0/src/map.rs#L94-L101) | RAII | ERR | UNINIT | implement drop with uninit mem | N.A. | No | | Yes | 
  safe-transmute | **CVE-2018-21000** | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | EAPI | ERR | OOR | wrong param order of from_raw_parts() | Enet4-deps | No | No | - |
@@ -110,14 +110,14 @@
 | time | **CVE-2020-26235** | [issues/293](https://github.com/time-rs/time/issues/293) | FFIUB+CC | ERR | UB->UAF | call non-atomic libc functions (setenv) | quininer | <-> |  | No |
 | try-mutex | **CVE-2020-35924** | [issues/2](https://github.com/mpdn/try-mutex/issues/2) | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound | ammaraskar-Sec | No |  | No |
 | isahc | **CVE-2019-16140** | [issues/2](https://github.com/sagebind/isahc/issues/2) | RAII | ERR | UAF | unsafe constructor+no ManuallyDrop | nox | No | | Yes |
-| sxd-document  | Trophy Case | issues/47 | IMP:RAII | UAF | unsafe constructor+no ManuallyDrop | No (CryZe-sec) | No | | Yes |
+| sxd-document  | Trophy Case | issues/47 | RAII | ERR | UAF | unsafe constructor+no ManuallyDrop | No (CryZe-sec) | No | | Yes |
 | image | **CVE-2019-16138** | [issues/980](https://github.com/image-rs/image/issues/980) | UNWIND+RAII | ERR | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | | Hard |
 | image | **CVE-2020-35916** | [issues/1357](https://github.com/image-rs/image/issues/1357) | EAPI | ERR | UB | MUT:convert mutable ptr from const ptr | dodomorandi | No | 
 | libflate | **CVE-2019-15552** | [issues/35](https://github.com/sile/libflate/issues/35) | RAII+UNWIND  | ERR | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | | Yes |
 | memoffset | **CVE-2019-15553** | [issues/9](https://github.com/Gilnaa/memoffset/issues/9) | RAII+UNWIND | ERR | UNINIT | enf. ManuallyDrop late->drop uninit mem  | Centril | No | | Yes |
 | linked-hash-map | **CVE-2020-25573** | [pull/100](https://github.com/contain-rs/linked-hash-map/pull/100/) | EAPI+RAII | ERR | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | | May |
 | rio | **CVE-2020-35876** | [issues/11](https://github.com/spacejam/rio/issues/30) | FNSIG(SAFE) | UNSOUND | UAF | logical error: soundness hole | No (dtolnay-Rust) | No | | No |
-| bitvec | **CVE-2020-35862** | [issues/55](https://github.com/myrrlyn/bitvec/issues/55) | LOE | ERR | UAF | TYPECONV:should use the address after resizing instead of the original one. | No (kulp-sec) | No | | No |
+| bitvec | **CVE-2020-35862** | [issues/55](https://github.com/myrrlyn/bitvec/issues/55) | TYPECONV+SYS | ERR | UAF | TYPECONV: MacOS reallocate the address after shrinking. | No (kulp-sec) | No | | No |
 | cbox-rs | **CVE-2020-35860** | [issues/2](https://github.com/TomBebbington/cbox-rs/issues/2) | FNSIG(SAFE) | UNSOUND | UAF | declare unsafe API as safe | No (eduardosm) | No | | No |
 | rust-openssl | **CVE-2018-20997** | [issues/941](https://github.com/sfackler/rust-openssl/issues/941) | RAII | ERR | UAF | pointer obj lifetime inconsistency/as_ptr() | No (fred-gremlin)| No | Yes |
 | string-interner | **CVE-2019-16882** | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | DERIVE+RAII | ERR | UAF | CLONE:bad derived clone | No (lo48576-deps) | No |  | No |
@@ -145,10 +145,10 @@
 | obstack | **CVE-2020-35894** | [issues/4](https://github.com/petertodd/rust-obstack/issues/4) | GENERIC+CASE | ERR | UB | generates unaligned references for types with a large alignment | Qwaz | No | No | - |
 | stack-rs | **CVE-2020-35895** | [issues/4](https://github.com/arcnmx/stack-rs/issues/4) | BOUNDARY | MID | OOR | lack boundary check | ammaraskar | No | No |
 | vm-memory | **CVE-2020-13759** | [issues/93](https://github.com/rust-vmm/vm-memory/issues/93) | EAPI+RW+CC | ERR | UB | volatile mem acc/ptr::write()$\to$write_volatile() | No (andreeaflorescu-deps)| No | 
-| Rocket | **CVE-2020-35882** | [issues/1312](https://github.com/SergioBenitez/Rocket/issues/1312) | LOE | ERR | UB->UAF | Clone may incur mutable aliases | Qwaz | No |
+| Rocket | **CVE-2020-35882** | [issues/1312](https://github.com/SergioBenitez/Rocket/issues/1312) | TYPE | ERR | UB->UAF | Clone may incur mutable aliases | Qwaz | No |
 | teaclave-sgx-sdk  | **CVE-2020-5499** | www.mitre.org | LOE+CC | MID | UB | may init twice by another thread/+Once::new() | Chen-sec | No | No | - |
 | claxon  | **CVE-2018-20992**/Trophy | [issues/10](https://github.com/ruuda/claxon/issues/10) | LOE | ERR | UNINIT->DL | Vec::set_len()->read unit mem | Shnatsel-sec | No | No | 
-| traitobject | **CVE-2020-35881** | [issues/7](https://github.com/reem/rust-traitobject/issues/7) | LOE | ERR | UB->OOR | TYPECONV:assumes that the first element is a fat pointer is the data pointer | eduardosm | No |
+| traitobject | **CVE-2020-35881** | [issues/7](https://github.com/reem/rust-traitobject/issues/7) | TYPECONV | ERR | UB->OOR | assumes that the first element is a fat pointer is the data pointer | eduardosm | No |
 | rust-rgb | **CVE-2020-25016** | [issues/35](https://github.com/kornelski/rust-rgb/issues/35) | FNSIG(SAFE) | UNSOUND | UB | declare unsafe API as safe | HeroicKatora | No | No | - |
 | renderdoc-rs | **CVE-2019-16142** | [issues/27](https://github.com/ebkalderon/renderdoc-rs/issues/27) | FNSIG(MUT) | UNSOUND | UB | mutable (internal mutation) | ebkalderon-owner | No | No | - | 
 | rulinalg | **CVE-2020-35879** | [issues/201](https://github.com/AtheMathmo/rulinalg/issues/201) | FNSIG(LIFE) | UNSOUND | UB->UAF | func. sign.:lifetime | Qwaz-sec | No | | No |
@@ -158,7 +158,7 @@
 | capnproto-rust | Trophy Case | cargo-fuzz/issues/40 | IMP:LOE | Unsound | logical error | No (dwrensha-sec)| No | 
 | lucet | **CVE-2020-35859** | [pull/401](https://github.com/bytecodealliance/lucet/pull/401) | LOE  | ERR | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
 | rand | **CVE-2020-25576** | [issues/779](https://github.com/rust-random/rand/issues/779) | EAPI | ERR | UB | reading unaligned mem/ptr::read_unaligned() | RalfJung-sec | No | No | - |
-| os_str_bytes | **CVE-2020-35865** | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | LOE | ERR | UB | TYPECONV:unsafe use of char::from_u32_unchecked() | eduardosm  | No | MAY | - |
+| os_str_bytes | **CVE-2020-35865** | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | TYPECONV+TYPE | ERR | UB | unsafe use of char::from_u32_unchecked() | eduardosm  | No | MAY | - |
 | servo (exe) | GitHub | issues/1186 | IMP:RAII | DF | impl Drop with unsafe | kmcallister | No | 
 | servo (exe) | GitHub | issues/2412 | IMP:RAII | DF  | unsafe cast?  |  | No | 
 | servo (exe) | GitHub | issues/14014 | IMP:CC+RAII | UAF |   | pcwalton-deps | No | 
