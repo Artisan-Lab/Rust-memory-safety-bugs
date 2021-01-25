@@ -148,40 +148,37 @@
 | renderdoc-rs | **CVE-2019-16142** | [issues/27](https://github.com/ebkalderon/renderdoc-rs/issues/27) | FNSIG(MUT) | UNSOUND | UB | mutable (internal mutation) | ebkalderon-owner | No | No | - | 
 | rulinalg | **CVE-2020-35879** | [issues/201](https://github.com/AtheMathmo/rulinalg/issues/201) | FNSIG(LIFE) | UNSOUND | UB->UAF | func. sign.:lifetime | Qwaz-sec | No | | No |
 | flatbuffers | **CVE-2020-35864** | [issues/5825](https://github.com/google/flatbuffers/issues/5825) | FNSIG(SAFE) | UNSOUND | UB | func. sign.: safety declaration | eduardosm | No | No | - |
-| flatbuffers | Advisory-DB | issues/5530 | IMP:LOE | UB | logical error->invalid bit pattern for bool | No (nagisa)| No | 
+| flatbuffers | Advisory-DB | [issues/5530](https://github.com/google/flatbuffers/issues/5530) | TYPE | ERR | UB | invalid bit pattern for bool | nagisa | No | No | - | 
 | once_cell | **CVE-2019-16141** | [issues/46](https://github.com/matklad/once_cell/issues/46) | EAPI | ERR | UB | unreachable_unchecked()->panic!() | xfix-deps | No | No | - | 
-| capnproto-rust | Trophy Case | cargo-fuzz/issues/40 | IMP:LOE | Unsound | logical error | No (dwrensha-sec)| No | 
+| capnproto-rust | Trophy Case | [issues/40](https://dwrensha.github.io/capnproto-rust/2017/02/27/cargo-fuzz.html) | LOE | ERR | UB | error parameters of set_far() | dwrensha-sec | No | No | - | 
 | lucet | **CVE-2020-35859** | [pull/401](https://github.com/bytecodealliance/lucet/pull/401) | LOE  | ERR | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
 | rand | **CVE-2020-25576** | [issues/779](https://github.com/rust-random/rand/issues/779) | EAPI | ERR | UB | reading unaligned mem/ptr::read_unaligned() | RalfJung-sec | No | No | - |
 | os_str_bytes | **CVE-2020-35865** | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | TYPECONV+TYPE | ERR | UB | unsafe use of char::from_u32_unchecked() | eduardosm  | No | MAY | - |
-| servo (exe) | GitHub | issues/1186 | IMP:RAII | DF | impl Drop with unsafe | kmcallister | No | 
-| servo (exe) | GitHub | issues/2412 | IMP:RAII | DF  | unsafe cast?  |  | No | 
-| servo (exe) | GitHub | issues/14014 | IMP:CC+RAII | UAF |   | pcwalton-deps | No | 
-| servo (exe) | GitHub | issues/14416 | IMP:RAII | UAF  | FnBox  | pcwalton-deps | No | 
-| servo (exe) | GitHub | issues/20158 | APU:SAFE | UB | declare unsafe constructor as safe  | nox-org | No | 
-| servo (exe) | GitHub | issues/21186 | IMP:CC+LOE | UB | Relaxed$\to$Acquire |  | No | 
-| servo (exe) | GitHub | pull/26641 | IMP:LOE | UB | mem::transmute->Box::into_raw() | dylni | No |
-| wasmer (exe) | GitHub | pull/1092 | IMP:SAFE | OOR | lack input consistency check + unsafe constructor | MarkMcCaskey-dev | No | 
-| wasmer (exe) | GitHub | pull/1206 | IMP:SAFE | Unsound | possible to create shared mutable aliases | MarkMcCaskey-dev | No | 
-| wasmer (exe) | GitHub | pull/1209 | IMP:SAFE | CC:DR | multiple Cells for the same memory | MarkMcCaskey-dev | No | 
-| wasmer (exe) | GitHub | pull/1837 | IMP:SAFE | Unsound | declare unsafe API as safe | MarkMcCaskey-dev | No | 
-| wasmer (exe) | GitHub | issues/1568 | RAII: | UAF | shared mutable alises (slice+to_vec()) | Hywan-dev | No | 
-| alacritty (exe) | GitHub | pull/4397 | IMP:MODEL | UAF | shared mut aliases (ptr::copy->clone) | kchibisov-dev | No | 
-| alacritty (exe) | GitHub | pull/2176  | IMP:LOE | UAF | logical error (+as_ref()) | aspurdy | No | 
-| diem-libra (exe) | GitHub | pull/1949 | API:LIFE | UAF | ineffective lifetime restriction | dtolnay-Rust  |
-| wint | GitHub | issues/599 | CC | UB | non-atomic cell for multi-thread apps | andrewhickman | No | 
-| wint | GitHub | pull/611 | CC | UB | non-atomic cell for multi-thread apps | francesca64-dev | No | 
-| wint | GitHub | issues/1745 | LOE | UAF | logical error | qthree | No | 
+| servo (exe) | GitHub | [issues/1186](https://github.com/servo/servo/issues/1186) | IMP:RAII | DF | impl Drop with unsafe | kmcallister | No | 
+| servo (exe) | GitHub | [issues/2412](https://github.com/servo/servo/issues/2412) | IMP:RAII | DF  | unsafe cast?  |  | No | 
+| servo (exe) | GitHub | [issues/14014](https://github.com/servo/servo/issues/14014) | IMP:CC+RAII | UAF |   | pcwalton-deps | No | 
+| servo (exe) | GitHub | [issues/14416](https://github.com/servo/servo/issues/14416) | IMP:RAII | UAF  | FnBox  | pcwalton-deps | No | 
+| servo (exe) | GitHub | [issues/20158](https://github.com/servo/servo/issues/20158) | APU:SAFE | UB | declare unsafe constructor as safe  | nox-org | No | 
+| servo (exe) | GitHub | [issues/21186](https://github.com/servo/servo/issues/21186) | IMP:CC+LOE | UB | Relaxed$\to$Acquire |  | No | 
+| servo (exe) | GitHub | [pull/26641](https://github.com/servo/servo/issues/26641) | IMP:LOE | UB | mem::transmute->Box::into_raw() | dylni | No |
+| wasmer (exe) | GitHub | [pull/1092](https://github.com/wasmerio/wasmer/issues/1092)  | IMP:SAFE | OOR | lack input consistency check + unsafe constructor | MarkMcCaskey-dev | No | 
+| wasmer (exe) | GitHub | [pull/1206](https://github.com/wasmerio/wasmer/issues/1206)  | IMP:SAFE | Unsound | possible to create shared mutable aliases | MarkMcCaskey-dev | No | 
+| wasmer (exe) | GitHub | [pull/1209](https://github.com/wasmerio/wasmer/issues/1209)  | IMP:SAFE | CC:DR | multiple Cells for the same memory | MarkMcCaskey-dev | No | 
+| wasmer (exe) | GitHub | [pull/1837](https://github.com/wasmerio/wasmer/issues/1837)  | IMP:SAFE | Unsound | declare unsafe API as safe | MarkMcCaskey-dev | No | 
+| wasmer (exe) | GitHub | [issues/1568](https://github.com/wasmerio/wasmer/issues/1568) | RAII: | UAF | shared mutable alises (slice+to_vec()) | Hywan-dev | No | 
+| alacritty (exe) | GitHub | [pull/4397](https://github.com/alacritty/alacritty/pull/4397) | IMP:MODEL | UAF | shared mut aliases (ptr::copy->clone) | kchibisov-dev | No | 
+| alacritty (exe) | GitHub | [pull/2176](https://github.com/alacritty/alacritty/pull/2176)  | IMP:LOE | UAF | logical error (+as_ref()) | aspurdy | No | 
+| diem-libra (exe) | GitHub | [pull/1949](https://github.com/diem/diem/pull/1949) | API:LIFE | UAF | ineffective lifetime restriction | dtolnay-Rust  |
 | Tokio | **CVE-2020-35922** | [issues/1386](https://github.com/tokio-rs/tokio/issues/1386) | FFIUB | EER | UB | assumes the same layout of FFI | Nemo157-Rust | No | No | No |
-| Tokio | GitHub | *pull/254 |  | UAF | | seanmonstar-dev | No | 
-| Tokio | GitHub | issues/354 | IMP: | UNINIT | uninit memory for Vec<u8> with set_len() | udoprog | No | 
-| Tokio | GitHub | issues/593 | :CC |  | | NPN |
-| Tokio | GitHub | pull/2030/ | API: | OOR | trait safety | Marwes | 
-| Tokio | GitHub | pull/2612/ | API:TRAIT | OOR | error in specify Trait impl Type  | taiki-e-dev | 
-| Tokio | GitHub | issues/3014 | IMP:LOE | UAF | off-by-one logical error | NikosEfthias |
-| curl-rust | GitHub | pull/2 | IMP:SAFE | UAF | **using mem::transmute() | No(alexcrichton-rust) | No | 
-| curl-rust | GitHub | issues/333 | API:CC | UB | does not enforce FFI restrictions | DemiMarie/sagebind-deps | Yes | 
-| curl-rust | GitHub | issues/340 | API:SAFE | UAF | exposing unsafe cleanup APIs as safe | sagebind-deps | No | 
+| Tokio | GitHub | [*pull/254](https://github.com/tokio-rs/tokio/issues/254) |  | UAF | | seanmonstar-dev | No | 
+| Tokio | GitHub | [issues/354](https://github.com/tokio-rs/tokio/issues/354) | IMP: | UNINIT | uninit memory for Vec<u8> with set_len() | udoprog | No | 
+| Tokio | GitHub | [issues/593](https://github.com/tokio-rs/tokio/issues/593) | :CC |  | | NPN |
+| Tokio | GitHub | [pull/2030](https://github.com/tokio-rs/tokio/issues/2030) | API: | OOR | trait safety | Marwes | 
+| Tokio | GitHub | [pull/2612](https://github.com/tokio-rs/tokio/issues/2612) | API:TRAIT | OOR | error in specify Trait impl Type  | taiki-e-dev | 
+| Tokio | GitHub | [issues/3014](https://github.com/tokio-rs/tokio/issues/3014) | IMP:LOE | UAF | off-by-one logical error | NikosEfthias |
+| curl-rust | GitHub | [pull/2](https://github.com/alexcrichton/curl-rust/pull/2) | IMP:SAFE | UAF | **using mem::transmute() | No(alexcrichton-rust) | No | 
+| curl-rust | GitHub | [issues/333](https://github.com/alexcrichton/curl-rust/issues/333) | API:CC | UB | does not enforce FFI restrictions | DemiMarie/sagebind-deps | Yes | 
+| curl-rust | GitHub | [issues/340](https://github.com/alexcrichton/curl-rust/issues/340) | API:SAFE | UAF | exposing unsafe cleanup APIs as safe | sagebind-deps | No | 
 
 ### Notes: 
 OOR:out-of-range access; BO: buffer overflow; BOR: buffer over-read; CC: concurrency issue; DF: double free; DL: data leakage; DP: dangling pointer; DR: data race; 
