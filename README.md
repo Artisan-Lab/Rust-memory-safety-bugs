@@ -72,12 +72,10 @@
 | actix-net | **CVE-2020-35902** | [issues/91](https://github.com/actix/actix-net/issues/91) | TBOUND+CC | UNSOUND | DR->UAF | frame should be pined | sebzim4500 | No | No | No |
 | actix-net | **CVE-2020-35899** | [pull/158](https://github.com/actix/actix-net/pull/158) | EAPI+CC | ERR | DR->UAF | replace Cell<T> with Rc<RefCell<T>> | Shnatsel | No | | No |
 | actix-net | **CVE-2020-35898** | [issues/160](https://github.com/actix/actix-net/issues/160) | EAPI+CC | ERR | DR->UAF | replace Cell<T> with Rc<RefCell<T>>  | Shnatsel | No | | No |
-| actix-web | Advisory-DB | [issues/289](https://github.com/actix/actix-web/issues/289) | FNSIG(MUTE) | UNSOUND | UAF | transmute immutable ref to mutable | seanmonstar | No | 
-| actix-web | Advisory-DB | issues/289 | FNSIG(LIFE) | UNSOUND | UAF | transmutate lifetime to static | seanmonstar | No | | No |
-| actix-web | Advisory-DB | issues/289 | TRAIT+GENERIC | | UAF | Clone+Rc | seanmonstar | No | 
-| actix-web | Advisory-DB | [issues/301](https://github.com/actix/actix-web/issues/301) | CC+TRAIT+GENERIC | | UAF | unsafe impl of Send for generics races Rc | seanmonstar-Mozilla | No | 
+| actix-web | Advisory-DB | [issues/289](https://github.com/actix/actix-web/issues/289) | LOE | UNSOUND | UAF | multiple issues | seanmonstar | No | No | - |
+| actix-web | Advisory-DB | [issues/301](https://github.com/actix/actix-web/issues/301) | TGENERIC | UNSOUND | UAF | InternalError with generics is unsound for Rc | seanmonstar-Mozilla | No | 
 | actix-web | **CVE-2020-35901** | [issues/1321](https://github.com/actix/actix-web/issues/1321) | TBOUND+CC | UNSOUND | DR->UAF | BodyStream should be pined | sebzim4500 | No | | No |
-| alg_ds | Advisory-DB | issues/1 | RAII | ERR | UNINIT | init with alloc::alloc | Qwaz-Sec | No | | |
+| alg_ds | Advisory-DB | [issues/1](https://gitlab.com/dvshapkin/alg-ds/-/issues/1) | RAII | ERR | UNINIT | init with *ptr = value | Qwaz-Sec | No | | |
 | rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | TYPE+RAII | UNSOUND | UAF | self defined struct: direct construction->drop memory not owned | Qwaz-Sec | No | No | No |
 | arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | RAII+STRUCT | ERR | UAF | logical errors +PhantomData | Qwaz-Sec | No | | MAY |
 | arr | Advisory-DB | issues/1:Array | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound  | Qwaz-Sec | No | | No |
