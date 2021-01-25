@@ -105,7 +105,7 @@
 | time | **CVE-2020-26235** | [issues/293](https://github.com/time-rs/time/issues/293) | FFIUB+CC | ERR | UB->UAF | call non-atomic libc functions (setenv) | quininer | <-> |  | No |
 | try-mutex | **CVE-2020-35924** | [issues/2](https://github.com/mpdn/try-mutex/issues/2) | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound | ammaraskar-Sec | No |  | No |
 | isahc | **CVE-2019-16140** | [issues/2](https://github.com/sagebind/isahc/issues/2) | RAII | ERR | UAF | unsafe constructor+no ManuallyDrop | nox | No | | Yes |
-| sxd-document  | Trophy Case | issues/47 | RAII | ERR | UAF | unsafe constructor+no ManuallyDrop | No (CryZe-sec) | No | | Yes |
+| sxd-document  | Trophy Case | [issues/47](https://github.com/shepmaster/sxd-document/issues/47) | RAII | ERR | UAF | unsafe constructor+no ManuallyDrop | CryZe-sec | No | | Yes |
 | image | **CVE-2019-16138** | [issues/980](https://github.com/image-rs/image/issues/980) | UNWIND+RAII | ERR | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | | Hard |
 | image | **CVE-2020-35916** | [issues/1357](https://github.com/image-rs/image/issues/1357) | EAPI | ERR | UB | MUT:convert mutable ptr from const ptr | dodomorandi | No | 
 | libflate | **CVE-2019-15552** | [issues/35](https://github.com/sile/libflate/issues/35) | RAII+UNWIND  | ERR | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | | Yes |
