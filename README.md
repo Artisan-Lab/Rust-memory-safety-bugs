@@ -154,13 +154,13 @@
 | lucet | **CVE-2020-35859** | [pull/401](https://github.com/bytecodealliance/lucet/pull/401) | LOE  | ERR | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
 | rand | **CVE-2020-25576** | [issues/779](https://github.com/rust-random/rand/issues/779) | EAPI | ERR | UB | reading unaligned mem/ptr::read_unaligned() | RalfJung-sec | No | No | - |
 | os_str_bytes | **CVE-2020-35865** | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | TYPECONV+TYPE | ERR | UB | unsafe use of char::from_u32_unchecked() | eduardosm  | No | MAY | - |
-| servo (exe) | GitHub | [issues/1186](https://github.com/servo/servo/issues/1186) | IMP:RAII | DF | impl Drop with unsafe | kmcallister | No | 
-| servo (exe) | GitHub | [issues/2412](https://github.com/servo/servo/issues/2412) | IMP:RAII | DF  | unsafe cast?  |  | No | 
-| servo (exe) | GitHub | [issues/14014](https://github.com/servo/servo/issues/14014) | IMP:CC+RAII | UAF |   | pcwalton-deps | No | 
-| servo (exe) | GitHub | [issues/14416](https://github.com/servo/servo/issues/14416) | IMP:RAII | UAF  | FnBox  | pcwalton-deps | No | 
-| servo (exe) | GitHub | [issues/20158](https://github.com/servo/servo/issues/20158) | APU:SAFE | UB | declare unsafe constructor as safe  | nox-org | No | 
-| servo (exe) | GitHub | [issues/21186](https://github.com/servo/servo/issues/21186) | IMP:CC+LOE | UB | Relaxed$\to$Acquire |  | No | 
-| servo (exe) | GitHub | [pull/26641](https://github.com/servo/servo/issues/26641) | IMP:LOE | UB | mem::transmute->Box::into_raw() | dylni | No |
+| servo (exe) | GitHub | [issues/1186](https://github.com/servo/servo/issues/1186) | RAII+FFIUB | ERR | DF | [impl Drop with unsafe](https://github.com/servo/rust-layers/compare/3caa5900ea6f5185f1ca4571a4f0e1215dab6937...a6cdac57469b61266bb9abf7551d24f93fd2bb98) | kmcallister | No | Yes | - | 
+| servo (exe) | GitHub | [issues/2412](https://github.com/servo/servo/issues/2412) | TYPECONV | ERR | DF | unsafe cast: *()=>Vec<> | glennw | No | No | No |
+| servo (exe) | GitHub | [issues/14014](https://github.com/servo/servo/issues/14014) | LOE+CC | UNSOUND | UAF | clone FlowRef lead to share aliases => Arc<Flow>  | pcwalton-deps | No | 
+| servo (exe) | GitHub | [issues/14416](https://github.com/servo/servo/issues/14416) | LOE | ERR | UAF | FnBox<()>  | pcwalton-deps | No | No | No |
+| servo (exe) | GitHub | [issues/20158](https://github.com/servo/servo/issues/20158) | FNSIG(SAFE) | UNSOUND | UB | declare unsafe constructor as safe  | nox-org | No | 
+| servo (exe) | GitHub | [issues/21186](https://github.com/servo/servo/issues/21186) | EAPI+CC | ERR | UB | Relaxed->Acquire, same as rust-std-51780 | RalfJung | No | No | No | 
+| servo (exe) | GitHub | [pull/26641](https://github.com/servo/servo/issues/26641) | EAPI | ERR | UB | mem::transmute->Box::into_raw(), unsafe should be removed? | dylni | No | May | - |
 | wasmer (exe) | GitHub | [pull/1092](https://github.com/wasmerio/wasmer/issues/1092)  | IMP:SAFE | OOR | lack input consistency check + unsafe constructor | MarkMcCaskey-dev | No | 
 | wasmer (exe) | GitHub | [pull/1206](https://github.com/wasmerio/wasmer/issues/1206)  | IMP:SAFE | Unsound | possible to create shared mutable aliases | MarkMcCaskey-dev | No | 
 | wasmer (exe) | GitHub | [pull/1209](https://github.com/wasmerio/wasmer/issues/1209)  | IMP:SAFE | CC:DR | multiple Cells for the same memory | MarkMcCaskey-dev | No | 
