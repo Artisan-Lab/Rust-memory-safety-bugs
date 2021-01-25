@@ -79,12 +79,12 @@
 | rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | TYPE+RAII | UNSOUND | UAF | self defined struct: direct construction->drop memory not owned | Qwaz-Sec | No | No | No |
 | arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | RAII+STRUCT | ERR | UAF | logical errors +PhantomData | Qwaz-Sec | No | | MAY |
 | array-queue | **CVE-2020-35900** | [issues/2](https://github.com/raviqqe/array-queue/issues/2) | - | NO | UAF | FALSE CVEs? | ammaraskar-Sec | No | | - | 
-| array-queue | Advisory-DB | issues/2 | RAII | ERR | UNINIT | use mem::uninitialized() | ammaraskar-Sec | No | 
+| array-queue | Advisory-DB | [issues/2](https://github.com/raviqqe/array-queue/issues/2) | TYPE+RAII | ERR | UNINIT | use mem::uninitialized() | ammaraskar-Sec | No | 
 | atom | **CVE-2020-35897** | [issues/13](https://github.com/slide-rs/atom/issues/13) | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound | ammaraskar-Sec | No | | No | 
-| chunky | Advisory-DB | issues/2 | IMP:LOE | OOR | API ignores memory alignment requirement | Qwaz-Sec  | No | 
+| chunky | Advisory-DB | [issues/2](https://github.com/aeplay/chunky/issues/2) | TGENERIC | UNSOUND | OOR | API ignores memory alignment requirement | Qwaz-Sec  | No | No | - |
 | dync | **CVE-2020-35903** | [issues/4](https://github.com/elrnv/dync/issues/4) | TGENERIC | ERR | OOR | memory misalignment | ammaraskar-Sec | No | 
 | concread | **CVE-2020-35928** | [issues/48](https://github.com/kanidm/concread/issues/48) | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound | JOE1994-Sec | No | | No |
-| futures-intrusive | Advisory-DB | issues/53 | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound | ammaraskar-Sec| No | | No |
+| futures-intrusive | CVE-2020-35915 | [issues/53](https://github.com/Matthias247/futures-intrusive/issues/53) | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound | ammaraskar-Sec| No | No | No |
 | futures-rs | **CVE-2020-35906** | [pull/2206](https://github.com/rust-lang/futures-rs/pull/2206) | TBOUND+LIFE | UNSOUND | UAF | lack lifetime bound | Darksonn | No | | No |
 | futures-rs| **CVE-2020-35907** | [issues/2091](https://github.com/rust-lang/futures-rs/issues/2091) | LOE | ERR | UAF | TLS:ref lives longer than thread (UnsafeCell->Lazy) | goffrie | No | | No |
 | futures-rs| **CVE-2020-35905** | [issues/2239](https://github.com/rust-lang/futures-rs/issues/2239) | TBOUND+CC | UNSOUND | CC->UAF | lack send/sync bound | Qwaz-Sec | No | No | No |
