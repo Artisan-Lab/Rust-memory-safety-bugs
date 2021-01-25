@@ -75,12 +75,9 @@
 | actix-web | Advisory-DB | [issues/289](https://github.com/actix/actix-web/issues/289) | LOE | UNSOUND | UAF | multiple issues | seanmonstar | No | No | - |
 | actix-web | Advisory-DB | [issues/301](https://github.com/actix/actix-web/issues/301) | TGENERIC | UNSOUND | UAF | InternalError with generics is unsound for Rc | seanmonstar-Mozilla | No | 
 | actix-web | **CVE-2020-35901** | [issues/1321](https://github.com/actix/actix-web/issues/1321) | TBOUND+CC | UNSOUND | DR->UAF | BodyStream should be pined | sebzim4500 | No | | No |
-| alg_ds | Advisory-DB | [issues/1](https://gitlab.com/dvshapkin/alg-ds/-/issues/1) | RAII | ERR | UNINIT | init with *ptr = value | Qwaz-Sec | No | | |
+| alg_ds | Advisory-DB | [issues/1](https://gitlab.com/dvshapkin/alg-ds/-/issues/1) | TGENERIC | UNSOUND | UNINIT | alloc:alloc(), then *ptr = value | Qwaz-Sec | No | | No |
 | rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | TYPE+RAII | UNSOUND | UAF | self defined struct: direct construction->drop memory not owned | Qwaz-Sec | No | No | No |
 | arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | RAII+STRUCT | ERR | UAF | logical errors +PhantomData | Qwaz-Sec | No | | MAY |
-| arr | Advisory-DB | issues/1:Array | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound  | Qwaz-Sec | No | | No |
-| arr | Advisory-DB | issues/1:Index | TRAIT | MID | OOR | lack boundary check | Qwaz-Sec | No | 
-| arr | Advisory-DB | issues/1:from... | IMP: | ERR | UNINIT | drop uninitialized mem | Qwaz-Sec | No | 
 | array-queue | **CVE-2020-35900** | [issues/2](https://github.com/raviqqe/array-queue/issues/2) | - | NO | UAF | FALSE CVEs? | ammaraskar-Sec | No | | - | 
 | array-queue | Advisory-DB | issues/2 | RAII | ERR | UNINIT | use mem::uninitialized() | ammaraskar-Sec | No | 
 | atom | **CVE-2020-35897** | [issues/13](https://github.com/slide-rs/atom/issues/13) | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound | ammaraskar-Sec | No | | No | 
@@ -132,9 +129,9 @@
 | internment | **CVE-2020-35874** | [issues/11](https://github.com/droundy/internment/issues/11) | LOE+CC | ERR | UB | TOCTOU:impl error: Ordering, atomic::fence() | ryzhyk-deps | No | No | - | 
 | spin-rs  | **CVE-2019-16137** | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | EAPI+CC | ERR | UB->UAF | impl error: Ordering::Relaxed->Release | 64 | No | No | No |
 | bigint | **CVE-2020-35880** | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | UNMAINTAIN | UNSOUND | UB | library unmaintained/deprecated | | No | 
-| array | **CVE-2020-35886** | [issues/1](https://github.com/sjep/array/issues/1) | TBOUND+CC | UNSOUND | DR->UAF | lack sync/send bound | Qwaz-Sec | No | | No |
-| array | **CVE-2020-35887** | [issues/1](https://github.com/sjep/array/issues/1) | BOUNDRY | MID | OOR | Index and IndexMut lack bound check | Qwaz-Sec | No | Yes | - |
-| array | **CVE-2020-35888** | [issues/1](https://github.com/sjep/array/issues/1) | RAII | ERR | UNINIT | *ptr = value may not fill up the memory | Qwaz-Sec | No | | No |
+| array | **CVE-2020-35886** | [issues/1:Array](https://github.com/sjep/array/issues/1) | TBOUND+CC | UNSOUND | DR->UAF | lack sync/send bound | Qwaz-Sec | No | | No |
+| array | **CVE-2020-35887** | [issues/1:Index](https://github.com/sjep/array/issues/1) | BOUNDRY | MID | OOR | Index and IndexMut lack bound check | Qwaz-Sec | No | Yes | - |
+| array | **CVE-2020-35888** | [new_from_template](https://github.com/sjep/array/issues/1) | RAII | ERR | UNINIT | alloc:alloc(), then *ptr = value | Qwaz-Sec | No | | No |
 | crayon | **CVE-2020-35889** | [issues/87](https://github.com/shawnscode/crayon/issues/87) | TGENERIC | ERR | OOR | time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | | No |
 | ordnung | **CVE-2020-35890** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | LOE | ERR | OOR |  | Qwaz | No | | No |
 | ordnung | **CVE-2020-35891** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | UNWIND+RAII | DF | panic->double free | Qwaz | No | | May |
