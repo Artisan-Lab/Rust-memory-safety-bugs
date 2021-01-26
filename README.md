@@ -154,7 +154,6 @@
 | lucet | **CVE-2020-35859** | [pull/401](https://github.com/bytecodealliance/lucet/pull/401) | LOE  | ERR | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
 | rand | **CVE-2020-25576** | [issues/779](https://github.com/rust-random/rand/issues/779) | EAPI | ERR | UB | reading unaligned mem/ptr::read_unaligned() | RalfJung-sec | No | No | - |
 | os_str_bytes | **CVE-2020-35865** | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | TYPECONV+TYPE | ERR | UB | unsafe use of char::from_u32_unchecked() | eduardosm  | No | MAY | - |
-| Tokio | **CVE-2020-35922** | [issues/1386](https://github.com/tokio-rs/tokio/issues/1386) | FFIUB | EER | UB | assumes the same layout of FFI | Nemo157-Rust | No | No | No |
 | alacritty (exe) | GitHub | [pull/4397](https://github.com/alacritty/alacritty/pull/4397) | TYPE | ERR | UAF | shared mut aliases (ptr::copy->clone) | kchibisov-dev | No | Yes | No |
 | alacritty (exe) | GitHub | [pull/2176](https://github.com/alacritty/alacritty/pull/2176)  | RAII | ERR | UAF | value of as_ptr() is dropped after map_or_else() (+as_ref()), Similar to CVE-2018-20997? | aspurdy | No | No | May |
 | curl-rust | GitHub | [pull/2](https://github.com/alexcrichton/curl-rust/pull/2) | RAII | UAF | **using mem::transmute() | No(alexcrichton-rust) | No | Yes | May |
@@ -168,6 +167,12 @@
 | servo (exe) | GitHub | [issues/20158](https://github.com/servo/servo/issues/20158) | FNSIG(SAFE) | UNSOUND | UB | declare unsafe constructor as safe  | nox-org | No | 
 | servo (exe) | GitHub | [issues/21186](https://github.com/servo/servo/issues/21186) | EAPI+CC | ERR | UB | Relaxed->Acquire, same as rust-std-51780 | RalfJung | No | No | No | 
 | servo (exe) | GitHub | [pull/26641](https://github.com/servo/servo/issues/26641) | EAPI | ERR | UB | mem::transmute->Box::into_raw(), unsafe should be removed? | dylni | No | May | - |
+| Tokio | **CVE-2020-35922** | [issues/1386](https://github.com/tokio-rs/tokio/issues/1386) | FFIUB | EER | UB | assumes the same layout of FFI | Nemo157-Rust | No | No | No |
+| Tokio | GitHub | [*pull/254](https://github.com/tokio-rs/tokio/issues/254) | RAII | ERR | UAF | drop | seanmonstar-dev | No | No | Hard |
+| Tokio | GitHub | [pull/2030](https://github.com/tokio-rs/tokio/issues/2030) | TYPE | UNSOUND | OOR | similar to CVE-2019-12083, vulnerable to false trait impl | Marwes | No | No | - |
+| Tokio | GitHub | [pull/2612](https://github.com/tokio-rs/tokio/issues/2612) | TBOUND | UNSOUND | OOR | lack trait bound: +unpin  | taiki-e-dev | No | No | - |
+| Tokio | GitHub | [issues/3014](https://github.com/tokio-rs/tokio/issues/3014) | LOE | ERR | UAF | off-by-one logical error | NikosEfthias | No | No | No |
+
 
 
 ### Notes: 
