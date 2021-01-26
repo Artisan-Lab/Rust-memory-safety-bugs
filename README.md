@@ -173,11 +173,33 @@
 | Tokio | GitHub | [pull/2612](https://github.com/tokio-rs/tokio/issues/2612) | TBOUND | UNSOUND | OOR | lack trait bound: +unpin  | taiki-e-dev | No | No | - |
 | Tokio | GitHub | [issues/3014](https://github.com/tokio-rs/tokio/issues/3014) | LOE | ERR | UAF | off-by-one logical error | NikosEfthias | No | No | No |
 
+### Curlprits:
+- EAPI: error in API usage.
+- RAII: resource acquisition is initialization.
+- UNWIND: error occurs in stack unwinding or exception handling.
+- TYPE: type-safety issue.
+- TYPECONV:type conversion issue.
+- TBOUND: insufficient bound.
+- TGENERIC: soundness hole for accpting some types as the generic.
+- ARO: arithmatic overflow.
+- BOUNDARY: boundary check issue or lack boundary check.
+- CASE: lack special case handling.
+- LOE: other logical errors.
+- FFIUB: undefined behavior due to FFI.
+- FNSIG: function signature issue.
 
 
-### Notes: 
-OOR:out-of-range access; BO: buffer overflow; BOR: buffer over-read; CC: concurrency issue; DF: double free; DL: data leakage; DP: dangling pointer; DR: data race; 
-RC: race condition; UAF: use-after-free.
+### Memory-Safety Consequences: 
+- OOR:out-of-range access; BO: buffer overflow; BOR: buffer over-read; 
+- UAF: use-after-free. DP: dangling pointer; 
+- DF: double free.
+- UNINIT: access/free uninitialized memory. DL: data leakage.
+- UB: undefined behaviors.
+
+### Other abbreviations:
+- RC: race condition
+- DR: data race.
+- CC: concurrency issue.
 
 * ERR：
 - Developers should be resposible for the bug
