@@ -58,7 +58,7 @@
 | slice-deque | **CVE-2018-20995** | [issues/57](https://github.com/gnzlbg/slice_deque/issues/57) | BOUNDARY | ERR |OOR | error in boundary check + unsafe write | No (aldanor-deps) | No | 
 | slice-deque | **CVE-2019-15543** | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | CASE | ERR | OOR | lack special case handling ->memory misalignment | zimond | No | No | - |
 | rust-smallvec | **CVE-2019-15554** | [issues/149](https://github.com/servo/rust-smallvec/issues/149) | LOE | ERR | OOR | logical error + unsafe write | No (ehuss) | No | 
-| rust-smallvec | Advisory-DB | [issues/126](https://github.com/servo/rust-smallvec/issues/126) | RAII+UNWIND | ERR | UNINIT | init vector with mem:uninitialized() | No (mbrubeck) | No | Yes |
+| rust-smallvec | Advisory-DB | [issues/126](https://github.com/servo/rust-smallvec/issues/126) | EAPI | ERR | UNINIT | init vector with mem:uninitialized() | No (mbrubeck) | No | Yes |
 | rust-smallvec | **CVE-2019-15551** | [issues/148](https://github.com/servo/rust-smallvec/issues/148) | LOE | ERR | UAF | miss an else branch->manuall deallocation | ehuss | No | No | May | 
 | rust-smallvec | **CVE-2018-20991** | [issues/96](https://github.com/servo/rust-smallvec/issues/96) | UNWIND+RAII | ERR | DF | buffer shrinking too late | Vurich | No | | Hard |
 | simd-json | **CVE-2019-15550** | [pull/27](https://github.com/simd-lite/simd-json/pull/27) | CASE | ERR | OOR | lack special case handling->mem misalign/get_unchecked() | Licenser-deps | No | No | - |
