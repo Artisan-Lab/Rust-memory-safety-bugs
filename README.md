@@ -156,9 +156,9 @@
 | os_str_bytes | **CVE-2020-35865** | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | TYPECONV+TYPE | ERR | UB | unsafe use of char::from_u32_unchecked() | eduardosm  | No | MAY | - |
 | alacritty (exe) | GitHub | [pull/4397](https://github.com/alacritty/alacritty/pull/4397) | TYPE | ERR | UAF | shared mut aliases (ptr::copy->clone) | kchibisov-dev | No | Yes | No |
 | alacritty (exe) | GitHub | [pull/2176](https://github.com/alacritty/alacritty/pull/2176)  | RAII | ERR | UAF | value of as_ptr() is dropped after map_or_else() (+as_ref()), Similar to CVE-2018-20997? | aspurdy | No | No | May |
-| curl-rust | GitHub | [pull/2](https://github.com/alexcrichton/curl-rust/pull/2) | RAII | UAF | **using mem::transmute() | No(alexcrichton-rust) | No | Yes | May |
+| curl-rust | GitHub | [pull/2](https://github.com/alexcrichton/curl-rust/pull/2) | RAII | ERR | UAF | **using mem::transmute() | No(alexcrichton-rust) | No | Yes | May |
 | curl-rust | GitHub | [issues/333](https://github.com/alexcrichton/curl-rust/issues/333) | FFIUB+CC | UNSOUND | UB | does not enforce FFI restrictions | DemiMarie/sagebind-deps | Yes | No | - |
-| curl-rust | GitHub | [issues/340](https://github.com/alexcrichton/curl-rust/issues/340) | FNSIG(SAFE) | UAF | exposing unsafe cleanup APIs as safe | sagebind-deps | No | 
+| curl-rust | GitHub | [issues/340](https://github.com/alexcrichton/curl-rust/issues/340) | FNSIG(SAFE) | UNSOUND | UAF | exposing unsafe cleanup APIs as safe | sagebind-deps | No | 
 | diem-libra (exe) | GitHub | [pull/1949](https://github.com/diem/diem/pull/1949) | FNSIG(LIFE) | ERR | UAF | ineffective lifetime restriction (too_owned()) | dtolnay-Rust | No | No | May |
 | servo (exe) | GitHub | [issues/1186](https://github.com/servo/servo/issues/1186) | RAII+FFIUB | ERR | DF | [impl Drop with unsafe](https://github.com/servo/rust-layers/compare/3caa5900ea6f5185f1ca4571a4f0e1215dab6937...a6cdac57469b61266bb9abf7551d24f93fd2bb98) | kmcallister | No | Yes | - | 
 | servo (exe) | GitHub | [issues/2412](https://github.com/servo/servo/issues/2412) | TYPECONV | ERR | DF | unsafe cast: *()=>Vec<> | glennw | No | No | No |
