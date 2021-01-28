@@ -112,7 +112,7 @@
 | memoffset | **CVE-2019-15553** | [issues/9](https://github.com/Gilnaa/memoffset/issues/9) | RAII+UNWIND | ERR | UNINIT | enf. ManuallyDrop late->drop uninit mem  | Centril | No | | Yes |
 | linked-hash-map | **CVE-2020-25573** | [pull/100](https://github.com/contain-rs/linked-hash-map/pull/100/) | EAPI+RAII | ERR | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | | May |
 | rio | **CVE-2020-35876** | [issues/11](https://github.com/spacejam/rio/issues/30) | FNSIG(SAFE) | UNSOUND | UAF | logical error: soundness hole | No (dtolnay-Rust) | No | | No |
-| bitvec | **CVE-2020-35862** | [issues/55](https://github.com/myrrlyn/bitvec/issues/55) | TYPECONV+SYS | ERR | UAF | TYPECONV: MacOS reallocate the address after shrinking. | No (kulp-sec) | No | | No |
+| bitvec | **CVE-2020-35862** | [issues/55](https://github.com/myrrlyn/bitvec/issues/55) | LOE+SYS | ERR | UAF | MacOS reallocate the address after shrinking; Should use the new addr. | kulp-sec | No | No | | No |
 | cbox-rs | **CVE-2020-35860** | [issues/2](https://github.com/TomBebbington/cbox-rs/issues/2) | FNSIG(SAFE) | UNSOUND | UAF | declare unsafe API as safe | No (eduardosm) | No | | No |
 | rust-openssl | **CVE-2018-20997** | [issues/941](https://github.com/sfackler/rust-openssl/issues/941) | RAII | ERR | UAF | pointer obj lifetime inconsistency/as_ptr() | No (fred-gremlin)| No | Yes |
 | string-interner | **CVE-2019-16882** | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | DERIVE+RAII | ERR | UAF | CLONE:bad derived clone | No (lo48576-deps) | No |  | No |
@@ -143,7 +143,7 @@
 | Rocket | **CVE-2020-35882** | [issues/1312](https://github.com/SergioBenitez/Rocket/issues/1312) | TYPE | ERR | UB->UAF | Clone may incur mutable aliases | Qwaz | No |
 | teaclave-sgx-sdk  | **CVE-2020-5499** | www.mitre.org | LOE+CC | MID | UB | may init twice by another thread/+Once::new() | Chen-sec | No | No | - |
 | claxon  | **CVE-2018-20992**/Trophy | [issues/10](https://github.com/ruuda/claxon/issues/10) | LOE | ERR | UNINIT->DL | Vec::set_len()->read unit mem | Shnatsel-sec | No | No | 
-| traitobject | **CVE-2020-35881** | [issues/7](https://github.com/reem/rust-traitobject/issues/7) | TYPECONV | ERR | UB->OOR | assumes that the first element is a fat pointer is the data pointer | eduardosm | No |
+| traitobject | **CVE-2020-35881** | [issues/7](https://github.com/reem/rust-traitobject/issues/7) | EAPI+ | ERR | UB->OOR | assumes that the first element is a fat pointer is the data pointer | eduardosm | No | Yes | No |
 | rust-rgb | **CVE-2020-25016** | [issues/35](https://github.com/kornelski/rust-rgb/issues/35) | FNSIG(SAFE) | UNSOUND | UB | declare unsafe API as safe | HeroicKatora | No | No | - |
 | renderdoc-rs | **CVE-2019-16142** | [issues/27](https://github.com/ebkalderon/renderdoc-rs/issues/27) | FNSIG(MUT) | UNSOUND | UB | mutable (internal mutation) | ebkalderon-owner | No | No | - | 
 | rulinalg | **CVE-2020-35879** | [issues/201](https://github.com/AtheMathmo/rulinalg/issues/201) | FNSIG(LIFE) | UNSOUND | UB->UAF | func. sign.:lifetime | Qwaz-sec | No | | No |
@@ -153,7 +153,7 @@
 | capnproto-rust | Trophy Case | [issues/40](https://dwrensha.github.io/capnproto-rust/2017/02/27/cargo-fuzz.html) | LOE | ERR | UB | error parameters of set_far() | dwrensha-sec | No | No | - | 
 | lucet | **CVE-2020-35859** | [pull/401](https://github.com/bytecodealliance/lucet/pull/401) | LOE  | ERR | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
 | rand | **CVE-2020-25576** | [issues/779](https://github.com/rust-random/rand/issues/779) | EAPI | ERR | UB | reading unaligned mem/ptr::read_unaligned() | RalfJung-sec | No | No | - |
-| os_str_bytes | **CVE-2020-35865** | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | TYPECONV+TYPE | ERR | UB | unsafe use of char::from_u32_unchecked() | eduardosm  | No | MAY | - |
+| os_str_bytes | **CVE-2020-35865** | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | EAPI+TYPE | ERR | UB | unsafe use of char::from_u32_unchecked() | eduardosm  | No | MAY | - |
 | alacritty (exe) | GitHub | [pull/4397](https://github.com/alacritty/alacritty/pull/4397) | TYPE | ERR | UAF | shared mut aliases (ptr::copy->clone) | kchibisov-dev | No | Yes | No |
 | alacritty (exe) | GitHub | [pull/2176](https://github.com/alacritty/alacritty/pull/2176)  | RAII | ERR | UAF | value of as_ptr() is dropped after map_or_else() (+as_ref()), Similar to CVE-2018-20997? | aspurdy | No | No | May |
 | curl-rust | GitHub | [pull/2](https://github.com/alexcrichton/curl-rust/pull/2) | RAII | ERR | UAF | **using mem::transmute() | No(alexcrichton-rust) | No | Yes | May |
@@ -161,7 +161,7 @@
 | curl-rust | GitHub | [issues/340](https://github.com/alexcrichton/curl-rust/issues/340) | FNSIG(SAFE) | UNSOUND | UAF | exposing unsafe cleanup APIs as safe | sagebind-deps | No | 
 | diem-libra (exe) | GitHub | [pull/1949](https://github.com/diem/diem/pull/1949) | FNSIG(LIFE) | ERR | UAF | ineffective lifetime restriction (too_owned()) | dtolnay-Rust | No | No | May |
 | servo (exe) | GitHub | [issues/1186](https://github.com/servo/servo/issues/1186) | RAII+FFIUB | ERR | DF | [impl Drop with unsafe](https://github.com/servo/rust-layers/compare/3caa5900ea6f5185f1ca4571a4f0e1215dab6937...a6cdac57469b61266bb9abf7551d24f93fd2bb98) | kmcallister | No | Yes | - | 
-| servo (exe) | GitHub | [issues/2412](https://github.com/servo/servo/issues/2412) | TYPECONV | ERR | DF | unsafe cast: *()=>Vec<> | glennw | No | No | No |
+| servo (exe) | GitHub | [issues/2412](https://github.com/servo/servo/issues/2412) | LOE | ERR | DF | unsafe cast: *()=>Vec<> | glennw | No | Yes | No |
 | servo (exe) | GitHub | [issues/14014](https://github.com/servo/servo/issues/14014) | LOE+CC | UNSOUND | UAF | clone FlowRef lead to share aliases => Arc<Flow>  | pcwalton-deps | No | 
 | servo (exe) | GitHub | [issues/14416](https://github.com/servo/servo/issues/14416) | LOE | ERR | UAF | FnBox<()>  | pcwalton-deps | No | No | No |
 | servo (exe) | GitHub | [issues/20158](https://github.com/servo/servo/issues/20158) | FNSIG(SAFE) | UNSOUND | UB | declare unsafe constructor as safe  | nox-org | No | 
