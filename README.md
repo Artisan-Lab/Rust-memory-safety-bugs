@@ -115,7 +115,7 @@
 | bitvec | **CVE-2020-35862** | [issues/55](https://github.com/myrrlyn/bitvec/issues/55) | LOE+SYS | ERR | UAF | MacOS reallocate the address after shrinking; Should use the new addr. | kulp-sec | No | No | | No |
 | cbox-rs | **CVE-2020-35860** | [issues/2](https://github.com/TomBebbington/cbox-rs/issues/2) | FNSIG(SAFE) | UNSOUND | UAF | declare unsafe API as safe | No (eduardosm) | No | | No |
 | rust-openssl | **CVE-2018-20997** | [issues/941](https://github.com/sfackler/rust-openssl/issues/941) | RAII | ERR | UAF | pointer obj lifetime inconsistency/as_ptr() | No (fred-gremlin)| No | Yes |
-| string-interner | **CVE-2019-16882** | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | DERIVE+RAII | ERR | UAF | CLONE:bad derived clone | No (lo48576-deps) | No |  | No |
+| string-interner | **CVE-2019-16882** | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | TYPE+RAII | ERR | UAF | CLONE:bad derived clone | No (lo48576-deps) | No |  | No |
 | crossbeam | **CVE-2018-20996** | [issues/82](https://github.com/crossbeam-rs/crossbeam/issues/82) | RAII | DF | shared mut aliases+auto drop/+ManuallyDrop | c0gent-deps | No | | Yes |
 | crossbeam | **CVE-2020-35904** | [pull/533](https://github.com/crossbeam-rs/crossbeam/pull/533) | EAPI | ERR | UB->UAF | drop memory not owned Vec->Box | caelunshun | No | 
 | generator-rs | **CVE-2019-16144** | [issues/11](https://github.com/Xudong-Huang/generator-rs/issues/11) | RAII | ERR | DF | shared mut aliases+auto drop | vOROn200 | No | | Yes |
