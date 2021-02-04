@@ -127,7 +127,6 @@
 | http | Advisory-DB | [issues/355](https://github.com/hyperium/http/issues/355) | TBOUND+LIFE | UNSOUND | DR->UAF | lack lifetime bound->multile mut refs  | No (Qwaz-sec)  | No | 
 | internment | **CVE-2020-35874** | [issues/11](https://github.com/droundy/internment/issues/11) | LOE+CC | ERR | UB | TOCTOU:impl error: Ordering, atomic::fence() | ryzhyk-deps | No | No | - | 
 | spin-rs  | **CVE-2019-16137** | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | EAPI+CC | ERR | UB->UAF | impl error: Ordering::Relaxed->Release | 64 | No | No | No |
-| bigint | **CVE-2020-35880** | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | UNMAINTAIN | UNSOUND | UB | library unmaintained/deprecated | | No | 
 | array | **CVE-2020-35886** | [issues/1:Array](https://github.com/sjep/array/issues/1) | TBOUND+CC | UNSOUND | DR->UAF | lack sync/send bound | Qwaz-Sec | No | | No |
 | array | **CVE-2020-35887** | [issues/1:Index](https://github.com/sjep/array/issues/1) | BOUNDRY | MID | OOR | Index and IndexMut lack bound check | Qwaz-Sec | No | Yes | - |
 | array | **CVE-2020-35888** | [new_from_template](https://github.com/sjep/array/issues/1) | RAII | ERR | UNINIT | alloc:alloc(), then *ptr = value | Qwaz-Sec | No | | No |
@@ -172,6 +171,7 @@
 | Tokio | GitHub | [pull/2612](https://github.com/tokio-rs/tokio/issues/2612) | TBOUND | UNSOUND | OOR | lack trait bound: +unpin  | taiki-e-dev | No | No | - |
 | Tokio | GitHub | [issues/3014](https://github.com/tokio-rs/tokio/issues/3014) | LOE | ERR | UAF | off-by-one logical error | NikosEfthias | No | No | No |
 | array-queue | **CVE-2020-35900** | [issues/2](https://github.com/raviqqe/array-queue/issues/2) | - | NO | UAF | FALSE CVEs? | ammaraskar-Sec | No | | - | 
+| bigint | **CVE-2020-35880** | [deprecated](https://github.com/paritytech/bigint/commit/7e71521a61b009afc94c91135353102658550d42) | UNMAINTAIN | UNSOUND | UB | library unmaintained/deprecated | | No | 
 ### Curlprits:
 - EAPI: error in API usage.
 - RAII: resource acquisition is initialization.
