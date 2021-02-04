@@ -78,7 +78,6 @@
 | alg_ds | Advisory-DB | [issues/1](https://gitlab.com/dvshapkin/alg-ds/-/issues/1) | TGENERIC | UNSOUND | UNINIT | alloc:alloc(), then *ptr = value | Qwaz-Sec | No | | No |
 | rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | TYPE+RAII | UNSOUND | UAF | self defined struct: direct construction->drop memory not owned | Qwaz-Sec | No | No | No |
 | arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | RAII+STRUCT | ERR | UAF | logical errors +PhantomData | Qwaz-Sec | No | | MAY |
-| array-queue | **CVE-2020-35900** | [issues/2](https://github.com/raviqqe/array-queue/issues/2) | - | NO | UAF | FALSE CVEs? | ammaraskar-Sec | No | | - | 
 | array-queue | Advisory-DB | [issues/2](https://github.com/raviqqe/array-queue/issues/2) | TYPE+RAII | ERR | UNINIT | use mem::uninitialized() | ammaraskar-Sec | No | 
 | atom | **CVE-2020-35897** | [issues/13](https://github.com/slide-rs/atom/issues/13) | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound | ammaraskar-Sec | No | | No | 
 | chunky | Advisory-DB | [issues/2](https://github.com/aeplay/chunky/issues/2) | TGENERIC | UNSOUND | OOR | API ignores memory alignment requirement | Qwaz-Sec  | No | No | - |
@@ -172,7 +171,7 @@
 | Tokio | GitHub | [pull/2030](https://github.com/tokio-rs/tokio/issues/2030) | TYPE | UNSOUND | OOR | similar to CVE-2019-12083, vulnerable to false trait impl | Marwes | No | No | - |
 | Tokio | GitHub | [pull/2612](https://github.com/tokio-rs/tokio/issues/2612) | TBOUND | UNSOUND | OOR | lack trait bound: +unpin  | taiki-e-dev | No | No | - |
 | Tokio | GitHub | [issues/3014](https://github.com/tokio-rs/tokio/issues/3014) | LOE | ERR | UAF | off-by-one logical error | NikosEfthias | No | No | No |
-
+| array-queue | **CVE-2020-35900** | [issues/2](https://github.com/raviqqe/array-queue/issues/2) | - | NO | UAF | FALSE CVEs? | ammaraskar-Sec | No | | - | 
 ### Curlprits:
 - EAPI: error in API usage.
 - RAII: resource acquisition is initialization.
