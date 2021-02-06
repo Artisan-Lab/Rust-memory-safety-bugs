@@ -36,6 +36,25 @@
 | rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | BOUNDARY | EER | UB->\*UAF | incorrect boundary check (VecDeque) | ayourtch | No |
 | rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | BOUNDARY | ERR | UB->\*UAF | incorrect boundary check (VecDeque)-79808 | Aratz | No | | - |
 | rustc (fake-static) | Advisory-DB | [issues/25860](https://github.com/rust-lang/rust/issues/25860) | COMPILER | UNSOUND | UB->UAF | type system issue->lifetime inconsistency | aturon-Rust | No | - | - | 
+| concread | **CVE-2020-35928** | [issues/48](https://github.com/kanidm/concread/issues/48) | | TBOUND+CC | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
+| reffers-rs | **CVE-2020-36203** | [issues/7](https://github.com/diwic/reffers-rs/issues/7) | | TBOUND+CC | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
+| im-rs | **CVE-2020-36204** | [issues/157](https://github.com/bodil/im-rs/issues/157) | | TBOUND+CC | DR->UAF | lack sync/send bound | ammaraskar | No | - | No |
+| rust-xcb | **CVE-2020-36205** | [issues/93](https://github.com/rtbo/rust-xcb/issues/93) | | TYPE | UAF | struct can be init with any ptr | ammaraskar | No | - | ? |
+| rusb | **CVE-2020-36206** | [issues/44](https://github.com/a1ien/rusb/issues/44) | | TBOUND+CC | DR->UAF | lack sync/send bound | Qwaz | No | - | No |
+| aovec | **CVE-2020-36207** | [RustSec](https://rustsec.org/advisories/RUSTSEC-2020-0099.html) | | TBOUND+CC | DR->UAF | lack sync/send bound |  | No | - | No |
+| conquer-once | **CVE-2020-36208** | [issues/3](https://github.com/oliver-giersch/conquer-once/issues/3) | | TBOUND+CC | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
+| late-static | **CVE-2020-36209** | [issues/1](https://github.com/Richard-W/late-static/issues/1) | | TBOUND+CC | DR->UAF | lack sync/send bound | ammaraskar | No | - | No |
+| autorand-rs | **CVE-2020-36210** | [issues/5](https://github.com/mersinvald/autorand-rs/issues/5) | | UNWIND+RAII | UNINIT | panic->drop uninit memory | JOE1994  | No | - | No |
+| gfwx-rs | **CVE-2020-36211** | [issues/7](https://github.com/Devolutions/gfwx-rs/issues/7) | | TBOUND+CC | DR->UAF | lack sync/send bound | ammaraskar | No | - | No |
+| abi_stable_crates | **CVE-2020-36212** | [issues/44](https://github.com/rodrimati1992/abi_stable_crates/issues/44) | | UNWIND+RAII | DF | bug copied from Rust std-lib (60977) | Qwaz | No | - | No |
+| abi_stable_crates | **CVE-2020-36213** | [issues/44](https://github.com/rodrimati1992/abi_stable_crates/issues/44) | | UNWIND | UB | bug copied from Rust std-lib (78498) | Qwaz | No | - | No |
+| multiqueue2 | **CVE-2020-36214** | [issues/10](https://github.com/abbychau/multiqueue2/issues/10) | | TBOUND+CC | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
+| hashconsing | **CVE-2020-36215** | [issues/1](https://github.com/AdrienChampion/hashconsing/issues/1) | | TBOUND+CC | DR->UAF | lack sync/send bound | ammaraskar | No | - | No |
+| eventio | **CVE-2020-36216** | [issues/33](https://github.com/petabi/eventio/issues/33) | | TBOUND+CC | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
+| may | **CVE-2020-36217** | [issues/88](https://github.com/Xudong-Huang/may/issues/88) | | TBOUND+CC | DR->UAF | lack sync/send bound | ammaraskar | No | - | No |
+| buttplug-rs | **CVE-2020-36218** | [issues/225](https://github.com/buttplugio/buttplug-rs/issues/225) | | TBOUND+CC | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
+| rust-atomic-option | **CVE-2020-36219** | [issues/4](https://github.com/reem/rust-atomic-option/issues/4) | | TBOUND+CC | DR->UAF | lack sync/send bound | ammaraskar | No | - | No |
+| va-ts | **CVE-2020-36220** | [issues/4](https://github.com/video-audio/va-ts/issues/4) | | TBOUND+CC | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
 | arrayfire-rust  | **CVE-2018-20998** | [issues/176](https://github.com/arrayfire/arrayfire-rust/issues/176) | FFIUB | ERR | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
 | ncurses | **CVE-2019-15547** | [issues/172](https://github.com/jeaye/ncurses-rs/issues/172) | FNSIG(SAFE)+FFI | UNSOUND | OOR | FFI-unchecked argument/printw() | thomcc | No | 
 | ncurses | **CVE-2019-15548** | [issues/186](https://github.com/jeaye/ncurses-rs/issues/186) | FNSIG(SAFE)+FFI | UNSOUND | OOR | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
@@ -83,7 +102,7 @@
 | chunky | Advisory-DB | [issues/2](https://github.com/aeplay/chunky/issues/2) | TGENERIC | UNSOUND | OOR | API ignores memory alignment requirement | Qwaz-Sec  | No | No | - |
 | dync | **CVE-2020-35903** | [issues/4](https://github.com/elrnv/dync/issues/4) | TGENERIC | ERR | OOR | memory misalignment | ammaraskar-Sec | No | 
 | concread | **CVE-2020-35928** | [issues/48](https://github.com/kanidm/concread/issues/48) | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound | JOE1994-Sec | No | | No |
-| futures-intrusive | CVE-2020-35915 | [issues/53](https://github.com/Matthias247/futures-intrusive/issues/53) | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound | ammaraskar-Sec| No | No | No |
+| futures-intrusive | **CVE-2020-35915** | [issues/53](https://github.com/Matthias247/futures-intrusive/issues/53) | TBOUND+CC | UNSOUND | DR->UAF | lack send/sync bound | ammaraskar-Sec| No | No | No |
 | futures-rs | **CVE-2020-35906** | [pull/2206](https://github.com/rust-lang/futures-rs/pull/2206) | TBOUND+LIFE | UNSOUND | UAF | lack lifetime bound | Darksonn | No | | No |
 | futures-rs| **CVE-2020-35907** | [issues/2091](https://github.com/rust-lang/futures-rs/issues/2091) | LOE | ERR | UAF | TLS:ref lives longer than thread (UnsafeCell->Lazy) | goffrie | No | | No |
 | futures-rs| **CVE-2020-35905** | [issues/2239](https://github.com/rust-lang/futures-rs/issues/2239) | TBOUND+CC | UNSOUND | CC->UAF | lack send/sync bound | Qwaz-Sec | No | No | No |
@@ -215,7 +234,7 @@
 - The bug cannot be detected by analyzing the program without PoC. 
 
 ### Other CVEs (Non-Memory-Safety Issue): 
-* Crypto/Functionality Issue: CVE-2016-10932, CVE-2017-18587, CVE-2018-20999, CVE-2019-15545, CVE-2019-16760, CVE-2017-1000168, CVE-2020-15093, CVE-2020-26281, CVE-2020-35926, CVE-2020-35883;
+* Crypto/Functionality Issue: CVE-2016-10932, CVE-2017-18587, CVE-2018-20999, CVE-2019-15545, CVE-2019-16760, CVE-2017-1000168, CVE-2020-15093, CVE-2020-26281, CVE-2020-35926, CVE-2020-35883,CVE-2020-36202;
 
 * MITM/Code Injection: CVE-2016-10931, CVE-2016-10933, CVE-2020-26222, CVE-2020-26297, CVE-2020-28247, CVE-2020-35863, CVE-2020-35884; 
 
