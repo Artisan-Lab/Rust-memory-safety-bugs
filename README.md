@@ -110,8 +110,8 @@
 | pulse-binding-rust | Advisory-DB | [Iterator](https://github.com/jnqnfe/pulse-binding-rust/commit/9e31c82d71749619387cb9d0c9698134d05b28c9) | RAII | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | | May |
 | pulse-binding-rust | Advisory-DB | [catch_unwind](https://github.com/jnqnfe/pulse-binding-rust/commit/7fd282aef7787577c385aed88cb25d004b85f494) | UNWIND+FFIUB | UB | handle FFI caused UB with catch_unwind() | okready | No | No | - |
 | parking_lot | **CVE-2020-35910** | [MappedMutex](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND | DR->UAF | lack send bound | ammaraskar-Sec | No | No | No |
-| parking_lot | **CVE-2020-35911** | [MappedRwLockRead](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND | DR->UAF |  lack sync bound | ammaraskar-Sec | No | No | No |
-| parking_lot | **CVE-2020-35912** | [MappedRwLockWrite](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND | DR->UAF |  lack send bound | ammaraskar-Sec | No | No | No |  
+| parking_lot | **CVE-2020-35911** | [RwLockRead](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND | DR->UAF |  lack sync bound | ammaraskar-Sec | No | No | No |
+| parking_lot | **CVE-2020-35912** | [RwLockWrite](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND | DR->UAF |  lack send bound | ammaraskar-Sec | No | No | No |  
 | parking_lot | **CVE-2020-35913** | [RwLockRead](https://github.com/Amanieu/parking_lot/issues/259) | TBOUND | DR->UAF | lack sync bound | ammaraskar-Sec | No | No | No | 
 | parking_lot | **CVE-2020-35914** | [RwLockWrite](https://github.com/Amanieu/parking_lot/issues/259) | TBOUND | DR->UAF | lack sync bound | ammaraskar-Sec | No |  No | No |
 | magnetic | **CVE-2020-35925** | [issues/9](https://github.com/johnshaw/magnetic/issues/9) | TBOUND | DR->UAF | lack send/sync bound | JOE1994-Sec | No | No | No |
