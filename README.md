@@ -1,7 +1,7 @@
 # rustbugs
   
 | Project | CVE-ID (or Src) | Link | Culprit | Consequense | Details | Finder-Role | Propagated | Revise (Unsafe->Safe) | BadDrop? |
-|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | **CVE-2018-1000810** | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | ARO | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | | - |
 | rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | BOUNDARY | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No | | - |
 | rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TYPE+TYPECONV | OOR | TRAIT：TYPECONV:soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | - |
