@@ -132,7 +132,6 @@
 | miow | **CVE-2020-35921** | [issues/38](https://github.com/yoshuawuyts/miow/issues/38) | FFIUB | UB | assumes the same layout of FFI | faern | No | No | No | 
 | rust-ordered-float | **CVE-2020-35923** | [pull/71](https://github.com/reem/rust-ordered-float/pull/71) | UNWIND | UB | panic may cause UB | branpk | No | No | No |  
 | try-mutex | **CVE-2020-35924** | [issues/2](https://github.com/mpdn/try-mutex/issues/2) | TBOUND | DR->UAF | lack send/sync bound | ammaraskar-Sec | No |  | No |
-
 | magnetic | **CVE-2020-35925** | [issues/9](https://github.com/johnshaw/magnetic/issues/9) | TBOUND | DR->UAF | lack send/sync bound | JOE1994-Sec | No | No | No |
 | thex | **CVE-2020-35927** | - | TBOUND | DR->UAF | lack send/sync bound | Qwaz-Sec | No |  | No | 
 | concread | **CVE-2020-35928** | [issues/48](https://github.com/kanidm/concread/issues/48) | TBOUND+CC | DR->UAF | lack send/sync bound | JOE1994-Sec | No | | No |
