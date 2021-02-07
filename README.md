@@ -107,7 +107,7 @@
 | futures-rs| **CVE-2020-35907** | [issues/2091](https://github.com/rust-lang/futures-rs/issues/2091) | LOE | UAF | TLS:ref lives longer than thread (UnsafeCell->Lazy) | goffrie | No | | No |
 | futures-rs| **CVE-2020-35905** | [issues/2239](https://github.com/rust-lang/futures-rs/issues/2239) | TBOUND+CC | CC->UAF | lack send/sync bound | Qwaz-Sec | No | No | No |
 | futures-rs| **CVE-2020-35908** | [issues/2050](https://github.com/rust-lang/futures-rs/issues/2050) | FNSIG(DEP) | UAF | sync for a structure with Cell<T> | okready | No | - | No |
-| pulse-binding-rust | Advisory-DB | [Iterator](https://github.com/jnqnfe/pulse-binding-rust/commit/9e31c82d71749619387cb9d0c9698134d05b28c9) | TYPE | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | | May |
+| pulse-binding-rust | Advisory-DB | [Iterator](https://github.com/jnqnfe/pulse-binding-rust/commit/9e31c82d71749619387cb9d0c9698134d05b28c9) | RAII | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | | May |
 | pulse-binding-rust | Advisory-DB | [catch_unwind](https://github.com/jnqnfe/pulse-binding-rust/commit/7fd282aef7787577c385aed88cb25d004b85f494) | UNWIND+FFIUB | UB | handle FFI caused UB with catch_unwind() | okready | No | No | - |
 | parking_lot | **CVE-2020-35910** | [MappedMutexGuard](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND+CC | DR->UAF | lack send bound | ammaraskar-Sec | No | No | No |
 | parking_lot | **CVE-2020-35911** | [MappedRwLockReadGuard](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND+CC | DR->UAF |  lack sync bound | ammaraskar-Sec | No | No | No |
