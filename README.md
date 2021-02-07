@@ -21,13 +21,13 @@
 | rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | ARO | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
 | rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | TGENERIC+RAII | UNINIT | Weak<T> not support Void, frees uninitialized mem | jleedev | No | 
 | rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | EAPI(MEM) | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
-| rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | TGENERIC | OOR | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
-| rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | TGENERIC | OOR | misaligned reference（RC, ARC） | RalfJung | No | 
+| rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | TGENERIC | OOR | slice of Vec<T> not support ZST or 0-len Vec | jturner314 | No | 
+| rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | TGENERIC | UB | Rc<T>/Arc<T> not support T with alignment < 8 | RalfJung | No | 
 | rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | LOE+TYPE | OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | FFIUB | DR->UAF | TLS:_tlv_atexit during tlv_finalize is UB (thread_local) | mtak- | May | 
 | rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | UNWIND+RAII | DF | double free while panic (Vec::drain_filter) | rustonaut | No | | May |
-| rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | TGENERIC | UAF | soundness holes of when impl DerefMut/Clone (Pin) | comex |
-| rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | TGENERIC | OOR | violate the always applicable test (PartialEq for RangeInclusive) | comex | No | 
+| rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | TGENERIC | UAF | Pin<T:DerefMut> for <&`a Foo> /Clone | comex |
+| rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | TGENERIC | OOR | RangeInclusive<Idx:PartialEq> not support customized struct | comex | No | 
 | rust-std | GitHub | [issues/72624](https://github.com/rust-lang/rust/issues/72624) | ARO | OOR | possible arithmatic overflow (DroplessArena::alloc_raw) | bluss-Rust | No |
 | rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | LOE | UB | TYPE:invalid UTF-8 | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | RAII+CC | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
