@@ -12,14 +12,14 @@
 | rust-std | GitHub | [issues/35836](https://github.com/rust-lang/rust/issues/35836) | FFIUB | UAF | recursive RWlock on Windows is UB | retep998-Rust | No | 
 | rust-std | GitHub | [issues/39465](https://github.com/rust-lang/rust/issues/39465) | FNSIG(MUT) | DP | Fn signature issue->shared mut aliases | christophebiocca | No | 
 | rust-std | GitHub | [issues/39575](https://github.com/rust-lang/rust/issues/39575) | FNSIG(UNSAFE)+FFIUB | DR->UB | should be unsafe, UB according to POSIX (CommandExt::before_exec) | fweimer | No | 
-| rust-std | GitHub | [issues/42135](https://github.com/rust-lang/rust/issues/42135) | CASE+TGENERIC | UB | miss handling cases (degenerate inclusive ranges  )->incorrect result (TrustedLen) | scottmcm-Rust | No | 
-| rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | TGENERIC | OOR | interators over ZST slices are undefined->random addr （Iter+ZST） | RalfJung-Rust | No | 
+| rust-std | GitHub | [issues/42135](https://github.com/rust-lang/rust/issues/42135) | CASE+TGENERIC | UB | miss handling cases (degenerate inclusive ranges)->incorrect result (TrustedLen) | scottmcm-Rust | No | 
+| rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | TGENERIC | OOR | SliceIndex<T> is unsound for ZST, interation->random addr | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | LOE | UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
 | rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | CASE | OOR | does not handle -1 properly (Placer) | andy-hanson | No | 
 | rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | TYPE | DR->UAF | AUTOTRAIT:bypassing sync/send check（fmt::Arguments）+PhantomData | cuviper-Rust | No | 
 | rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | FFIUB | DR->UAF | multi-thread unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
 | rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | ARO | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
-| rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | TGENERIC+RAII | UNINIT | Weak<T> frees uninitialized mem with <Void> | jleedev | No | 
+| rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | TGENERIC+RAII | UNINIT | Weak<T> not support Void, frees uninitialized mem | jleedev | No | 
 | rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | EAPI(MEM) | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
 | rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | TGENERIC | OOR | UB in computing the offset addr for ZST or 0-len Vec（Vec） | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | TGENERIC | OOR | misaligned reference（RC, ARC） | RalfJung | No | 
