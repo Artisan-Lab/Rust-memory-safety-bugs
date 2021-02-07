@@ -85,7 +85,7 @@
 | sized-chunks | **CVE-2020-25791** | [issues/11:unit](https://github.com/bodil/sized-chunks/issues/11) | TYPE+CASE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25792** | [issues/11:pair](https://github.com/bodil/sized-chunks/issues/11) | TYPE+CASE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25793** | [issues/11:From](https://github.com/bodil/sized-chunks/issues/11) | TYPE+CASE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | **CVE-2020-25796** | [issues/11:InlineArray](https://github.com/bodil/sized-chunks/issues/11) | TYPE+CASE | UNSOUND | OOR | no input check->memory misalignment | No (Qwaz-sec) | No | 
+| sized-chunks | **CVE-2020-25796** | [issues/11:InlineArray](https://github.com/bodil/sized-chunks/issues/11) | TYPE+CASE | OOR | no input check->memory misalignment | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25794** | [issues/11:clone](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | UNINIT | panic->drop uninitialized memory | Qwaz-sec | No | | Yes |
 | sized-chunks | **CVE-2020-25795** | [issues/11:insert_from](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | DF | panic->double drop | No (Qwaz-sec)  | No | | Hard |
 | actix-net | **CVE-2020-35902** | [issues/91](https://github.com/actix/actix-net/issues/91) | TBOUND+CC | DR->UAF | frame should be pined | sebzim4500 | No | No | No |
@@ -218,20 +218,6 @@
 - RC: race condition
 - DR: data race.
 - CC: concurrency issue.
-
-* ERR：
-- Developers should be resposible for the bug
-- users cannot aware the bug unless they read the implementation details.
-- Some bugs can be detected by analyzing the program without PoC. 
-
-* MID: 
-- users may be resposible for using the functions in an incorrect way.
-- After fix: The program should be able to detect the errors at runtime
-
-* UNSOUND: 
-- Users should be resposible for using the functions in an incorrect way.
-- After fix, the program should not compile.
-- The bug cannot be detected by analyzing the program without PoC. 
 
 ### Other CVEs (Non-Memory-Safety Issue): 
 * Crypto/Functionality Issue: CVE-2016-10932, CVE-2017-18587, CVE-2018-20999, CVE-2019-15545, CVE-2019-16760, CVE-2017-1000168, CVE-2020-15093, CVE-2020-26281, CVE-2020-35926, CVE-2020-35883,CVE-2020-36202;
