@@ -10,8 +10,8 @@
 | rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | FFIUB | DR->UAF | setenv is unsafe | bluss-Rust | No | 
 | rust-std | GitHub | [issues/33770](https://github.com/rust-lang/rust/issues/33770) | FFIUB | UAF | glibc recursive lock is UB->shared mut aliases | Amanieu | No | 
 | rust-std | GitHub | [issues/35836](https://github.com/rust-lang/rust/issues/35836) | FFIUB | UAF | recursive RWlock on Windows is UB | retep998-Rust | No | 
-| rust-std | GitHub | [issues/39465](https://github.com/rust-lang/rust/issues/39465) | FNSIG(MUT) | DP | Fn signature issue->shared mut aliases | christophebiocca | No | 
-| rust-std | GitHub | [issues/39575](https://github.com/rust-lang/rust/issues/39575) | FNSIG(UNSAFE)+FFIUB | DR->UB | should be unsafe, UB according to POSIX (CommandExt::before_exec) | fweimer | No | 
+| rust-std | GitHub | [issues/39465](https://github.com/rust-lang/rust/issues/39465) | FNSIG | DP | MUTABILITY:Fn signature issue->shared mut aliases | christophebiocca | No | 
+| rust-std | GitHub | [issues/39575](https://github.com/rust-lang/rust/issues/39575) | FNSIG+FFIUB | DR->UB | SAFETY:should be unsafe, UB according to POSIX (CommandExt::before_exec) | fweimer | No | 
 | rust-std | GitHub | [issues/42135](https://github.com/rust-lang/rust/issues/42135) | CASE+TGENERIC | UB | miss handling cases (degenerate inclusive ranges)->incorrect result (TrustedLen) | scottmcm-Rust | No | 
 | rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | TGENERIC | OOR | SliceIndex<T> is unsound for ZST, interation->random addr | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | LOE | UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
@@ -20,7 +20,7 @@
 | rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | FFIUB | DR->UAF | multi-thread unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
 | rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | ARO | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
 | rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | TGENERIC+RAII | UNINIT | Weak<T> not support Void, frees uninitialized mem | jleedev | No | 
-| rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | EAPI(MEM) | DR->UAF | insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
+| rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | EAPI | DR->UAF | MEMORY:insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
 | rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | TGENERIC | OOR | slice of Vec<T> not support ZST or 0-len Vec | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | TGENERIC | UB | Rc<T>/Arc<T> not support T with alignment < 8 | RalfJung | No | 
 | rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | LOE+TYPE | OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
@@ -45,14 +45,14 @@
 | arrayfire-rust  | **CVE-2018-20998** | [issues/176](https://github.com/arrayfire/arrayfire-rust/issues/176) | FFIUB | OOR | FFI-compatability/repr() | No (Aidan24) | No | 
 | safe-transmute | **CVE-2018-21000** | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | EAPI | OOR | wrong param order of from_raw_parts() | Enet4-deps | No | No | - |
 | slice-deque | **CVE-2019-15543** | [pull/66](https://github.com/gnzlbg/slice_deque/pull/66) | CASE | OOR | lack special case handling ->memory misalignment | zimond | No | No | - |
-| ncurses | **CVE-2019-15547** | [issues/172](https://github.com/jeaye/ncurses-rs/issues/172) | FNSIG(SAFE)+FFIUB | OOR | FFI-unchecked argument/printw() | thomcc | No | 
-| ncurses | **CVE-2019-15548** | [issues/186](https://github.com/jeaye/ncurses-rs/issues/186) | FNSIG(SAFE)+FFIUB | OOR | FFI-unchecked argument/instr(), mvwinstr() | thomcc |
+| ncurses | **CVE-2019-15547** | [issues/172](https://github.com/jeaye/ncurses-rs/issues/172) | FNSIG+FFIUB | OOR | SAFETY:FFI-unchecked argument/printw() | thomcc | No | 
+| ncurses | **CVE-2019-15548** | [issues/186](https://github.com/jeaye/ncurses-rs/issues/186) | FNSIG+FFIUB | OOR | SAFETY:FFI-unchecked argument/instr(), mvwinstr() | thomcc |
 | simd-json | **CVE-2019-15550** | [pull/27](https://github.com/simd-lite/simd-json/pull/27) | CASE | OOR | lack special case handling->mem misalign/get_unchecked() | Licenser-deps | No | No | - |
 | rust-smallvec | **CVE-2019-15551** | [issues/148](https://github.com/servo/rust-smallvec/issues/148) | LOE | UAF | miss an else branch->manuall deallocation | ehuss | No | No | May | 
 | libflate | **CVE-2019-15552** | [issues/35](https://github.com/sile/libflate/issues/35) | RAII+UNWIND  | UNINIT | enf. ManuallyDrop late->drop uninit | No (Shnatsel-sec) | No | | Yes |
 | memoffset | **CVE-2019-15553** | [issues/9](https://github.com/Gilnaa/memoffset/issues/9) | RAII+UNWIND | UNINIT | enf. ManuallyDrop late->drop uninit mem  | Centril | No | | Yes |
 | rust-smallvec | **CVE-2019-15554** | [issues/149](https://github.com/servo/rust-smallvec/issues/149) | LOE | OOR | logical error + unsafe write | No (ehuss) | No | 
-| spin-rs  | **CVE-2019-16137** | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | EAPI+CC | UB->UAF | impl error: Ordering::Relaxed->Release | 64 | No | No | No |
+| spin-rs  | **CVE-2019-16137** | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | EAPI | DR->UAF | impl error: Ordering::Relaxed->Release | 64 | No | No | No |
 | image | **CVE-2019-16138** | [issues/980](https://github.com/image-rs/image/issues/980) | UNWIND+RAII | UNINIT | unsafe allocation->drop uninit mem/set_len() | No (64) | No | | Hard |
 | compact_arena | **CVE-2019-16139** | [issues/22](https://github.com/llogiq/compact_arena/issues/22) | LOE | OOR | NLL issue->Index trait/get_unchecked() | No (CAD97) | No |
 | isahc | **CVE-2019-16140** | [issues/2](https://github.com/sagebind/isahc/issues/2) | RAII | UAF | unsafe constructor+no ManuallyDrop | nox | No | | Yes |
@@ -79,12 +79,12 @@
 | arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | RAII+STRUCT | UAF | logical errors +PhantomData | Qwaz-Sec | No | | MAY |
 | lucet | **CVE-2020-35859** | [pull/401](https://github.com/bytecodealliance/lucet/pull/401) | LOE  | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
 | cbox-rs | **CVE-2020-35860** | [issues/2](https://github.com/TomBebbington/cbox-rs/issues/2) | FNSIG | UAF | SAFETY:declare unsafe API as safe | No (eduardosm) | No | | No |
-| bumpalo | **CVE-2020-35861** | [issues/69](https://github.com/fitzgen/bumpalo/issues/69) | LOE | OOR(Read) | copy wrong size | No (Riey-deps)| No | 
+| bumpalo | **CVE-2020-35861** | [issues/69](https://github.com/fitzgen/bumpalo/issues/69) | LOE | OOR | READ:copy wrong size | No (Riey-deps)| No | 
 | bitvec | **CVE-2020-35862** | [issues/55](https://github.com/myrrlyn/bitvec/issues/55) | LOE | UAF | SYSTEM:MacOS reallocate the address after shrinking; Should use the new addr. | kulp-sec | No | No | | No |
 | flatbuffers | **CVE-2020-35864** | [issues/5825](https://github.com/google/flatbuffers/issues/5825) | FNSIG | UB | SAFETY:func. sign.: safety declaration | eduardosm | No | No | - |
 | os_str_bytes | **CVE-2020-35865** | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | EAPI+TYPE | UB | unsafe use of char::from_u32_unchecked() | eduardosm  | No | MAY | - |
-| rusqlite | **CVE-2020-35866** | [VTab](https://github.com/rusqlite/rusqlite/commit/c9ef5bd63cad5c0c123344c072b490a1a9bcbe1f) | FNSIG(SAFE) | UB | should declare trait as unsafe | No (gwenn-deps) | No | 
-| rusqlite | **CVE-2020-35867** | [create_module](https://github.com/rusqlite/rusqlite/commit/3c6b57fe1b2cc87e7ebecde43dd836ffb1c4ea5c) | FNSIG(LIFETIME) | UAF | static ref should point to static ret value | thomcc-deps| No | 
+| rusqlite | **CVE-2020-35866** | [VTab](https://github.com/rusqlite/rusqlite/commit/c9ef5bd63cad5c0c123344c072b490a1a9bcbe1f) | FNSIG | UB | SAFETY:should declare trait as unsafe | No (gwenn-deps) | No | 
+| rusqlite | **CVE-2020-35867** | [create_module](https://github.com/rusqlite/rusqlite/commit/3c6b57fe1b2cc87e7ebecde43dd836ffb1c4ea5c) | FNSIG | UAF | LIFETIME:static ref should point to static ret value | thomcc-deps| No | 
 | rusqlite | **CVE-2020-35868** | [UnlockNotif](https://github.com/rusqlite/rusqlite/commit/45fd77ee43c38eea4d6f4e2e56c1667a55ec654f) | RAII | DR->UB | NLL:mutex lock is released before send condvar | No (gwenn-deps) | No | 
 | rusqlite | **CVE-2020-35869** | [log](https://github.com/rusqlite/rusqlite/commit/2327d3b774927fdf48903c0bdc1ca7ec93c7c8d0) | EAPI+FFIUB | OOR | wrong parameters in api call | thomcc-deps| No | 
 | rusqlite | **CVE-2020-35870** | [Auxdata API](https://github.com/rusqlite/rusqlite/commit/2ef3628dac35aeba0a97d5fb3a57746b4e1d62b3) | TBOUND | DR->UAF | lack sync/send bound | thomcc-deps | No | 
@@ -117,7 +117,7 @@
 | dync | **CVE-2020-35903** | [issues/4](https://github.com/elrnv/dync/issues/4) | TGENERIC | OOR | memory misalignment | ammaraskar-Sec | No | 
 | crossbeam | **CVE-2020-35904** | [pull/533](https://github.com/crossbeam-rs/crossbeam/pull/533) | EAPI | UAF | drop memory not owned Vec->Box | caelunshun | No |
 | futures-rs| **CVE-2020-35905** | [issues/2239](https://github.com/rust-lang/futures-rs/issues/2239) | TBOUND | DR->UAF | lack send/sync bound | Qwaz-Sec | No | No | No |
-| futures-rs | **CVE-2020-35906** | [pull/2206](https://github.com/rust-lang/futures-rs/pull/2206) | TBOUND(LIFE) | UAF | lack lifetime bound | Darksonn | No | | No |
+| futures-rs | **CVE-2020-35906** | [pull/2206](https://github.com/rust-lang/futures-rs/pull/2206) | TBOUND | UAF | LIFETIME:lack lifetime bound | Darksonn | No | | No |
 | futures-rs| **CVE-2020-35907** | [issues/2091](https://github.com/rust-lang/futures-rs/issues/2091) | LOE | UAF | TLS:ref lives longer than thread (UnsafeCell->Lazy) | goffrie | No | | No |
 | futures-rs| **CVE-2020-35908** | [issues/2050](https://github.com/rust-lang/futures-rs/issues/2050) | FNSIG(DEP) | UAF | sync for a structure with Cell<T> | okready | No | - | No |
 | parking_lot | **CVE-2020-35910** | [MappedMutex](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND | DR->UAF | lack send bound | ammaraskar-Sec | No | No | No |
