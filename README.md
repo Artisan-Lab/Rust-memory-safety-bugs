@@ -83,11 +83,11 @@
 | simd-json | **CVE-2019-15550** | [pull/27](https://github.com/simd-lite/simd-json/pull/27) | CASE | OOR | lack special case handling->mem misalign/get_unchecked() | Licenser-deps | No | No | - |
 | v_espace | Trophy Case | [issues/47](https://github.com/botika/v_escape/issues/47) | CASE+FFIUB | OOR | logical error->mem misalign | \_mm_load_si128() | tmiasko | No | No | - |
 | sized-chunks | **CVE-2020-25791** | [issues/11:unit](https://github.com/bodil/sized-chunks/issues/11) | TYPE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | **CVE-2020-25792** | [issues/11:pair](https://github.com/bodil/sized-chunks/issues/11) | TYPE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | **CVE-2020-25793** | [issues/11:From](https://github.com/bodil/sized-chunks/issues/11) | TYPE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | **CVE-2020-25796** | [issues/11:InlineArray](https://github.com/bodil/sized-chunks/issues/11) | TYPE | OOR | no input check->memory misalignment | No (Qwaz-sec) | No | 
-| sized-chunks | **CVE-2020-25794** | [issues/11:clone](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | UNINIT | panic->drop uninitialized memory | Qwaz-sec | No | | Yes |
-| sized-chunks | **CVE-2020-25795** | [issues/11:insert_from](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | DF | panic->double drop | No (Qwaz-sec)  | No | | Hard |
+| sized-chunks | **CVE-2020-25792** | [pair](https://github.com/bodil/sized-chunks/issues/11) | TYPE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
+| sized-chunks | **CVE-2020-25793** | [From](https://github.com/bodil/sized-chunks/issues/11) | TYPE | OOR | lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
+| sized-chunks | **CVE-2020-25796** | [InlineArray](https://github.com/bodil/sized-chunks/issues/11) | TYPE | OOR | no input check->memory misalignment | No (Qwaz-sec) | No | 
+| sized-chunks | **CVE-2020-25794** | [clone](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | UNINIT | panic->drop uninitialized memory | Qwaz-sec | No | | Yes |
+| sized-chunks | **CVE-2020-25795** | [insert_from](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | DF | panic->double drop | No (Qwaz-sec)  | No | | Hard |
 | actix-net | **CVE-2020-35902** | [issues/91](https://github.com/actix/actix-net/issues/91) | TBOUND | DR->UAF | frame should be pined | sebzim4500 | No | No | No |
 | actix-net | **CVE-2020-35899** | [pull/158](https://github.com/actix/actix-net/pull/158) | EAPI | DR->UAF | replace Cell<T> with Rc<RefCell<T>> | Shnatsel | No | | No |
 | actix-net | **CVE-2020-35898** | [issues/160](https://github.com/actix/actix-net/issues/160) | EAPI | DR->UAF | replace Cell<T> with Rc<RefCell<T>>  | Shnatsel | No | | No |
