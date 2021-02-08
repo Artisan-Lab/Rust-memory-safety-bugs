@@ -114,7 +114,7 @@
 | actix-net | **CVE-2020-35899** | [pull/158](https://github.com/actix/actix-net/pull/158) | EAPI | DR->UAF | replace Cell<T> with Rc<RefCell<T>> | Shnatsel | No | | No |
 | actix-web | **CVE-2020-35901** | [issues/1321](https://github.com/actix/actix-web/issues/1321) | TBOUND | DR->UAF | BodyStream should be pined | sebzim4500 | No | | No |
 | actix-net | **CVE-2020-35902** | [issues/91](https://github.com/actix/actix-net/issues/91) | TBOUND | DR->UAF | frame should be pined | sebzim4500 | No | No | No |
-| dync | **CVE-2020-35903** | [issues/4](https://github.com/elrnv/dync/issues/4) | TGENERIC | OOR | INPUT:memory misalignment | ammaraskar-Sec | No | 
+| dync | **CVE-2020-35903** | [issues/4](https://github.com/elrnv/dync/issues/4) | TGENERIC | OOR | LargeAlign: as_ptr->.ptr | ammaraskar-Sec | No | 
 | crossbeam | **CVE-2020-35904** | [pull/533](https://github.com/crossbeam-rs/crossbeam/pull/533) | EAPI | UAF | drop memory not owned Vec->Box | caelunshun | No |
 | futures-rs| **CVE-2020-35905** | [issues/2239](https://github.com/rust-lang/futures-rs/issues/2239) | TBOUND | DR->UAF | lack send/sync bound | Qwaz-Sec | No | No | No |
 | futures-rs | **CVE-2020-35906** | [pull/2206](https://github.com/rust-lang/futures-rs/pull/2206) | TBOUND | UAF | LIFETIME:lack lifetime bound | Darksonn | No | | No |
