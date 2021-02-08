@@ -23,16 +23,16 @@
 | rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | EAPI | DR->UAF | MEMORY:insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
 | rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | TGENERIC | OOR | slice of Vec<T> not support ZST or 0-len Vec | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | TGENERIC | UB | Rc<T>/Arc<T> not support T with alignment < 8 | RalfJung | No | 
-| rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | TYPE | OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
+| rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | CASE | OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | FFIUB | DR->UAF | TLS:_tlv_atexit during tlv_finalize is UB (thread_local) | mtak- | May | 
 | rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | UNWIND+RAII | DF | double free while panic (Vec::drain_filter) | rustonaut | No | | May |
 | rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | TGENERIC | UAF | Pin<T:DerefMut> for <&`a Foo> /Clone | comex |
 | rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | TGENERIC | OOR | RangeInclusive<Idx:PartialEq> not support customized struct | comex | No | 
 | rust-std | GitHub | [issues/72624](https://github.com/rust-lang/rust/issues/72624) | ARO | OOR | possible arithmatic overflow (DroplessArena::alloc_raw) | bluss-Rust | No |
-| rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | TYPE | UB | push "0xD800" generates invalid UTF-8 | RalfJung-Rust | No |
+| rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | CASE | UB | push "0xD800" generates invalid UTF-8 | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | RAII | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
 | rust-std | GitHub | [issues/78477](https://github.com/rust-lang/rust/issues/78477) | LOE | UNKNOWN | violate pointer provenance rules | RalfJung-Rust | No |
-| rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | EXCEP | UB | TYPE:invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
+| rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | EXCEP | UB | invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
 | rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | BOUNDARY | UAF | incorrect boundary check (VecDeque) | ayourtch | No |
 | rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | BOUNDARY | UB | incorrect boundary check (VecDeque)-79808 | Aratz | No | | - |
 | rustc (fake-static) | Advisory-DB | [issues/25860](https://github.com/rust-lang/rust/issues/25860) | COMPILER | UB->UAF | type system issue->lifetime inconsistency | aturon-Rust | No | - | - | 
@@ -82,7 +82,7 @@
 | bumpalo | **CVE-2020-35861** | [issues/69](https://github.com/fitzgen/bumpalo/issues/69) | LOE | OOR | READ:copy wrong size | No (Riey-deps)| No | 
 | bitvec | **CVE-2020-35862** | [issues/55](https://github.com/myrrlyn/bitvec/issues/55) | LOE | UAF | SYSTEM:MacOS reallocate the address after shrinking; Should use the new addr. | kulp-sec | No | No | | No |
 | flatbuffers | **CVE-2020-35864** | [issues/5825](https://github.com/google/flatbuffers/issues/5825) | FNSIG | UB | SAFETY:func. sign.: safety declaration | eduardosm | No | No | - |
-| os_str_bytes | **CVE-2020-35865** | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | EAPI+TYPE | UB | unsafe use of char::from_u32_unchecked() | eduardosm  | No | MAY | - |
+| os_str_bytes | **CVE-2020-35865** | [pull/1](https://github.com/dylni/os_str_bytes/pull/1) | EAPI | UB | unsafe use of char::from_u32_unchecked() | eduardosm  | No | MAY | - |
 | rusqlite | **CVE-2020-35866** | [VTab](https://github.com/rusqlite/rusqlite/commit/c9ef5bd63cad5c0c123344c072b490a1a9bcbe1f) | FNSIG | UB | SAFETY:should declare trait as unsafe | No (gwenn-deps) | No | 
 | rusqlite | **CVE-2020-35867** | [create_module](https://github.com/rusqlite/rusqlite/commit/3c6b57fe1b2cc87e7ebecde43dd836ffb1c4ea5c) | FNSIG | UAF | LIFETIME:static ref should point to static ret value | thomcc-deps| No | 
 | rusqlite | **CVE-2020-35868** | [UnlockNotif](https://github.com/rusqlite/rusqlite/commit/45fd77ee43c38eea4d6f4e2e56c1667a55ec654f) | RAII | DR->UB | NLL:mutex lock is released before send condvar | No (gwenn-deps) | No | 
@@ -157,13 +157,13 @@
 | generator-rs | Advisory-DB | [issues/9](https://github.com/Xudong-Huang/generator-rs/issues/9) | FNSIG | UB | SAFETY:func. sign.->deref invalid/null pointer | jonas-schievink | No | No | - |
 | generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | FNSIG | UB | bad func. exposure  | No (jonas-schievink) | No | 
 | generator-rs | Advisory-DB  | [issues/14](https://github.com/Xudong-Huang/generator-rs/issues/14) | FNSIG | UB | bad func. exposure | No (jonas-schievink)  | No | 
-| flatbuffers | Advisory-DB | [issues/5530](https://github.com/google/flatbuffers/issues/5530) | TYPE | UB | CONSTRUCTOR:invalid bit pattern for bool | nagisa | No | No | - |
+| flatbuffers | Advisory-DB | [issues/5530](https://github.com/google/flatbuffers/issues/5530) | CASE | UB | CONSTRUCTOR:invalid bit pattern for bool | nagisa | No | No | - |
 | chunky | Advisory-DB | [issues/2](https://github.com/aeplay/chunky/issues/2) | TGENERIC | OOR | LargeAlign:as_ptr->.ptr | Qwaz-Sec  | No | No | - |
 | pulse-binding-rust | Advisory-DB | [Iterator](https://github.com/jnqnfe/pulse-binding-rust/commit/9e31c82d71749619387cb9d0c9698134d05b28c9) | RAII | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | | May |
 | pulse-binding-rust | Advisory-DB | [catch_unwind](https://github.com/jnqnfe/pulse-binding-rust/commit/7fd282aef7787577c385aed88cb25d004b85f494) | EXCEP+FFIUB | UB | handle FFI caused UB with catch_unwind() | okready | No | No | - |
 | actix-web | Advisory-DB | [issues/289](https://github.com/actix/actix-web/issues/289) | LOE | UAF | multiple issues | seanmonstar | No | No | - |
 | actix-web | Advisory-DB | [issues/301](https://github.com/actix/actix-web/issues/301) | TBOUND | UAF | InternalError with generics is unsound for Rc | seanmonstar-Mozilla | No | 
-| alg_ds | Advisory-DB | [issues/1](https://gitlab.com/dvshapkin/alg-ds/-/issues/1) | TGENERIC+TYPE | UNINIT | Matrix<T>:alloc:alloc(), then *ptr = value | Qwaz-Sec | No | | No |
+| alg_ds | Advisory-DB | [issues/1](https://gitlab.com/dvshapkin/alg-ds/-/issues/1) | TGENERIC | UNINIT | Matrix<T>:alloc:alloc(), then *ptr = value | Qwaz-Sec | No | | No |
 | http | Advisory-DB | [issues/355](https://github.com/hyperium/http/issues/355) | TBOUND | DR->UAF | LIFETIME:lack lifetime bound->multile mut refs  | No (Qwaz-sec)  | No | 
 | rust-smallvec | Advisory-DB | [issues/126](https://github.com/servo/rust-smallvec/issues/126) | EAPI | UNINIT | init vector with mem:uninitialized() | No (mbrubeck) | No | Yes |
 | v_espace | Trophy Case | [issues/47](https://github.com/botika/v_escape/issues/47) | CASE+FFIUB | OOR | logical error->mem misalign | \_mm_load_si128() | tmiasko | No | No | - |
