@@ -4,7 +4,7 @@
 |---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | **CVE-2018-1000810** | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | ARO | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | | - |
 | rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | BOUNDARY | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No | | - |
-| rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TYPE+TYPECONV | OOR | TRAIT：TYPECONV:soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | - |
+| rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TYPE | OOR | TRAIT：soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | - |
 | rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | FFIUB | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
 | rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | ARO+MODEL | UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
 | rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | FFIUB | DR->UAF | setenv is unsafe | bluss-Rust | No | 
@@ -16,7 +16,7 @@
 | rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | TGENERIC | OOR | SliceIndex<T> is unsound for ZST, interation->random addr | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | LOE | UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
 | rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | CASE | OOR | does not handle -1 properly (Placer) | andy-hanson | No | 
-| rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | TYPE | DR->UAF | AUTOTRAIT:bypassing sync/send check（fmt::Arguments）+PhantomData | cuviper-Rust | No | 
+| rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | TYPE | DR->UAF | TRAIT: [autotrait](https://doc.rust-lang.org/reference/special-types-and-traits.html) enables bypassing sync/send check（fmt::Arguments）+PhantomData | cuviper-Rust | No | 
 | rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | FFIUB | DR->UAF | multi-thread unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
 | rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | ARO | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
 | rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | TGENERIC+RAII | UNINIT | Weak<T> not support Void, frees uninitialized mem | jleedev | No | 
