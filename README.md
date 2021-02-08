@@ -4,7 +4,7 @@
 |---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | **CVE-2018-1000810** | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | ARO | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | | - |
 | rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | BOUNDARY | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No | | - |
-| rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TYPE | OOR | TRAIT：soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | - |
+| rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TRAITIMPL | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | - |
 | rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | FFIUB | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
 | rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | ARO+MODEL | UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
 | rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | FFIUB | DR->UAF | setenv is unsafe | bluss-Rust | No | 
@@ -16,20 +16,20 @@
 | rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | TGENERIC | OOR | SliceIndex<T> is unsound for ZST, interation->random addr | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | LOE | UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
 | rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | CASE | OOR | does not handle -1 properly (Placer) | andy-hanson | No | 
-| rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | TYPE | DR->UAF | TRAIT: [autotrait](https://doc.rust-lang.org/reference/special-types-and-traits.html) enables bypassing sync/send check（fmt::Arguments）+PhantomData | cuviper-Rust | No | 
+| rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | TRAITIMPL | DR->UAF | TRAIT: [autotrait](https://doc.rust-lang.org/reference/special-types-and-traits.html) enables bypassing sync/send check（fmt::Arguments）+PhantomData | cuviper-Rust | No | 
 | rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | FFIUB | DR->UAF | multi-thread unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
 | rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | ARO | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
 | rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | TGENERIC+RAII | UNINIT | Weak<T> not support Void, frees uninitialized mem | jleedev | No | 
 | rust-std | GitHub | [issues/51780](https://github.com/rust-lang/rust/issues/51780) | EAPI | DR->UAF | MEMORY:insufficient synchronization (Arc::is_unique) Relaxed->Acquire | jhjourdan | No | 
 | rust-std | GitHub | [issues/54857](https://github.com/rust-lang/rust/issues/54857) | TGENERIC | OOR | slice of Vec<T> not support ZST or 0-len Vec | jturner314 | No | 
 | rust-std | GitHub | [issues/54908](https://github.com/rust-lang/rust/issues/54908) | TGENERIC | UB | Rc<T>/Arc<T> not support T with alignment < 8 | RalfJung | No | 
-| rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | LOE+TYPE | OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
+| rust-std | GitHub | [issues/54957](https://github.com/rust-lang/rust/issues/54957) | TYPE | OOR | inconsistent type of Root node (BTreeSet) | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/57534](https://github.com/rust-lang/rust/issues/57534) | FFIUB | DR->UAF | TLS:_tlv_atexit during tlv_finalize is UB (thread_local) | mtak- | May | 
 | rust-std | GitHub | [issues/60977](https://github.com/rust-lang/rust/issues/60977) | UNWIND+RAII | DF | double free while panic (Vec::drain_filter) | rustonaut | No | | May |
 | rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | TGENERIC | UAF | Pin<T:DerefMut> for <&`a Foo> /Clone | comex |
 | rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | TGENERIC | OOR | RangeInclusive<Idx:PartialEq> not support customized struct | comex | No | 
 | rust-std | GitHub | [issues/72624](https://github.com/rust-lang/rust/issues/72624) | ARO | OOR | possible arithmatic overflow (DroplessArena::alloc_raw) | bluss-Rust | No |
-| rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | CASE | UB | TYPE: push "0xD800" generates invalid UTF-8 | RalfJung-Rust | No |
+| rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | TYPE | UB | push "0xD800" generates invalid UTF-8 | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | RAII | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
 | rust-std | GitHub | [issues/78477](https://github.com/rust-lang/rust/issues/78477) | LOE | UNKNOWN | violate pointer provenance rules | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | EXCEP | UB | TYPE:invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
@@ -61,13 +61,13 @@
 | generator-rs | **CVE-2019-16144** | [issues/11](https://github.com/Xudong-Huang/generator-rs/issues/11) | RAII | DF | shared mut aliases+auto drop | vOROn200 | No | | Yes |
 | linea.rs | **CVE-2019-16880** | [issues/1](https://github.com/strake/linea.rs/pull/2) | UNWIND+RAII | DF | enf. ManuallyDrop late | Phosphorus15 | No | | Yes |
 | portaudio-rs | **CVE-2019-16881** | [issues/20](https://github.com/mvdnes/portaudio-rs/issues/20) | UNWIND+RAII | DF | enf. ManuallyDrop late | Phosphorus15 | No | | Yes |
-| string-interner | **CVE-2019-16882** | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | TYPE+RAII | UAF | TRAIT:bad derived clone | No (lo48576-deps) | No |  | No |
+| string-interner | **CVE-2019-16882** | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | RAII | UAF | bad derived clone->shared mut aliases | No (lo48576-deps) | No |  | No |
 | teaclave-sgx-sdk  | **CVE-2020-5499** | www.mitre.org | LOE | DR->UB | may init twice by another thread/+Once::new() | Chen-sec | No | No | - |
 | vm-memory | **CVE-2020-13759** | [issues/93](https://github.com/rust-vmm/vm-memory/issues/93) | EAPI | DR->UB | volatile mem acc/ptr::write()$\to$write_volatile() | No (andreeaflorescu-deps)| No | 
 | rust-rgb | **CVE-2020-25016** | [issues/35](https://github.com/kornelski/rust-rgb/issues/35) | FNSIG | UB | SAFETY:declare unsafe API as safe | HeroicKatora | No | No | - |
 | linked-hash-map | **CVE-2020-25573** | [pull/100](https://github.com/contain-rs/linked-hash-map/pull/100/) | EAPI+RAII | UNINIT | object with uninit mem of type T (HashMap) | No (SpaceManiac-deps)| No | | May |
 | http | **CVE-2020-25574** | [issues/354](https://github.com/hyperium/http/issues/354) | UNWIND+RAII | DF | buf. shrinking too late (rely on drop) | No (Qwaz-sec) | No | | May |
-| failure | **CVE-2020-25575** | [issues/336](https://github.com/rust-lang-nursery/failure/issues/336) | TYPE | OOR | TRAIT：soundness hole same as CVE-2019-12083 | No (Qwaz-sec) | No | 
+| failure | **CVE-2020-25575** | [issues/336](https://github.com/rust-lang-nursery/failure/issues/336) | TRAITIMPL | OOR | soundness hole same as CVE-2019-12083 | No (Qwaz-sec) | No | 
 | rand | **CVE-2020-25576** | [issues/779](https://github.com/rust-random/rand/issues/779) | EAPI | UB | reading unaligned mem/ptr::read_unaligned() | RalfJung-sec | No | No | - |
 | time | **CVE-2020-26235** | [issues/293](https://github.com/time-rs/time/issues/293) | FFIUB | DR->UAF | call non-atomic libc functions (setenv) | quininer | <-> |  | No |
 | sized-chunks | **CVE-2020-25791** | [issues/11:unit](https://github.com/bodil/sized-chunks/issues/11) | TYPE | OOR | CONSTRUCTOR:lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
@@ -97,8 +97,8 @@
 | ozone | **CVE-2020-35878** | [remove_entry](https://github.com/bqv/ozone/blob/e21f948b0178ab305f644118f18d87a838c618e0/src/map.rs#L94-L101) | RAII | UNINIT | implement drop with uninit mem | N.A. | No | | Yes | 
 | rulinalg | **CVE-2020-35879** | [issues/201](https://github.com/AtheMathmo/rulinalg/issues/201) | FNSIG | UB->UAF | LIFETIME:func. sign.:lifetime | Qwaz-sec | No | | No |
 | traitobject | **CVE-2020-35881** | [issues/7](https://github.com/reem/rust-traitobject/issues/7) | EAPI | UB->OOR | assumes that the first element is a fat pointer is the data pointer | eduardosm | No | Yes | No |
-| Rocket | **CVE-2020-35882** | [issues/1312](https://github.com/SergioBenitez/Rocket/issues/1312) | TYPE | UAF | TRAIT:Clone may incur mutable aliases | Qwaz | No |
-| rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | TYPE+RAII | UAF | CONSTRUCTOR: direct construction->drop memory not owned | Qwaz-Sec | No | No | No |
+| Rocket | **CVE-2020-35882** | [issues/1312](https://github.com/SergioBenitez/Rocket/issues/1312) | RAII | UAF | Clone may incur mutable aliases | Qwaz | No |
+| rust-arch | **CVE-2020-35885** | [issues/2](https://github.com/pigeonhands/rust-arch/issues/2) | RAII | UAF | direct construction->drop memory not owned | Qwaz-Sec | No | No | No |
 | array | **CVE-2020-35886** | [issues/1:Array](https://github.com/sjep/array/issues/1) | TBOUND | DR->UAF | lack sync/send bound | Qwaz-Sec | No | | No |
 | array | **CVE-2020-35887** | [issues/1:Index](https://github.com/sjep/array/issues/1) | BOUNDRY | OOR | Index and IndexMut lack bound check | Qwaz-Sec | No | Yes | - |
 | array | **CVE-2020-35888** | [new_from_template](https://github.com/sjep/array/issues/1) | RAII | UNINIT | alloc:alloc(), then *ptr = value | Qwaz-Sec | No | | No |
