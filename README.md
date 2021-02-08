@@ -107,7 +107,7 @@
 | ordnung | **CVE-2020-35891** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | UNWIND+RAII | DF | panic->double free | Qwaz | No | | May |
 | simple-slab | **CVE-2020-35892** | [issues/2](https://github.com/nathansizemore/simple-slab/issues/2) | BOUNDARY | OOR | Slab::index() does not perform the boundary checking | Qwaz | No |
 | simple-slab | **CVE-2020-35893** | [issues/2](https://github.com/nathansizemore/simple-slab/issues/2) | BOUNDARY | OOR | copies an element from an invalid address due to off-by-one error | Qwaz | No | 
-| obstack | **CVE-2020-35894** | [issues/4](https://github.com/petertodd/rust-obstack/issues/4) | TGENERIC | UB | INPUT:generates unaligned references for types with a large alignment | Qwaz | No | No | - |
+| obstack | **CVE-2020-35894** | [issues/4](https://github.com/petertodd/rust-obstack/issues/4) | LOE | UB | SIMPLE: wrong padding calculation | Qwaz | No | No | - |
 | stack-rs | **CVE-2020-35895** | [issues/4](https://github.com/arcnmx/stack-rs/issues/4) | BOUNDARY | OOR | lack boundary check | ammaraskar | No | No |
 | atom | **CVE-2020-35897** | [issues/13](https://github.com/slide-rs/atom/issues/13) | TBOUND | DR->UAF | lack send/sync bound | ammaraskar-Sec | No | | No | 
 | actix-net | **CVE-2020-35898** | [issues/160](https://github.com/actix/actix-net/issues/160) | EAPI | DR->UAF | replace Cell<T> with Rc<RefCell<T>>  | Shnatsel | No | | No |
