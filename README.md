@@ -102,7 +102,7 @@
 | array | **CVE-2020-35886** | [issues/1:Array](https://github.com/sjep/array/issues/1) | TBOUND | DR->UAF | lack sync/send bound | Qwaz-Sec | No | | No |
 | array | **CVE-2020-35887** | [issues/1:Index](https://github.com/sjep/array/issues/1) | BOUNDRY | OOR | Index and IndexMut lack bound check | Qwaz-Sec | No | Yes | - |
 | array | **CVE-2020-35888** | [new_from_template](https://github.com/sjep/array/issues/1) | RAII | UNINIT | alloc:alloc(), then *ptr = value | Qwaz-Sec | No | | No |
-| crayon | **CVE-2020-35889** | [issues/87](https://github.com/shawnscode/crayon/issues/87) | TYPE | OOR | TRAIT: time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | | No |
+| crayon | **CVE-2020-35889** | [issues/87](https://github.com/shawnscode/crayon/issues/87) | TRAITIMPL | OOR | TRAIT: time-of-check to time-of-use (TOCTOU) bug | Qwaz | No | | No |
 | ordnung | **CVE-2020-35890** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | LOE | OOR |  | Qwaz | No | | No |
 | ordnung | **CVE-2020-35891** | [issues/8](https://github.com/maciejhirsz/ordnung/issues/8) | UNWIND+RAII | DF | panic->double free | Qwaz | No | | May |
 | simple-slab | **CVE-2020-35892** | [issues/2](https://github.com/nathansizemore/simple-slab/issues/2) | BOUNDARY | OOR | Slab::index() does not perform the boundary checking | Qwaz | No |
