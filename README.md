@@ -114,7 +114,7 @@
 | actix-net | **CVE-2020-35899** | [pull/158](https://github.com/actix/actix-net/pull/158) | EAPI | DR->UAF | replace Cell<T> with Rc<RefCell<T>> | Shnatsel | No | | No |
 | actix-web | **CVE-2020-35901** | [issues/1321](https://github.com/actix/actix-web/issues/1321) | TBOUND | DR->UAF | BodyStream should be pined | sebzim4500 | No | | No |
 | actix-net | **CVE-2020-35902** | [issues/91](https://github.com/actix/actix-net/issues/91) | TBOUND | DR->UAF | frame should be pined | sebzim4500 | No | No | No |
-| dync | **CVE-2020-35903** | [issues/4](https://github.com/elrnv/dync/issues/4) | TGENERIC | OOR | LargeAlign: as_ptr->.ptr | ammaraskar-Sec | No | 
+| dync | **CVE-2020-35903** | [issues/4](https://github.com/elrnv/dync/issues/4) | TGENERIC | UB | LargeAlign: as_ptr->.ptr | ammaraskar-Sec | No | 
 | crossbeam | **CVE-2020-35904** | [pull/533](https://github.com/crossbeam-rs/crossbeam/pull/533) | EAPI | UAF | drop memory not owned Vec->Box | caelunshun | No |
 | futures-rs| **CVE-2020-35905** | [issues/2239](https://github.com/rust-lang/futures-rs/issues/2239) | TBOUND | DR->UAF | lack send/sync bound | Qwaz-Sec | No | No | No |
 | futures-rs | **CVE-2020-35906** | [pull/2206](https://github.com/rust-lang/futures-rs/pull/2206) | TBOUND | UAF | LIFETIME:lack lifetime bound | Darksonn | No | | No |
@@ -158,7 +158,7 @@
 | generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | FNSIG | UB | bad func. exposure  | No (jonas-schievink) | No | 
 | generator-rs | Advisory-DB  | [issues/14](https://github.com/Xudong-Huang/generator-rs/issues/14) | FNSIG | UB | bad func. exposure | No (jonas-schievink)  | No | 
 | flatbuffers | Advisory-DB | [issues/5530](https://github.com/google/flatbuffers/issues/5530) | TYPE | UB | CONSTRUCTOR:invalid bit pattern for bool | nagisa | No | No | - |
-| chunky | Advisory-DB | [issues/2](https://github.com/aeplay/chunky/issues/2) | TGENERIC | OOR | INPUT:API ignores memory alignment requirement | Qwaz-Sec  | No | No | - |
+| chunky | Advisory-DB | [issues/2](https://github.com/aeplay/chunky/issues/2) | TGENERIC | OOR | LargeAlign:as_ptr->.ptr | Qwaz-Sec  | No | No | - |
 | pulse-binding-rust | Advisory-DB | [Iterator](https://github.com/jnqnfe/pulse-binding-rust/commit/9e31c82d71749619387cb9d0c9698134d05b28c9) | RAII | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | | May |
 | pulse-binding-rust | Advisory-DB | [catch_unwind](https://github.com/jnqnfe/pulse-binding-rust/commit/7fd282aef7787577c385aed88cb25d004b85f494) | EXCEP+FFIUB | UB | handle FFI caused UB with catch_unwind() | okready | No | No | - |
 | actix-web | Advisory-DB | [issues/289](https://github.com/actix/actix-web/issues/289) | LOE | UAF | multiple issues | seanmonstar | No | No | - |
