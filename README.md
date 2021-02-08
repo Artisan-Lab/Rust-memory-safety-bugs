@@ -185,7 +185,7 @@
 | servo (exe) | GitHub | [pull/26641](https://github.com/servo/servo/issues/26641) | EAPI | UB | mem::transmute->Box::into_raw(), unsafe should be removed? | dylni | No | May | - |
 | Tokio | **CVE-2020-35922** | [issues/1386](https://github.com/tokio-rs/tokio/issues/1386) | FFIUB | UB | assumes the same layout of FFI | Nemo157-Rust | No | No | No |
 | Tokio | GitHub | [*pull/254](https://github.com/tokio-rs/tokio/issues/254) | RAII | UAF | drop | seanmonstar-dev | No | No | Hard |
-| Tokio | GitHub | [pull/2030](https://github.com/tokio-rs/tokio/issues/2030) | TYPE | OOR | TRAIT:similar to CVE-2019-12083, vulnerable to false trait impl | Marwes | No | No | - |
+| Tokio | GitHub | [pull/2030](https://github.com/tokio-rs/tokio/issues/2030) | TRAITIMPL | OOR | similar to CVE-2019-12083, vulnerable to false trait impl | Marwes | No | No | - |
 | Tokio | GitHub | [pull/2612](https://github.com/tokio-rs/tokio/issues/2612) | TBOUND | OOR | lack trait bound: +unpin  | taiki-e-dev | No | No | - |
 | Tokio | GitHub | [issues/3014](https://github.com/tokio-rs/tokio/issues/3014) | LOE | UAF | off-by-one logical error | NikosEfthias | No | No | No |
 | array-queue | **CVE-2020-35900** | [issues/2](https://github.com/raviqqe/array-queue/issues/2) | NO | - | FALSE CVEs? | ammaraskar-Sec | - | - | - | 
