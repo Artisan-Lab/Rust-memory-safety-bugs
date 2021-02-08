@@ -6,7 +6,7 @@
 | rust-std | **CVE-2018-1000657** | [issues/44800](https://github.com/rust-lang/rust/issues/44800) | BOUNDARY | OOR | incorrect boundary check (VecDeque) | jesse99-deps | No | | - |
 | rust-std | **CVE-2019-12083** | [issues/60784](https://github.com/rust-lang/rust/issues/60784) | TRAITIMPL | OOR | soundness hole impl Error::type_id() + downcasting | seanmonstar-deps | No | - |
 | rust-std | GitHub | [issues/17207](https://github.com/rust-lang/rust/issues/17207) | FFIUB | UB | args are UB in jemalloc ( Vec::from_elem) | gmorenz | No | 
-| rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | ARO+MODEL | UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
+| rust-std | GitHub | [issues/25841](https://github.com/rust-lang/rust/issues/25841) | ARO | UAF | arithmatic overflow->shared mut aliases (RefCell) | Veedrac | No | 
 | rust-std | GitHub | [issues/27970](https://github.com/rust-lang/rust/issues/27970) | FFIUB | DR->UAF | setenv is unsafe | bluss-Rust | No | 
 | rust-std | GitHub | [issues/33770](https://github.com/rust-lang/rust/issues/33770) | FFIUB | UAF | glibc recursive lock is UB->shared mut aliases | Amanieu | No | 
 | rust-std | GitHub | [issues/35836](https://github.com/rust-lang/rust/issues/35836) | FFIUB | UAF | recursive RWlock on Windows is UB | retep998-Rust | No | 
