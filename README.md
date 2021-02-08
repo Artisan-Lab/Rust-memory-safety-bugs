@@ -32,7 +32,7 @@
 | rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | CASE | UB | TYPE: push "0xD800" generates invalid UTF-8 | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | RAII | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
 | rust-std | GitHub | [issues/78477](https://github.com/rust-lang/rust/issues/78477) | LOE | UNKNOWN | violate pointer provenance rules | RalfJung-Rust | No |
-| rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | UNWIND | UB | TYPE:invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
+| rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | EXCEP | UB | TYPE:invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
 | rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | BOUNDARY | UAF | incorrect boundary check (VecDeque) | ayourtch | No |
 | rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | BOUNDARY | UB | incorrect boundary check (VecDeque)-79808 | Aratz | No | | - |
 | rustc (fake-static) | Advisory-DB | [issues/25860](https://github.com/rust-lang/rust/issues/25860) | COMPILER | UB->UAF | type system issue->lifetime inconsistency | aturon-Rust | No | - | - | 
@@ -130,7 +130,7 @@
 | pyo3 | **CVE-2020-35917** | [pull/1297](https://github.com/PyO3/pyo3/pull/1297) | RAII | UAF | unthought of dropping: Py(ptr, _) = other | davidhewitt | No |  | Hard |
 | net2-rs | **CVE-2020-35920** | [issues/105](https://github.com/deprecrated/net2-rs/issues/105) | FFIUB | UB | assumes the same layout of FFI | Thomasdezeeuw | No | No | No |  
 | miow | **CVE-2020-35921** | [issues/38](https://github.com/yoshuawuyts/miow/issues/38) | FFIUB | UB | assumes the same layout of FFI | faern | No | No | No | 
-| rust-ordered-float | **CVE-2020-35923** | [pull/71](https://github.com/reem/rust-ordered-float/pull/71) | UNWIND | UB | panic may cause UB | branpk | No | No | No |  
+| rust-ordered-float | **CVE-2020-35923** | [pull/71](https://github.com/reem/rust-ordered-float/pull/71) | EXCEP | UB | panic may cause UB | branpk | No | No | No |  
 | try-mutex | **CVE-2020-35924** | [issues/2](https://github.com/mpdn/try-mutex/issues/2) | TBOUND | DR->UAF | lack send/sync bound | ammaraskar-Sec | No |  | No |
 | magnetic | **CVE-2020-35925** | [issues/9](https://github.com/johnshaw/magnetic/issues/9) | TBOUND | DR->UAF | lack send/sync bound | JOE1994-Sec | No | No | No |
 | thex | **CVE-2020-35927** | - | TBOUND | DR->UAF | lack send/sync bound | Qwaz-Sec | No |  | No | 
@@ -138,7 +138,7 @@
 | concread | **CVE-2020-35928** | [issues/48](https://github.com/kanidm/concread/issues/48) | TBOUND | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
 | reffers-rs | **CVE-2020-36203** | [issues/7](https://github.com/diwic/reffers-rs/issues/7) | TBOUND | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
 | im-rs | **CVE-2020-36204** | [issues/157](https://github.com/bodil/im-rs/issues/157) | TBOUND | DR->UAF | lack sync/send bound | ammaraskar | No | - | No |
-| rust-xcb | **CVE-2020-36205** | [issues/93](https://github.com/rtbo/rust-xcb/issues/93) | TYPE | UAF | struct can be init with any ptr | ammaraskar | No | - | ? |
+| rust-xcb | **CVE-2020-36205** | [issues/93](https://github.com/rtbo/rust-xcb/issues/93) | TYPE | UAF | CONSTRUCTOR:struct can be init with any ptr | ammaraskar | No | - | ? |
 | rusb | **CVE-2020-36206** | [issues/44](https://github.com/a1ien/rusb/issues/44) | TBOUND | DR->UAF | lack sync/send bound | Qwaz | No | - | No |
 | aovec | **CVE-2020-36207** | [RustSec](https://rustsec.org/advisories/RUSTSEC-2020-0099.html) | TBOUND | DR->UAF | lack sync/send bound |  | No | - | No |
 | conquer-once | **CVE-2020-36208** | [issues/3](https://github.com/oliver-giersch/conquer-once/issues/3) | TBOUND | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
@@ -146,7 +146,7 @@
 | autorand-rs | **CVE-2020-36210** | [issues/5](https://github.com/mersinvald/autorand-rs/issues/5) | UNWIND+RAII | UNINIT | panic->drop uninit memory | JOE1994  | No | - | No |
 | gfwx-rs | **CVE-2020-36211** | [issues/7](https://github.com/Devolutions/gfwx-rs/issues/7) | TBOUND | DR->UAF | lack sync/send bound | ammaraskar | No | - | No |
 | abi_stable_crates | **CVE-2020-36212** | [issues/44](https://github.com/rodrimati1992/abi_stable_crates/issues/44) | UNWIND+RAII | DF | bug copied from Rust std-lib (60977) | Qwaz | No | - | No |
-| abi_stable_crates | **CVE-2020-36213** | [issues/44](https://github.com/rodrimati1992/abi_stable_crates/issues/44) | UNWIND | UB | bug copied from Rust std-lib (78498) | Qwaz | No | - | No |
+| abi_stable_crates | **CVE-2020-36213** | [issues/44](https://github.com/rodrimati1992/abi_stable_crates/issues/44) | EXCEP | UB | bug copied from Rust std-lib (78498) | Qwaz | No | - | No |
 | multiqueue2 | **CVE-2020-36214** | [issues/10](https://github.com/abbychau/multiqueue2/issues/10) | TBOUND | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
 | hashconsing | **CVE-2020-36215** | [issues/1](https://github.com/AdrienChampion/hashconsing/issues/1) | TBOUND | DR->UAF | lack sync/send bound | ammaraskar | No | - | No |
 | eventio | **CVE-2020-36216** | [issues/33](https://github.com/petabi/eventio/issues/33) | TBOUND | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
