@@ -29,12 +29,12 @@
 | rust-std | GitHub | [issues/66544](https://github.com/rust-lang/rust/issues/66544) | TGENERIC | UAF | Pin<T:DerefMut> for <&`a Foo> /Clone | comex |
 | rust-std | GitHub | [issues/67194](https://github.com/rust-lang/rust/issues/67194) | TGENERIC | OOR | RangeInclusive<Idx:PartialEq> not support customized struct | comex | No | 
 | rust-std | GitHub | [issues/72624](https://github.com/rust-lang/rust/issues/72624) | ARO | OOR | possible arithmatic overflow (DroplessArena::alloc_raw) | bluss-Rust | No |
-| rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | LOE | UB | TYPE:invalid UTF-8 | RalfJung-Rust | No |
-| rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | RAII+CC | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
+| rust-std | GitHub | [issues/72760](https://github.com/rust-lang/rust/issues/72760) | CASE | UB | TYPE: push "0xD800" generates invalid UTF-8 | RalfJung-Rust | No |
+| rust-std | GitHub | [issues/76367](https://github.com/rust-lang/rust/issues/76367) | RAII | UAF | logical error (SyncOnceCell/dropck)+PhantomData | m-ou-se-Rust |
 | rust-std | GitHub | [issues/78477](https://github.com/rust-lang/rust/issues/78477) | LOE | UNKNOWN | violate pointer provenance rules | RalfJung-Rust | No |
 | rust-std | GitHub | [issues/78498](https://github.com/rust-lang/rust/issues/78498) | UNWIND | UB | TYPE:invalid UTF-8 while catch_unwind (String) | SkiFire13 | No |
-| rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | BOUNDARY | UB->\*UAF | incorrect boundary check (VecDeque) | ayourtch | No |
-| rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | BOUNDARY | UB->\*UAF | incorrect boundary check (VecDeque)-79808 | Aratz | No | | - |
+| rust-std | Advisory-DB | [issues/79808](https://github.com/rust-lang/rust/issues/79808) | BOUNDARY | UAF | incorrect boundary check (VecDeque) | ayourtch | No |
+| rust-std | GitHub | [issues/80338](https://github.com/rust-lang/rust/issues/80338) | BOUNDARY | UB | incorrect boundary check (VecDeque)-79808 | Aratz | No | | - |
 | rustc (fake-static) | Advisory-DB | [issues/25860](https://github.com/rust-lang/rust/issues/25860) | COMPILER | UB->UAF | type system issue->lifetime inconsistency | aturon-Rust | No | - | - | 
 | rust-base64 | **CVE-2017-1000430** | [issues/28](https://github.com/marshallpierce/rust-base64/issues/28) | ARO | OOR | arithmatic overflow + unsafe write | No (alicemaz) | No | 
 | rust-smallvec | **CVE-2018-20991** | [issues/96](https://github.com/servo/rust-smallvec/issues/96) | UNWIND+RAII | DF | buffer shrinking too late | Vurich | No | | Hard |
