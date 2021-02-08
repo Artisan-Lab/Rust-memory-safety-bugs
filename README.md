@@ -70,12 +70,12 @@
 | failure | **CVE-2020-25575** | [issues/336](https://github.com/rust-lang-nursery/failure/issues/336) | TRAITIMPL | OOR | soundness hole same as CVE-2019-12083 | No (Qwaz-sec) | No | 
 | rand | **CVE-2020-25576** | [issues/779](https://github.com/rust-random/rand/issues/779) | EAPI | UB | reading unaligned mem/ptr::read_unaligned() | RalfJung-sec | No | No | - |
 | time | **CVE-2020-26235** | [issues/293](https://github.com/time-rs/time/issues/293) | FFIUB | DR->UAF | call non-atomic libc functions (setenv) | quininer | <-> |  | No |
-| sized-chunks | **CVE-2020-25791** | [issues/11:unit](https://github.com/bodil/sized-chunks/issues/11) | TYPE | OOR | CONSTRUCTOR:lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | **CVE-2020-25792** | [pair](https://github.com/bodil/sized-chunks/issues/11) | TYPE | OOR | CONSTRUCTOR:lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
-| sized-chunks | **CVE-2020-25793** | [From](https://github.com/bodil/sized-chunks/issues/11) | TYPE | OOR | CONSTRUCTOR:lack input consistency check + unsafe write | No (Qwaz-sec) | No | 
+| sized-chunks | **CVE-2020-25791** | [issues/11:unit](https://github.com/bodil/sized-chunks/issues/11) | BOUDARY | OOR | Lack input capacity check | No (Qwaz-sec) | No | 
+| sized-chunks | **CVE-2020-25792** | [pair](https://github.com/bodil/sized-chunks/issues/11) | BOUDARY | OOR | Lack input capacity check  | No (Qwaz-sec) | No | 
+| sized-chunks | **CVE-2020-25793** | [From](https://github.com/bodil/sized-chunks/issues/11) | BOUDARY | OOR | Lack input capacity check | No (Qwaz-sec) | No | 
 | sized-chunks | **CVE-2020-25794** | [clone](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | UNINIT | panic->drop uninitialized memory | Qwaz-sec | No | | Yes |
 | sized-chunks | **CVE-2020-25795** | [insert_from](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | DF | panic->double drop | No (Qwaz-sec)  | No | | Hard |
-| sized-chunks | **CVE-2020-25796** | [InlineArray](https://github.com/bodil/sized-chunks/issues/11) | TYPE | OOR | CONSTRUCTOR:no input check->memory misalignment | No (Qwaz-sec) | No | 
+| sized-chunks | **CVE-2020-25796** | [InlineArray](https://github.com/bodil/sized-chunks/issues/11) | TGENERIC | UB | LargeAlign: | No (Qwaz-sec) | No | 
 | arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | RAII+STRUCT | UAF | logical errors +PhantomData | Qwaz-Sec | No | | MAY |
 | lucet | **CVE-2020-35859** | [pull/401](https://github.com/bytecodealliance/lucet/pull/401) | LOE  | UB | logical error->memory man. issue | No (acfoltzer-deps) | No | 
 | cbox-rs | **CVE-2020-35860** | [issues/2](https://github.com/TomBebbington/cbox-rs/issues/2) | FNSIG | UAF | SAFETY:declare unsafe API as safe | No (eduardosm) | No | | No |
