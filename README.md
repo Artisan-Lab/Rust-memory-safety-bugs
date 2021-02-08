@@ -138,7 +138,7 @@
 | concread | **CVE-2020-35928** | [issues/48](https://github.com/kanidm/concread/issues/48) | TBOUND | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
 | reffers-rs | **CVE-2020-36203** | [issues/7](https://github.com/diwic/reffers-rs/issues/7) | TBOUND | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
 | im-rs | **CVE-2020-36204** | [issues/157](https://github.com/bodil/im-rs/issues/157) | TBOUND | DR->UAF | lack sync/send bound | ammaraskar | No | - | No |
-| rust-xcb | **CVE-2020-36205** | [issues/93](https://github.com/rtbo/rust-xcb/issues/93) | TYPE | UAF | CONSTRUCTOR:struct can be init with any ptr | ammaraskar | No | - | ? |
+| rust-xcb | **CVE-2020-36205** | [issues/93](https://github.com/rtbo/rust-xcb/issues/93) | RAII | UAF | CONSTRUCTOR:struct can be init with any ptr | ammaraskar | No | - | ? |
 | rusb | **CVE-2020-36206** | [issues/44](https://github.com/a1ien/rusb/issues/44) | TBOUND | DR->UAF | lack sync/send bound | Qwaz | No | - | No |
 | aovec | **CVE-2020-36207** | [RustSec](https://rustsec.org/advisories/RUSTSEC-2020-0099.html) | TBOUND | DR->UAF | lack sync/send bound |  | No | - | No |
 | conquer-once | **CVE-2020-36208** | [issues/3](https://github.com/oliver-giersch/conquer-once/issues/3) | TBOUND | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
