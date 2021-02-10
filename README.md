@@ -76,7 +76,7 @@
 | sized-chunks | **CVE-2020-25794** | [clone](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | UNINIT | panic->drop uninitialized memory | Qwaz-sec | No | | Yes |
 | sized-chunks | **CVE-2020-25795** | [insert_from](https://github.com/bodil/sized-chunks/issues/11) | UNWIND+RAII | DF | panic->double drop | Qwaz-sec | No | | Hard |
 | sized-chunks | **CVE-2020-25796** | [InlineArray](https://github.com/bodil/sized-chunks/issues/11) | GENERIC | UB | LargeAlign: | Qwaz-sec | No | 
-| arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | RAII+STRUCT | UAF | logical errors +PhantomData | Qwaz-Sec | No | | MAY |
+| arc-swap | **CVE-2020-35711** | [issues/45](https://github.com/vorner/arc-swap/issues/45) | RAII | UAF | +PhantomData | Qwaz-Sec | No | | MAY |
 | lucet | **CVE-2020-35859** | [pull/401](https://github.com/bytecodealliance/lucet/pull/401) | LOE  | UB | logical error->memory man. issue | acfoltzer-deps | No | 
 | cbox-rs | **CVE-2020-35860** | [issues/2](https://github.com/TomBebbington/cbox-rs/issues/2) | FNSIG | UAF | SAFETY:declare unsafe API as safe | eduardosm | No | | No |
 | bumpalo | **CVE-2020-35861** | [issues/69](https://github.com/fitzgen/bumpalo/issues/69) | LOE | OOR | READ:copy wrong size | Riey-deps | No | 
