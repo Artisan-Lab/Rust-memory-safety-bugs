@@ -40,7 +40,7 @@
 | rust-smallvec | **CVE-2018-20991** | [issues/96](https://github.com/servo/rust-smallvec/issues/96) | UNWIND+RAII | DF | buffer shrinking too late | Vurich | No | | Hard |
 | claxon  | **CVE-2018-20992**/T | [issues/10](https://github.com/ruuda/claxon/issues/10) | LOE | UNINIT->DL | Vec::set_len()->read unit mem | Shnatsel-sec | No | No | 
 | slice-deque | **CVE-2018-20995** | [issues/57](https://github.com/gnzlbg/slice_deque/issues/57) | BOUNDARY | OOR | error in boundary check + unsafe write | aldanor-deps | No | 
-| crossbeam | **CVE-2018-20996** | [issues/82](https://github.com/crossbeam-rs/crossbeam/issues/82) | RAII | DF | shared mut aliases+auto drop/+ManuallyDrop | c0gent-deps | No | | Yes |
+| crossbeam-epoch | **CVE-2018-20996** | [issues/82](https://github.com/crossbeam-rs/crossbeam-epoch/issues/82) | RAII | DF | shared mut aliases+auto drop/+ManuallyDrop | c0gent | No | | Yes |
 | rust-openssl | **CVE-2018-20997** | [issues/941](https://github.com/sfackler/rust-openssl/issues/941) | RAII | UAF | pointer obj lifetime inconsistency/as_ptr() | No (fred-gremlin)| No | Yes |
 | arrayfire-rust  | **CVE-2018-20998** | [issues/176](https://github.com/arrayfire/arrayfire-rust/issues/176) | FFIUB | OOR | FFI-compatability/repr() | Aidan24 | No | 
 | safe-transmute | **CVE-2018-21000** | [pull/36](https://github.com/nabijaczleweli/safe-transmute-rs/pull/36) | EAPI | OOR | wrong param order of from_raw_parts() | Enet4-deps | No | No | - |
