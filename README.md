@@ -49,8 +49,8 @@
 | ncurses | **CVE-2019-15548** | [issues/186](https://github.com/jeaye/ncurses-rs/issues/186) | FNSIG+FFIUB | OOR | SAFETY:FFI-unchecked argument/instr(), mvwinstr() | thomcc |
 | simd-json | **CVE-2019-15550** | [pull/27](https://github.com/simd-lite/simd-json/pull/27) | CASE | OOR | lack special case handling->mem misalign/get_unchecked() | Licenser-deps | No | No | - |
 | rust-smallvec | **CVE-2019-15551** | [issues/148](https://github.com/servo/rust-smallvec/issues/148) | LOE | UAF | miss an else branch->manuall deallocation | ehuss | No | No | May | 
-| libflate | **CVE-2019-15552** | [issues/35](https://github.com/sile/libflate/issues/35) | RAII+UNWIND  | UNINIT | enf. ManuallyDrop late->drop uninit | Shnatsel-sec | No | | Yes |
-| memoffset | **CVE-2019-15553** | [issues/9](https://github.com/Gilnaa/memoffset/issues/9) | RAII+UNWIND | UNINIT | enf. ManuallyDrop late->drop uninit mem  | Centril | No | | Yes |
+| libflate | **CVE-2019-15552** | [issues/35](https://github.com/sile/libflate/issues/35) | UNWIND+RAII | UNINIT | enf. ManuallyDrop late->drop uninit | Shnatsel-sec | No | | Yes |
+| memoffset | **CVE-2019-15553** | [issues/9](https://github.com/Gilnaa/memoffset/issues/9) | UNWIND+RAII | UNINIT | enf. ManuallyDrop late->drop uninit mem  | Centril | No | | Yes |
 | rust-smallvec | **CVE-2019-15554** | [issues/149](https://github.com/servo/rust-smallvec/issues/149) | LOE | OOR | logical error + unsafe write | ehuss | No | 
 | spin-rs  | **CVE-2019-16137** | [issues/65](https://github.com/mvdnes/spin-rs/issues/65) | EAPI | DR->UAF | impl error: Ordering::Relaxed->Release | 64 | No | No | No |
 | image | **CVE-2019-16138** | [issues/980](https://github.com/image-rs/image/issues/980) | UNWIND+RAII | UNINIT | unsafe allocation->drop uninit mem/set_len() | 64 | No | | Hard |
