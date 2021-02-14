@@ -92,7 +92,7 @@
 | rusqlite | **CVE-2020-35872** | [Auxdata API](https://github.com/rusqlite/rusqlite/commit/71b2f5187b0cbace3f8b6ff53432ff2ca0defcf0) | FFIUB | UB->OOR | + repr(C) | gwenn-deps | No | 
 | rusqlite | **CVE-2020-35873** | [sessions.rs](https://github.com/rusqlite/rusqlite/commit/ac30e169ae51b262bc8cf7026469851ce39b23c6) | RAII | UAF | similar to CVE-2018-20997 as_ptr() | thomcc-deps| No | 
 | internment | **CVE-2020-35874** | [issues/11](https://github.com/droundy/internment/issues/11) | LOE+CC | UB | TOCTOU:impl error: Ordering, atomic::fence() | ryzhyk-deps | No | No | - | 
-| rio | **CVE-2020-35876** | [issues/11](https://github.com/spacejam/rio/issues/30) | FNSIG | UAF | SAFETY | dtolnay-Rust | No | | No |
+| rio | **CVE-2020-35876** | [issues/11](https://github.com/spacejam/rio/issues/30) | FNSIG | UAF | SAFETY: | dtolnay-Rust | No | | No |
 | ozone | **CVE-2020-35877** | [index](https://github.com/bqv/ozone/blob/e21f948b0178ab305f644118f18d87a838c618e0/src/buffer.rs#L38-L48) | BOUNDARY | OOR(Read) | lack boundary check | n.a. | No | 
 | ozone | **CVE-2020-35878** | [remove_entry](https://github.com/bqv/ozone/blob/e21f948b0178ab305f644118f18d87a838c618e0/src/map.rs#L94-L101) | RAII | UNINIT | implement drop with uninit mem | N.A. | No | | Yes | 
 | rulinalg | **CVE-2020-35879** | [issues/201](https://github.com/AtheMathmo/rulinalg/issues/201) | FNSIG | UB->UAF | LIFETIME:func. sign.:lifetime | Qwaz-sec | No | | No |
@@ -119,7 +119,7 @@
 | futures-rs| **CVE-2020-35905** | [issues/2239](https://github.com/rust-lang/futures-rs/issues/2239) | TBOUND | DR->UAF | lack send/sync bound | Qwaz-Sec | No | No | No |
 | futures-rs | **CVE-2020-35906** | [pull/2206](https://github.com/rust-lang/futures-rs/pull/2206) | TBOUND | UAF | LIFETIME:lack lifetime bound | Darksonn | No | | No |
 | futures-rs| **CVE-2020-35907** | [issues/2091](https://github.com/rust-lang/futures-rs/issues/2091) | LOE | UAF | TLS:ref lives longer than thread (UnsafeCell->Lazy) | goffrie | No | | No |
-| futures-rs| **CVE-2020-35908** | [issues/2050](https://github.com/rust-lang/futures-rs/issues/2050) | FNSIG(DEP) | UAF | deprecated sync impl for a structure with Cell<T> | okready | No | - | No |
+| futures-rs| **CVE-2020-35908** | [issues/2050](https://github.com/rust-lang/futures-rs/issues/2050) | FNSIG | UAF | BAD:deprecated sync impl for a structure with Cell<T> | okready | No | - | No |
 | parking_lot | **CVE-2020-35910** | [MappedMutex](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND | DR->UAF | lack send bound | ammaraskar-Sec | No | No | No |
 | parking_lot | **CVE-2020-35911** | [RwLockRead](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND | DR->UAF |  lack sync bound | ammaraskar-Sec | No | No | No |
 | parking_lot | **CVE-2020-35912** | [RwLockWrite](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND | DR->UAF |  lack send bound | ammaraskar-Sec | No | No | No |  
@@ -155,8 +155,8 @@
 | rust-atomic-option | **CVE-2020-36219** | [issues/4](https://github.com/reem/rust-atomic-option/issues/4) | TBOUND | DR->UAF | lack sync/send bound | ammaraskar | No | - | No |
 | va-ts | **CVE-2020-36220** | [issues/4](https://github.com/video-audio/va-ts/issues/4) | TBOUND | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
 | generator-rs | Advisory-DB | [issues/9](https://github.com/Xudong-Huang/generator-rs/issues/9) | FNSIG | UB | SAFETY:func. sign.->deref invalid/null pointer | jonas-schievink | No | No | - |
-| generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | FNSIG | UB | bad func. exposure  | jonas-schievink | No | 
-| generator-rs | Advisory-DB  | [issues/14](https://github.com/Xudong-Huang/generator-rs/issues/14) | FNSIG | UB | bad func. exposure | jonas-schievink  | No | 
+| generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | FNSIG | UB | BAD:bad func. exposure  | jonas-schievink | No | 
+| generator-rs | Advisory-DB  | [issues/14](https://github.com/Xudong-Huang/generator-rs/issues/14) | FNSIG | UB | BAD:bad func. exposure | jonas-schievink  | No | 
 | flatbuffers | Advisory-DB | [issues/5530](https://github.com/google/flatbuffers/issues/5530) | CASE | UB | CONSTRUCTOR:invalid bit pattern for bool | nagisa | No | No | - |
 | chunky | Advisory-DB | [issues/2](https://github.com/aeplay/chunky/issues/2) | GENERIC | OOR | LargeAlign:as_ptr->.ptr | Qwaz-Sec  | No | No | - |
 | pulse-binding-rust | Advisory-DB | [Iterator](https://github.com/jnqnfe/pulse-binding-rust/commit/9e31c82d71749619387cb9d0c9698134d05b28c9) | RAII | UAF | lack lifetime bound: +PhantomData | jnqnfe | No | | May |
