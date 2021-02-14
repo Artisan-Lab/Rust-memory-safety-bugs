@@ -61,7 +61,7 @@
 | generator-rs | **CVE-2019-16144** | [issues/11](https://github.com/Xudong-Huang/generator-rs/issues/11) | RAII | DF | shared mut aliases+auto drop | vOROn200 | No | | Yes |
 | linea.rs | **CVE-2019-16880** | [issues/1](https://github.com/strake/linea.rs/pull/2) | UNWIND+RAII | DF | enf. ManuallyDrop late | Phosphorus15 | No | | Yes |
 | portaudio-rs | **CVE-2019-16881** | [issues/20](https://github.com/mvdnes/portaudio-rs/issues/20) | UNWIND+RAII | DF | enf. ManuallyDrop late | Phosphorus15 | No | | Yes |
-| string-interner | **CVE-2019-16882** | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | RAII+TRAITIMPL | UAF | bad derived clone->shared mut aliases | lo48576-deps | No |  | No |
+| string-interner | **CVE-2019-16882** | [issues/9](https://github.com/Robbepop/string-interner/issues/9) | TRAITIMPL+RAII | UAF | bad derived clone->shared mut aliases | lo48576-deps | No |  | No |
 | teaclave-sgx-sdk  | **CVE-2020-5499** | www.mitre.org | LOE | DR->UB | may init twice by another thread/+Once::new() | Chen-sec | No | No | - |
 | vm-memory | **CVE-2020-13759** | [issues/93](https://github.com/rust-vmm/vm-memory/issues/93) | EAPI | DR->UB | volatile mem acc/ptr::write()$\to$write_volatile() | andreeaflorescu-deps | No | 
 | rust-rgb | **CVE-2020-25016** | [issues/35](https://github.com/kornelski/rust-rgb/issues/35) | FNSIG | UB | SAFETY:declare unsafe API as safe | HeroicKatora | No | No | - |
