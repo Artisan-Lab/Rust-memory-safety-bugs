@@ -119,7 +119,7 @@
 | futures-rs| **CVE-2020-35905** | [issues/2239](https://github.com/rust-lang/futures-rs/issues/2239) | TBOUND | DR->UAF | lack send/sync bound | Qwaz-Sec | No | No | No |
 | futures-rs | **CVE-2020-35906** | [pull/2206](https://github.com/rust-lang/futures-rs/pull/2206) | TBOUND | UAF | LIFETIME:lack lifetime bound | Darksonn | No | | No |
 | futures-rs| **CVE-2020-35907** | [issues/2091](https://github.com/rust-lang/futures-rs/issues/2091) | LOE | UAF | TLS:ref lives longer than thread (UnsafeCell->Lazy) | goffrie | No | | No |
-| futures-rs| **CVE-2020-35908** | [issues/2050](https://github.com/rust-lang/futures-rs/issues/2050) | FNSIG(DEP) | UAF | sync for a structure with Cell<T> | okready | No | - | No |
+| futures-rs| **CVE-2020-35908** | [issues/2050](https://github.com/rust-lang/futures-rs/issues/2050) | FNSIG(DEP) | UAF | deprecated sync impl for a structure with Cell<T> | okready | No | - | No |
 | parking_lot | **CVE-2020-35910** | [MappedMutex](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND | DR->UAF | lack send bound | ammaraskar-Sec | No | No | No |
 | parking_lot | **CVE-2020-35911** | [RwLockRead](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND | DR->UAF |  lack sync bound | ammaraskar-Sec | No | No | No |
 | parking_lot | **CVE-2020-35912** | [RwLockWrite](https://github.com/Amanieu/parking_lot/issues/258) | TBOUND | DR->UAF |  lack send bound | ammaraskar-Sec | No | No | No |  
