@@ -16,7 +16,7 @@
 | rust-std | GitHub | [issues/42789](https://github.com/rust-lang/rust/issues/42789) | GENERIC | OOR | SliceIndex<T> is unsound for ZST, interation->random addr | RalfJung-Rust | No | 
 | rust-std | GitHub | [issues/43733](https://github.com/rust-lang/rust/issues/43733) | LOE | UAF | access static value without unsafe marker->CC(thread::local) | eddyb-Rust | No | 
 | rust-std | GitHub | [issues/44637](https://github.com/rust-lang/rust/issues/44637) | CASE | OOR | does not handle -1 properly (Placer) | andy-hanson | No | 
-| rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | TRAITIMPL | DR->UAF | TRAIT: [autotrait](https://doc.rust-lang.org/reference/special-types-and-traits.html) enables bypassing sync/send check（fmt::Arguments）+PhantomData | cuviper-Rust | No | 
+| rust-std | GitHub | [issues/45197](https://github.com/rust-lang/rust/issues/45197) | LOE+TRAITIMPL | DR->UAF | TRAIT: [autotrait](https://doc.rust-lang.org/reference/special-types-and-traits.html) enables bypassing sync/send check（fmt::Arguments）+PhantomData | cuviper-Rust | No | 
 | rust-std | GitHub | [issues/46775](https://github.com/rust-lang/rust/issues/46775) | FFIUB | DR->UAF | multi-thread unsafe (unix::process::CommandExt::exec) | Diggsey | No | 
 | rust-std | GitHub | [issues/48006](https://github.com/rust-lang/rust/issues/48006) | ARO | OOR | arithmatic overflow on 16-bit platforms | oberien | No | 
 | rust-std | GitHub | [issues/48493](https://github.com/rust-lang/rust/issues/48493) | GENERIC+RAII | UNINIT | Weak<T> not support Void, frees uninitialized mem | jleedev | No | 
