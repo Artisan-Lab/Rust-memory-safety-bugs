@@ -1,5 +1,7 @@
 # rustbugs
-  
+
+Source [MITRE CVE reports](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=rust)
+
 | Project | Src | Link | Culprit | Conseq | Details | Finder | Prop | Unsafe->Safe | BadDrop? |
 |---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
 | rust-std | **CVE-2018-1000810** | [pull/54399](https://github.com/rust-lang/rust/pull/54399) | ARO | OOR | arithmatic overflow (str:repeat) | scottmcm-Rust | No | | - |
@@ -220,7 +222,7 @@
 - CC: concurrency issue.
 
 ### Other CVEs (Non-Memory-Safety Issue): 
-* Crypto/Functionality Issue: CVE-2016-10932, CVE-2017-18587, CVE-2018-20999, CVE-2019-15545, CVE-2019-16760, CVE-2017-1000168, CVE-2020-15093, CVE-2020-26281, CVE-2020-35926, CVE-2020-35883, CVE-2020-36202, CVE-2021-21269, CVE-2021-21299;
+* Crypto/Functionality Issue: CVE-2016-10932, CVE-2017-18587, CVE-2018-20999, CVE-2019-15545, CVE-2019-16760, CVE-2017-1000168, CVE-2020-15093, CVE-2020-26281, CVE-2020-35926, CVE-2020-35883, CVE-2020-36202, CVE-2021-21269, CVE-2021-21299, CVE-2021-20332, CVE-2021-24117;
 
 * MITM/Code Injection: CVE-2016-10931, CVE-2016-10933, CVE-2020-26222, CVE-2020-26297, CVE-2020-28247, CVE-2020-35863, CVE-2020-35884; 
 
