@@ -157,6 +157,8 @@ Source [MITRE CVE reports](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=rust
 | rust-atomic-option | **CVE-2020-36219** | [issues/4](https://github.com/reem/rust-atomic-option/issues/4) | TBOUND | DR->UAF | lack sync/send bound | ammaraskar | No | - | No |
 | va-ts | **CVE-2020-36220** | [issues/4](https://github.com/video-audio/va-ts/issues/4) | TBOUND | DR->UAF | lack sync/send bound | JOE1994 | No | - | No |
 | rust-smallvec | **CVE-2021-25900** | [issues/252](https://github.com/servo/rust-smallvec/issues/252) | LOE | OOR | error in using self.reserve() | Qwaz |  | - | - |
+| lazy-init | **CVE-2021-25901** | [issues/9](https://github.com/khuey/lazy-init/issues/9) | TBOUND | DR | lack sync/send bound | niklasf |  | - | - |
+| glsl-layout | **CVE-2021-25902** | [pull/10](https://github.com/rustgd/glsl-layout/pull/10) | UNWIND+RAII | DF | ptr::read() can be dropped twice | JOE1994  | | - | - |
 | generator-rs | Advisory-DB | [issues/9](https://github.com/Xudong-Huang/generator-rs/issues/9) | FNSIG | UB | SAFETY:func. sign.->deref invalid/null pointer | jonas-schievink | No | No | - |
 | generator-rs | Advisory-DB | [issues/13](https://github.com/Xudong-Huang/generator-rs/issues/13) | FNSIG | UB | BAD:bad func. exposure  | jonas-schievink | No | 
 | generator-rs | Advisory-DB  | [issues/14](https://github.com/Xudong-Huang/generator-rs/issues/14) | FNSIG | UB | BAD:bad func. exposure | jonas-schievink  | No | 
